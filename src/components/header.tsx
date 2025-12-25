@@ -35,7 +35,7 @@ const Header = () => {
               <Link
                 key={item.label}
                 href={item.href}
-                className="text-white hover:text-[#37ACFF] transition"
+                className="text-white hover:underline transition"
               >
                 {item.label}
               </Link>
