@@ -25,6 +25,9 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   overflow-x: hidden;
 }
+html {
+  overflow-x: hidden;
+}
 .shadow-button {
   box-shadow: 0px -6px 20.3px 0px #2e90fa inset;
 }
@@ -35,5 +38,59 @@ font-tartuffo {
 @media screen and (max-width: 767px) {
   .hero {
     top: 320px;
+  }
+  .rings {
+    left: 50%;
+  }
+}
+/* app/globals.css */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px); /* Bounce height */
+  }
+}
+
+.bounce {
+  animation: bounce 2s infinite ease-in-out;
+}
+.moving-shadow-btn {
+  /* Base shadow (initial state) */
+  box-shadow: 0px -6px 20.3px 0px #2e90fa inset;
+  animation: moveInnerGlow 8s infinite ease-in-out;
+  position: relative;
+}
+
+.moving-shadow-btn {
+  /* Base state */
+  box-shadow: 0px -8px 24px 2px #2E90FA inset;
+  animation: moveInnerGlow 1.8s infinite ease-in-out;
+  position: relative;
+  transform: scale(1);
+  transition: transform 0.2s;
+}
+
+/* Optional: subtle scale on hover for extra feedback */
+.moving-shadow-btn:hover {
+  transform: scale(1.02);
+}
+
+@keyframes moveInnerGlow {
+  0% {
+    box-shadow: 0px -8px 24px 2px #2E90FA inset;
+  }
+  25% {
+    box-shadow: 8px 0px 24px 2px #2E90FA inset;
+  }
+  50% {
+    box-shadow: 0px 8px 24px 2px #2E90FA inset;
+  }
+  75% {
+    box-shadow: -8px 0px 24px 2px #2E90FA inset;
+  }
+  100% {
+    box-shadow: 0px -8px 24px 2px #2E90FA inset;
   }
 }

@@ -3,6 +3,7 @@ import Image from "next/image";
 import Ring from "./ring";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import Link from "next/link";
 
 const Hero = () => {
   const layerRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -90,6 +91,15 @@ const Hero = () => {
         alt="dots"
         className="w-full left-0 object-cover absolute xl:bottom-0 lg:bottom-15 md:bottom-25 bottom-0 z-30"
       />
+      <Link href="#next-section">
+        <Image
+          src="/scroll-down.png"
+          height={100}
+          width={100}
+          alt="dots"
+          className="w-[101px] left-1/2 -translate-x-1/2 bottom-44 absolute z-30 bounce"
+        />
+      </Link>
 
       {/* Content container */}
       <div className="max-w-[1525px] mx-auto px-4 xl:px-10 flex flex-col md:flex-row items-center md:justify-between justify-center md:min-h-[120vh] pt-30 md:pt-0 relative">
@@ -97,7 +107,7 @@ const Hero = () => {
           <h5 className="font-bricolage font-normal 2xl:text-[40px] xl:text-[36px] lg:text-[30px] text-[24px] tracking-[-0.07em] capitalize text-white lg:-mb-5 -mb-3">
             Modern, Patient-Focused
           </h5>
-          <h2 className="flex flex-col font-bricolage font-extrabold 2xl:text-[90.64px] xl:text-[70px] lg:text-[55px] text-[42px] tracking-[-0.03em] uppercase text-white">
+          <h2 className="flex flex-col font-bricolage font-extrabold 2xl:text-[90.64px] xl:text-[70px] lg:text-[55px] md:text-[42px] text-[36px] tracking-[-0.03em] uppercase text-white">
             Websites for{" "}
             <span className="font-tartuffo font-thin tracking-normal capitalize 2xl:-mt-12 xl:-mt-9 lg:-mt-7 -mt-5">
               Healthcare Providers
@@ -167,10 +177,8 @@ const Hero = () => {
       </div>
 
       {/* Floating CTA Button */}
-      <div className="absolute xl:right-60 lg:right-25 right-18 md:bottom-55 bottom-15 z-40">
-        <button
-          className="bg-[url(/hero-text-bg.png)] bg-cover bg-center text-white rounded-[334px] 2xl:w-[443px] lg:w-[380px] px-4 lg:px-0 2xl:h-[59px] h-[50px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize underline"
-        >
+      <div className="absolute xl:right-60 lg:right-25 md:right-18 rings -translate-x-1/2 md:translate-x-0 md:bottom-55 bottom-15 z-40">
+        <button className="bg-[url(/hero-text-bg.png)] bg-cover bg-center text-white rounded-[334px] 2xl:w-[443px] lg:w-[380px] md:w-[300px] w-[250px] lg:px-0 2xl:h-[59px] h-[50px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize underline">
           <Image
             src="/button-arrow.svg"
             width={1000}
@@ -183,7 +191,7 @@ const Hero = () => {
       </div>
 
       {/* Ring */}
-      <div className="absolute 2xl:right-40 xl:right-35 lg:right-25 right-15 lg:top-56 md:top-75 top-125 z-10">
+      <div className="absolute 2xl:right-40 xl:right-35 lg:right-25 md:right-15 rings -translate-x-1/2 md:translate-x-0 lg:top-56 md:top-75 top-125 z-10">
         <Ring />
       </div>
     </section>
