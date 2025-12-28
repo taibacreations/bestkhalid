@@ -91,7 +91,7 @@ const Hero = () => {
         alt="dots"
         className="w-full left-0 object-cover absolute xl:bottom-0 lg:bottom-15 md:bottom-25 bottom-0 z-30"
       />
-      <Link href="#next-section">
+      {/* <Link href="#next-section">
         <Image
           src="/scroll-down.png"
           height={100}
@@ -99,7 +99,7 @@ const Hero = () => {
           alt="dots"
           className="w-[101px] left-1/2 -translate-x-1/2 bottom-44 absolute z-30 bounce"
         />
-      </Link>
+      </Link> */}
 
       {/* Content container */}
       <div className="max-w-[1525px] mx-auto px-4 xl:px-10 flex flex-col md:flex-row items-center md:justify-between justify-center md:min-h-[120vh] pt-30 md:pt-0 relative">

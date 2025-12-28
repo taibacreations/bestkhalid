@@ -1,8 +1,9 @@
 import Image from "next/image";
+import Revolving from "./revolving";
 
 const Problem = () => {
   return (
-    <section className="-mt-7 relative min-h-[120vh] bg-[url(/problem-bg.png)] bg-cover bg-center overflow-hidden">
+    <section className="-mt-7 relative min-h-[120vh] bg-[url(/problem-bg.png)] bg-cover bg-right overflow-hidden">
       <Image
         src="/macbook.svg"
         height={100}
@@ -10,6 +11,15 @@ const Problem = () => {
         alt="macbook"
         className="w-[1398px] h-auto absolute -left-18 top-25"
       />
+      <div className="flex gap-4 items-end absolute bottom-51 left-64">
+        <div className="bg-[url(/hero-text-bg.png)] bg-cover bg-center w-[479px] h-[94px] rounded-full font-bricolage font-normal text-[24px] leading-[142%] tracking-[-0.01em] capitalize text-white flex justify-center items-center text-center">
+        A weak website means missed appointments and lost trust.
+        </div>
+        <Image src="/l-line.png" height={100} width={100} alt="l-line" className="w-[100px] h-auto mb-10"/>
+      </div>
+      <div className="absolute -right-[56%]">
+        <Revolving />
+      </div>
       <div>
         <div className="text-center max-w-[842px] mx-auto">
           <h5 className="font-bricolage font-normal text-[28px] tracking-[-0.07em] capitalize text-white">

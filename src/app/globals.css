@@ -25,12 +25,15 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   overflow-x: hidden;
 }
+
 html {
   overflow-x: hidden;
 }
+
 .shadow-button {
   box-shadow: 0px -6px 20.3px 0px #2e90fa inset;
 }
+
 font-tartuffo {
   font-family: var(--font-tartuffo);
 }
@@ -39,23 +42,30 @@ font-tartuffo {
   .hero {
     top: 320px;
   }
+
   .rings {
     left: 50%;
   }
 }
+
 /* app/globals.css */
 @keyframes bounce {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0);
   }
+
   50% {
-    transform: translateY(-12px); /* Bounce height */
+    transform: translateY(-12px);
+    /* Bounce height */
   }
 }
 
 .bounce {
   animation: bounce 2s infinite ease-in-out;
 }
+
 .moving-shadow-btn {
   /* Base shadow (initial state) */
   box-shadow: 0px -6px 20.3px 0px #2e90fa inset;
@@ -81,16 +91,34 @@ font-tartuffo {
   0% {
     box-shadow: 0px -8px 24px 2px #2E90FA inset;
   }
+
   25% {
     box-shadow: 8px 0px 24px 2px #2E90FA inset;
   }
+
   50% {
     box-shadow: 0px 8px 24px 2px #2E90FA inset;
   }
+
   75% {
     box-shadow: -8px 0px 24px 2px #2E90FA inset;
   }
+
   100% {
     box-shadow: 0px -8px 24px 2px #2E90FA inset;
   }
+}
+
+.revolve::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: 2E90FA;
+  /* background-image: url(/problem-vector.png); */
+  /* background-size: cover; */
+  width: 87px;
+  /* height: 355px; */
+  z-index: 50;
 }
