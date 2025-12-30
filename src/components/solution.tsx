@@ -22,8 +22,8 @@ const Solution = () => {
                         I specialize exclusively in web design for healthcare providers, so every site I build is
                     </p>
                 </div>
-                <div className='xl:w-[1036px] lg:w-[800px] md:w-[700px] w-full h-auto xl:h-[777px] mx-auto z-40 relative md:mt-[-6vh]'>
-                    <Image src="/iphone.svg" height={100} width={100} alt='iphone' className='w-full h-auto'/>
+                <div className='xl:w-[1036px] lg:w-[800px] md:w-[700px] w-full h-auto xl:h-[777px] mx-auto z-40 relative md:mt-[-6vh] my-[4vh]'>
+                    <Image src="/iphone.svg" height={100} width={100} alt='iphone' className='w-full h-auto scale-150 md:scale-100'/>
                 </div>
                 <div className='md:absolute md:left-1/2 md:-translate-x-1/2 2xl:top-69 lg:top-75 top-65 w-full z-40'>
                     <Solutionoints />

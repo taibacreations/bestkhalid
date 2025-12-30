@@ -11,7 +11,7 @@ const Problem = () => {
         alt="macbook"
         className="2xl:w-[1398px] xl:w-[1150px] lg:w-[850px] w-[750px] h-auto absolute lg:-left-5 -left-30 xl:top-27 lg:top-40 top-50 hidden md:block"
       />
-      <div className="md:flex gap-4 items-end absolute 2xl:bottom-[27%] xl:bottom-[20%] lg:bottom-[30%] md:bottom-[7%] bottom-[25%] 2xl:left-64 lg:left-[5%] left-3 hidden">
+      <div className="md:flex gap-4 items-end absolute xl:bottom-[15.5%] lg:bottom-[24%] md:bottom-[7%] bottom-[25%] 2xl:left-64 lg:left-[5%] left-3 hidden">
         <div className="bg-[url(/hero-text-bg.png)] bg-cover 2xl:w-[479px] 2xl:h-[94px] xl:w-[400px] lg:w-[350px] w-[300px] lg:h-[80px] h-[60px] rounded-full font-bricolage font-normal 2xl:text-[24px] xl:text-[22px] lg:text-[20px] text-[16px] leading-[142%] tracking-[-0.01em] capitalize text-white flex justify-center items-center text-center">
           A weak website means missed appointments and lost trust.
         </div>
@@ -20,7 +20,7 @@ const Problem = () => {
           height={100}
           width={100}
           alt="l-line"
-          className="lg:w-[100px] w-[70px] h-auto lg:mb-10 mb-8"
+          className="lg:w-[100px] w-[70px] lg:h-[196px] h-auto lg:mb-10 mb-8"
         />
       </div>
       <div className="absolute -right-[56%] hidden">
@@ -55,7 +55,7 @@ const Problem = () => {
             alt="glass-overlay"
             className="absolute inset-0 w-full md:h-auto min-h-[300px] z-0"
           />
-          <div className="flex md:justify-end justify-start items-center 2xl:mr-17 xl:mr-[-5vw] lg:mr-[-12vw] md:mr-[-25vw] points-margin">
+          <div className="flex md:justify-end justify-start items-center 2xl:mr-20 lg:mr-[3vw] md:mr-[5vw] points-margin">
             <ul className="font-bricolage font-bold 2xl:text-[28px] xl:text-[26px] lg:text-[22px] text-[18px] leading-[142%] tracking-[-0.01em] capitalize text-white flex flex-col gap-3 justify-center 2xl:mt-12 mt-10 lg:mt-8 md:mt-5 mt-8 list-disc list">
               <li className="">Slow load times</li>
               <Image
@@ -97,7 +97,7 @@ const Problem = () => {
             height={100}
             width={100}
             alt="macbook"
-            className="w-full h-auto md:hidden"
+            className="w-full h-auto md:hidden scale-140 mt-[3vh]"
           />
           <div className="md:hidden gap-2 items-end w-full mt-[-3vh] z-40 relative">
             <div className="bg-[url(/hero-text-bg.png)] bg-cover py-3 px-3 rounded-full font-bricolage font-normal text-[11px] leading-[142%] tracking-[-0.01em] capitalize text-white flex justify-center items-center text-center">
