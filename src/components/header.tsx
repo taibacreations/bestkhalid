@@ -1,24 +1,38 @@
 "use client";
 import Image from "next/image";
-import Link from "next/link";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeHash, setActiveHash] = useState("");
+  const [scrolled, setScrolled] = useState(false); // 👈 new state
   const pathname = usePathname();
 
   const navItems = [
-    { label: "Home", href: "/" },
-    { label: "The Problem", href: "/the-problem" },
+    { label: "Home", href: "#" },
+    { label: "The Problem", href: "#the-problem" },
     { label: "The Solution", href: "#the-solution" },
     { label: "Services", href: "#services" },
-    { label: "Social Proof", href: "#testimonials" },
+    { label: "Social Proof", href: "#social-proof" },
     { label: "Process", href: "#process" },
   ];
 
-  // Track hash changes (for SPA hash navigation)
+  // 🔹 Track scroll position
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Track active hash
   useEffect(() => {
     const handleHashChange = () => {
       setActiveHash(window.location.hash);
@@ -30,16 +44,46 @@ const Header = () => {
   }, []);
 
   const isActive = (href: string) => {
-    // For full paths (not hash links)
-    if (!href.startsWith("#")) {
-      return pathname === href;
-    }
-    // For hash links
+    if (!href.startsWith("#")) return pathname === href;
     return activeHash === href;
   };
 
+  const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const targetId = href.substring(1);
+    
+    if (!targetId) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.history.pushState(null, '', ' ');
+      setActiveHash("");
+      return;
+    }
+
+    const element = document.getElementById(targetId);
+    if (element) {
+      const offset = window.innerHeight * 0.1; // 10vh
+      const scrollPosition = element.offsetTop - offset;
+
+      window.scrollTo({
+        top: scrollPosition,
+        behavior: 'smooth'
+      });
+
+      window.history.pushState(null, '', href);
+      setActiveHash(href);
+    }
+
+    setIsMenuOpen(false);
+  };
+
   return (
-    <header className="fixed left-0 w-full z-50">
+    <header 
+      className={`fixed left-0 w-full z-50 transition-all duration-300 ${
+        scrolled 
+          ? 'bg-[#001f33]/80 backdrop-blur-md border-b border-[#37ACFF]/20' 
+          : 'bg-transparent'
+      }`}
+    >
       <div className="max-w-[1525px] mx-auto px-4 xl:px-10 py-3">
         <div className="flex justify-between items-center">
           {/* Logo */}
@@ -56,16 +100,14 @@ const Header = () => {
           <nav className="hidden md:flex bg-[url(/nav.png)] bg-cover bg-center rounded-full md:px-8 lg:px-0 lg:w-[650px] xl:w-[740px] 2xl:w-[817px] h-[50px] 2xl:h-[59px] justify-center items-center gap-4 lg:gap-6 xl:gap-8 font-bricolage text-white text-[16px] md:text-[15px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] font-normal tracking-[-0.07em] capitalize relative">
             {navItems.map((item) => (
               <div key={item.label} className="relative group">
-                <Link
+                <a
                   href={item.href}
-                  className={`relative z-10 py-3 transition-colors ${
+                  onClick={(e) => handleAnchorClick(e, item.href)}
+                  className={`relative z-10 py-3 transition-colors cursor-pointer ${
                     isActive(item.href) ? "text-white underline" : "text-white/90 hover:text-white"
                   }`}
-                  onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}
-
-                  {/* Arrow: show on active OR hover */}
                   <span
                     className={`absolute -left-5 top-1/2 -translate-y-1/2 transition-opacity duration-200 ${
                       isActive(item.href) ? "opacity-100" : "opacity-0 group-hover:opacity-100"
@@ -79,7 +121,7 @@ const Header = () => {
                       className="lg:w-[15px] w-[12px] h-auto"
                     />
                   </span>
-                </Link>
+                </a>
               </div>
             ))}
           </nav>
@@ -127,15 +169,14 @@ const Header = () => {
             <div className="flex flex-col gap-2 font-bricolage text-white text-[18px] font-normal tracking-[-0.07em] capitalize">
               {navItems.map((item) => (
                 <div key={item.label} className="relative py-2.5">
-                  <Link
+                  <a
                     href={item.href}
-                    className={`block py-1 transition ${
+                    onClick={(e) => handleAnchorClick(e, item.href)}
+                    className={`block py-1 transition cursor-pointer ${
                       isActive(item.href) ? "text-[#37ACFF]" : "text-white hover:text-[#37ACFF]"
                     }`}
-                    onClick={() => setIsMenuOpen(false)}
                   >
                     {item.label}
-                    {/* On mobile: only show arrow when active (no hover) */}
                     {isActive(item.href) && (
                       <span className="absolute -left-5 top-1/2 -translate-y-1/2">
                         <Image
@@ -147,7 +188,7 @@ const Header = () => {
                         />
                       </span>
                     )}
-                  </Link>
+                  </a>
                 </div>
               ))}
             </div>

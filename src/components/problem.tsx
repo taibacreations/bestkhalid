@@ -3,7 +3,11 @@ import Revolving from "./revolving";
 
 const Problem = () => {
   return (
-    <section className="-mt-7 relative lg:min-h-[110vh] py-5 lg:py-0 bg-[url(/problem-bg.png)] bg-cover xl:bg-[70%_30%] overflow-hidden xl:px-10 px-5">
+    <section id="the-problem" className="-mt-7 relative lg:min-h-[110vh] py-5 lg:py-0 bg-[#0A0A0A] overflow-hidden xl:px-10 px-5">
+      <Image src="/names.png" height={100} width={100} alt="name" className="2xl:w-[1075px] 2xl:h-[1075px] xl:max-w-[600px] xl:max-h-[600px] lg:max-w-[500px] lg:max-h-[500px] max-w-[400px] max-h-[400px] w-full h-full 2xl:-top-[7vh] -top-[5vh] object-contain absolute 2xl:-right-[20.5vw] names xl:-left-[17vw] -left-[20vw] rotate-180 2xl:rotate-0 z-30"/>
+      <div className="absolute 2xl:-right-[55vw] -right-[75vw] -top-[18vh] revolving hidden md:block">
+        <Revolving />
+      </div>
       <Image
         src="/macbook.svg"
         height={100}

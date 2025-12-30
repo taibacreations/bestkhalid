@@ -3,30 +3,31 @@ import Projects from "./projects";
 
 const Lead = () => {
   return (
-    <section className="bg-[url(/lead-bg.png)] bg-cover bg-center min-h-screen">
-      <div className="pt-33">
+    <section className="bg-[url(/lead-bg.png)] bg-cover bg-center min-h-screen relative xl:px-10 px-5">
+      <Image src="/lead-blur.png" height={100} width={100} alt="blur" className="w-full h-auto absolute left-0 2xl:-bottom-[50vh] lg:-bottom-[30vh] bottom-[10vh] z-20"/>
+      <div className="xl:pt-33 lg:pt-20 pt-10">
         <div className="text-center max-w-[992px] mx-auto z-40 relative">
-          <h5 className="font-bricolage font-normal text-[28px] tracking-[-0.07em] capitalize text-white">
-            <span className="text-[40px]">[</span> Lead Magnet{" "}
-            <span className="text-[40px]">]</span>
+          <h5 className="font-bricolage font-normal 2xl:text-[28px] xl:text-[24px] lg:text-[22px] text-[20px] tracking-[-0.07em] capitalize text-white">
+            <span className="2xl:text-[40px] xl:text-[36px] lg:text-[30px] text-[26px]">[</span> Lead Magnet{" "}
+            <span className="2xl:text-[40px] xl:text-[36px] lg:text-[30px] text-[26px]">]</span>
           </h5>
-          <h3 className="mt-4 font-bricolage font-bold text-[48px] tracking-[-0.03em] leading-[123%] capitalize text-white">
+          <h3 className="-mt-1 font-bricolage font-bold 2xl:text-[48px] xl:text-[42px] lg:text-[38px] md:text-[32px] text-[30px] tracking-[-0.03em] leading-[123%] capitalize text-white">
             Not Ready Yet?{" "}
             <span className="font-tartuffo font-thin tracking-[0.01em]">
               Get My Free Guide
             </span>
           </h3>
-          <p className="mt-5 font-bricolage font-normal text-[18px] tracking-[-0.01em] capitalize leading-[142%] text-white">
+          <p className="mt-5.5 font-bricolage font-normal xl:text-[18px] text-[16px] tracking-[-0.01em] capitalize leading-[142%] text-white">
             “Top 7 Website Essentials Every Healthcare Provider Needs to Attract
             More Patients”
           </p>
         </div>
-        <div className="mt-10 w-[1453px] h-auto mx-auto relative">
+        <div className="mt-10 2xl:w-[1453px] h-auto mx-auto relative">
           <Projects />
-          <div className="absolute bottom-56.5 left-1/2 -translate-x-1/2">
-            <div className="flex flex-col justify-center items-center gap-5">
+          <div className="absolute lg:bottom-55 md:bottom-15 -bottom-[10vh] left-1/2 -translate-x-1/2 z-20 w-full">
+            <div className="flex flex-col justify-center items-center md:gap-5 gap-3">
               <div>
-                <button className="bg-[#003459] text-white w-[100px] lg:w-[130px] xl:w-[150px] 2xl:w-[336px] h-[50px] 2xl:h-[59px] rounded-[334px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize shadow-button">
+                <button className="bg-[#003459] text-white md:w-[190px] max-w-fit p-3 lg:w-[230px] xl:w-[250px] 2xl:w-[336px] md:h-[50px] 2xl:h-[59px] rounded-[334px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize shadow-button">
                   <Image
                     src="/button-arrow.svg"
                     width={1000}
@@ -37,7 +38,7 @@ const Lead = () => {
                   Download Free Guide
                 </button>
               </div>
-              <p className="font-bricolage font-normal text-[18px] leading-[142%] tracking-[-0.01em] capitalize text-white">
+              <p className="font-bricolage font-normal xl:text-[18px] text-[16px] leading-[142%] tracking-[-0.01em] capitalize text-white mb-[-5px] text-center">
                 Perfect for growing your email list!
               </p>
             </div>

@@ -2,12 +2,25 @@ import Image from "next/image";
 
 const Process = () => {
   return (
-    <section className="xl:py-30 py-10 bg-black xl:px-10 px-5">
+    <section id="process" className="xl:pb-31 pb-10 bg-black xl:px-10 px-5 2xl:mt-[-5.5vh] mt-[-15vh] lg:mt-[0vh] relative">
+      <Image
+        src="/lead-blur.png"
+        height={100}
+        width={100}
+        alt="blur"
+        className="w-full h-auto absolute left-0 -top-[15vh] lg:hidden"
+      />
+
       <div>
         <div className="text-center max-w-[992px] mx-auto z-40 relative">
           <h5 className="font-bricolage font-normal 2xl:text-[28px] xl:text-[24px] lg:text-[22px] text-[20px] tracking-[-0.07em] capitalize text-white">
-            <span className="2xl:text-[40px] xl:text-[36px] lg:text-[30px] text-[26px]">[</span> Process{" "}
-            <span className="2xl:text-[40px] xl:text-[36px] lg:text-[30px] text-[26px]">]</span>
+            <span className="2xl:text-[40px] xl:text-[36px] lg:text-[30px] text-[26px]">
+              [
+            </span>{" "}
+            Process{" "}
+            <span className="2xl:text-[40px] xl:text-[36px] lg:text-[30px] text-[26px]">
+              ]
+            </span>
           </h5>
           <h3 className="-mt-1 font-bricolage font-bold 2xl:text-[48px] xl:text-[42px] lg:text-[38px] md:text-[32px] text-[30px] tracking-[-0.03em] leading-[123%] capitalize text-white">
             A Smooth, Stress-Free{" "}
@@ -19,8 +32,14 @@ const Process = () => {
             Simple, transparent, and done for you
           </p>
         </div>
-        <div className="md:bg-[url(/process.png)] 2xl:bg-cover bg-no-repeat bg-contain bg-center 2xl:w-[1450px] min-h-[303px] mx-auto flex flex-col gap-8 md:flex-row md:justify-between items-center 2xl:px-31 lg:px-20 md:px-10 relative xl:mt-10 lg:mt-0 md:-mt-10 mt-[5vh]">
-        <Image src="/line.png" height={100} width={100} alt="line" className="2xl:w-[1170px] w-[80vw] h-[1px] absolute xl:top-21 lg:top-23 top-26 hidden md:block"/>
+        <div className="md:bg-[url(/process.png)] 2xl:bg-cover bg-no-repeat bg-contain bg-center 2xl:w-[1450px] min-h-[303px] mx-auto flex flex-col gap-8 md:flex-row md:justify-between items-center 2xl:px-31 lg:px-20 md:px-10 relative xl:mt-10 lg:mt-0 md:-mt-10 mt-[5vh] z-30">
+          <Image
+            src="/line.png"
+            height={100}
+            width={100}
+            alt="line"
+            className="2xl:w-[1170px] w-[80vw] h-[1px] absolute xl:top-21 lg:top-23 top-26 hidden md:block"
+          />
           <div className="md:max-w-[311px] max-w-full z-20 process">
             <div className="bg-white text-[#0A0A0A] rounded-full xl:w-[47px] xl:h-[47px] lg:w-[40px] lg:h-[40px] w-[35px] h-[35px] font-bricolage font-bold xl:text-[24px] md:text-[20px] text-[18px] leading-[123%] tracking-[-0.03em] flex justify-center items-center">
               01

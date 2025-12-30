@@ -3,7 +3,7 @@ import Solutionoints from './solution-points'
 
 const Solution = () => {
     return (
-        <section className='bg-[url(/stones.png)] bg-cover bg-center w-full lg:min-h-screen py-10 lg:py-0 relative xl:px-10 px-5'>
+        <section id='the-solution' className='bg-[url(/stones.png)] bg-cover bg-center w-full lg:min-h-screen py-10 lg:py-0 relative xl:px-10 px-5'>
             <Image src="/points-blur.png" height={100} width={100} alt='points-blur' className='w-full xl:h-[533px] h-[300px] absolute left-0 z-30 lg:-top-60 -top-20 hidden md:block'/>
             <Image src="/blue-blur.png" height={100} width={100} alt='blue-blur' className='w-[30%] h-full -top-[40%] absolute right-0 z-50'/>
             <div>

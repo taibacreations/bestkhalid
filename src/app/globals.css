@@ -326,3 +326,27 @@ svg.swiper-navigation-icon {
 }
 }
 
+@media screen and (max-width: 1366px) {
+  .revolving {
+    right: -80vw !important;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .revolving {
+    right: -89vw !important;
+  }
+}
+@media screen and (max-width: 1199px) {
+  .revolving {
+    right: -112vw !important;
+  }
+}
+@media screen and (max-width: 1023px) {
+  .revolving {
+    right: -70vw !important;
+  }
+}
+@media screen and (min-width: 1536px) {
+.names {
+  right: -20.5vw !important;
+} }

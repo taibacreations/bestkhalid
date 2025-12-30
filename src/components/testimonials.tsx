@@ -134,7 +134,7 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="bg-[#171717] lg:py-16 py-10 relative overflow-hidden">
+    <section id="social-proof" className="bg-[#171717] lg:py-16 py-10 relative overflow-hidden">
       <div className="max-w-[1390px] mx-auto px-4 xl:px-10">
         <div className="text-center max-w-[992px] mx-auto z-40 relative mb-9">
           <h5 className="font-bricolage font-normal 2xl:text-[28px] xl:text-[24px] lg:text-[22px] text-[20px] tracking-[-0.07em] capitalize text-white">
