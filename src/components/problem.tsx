@@ -3,15 +3,15 @@ import Revolving from "./revolving";
 
 const Problem = () => {
   return (
-    <section className="-mt-7 relative min-h-[120vh] bg-[url(/problem-bg.png)] bg-cover bg-[70%_30%] overflow-hidden xl:px-10 px-5">
+    <section className="-mt-7 relative lg:min-h-[110vh] py-5 lg:py-0 bg-[url(/problem-bg.png)] bg-cover xl:bg-[70%_30%] overflow-hidden xl:px-10 px-5">
       <Image
         src="/macbook.svg"
         height={100}
         width={100}
         alt="macbook"
-        className="2xl:w-[1398px] xl:w-[1150px] lg:w-[850px] w-[750px] h-auto absolute lg:-left-5 -left-30 xl:top-27 top-40 hidden md:block"
+        className="2xl:w-[1398px] xl:w-[1150px] lg:w-[850px] w-[750px] h-auto absolute lg:-left-5 -left-30 xl:top-27 lg:top-40 top-50 hidden md:block"
       />
-      <div className="md:flex gap-4 items-end absolute 2xl:bottom-[27%] xl:bottom-[25%] lg:bottom-[30%] md:bottom-[37%] bottom-[25%] 2xl:left-64 lg:left-[5%] left-3 hidden">
+      <div className="md:flex gap-4 items-end absolute 2xl:bottom-[27%] xl:bottom-[20%] lg:bottom-[30%] md:bottom-[7%] bottom-[25%] 2xl:left-64 lg:left-[5%] left-3 hidden">
         <div className="bg-[url(/hero-text-bg.png)] bg-cover 2xl:w-[479px] 2xl:h-[94px] xl:w-[400px] lg:w-[350px] w-[300px] lg:h-[80px] h-[60px] rounded-full font-bricolage font-normal 2xl:text-[24px] xl:text-[22px] lg:text-[20px] text-[16px] leading-[142%] tracking-[-0.01em] capitalize text-white flex justify-center items-center text-center">
           A weak website means missed appointments and lost trust.
         </div>
@@ -47,7 +47,7 @@ const Problem = () => {
             world, patients expect a seamless online experience
           </p>
         </div>
-        <div className="bg-[#0E1A4A08] 2xl:h-[483px] 2xl:h-[400px] md:h-[350px] min-h-[300px] 2xl:w-[817px] xl:w-[750px] lg:w-[600px] md:w-[500px] max-w-full lg:ml-[35%] md:ml-[30%] relative 2xl:mt-13 xl:mt-10 mt-8 z-20 relative">
+        <div className="bg-[#0E1A4A08] 2xl:h-[483px] 2xl:h-[400px] md:h-[380px] min-h-[300px] 2xl:w-[817px] xl:w-[750px] lg:w-[600px] md:w-[500px] max-w-full lg:ml-[35%] md:ml-[30%] relative 2xl:mt-13 xl:mt-10 mt-8 z-20 relative overflow-hidden">
           <Image
             src="/glass-overlay.png"
             height={100}
@@ -55,8 +55,8 @@ const Problem = () => {
             alt="glass-overlay"
             className="absolute inset-0 w-full md:h-auto min-h-[300px] z-0"
           />
-          <div className="flex md:justify-end justify-start items-center 2xl:mr-17 xl:mr-[2vw] lg:mr-[3vw] md:mr-[5vw] mx-10">
-            <ul className="font-bricolage font-bold 2xl:text-[28px] xl:text-[26px] lg:text-[22px] text-[18px] leading-[142%] tracking-[-0.01em] capitalize text-white flex flex-col gap-3 justify-center xl:mt-12 lg:mt-8 md:mt-5 mt-8 list-disc list">
+          <div className="flex md:justify-end justify-start items-center 2xl:mr-17 xl:mr-[-5vw] lg:mr-[-12vw] md:mr-[-25vw] points-margin">
+            <ul className="font-bricolage font-bold 2xl:text-[28px] xl:text-[26px] lg:text-[22px] text-[18px] leading-[142%] tracking-[-0.01em] capitalize text-white flex flex-col gap-3 justify-center 2xl:mt-12 mt-10 lg:mt-8 md:mt-5 mt-8 list-disc list">
               <li className="">Slow load times</li>
               <Image
                 src="/li-border.png"
@@ -91,6 +91,18 @@ const Problem = () => {
               />
               <li>Poor SEO</li>
             </ul>
+          </div>
+          <Image
+            src="/macbook.svg"
+            height={100}
+            width={100}
+            alt="macbook"
+            className="w-full h-auto md:hidden"
+          />
+          <div className="md:hidden gap-2 items-end w-full mt-[-3vh] z-40 relative">
+            <div className="bg-[url(/hero-text-bg.png)] bg-cover py-3 px-3 rounded-full font-bricolage font-normal text-[11px] leading-[142%] tracking-[-0.01em] capitalize text-white flex justify-center items-center text-center">
+              A weak website means missed appointments and lost trust.
+            </div>
           </div>
         </div>
       </div>
