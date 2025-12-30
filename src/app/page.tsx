@@ -14,9 +14,9 @@ export default function Home() {
       <LogoMarquee />
       <Problem />
       <Solution />
-      <Services />
+      {/* <Services /> */}
       <Testimonials />
-      <Lead />
+      {/* <Lead /> */}
       <Process />
     </div>
   );

@@ -69,7 +69,7 @@ html {
   }
 }
 .shadow-button {
-  box-shadow: 0px -6px 20.3px 0px #2E90FA inset;
+  box-shadow: 0px -6px 20.3px 0px #2e90fa inset;
 }
 
 .wave-tilt-btn {
@@ -97,14 +97,13 @@ font-tartuffo {
     left: 50%;
   }
   .points-margin {
-  margin-left: 40px;
-  margin-right: 40px;
-}
+    margin-left: 40px;
+    margin-right: 40px;
+  }
 }
 
 /* app/globals.css */
 @keyframes bounce {
-
   0%,
   100% {
     transform: translateY(0);
@@ -129,7 +128,7 @@ font-tartuffo {
 
 .moving-shadow-btn {
   /* Base state */
-  box-shadow: 0px -8px 24px 2px #2E90FA inset;
+  box-shadow: 0px -8px 24px 2px #2e90fa inset;
   animation: moveInnerGlow 1.8s infinite ease-in-out;
   position: relative;
   transform: scale(1);
@@ -143,28 +142,28 @@ font-tartuffo {
 
 @keyframes moveInnerGlow {
   0% {
-    box-shadow: 0px -8px 24px 2px #2E90FA inset;
+    box-shadow: 0px -8px 24px 2px #2e90fa inset;
   }
 
   25% {
-    box-shadow: 8px 0px 24px 2px #2E90FA inset;
+    box-shadow: 8px 0px 24px 2px #2e90fa inset;
   }
 
   50% {
-    box-shadow: 0px 8px 24px 2px #2E90FA inset;
+    box-shadow: 0px 8px 24px 2px #2e90fa inset;
   }
 
   75% {
-    box-shadow: -8px 0px 24px 2px #2E90FA inset;
+    box-shadow: -8px 0px 24px 2px #2e90fa inset;
   }
 
   100% {
-    box-shadow: 0px -8px 24px 2px #2E90FA inset;
+    box-shadow: 0px -8px 24px 2px #2e90fa inset;
   }
 }
 
 .revolve::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 50%;
@@ -185,10 +184,10 @@ font-tartuffo {
 }
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
-  background: white
+  background: white;
 }
 svg.swiper-navigation-icon {
-    width: 13px !important;
+  width: 13px !important;
 }
 .swiper-button-prev {
   left: -5vw !important;
@@ -197,35 +196,129 @@ svg.swiper-navigation-icon {
   right: -5vw !important;
 }
 
+@media screen and (max-width: 1536px) {
+  .swiper-button-prev {
+    left: 0vw !important;
+  }
+  .swiper-button-next {
+    right: 0vw !important;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .swiper-button-prev {
+    left: -1.5vw !important;
+  }
+  .swiper-button-next {
+    right: -1.5vw !important;
+  }
+}
+@media screen and (max-width: 1023px) {
+  .swiper-button-prev {
+    left: 40vw !important;
+    top: 98% !important;
+    width: 35px !important;
+    height: 35px !important;
+  }
+  .swiper-button-next {
+    right: 40vw !important;
+    top: 98% !important;
+    width: 35px !important;
+    height: 35px !important;
+  }
+  svg.swiper-navigation-icon {
+    width: 10px !important;
+  }
+}
+@media screen and (max-width: 767px) {
+  .swiper-button-prev {
+    left: 35vw !important;
+    top: 98% !important;
+    width: 35px !important;
+    height: 35px !important;
+  }
+  .swiper-button-next {
+    right: 35vw !important;
+    top: 98% !important;
+    width: 35px !important;
+    height: 35px !important;
+  }
+  svg.swiper-navigation-icon {
+    width: 10px !important;
+  }
+}
+@media screen and (max-width: 370px) {
+  .swiper-button-prev {
+    left: 30vw !important;
+    top: 98% !important;
+    width: 35px !important;
+    height: 35px !important;
+  }
+  .swiper-button-next {
+    right: 30vw !important;
+    top: 98% !important;
+    width: 35px !important;
+    height: 35px !important;
+  }
+  svg.swiper-navigation-icon {
+    width: 10px !important;
+  }
+}
 
 .testi-gradient {
-  background: linear-gradient(270deg, rgba(120, 120, 120, 0.4) 0%, rgba(80, 80, 80, 0) 29.82%);
+  background: linear-gradient(
+    270deg,
+    rgba(120, 120, 120, 0.4) 0%,
+    rgba(80, 80, 80, 0) 29.82%
+  );
 }
 
 /* Apply gradient background to non-active slides */
 .swiper-slide:not(.swiper-slide-active) .testimonial-card {
-  background: linear-gradient(270deg, rgba(120, 120, 120, 0.4) 0%, rgba(80, 80, 80, 0) 29.82%);
+  background: linear-gradient(
+    270deg,
+    rgba(120, 120, 120, 0.4) 0%,
+    rgba(80, 80, 80, 0) 29.82%
+  );
 }
 .line {
   border: 1px solid;
-  border-image-source: linear-gradient(90deg, #FFFFFF 76.67%, rgba(153, 153, 153, 0) 100%);
+  border-image-source: linear-gradient(
+    90deg,
+    #ffffff 76.67%,
+    rgba(153, 153, 153, 0) 100%
+  );
 }
 
 @media screen and (max-width: 400px) {
   .healthcare {
-  font-size: 12px;
-  width: 220px;
-}
-.list {
-  margin-top: 20px;
-}
-.solution-points{
-  height: 72px;
-}
+    font-size: 12px;
+    width: 220px;
+  }
+  .list {
+    margin-top: 20px;
+  }
+  .solution-points {
+    height: 72px;
+  }
 }
 
 @media screen and (max-width: 350px) {
   .solution-points-2 {
     height: 60px !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .process {
+    background-image: url('/process.png');
+    background-size: 100% 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px 20px;
+    text-align: center;
   }
 }
