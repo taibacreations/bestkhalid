@@ -128,7 +128,7 @@ const Header = () => {
 
           {/* Desktop CTA Button */}
           <div className="hidden md:flex shrink-0">
-            <button className="bg-[#003459] text-white w-[100px] lg:w-[130px] xl:w-[150px] 2xl:w-[165px] h-[50px] 2xl:h-[59px] rounded-[334px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize wave-tilt-btn">
+            <button className="bg-[#003459] text-white w-[100px] lg:w-[130px] xl:w-[150px] 2xl:w-[165px] h-[50px] 2xl:h-[59px] rounded-[334px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize button-border shadow-button underline">
               <Image
                 src="/button-arrow.svg"
                 width={1000}

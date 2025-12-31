@@ -118,8 +118,7 @@ const Hero = () => {
             front door that attracts new patients and elevates your practice
           </p>
           <button
-            className="mt-7.5 bg-[#003459] text-white rounded-[334px] 2xl:w-[371px] lg:w-[300px] max-w-fit lg:max-w-full px-4 lg:px-0 2xl:h-[59px] h-[50px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize underline"
-            style={{ boxShadow: "0px -6px 20.3px 0px #2E90FA inset" }}
+            className="mt-7.5 bg-[#003459] text-white rounded-[334px] 2xl:w-[371px] lg:w-[300px] max-w-fit lg:max-w-full px-4 lg:px-0 2xl:h-[69px] h-[60px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize underline button-border"
           >
             <Image
               src="/button-arrow.svg"
@@ -133,7 +132,7 @@ const Hero = () => {
           <div className="md:flex items-center gap-1 2xl:mt-28 mt-24 z-50 relative hidden">
             <div className="lg:w-5 lg:h-5 w-4 h-4 rounded-full shadow-button bg-[#003459]" />
             <div className="2xl:w-[98px] lg:w-[90px] w-[70px] border border-dashed border-white h-[1px]" />
-            <div className="2xl:w-[201px] lg:w-[160px] w-[140px] h-[51px] rounded-full shadow-button bg-[#003459] flex items-center justify-center gap-4">
+            <div className="2xl:w-[201px] lg:w-[160px] w-[140px] h-[51px] rounded-full shadow-button button-border bg-[#003459] flex items-center justify-center gap-4">
               <Image
                 src="/linkedin.svg"
                 width={100}

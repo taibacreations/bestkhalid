@@ -4,7 +4,7 @@ import Revolving from "./revolving";
 const Problem = () => {
   return (
     <section id="the-problem" className="-mt-7 relative lg:min-h-[110vh] py-5 lg:py-0 bg-[#0A0A0A] overflow-hidden xl:px-10 px-5">
-      <Image src="/names.png" height={100} width={100} alt="name" className="2xl:w-[1075px] 2xl:h-[1075px] xl:max-w-[600px] xl:max-h-[600px] lg:max-w-[500px] lg:max-h-[500px] max-w-[400px] max-h-[400px] w-full h-full 2xl:-top-[7vh] -top-[5vh] object-contain absolute 2xl:-right-[20.5vw] names xl:-left-[17vw] -left-[20vw] rotate-180 2xl:rotate-0 z-30"/>
+      <Image src="/names.png" height={100} width={100} alt="name" className="2xl:max-w-[1075px] 2xl:max-h-[1075px] xl:max-w-[600px] xl:max-h-[600px] lg:max-w-[500px] lg:max-h-[500px] max-w-[400px] max-h-[400px] w-full h-full 2xl:-top-[7vh] -top-[5vh] object-contain absolute 2xl:-right-[20.5vw] names z-30 hidden md:block"/>
       <div className="absolute 2xl:-right-[55vw] -right-[75vw] -top-[18vh] revolving hidden md:block">
         <Revolving />
       </div>
@@ -59,7 +59,7 @@ const Problem = () => {
             alt="glass-overlay"
             className="absolute inset-0 w-full md:h-auto min-h-[300px] z-0"
           />
-          <div className="flex md:justify-end justify-start items-center 2xl:mr-20 lg:mr-[3vw] md:mr-[5vw] points-margin">
+          <div className="flex md:justify-end justify-start items-center 2xl:mr-20 xl:mr-[-4vw] lg:mr-[-12vw] md:mr-[-24vw] points-margin">
             <ul className="font-bricolage font-bold 2xl:text-[28px] xl:text-[26px] lg:text-[22px] text-[18px] leading-[142%] tracking-[-0.01em] capitalize text-white flex flex-col gap-3 justify-center 2xl:mt-12 mt-10 lg:mt-8 md:mt-5 mt-8 list-disc list">
               <li className="">Slow load times</li>
               <Image
@@ -67,7 +67,7 @@ const Problem = () => {
                 height={100}
                 width={100}
                 alt="border"
-                className="w-full h-[2px]"
+                className="2xl:w-full xl:w-[80%] md:w-[60%] w-full h-[2px]"
               />
               <li>Confusing appointment booking</li>
               <Image
@@ -75,7 +75,7 @@ const Problem = () => {
                 height={100}
                 width={100}
                 alt="border"
-                className="w-full h-[2px]"
+                className="2xl:w-full xl:w-[80%] md:w-[60%] w-full h-[2px]"
               />
               <li>Unclear services</li>
               <Image
@@ -83,7 +83,7 @@ const Problem = () => {
                 height={100}
                 width={100}
                 alt="border"
-                className="w-full h-[2px]"
+                className="2xl:w-full xl:w-[80%] md:w-[60%] w-full h-[2px]"
               />
               <li>Not mobile-friendly</li>
               <Image
@@ -91,7 +91,7 @@ const Problem = () => {
                 height={100}
                 width={100}
                 alt="border"
-                className="w-full h-[2px]"
+                className="2xl:w-full xl:w-[80%] md:w-[60%] w-full h-[2px]"
               />
               <li>Poor SEO</li>
             </ul>
