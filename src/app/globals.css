@@ -428,35 +428,100 @@ svg.swiper-navigation-icon {
   }
 }
 
-.rotating-border {
+.curve-blue {
   position: relative;
 }
 
-.rotating-border::before {
+.curve-blue::after {
+  content: "";
+  background: linear-gradient(180deg, #2e90fa 0.29%, #2e90fa 82.84%);
+  box-shadow: 0px 4px 18.5px 0px #2e90fa;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: -8px; /* Changed from -15 to center on border */
+  left: 50%;
+  margin-left: -8px; /* Half of width */
+  transform-origin: 8px 604px; /* 596 + 8 */
+  border-radius: 50%;
+  z-index: 999;
+  animation: rotateDotFast 7s linear infinite; /* Faster - 4 seconds */
+}
+
+
+
+@keyframes rotateDotFast {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateBarSlow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .curve-blue::after {
+    transform-origin: 8px 308px; /* 300 + 8 */
+  }
+  
+  .curve-blue::before {
+    transform-origin: 151.5px 310px;
+  }
+}
+.curve-blue::before {
+  content: "";
+  background: linear-gradient(180deg, #2e90fa 0.29%, #2e90fa 82.84%);
+  box-shadow: 0px 4px 18.5px 0px #2e90fa;
+  display: none;
+  width: 303px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -151.5px;
+  margin-top: -10px;
+  transform-origin: 151.5px 606px;
+  border-radius: 50px;
+  clip-path: ellipse(151.5px 10px at 50% 50%);
+  z-index: 998;
+  animation: rotateBarSlow 6.8s linear infinite; /* Slower - 8 seconds */
+}
+.solution-point {
+  position: relative;
+}
+
+.solution-point::before {
   content: "";
   position: absolute;
-  inset: 0;
-  padding: 2px;
-  border-radius: 0;
+  inset: -1px; /* Adjust based on your desired border thickness */
+  padding: 1px;
   background: conic-gradient(
     from 0deg,
     transparent 0deg,
-    transparent 70deg,
-    #7bb6ff 90deg,
-    transparent 110deg,
-    transparent 360deg
+    transparent 340deg,
+    rgba(123, 182, 255, 0.3) 350deg,
+    #7BB6FF 355deg,
+    #7BB6FF 360deg
   );
-  -webkit-mask: 
-    linear-gradient(#fff 0 0) content-box, 
-    linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: destination-out;
   mask-composite: exclude;
-  animation: rotateBorder 5s linear infinite;
+  border-radius: inherit; /* Matches the shape of your element */
+  animation: solutionBorder 3s linear infinite;
   pointer-events: none;
-  z-index: 1;
+  z-index: 10;
 }
 
-@keyframes rotateBorder {
+@keyframes solutionBorder {
   0% {
     transform: rotate(0deg);
   }
