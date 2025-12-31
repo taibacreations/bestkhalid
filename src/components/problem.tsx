@@ -51,7 +51,7 @@ const Problem = () => {
             world, patients expect a seamless online experience
           </p>
         </div>
-        <div className="bg-[#0E1A4A08] 2xl:h-[483px] 2xl:h-[400px] md:h-[380px] min-h-[300px] 2xl:w-[817px] xl:w-[750px] lg:w-[600px] md:w-[500px] max-w-full lg:ml-[35%] md:ml-[30%] relative 2xl:mt-13 xl:mt-10 mt-8 z-20 relative overflow-hidden">
+        <div className="bg-[#0E1A4A08] 2xl:h-[483px] 2xl:h-[400px] md:h-[380px] min-h-[300px] 2xl:w-[817px] xl:w-[750px] lg:w-[600px] md:w-[500px] max-w-full lg:ml-[35%] md:ml-[30%] relative 2xl:mt-13 xl:mt-10 mt-8 z-20 relative overflow-hidden rotating-border">
           <Image
             src="/glass-overlay.png"
             height={100}

@@ -384,7 +384,7 @@ svg.swiper-navigation-icon {
   border-radius: inherit;
 
   background: #003459;
-  box-shadow: 0px -6px 20.3px 0px #2E90FA inset;
+  box-shadow: 0px -6px 20.3px 0px #2e90fa inset;
 
   animation: shadowWave 5s ease-in-out infinite;
   z-index: -1;
@@ -392,11 +392,21 @@ svg.swiper-navigation-icon {
 
 /* SHADOW SYNC */
 @keyframes shadowWave {
-  0%   { box-shadow:  0px -6px 20.3px 0px #2E90FA inset; }
-  25%  { box-shadow:  6px  0px 20.3px 0px #2E90FA inset; }
-  50%  { box-shadow:  0px  6px 20.3px 0px #2E90FA inset; }
-  75%  { box-shadow: -6px  0px 20.3px 0px #2E90FA inset; }
-  100% { box-shadow:  0px -6px 20.3px 0px #2E90FA inset; }
+  0% {
+    box-shadow: 0px -6px 20.3px 0px #2e90fa inset;
+  }
+  25% {
+    box-shadow: 6px 0px 20.3px 0px #2e90fa inset;
+  }
+  50% {
+    box-shadow: 0px 6px 20.3px 0px #2e90fa inset;
+  }
+  75% {
+    box-shadow: -6px 0px 20.3px 0px #2e90fa inset;
+  }
+  100% {
+    box-shadow: 0px -6px 20.3px 0px #2e90fa inset;
+  }
 }
 
 /* 3D TILT */
@@ -418,3 +428,39 @@ svg.swiper-navigation-icon {
   }
 }
 
+.rotating-border {
+  position: relative;
+}
+
+.rotating-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: 0;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 70deg,
+    #7bb6ff 90deg,
+    transparent 110deg,
+    transparent 360deg
+  );
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  animation: rotateBorder 5s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes rotateBorder {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

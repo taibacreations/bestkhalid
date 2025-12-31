@@ -193,7 +193,9 @@ const Hero = () => {
           <p className="font-bricolage font-normal 2xl:text-[28px] xl:text-[24px] lg:text-[20px] text-[18px] tracking-[-0.07em] capitalize text-white leading-[142%] mt-[2.4vh]">
             {wrapWordsInSpans(pText).map((word, i) => (
               <span
-                ref={(el) => (pWordRefs.current[i] = el)}
+                ref={(el) => {
+                  if (el) pWordRefs.current[i] = el;
+                }}
                 key={i}
                 className="inline-block"
               >
