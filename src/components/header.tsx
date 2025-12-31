@@ -1,13 +1,16 @@
 "use client";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
+import gsap from "gsap";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeHash, setActiveHash] = useState("");
-  const [scrolled, setScrolled] = useState(false); // 👈 new state
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+
+  const headerRef = useRef<HTMLDivElement>(null);
 
   const navItems = [
     { label: "Home", href: "#" },
@@ -18,26 +21,18 @@ const Header = () => {
     { label: "Process", href: "#process" },
   ];
 
-  // 🔹 Track scroll position
+  // Track scroll position
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 10);
     };
-
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   // Track active hash
   useEffect(() => {
-    const handleHashChange = () => {
-      setActiveHash(window.location.hash);
-    };
-
+    const handleHashChange = () => setActiveHash(window.location.hash);
     setActiveHash(window.location.hash);
     window.addEventListener("hashchange", handleHashChange);
     return () => window.removeEventListener("hashchange", handleHashChange);
@@ -48,40 +43,68 @@ const Header = () => {
     return activeHash === href;
   };
 
-  const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleAnchorClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
     e.preventDefault();
     const targetId = href.substring(1);
-    
+
     if (!targetId) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      window.history.pushState(null, '', ' ');
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.history.pushState(null, "", " ");
       setActiveHash("");
       return;
     }
 
     const element = document.getElementById(targetId);
     if (element) {
-      const offset = window.innerHeight * 0.1; // 10vh
+      const offset = window.innerHeight * 0.1;
       const scrollPosition = element.offsetTop - offset;
-
-      window.scrollTo({
-        top: scrollPosition,
-        behavior: 'smooth'
-      });
-
-      window.history.pushState(null, '', href);
+      window.scrollTo({ top: scrollPosition, behavior: "smooth" });
+      window.history.pushState(null, "", href);
       setActiveHash(href);
     }
-
     setIsMenuOpen(false);
   };
 
+  // Mobile menu animation (stagger items)
+  useEffect(() => {
+    if (!isMenuOpen) return;
+    const timer = setTimeout(() => {
+      const items = document.querySelectorAll(".gsap-mobile-item");
+      if (items.length === 0) return;
+      gsap.set(items, { opacity: 0, y: -15 });
+      gsap.to(items, {
+        opacity: 1,
+        y: 0,
+        duration: 0.4,
+        ease: "power2.out",
+        stagger: 0.07,
+      });
+    }, 10);
+    return () => clearTimeout(timer);
+  }, [isMenuOpen]);
+
+  // Animate entire header from top on page load
+  useEffect(() => {
+    if (!headerRef.current) return;
+    gsap.from(headerRef.current, {
+      y: -1000,
+      overflow: "hidden",
+      opacity: 0,
+      duration: 1.2,
+      ease: "power3.out",
+    });
+  }, []);
+
   return (
-    <header 
+    <header
+      ref={headerRef}
       className={`fixed left-0 w-full z-50 transition-all duration-300 ${
-        scrolled 
-          ? 'bg-[#001f33]/80 backdrop-blur-md border-b border-[#37ACFF]/20' 
-          : 'bg-transparent'
+        scrolled
+          ? "bg-[#001f33]/80 backdrop-blur-md border-b border-[#37ACFF]/20"
+          : "bg-transparent"
       }`}
     >
       <div className="max-w-[1525px] mx-auto px-4 xl:px-10 py-3">
@@ -104,13 +127,17 @@ const Header = () => {
                   href={item.href}
                   onClick={(e) => handleAnchorClick(e, item.href)}
                   className={`relative z-10 py-3 transition-colors cursor-pointer ${
-                    isActive(item.href) ? "text-white underline" : "text-white/90 hover:text-white"
+                    isActive(item.href)
+                      ? "text-white underline"
+                      : "text-white/90 hover:text-white"
                   }`}
                 >
                   {item.label}
                   <span
                     className={`absolute -left-5 top-1/2 -translate-y-1/2 transition-opacity duration-200 ${
-                      isActive(item.href) ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+                      isActive(item.href)
+                        ? "opacity-100"
+                        : "opacity-0 group-hover:opacity-100"
                     }`}
                   >
                     <Image
@@ -157,7 +184,11 @@ const Header = () => {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth={2}
-                d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
+                d={
+                  isMenuOpen
+                    ? "M6 18L18 6M6 6l12 12"
+                    : "M4 6h16M4 12h16M4 18h16"
+                }
               />
             </svg>
           </button>
@@ -168,12 +199,17 @@ const Header = () => {
           <div className="md:hidden mt-4 pb-4 px-6 bg-[#001f33]/95 backdrop-blur-sm rounded-xl border border-[#37ACFF]/20">
             <div className="flex flex-col gap-2 font-bricolage text-white text-[18px] font-normal tracking-[-0.07em] capitalize">
               {navItems.map((item) => (
-                <div key={item.label} className="relative py-2.5">
+                <div
+                  key={item.label}
+                  className="relative py-2.5 gsap-mobile-item"
+                >
                   <a
                     href={item.href}
                     onClick={(e) => handleAnchorClick(e, item.href)}
                     className={`block py-1 transition cursor-pointer ${
-                      isActive(item.href) ? "text-[#37ACFF]" : "text-white hover:text-[#37ACFF]"
+                      isActive(item.href)
+                        ? "text-[#37ACFF]"
+                        : "text-white hover:text-[#37ACFF]"
                     }`}
                   >
                     {item.label}
@@ -194,7 +230,7 @@ const Header = () => {
             </div>
             <button
               className="shadow-button mt-5 w-full bg-[#003459] text-white h-[50px] rounded-[334px] font-bricolage font-bold text-[20px] tracking-[-0.07em] capitalize flex items-center justify-center gap-2"
-              style={{ boxShadow: '0px -5px 18px 0px #2E90FA inset' }}
+              style={{ boxShadow: "0px -5px 18px 0px #2E90FA inset" }}
             >
               <Image
                 src="/button-arrow.svg"
