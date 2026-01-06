@@ -15,14 +15,14 @@ const Problem = () => {
         className="2xl:max-w-[1075px] 2xl:max-h-[1075px] xl:max-w-[600px] xl:max-h-[600px] lg:max-w-[500px] lg:max-h-[500px] max-w-[400px] max-h-[400px] w-full h-full 2xl:-top-[7vh] -top-[5vh] object-contain absolute 2xl:-right-[20.5vw] names z-30 hidden md:block"
       />
       <div className="absolute 2xl:-right-[55.5vw] -right-[75vw] lg:-top-[22vh] top-[-33vh] revolving hidden md:block">
-          <Circle />
+        <Circle />
       </div>
       <Image
         src="/macbook.svg"
         height={100}
         width={100}
         alt="macbook"
-        className="2xl:w-[1398px] xl:w-[1150px] lg:w-[850px] w-[750px] h-auto absolute lg:-left-5 -left-30 xl:top-27 lg:top-40 top-50 hidden md:block"
+        className="2xl:w-[1398px] xl:w-[1150px] lg:w-[850px] w-[750px] h-auto absolute lg:-left-5 -left-30 xl:top-27 lg:top-40 top-50 hidden md:block z-30"
       />
       <div className="md:flex gap-4 items-end absolute xl:bottom-[15.5%] lg:bottom-[24%] md:bottom-[7%] bottom-[25%] 2xl:left-64 lg:left-[5%] left-3 hidden hover:translate-y-[-75px] hover:translate-x-[-16px] hover:transition-all duration-300 z-30">
         <div className="bg-[url(/hero-text-bg.png)] bg-cover 2xl:w-[479px] 2xl:h-[94px] xl:w-[400px] lg:w-[350px] w-[300px] lg:h-[80px] h-[60px] rounded-full font-bricolage font-normal 2xl:text-[24px] xl:text-[22px] lg:text-[20px] text-[16px] leading-[142%] tracking-[-0.01em] capitalize text-white flex justify-center items-center text-center">
@@ -62,7 +62,8 @@ const Problem = () => {
             world, patients expect a seamless online experience
           </p>
         </div>
-        <div className="bg-[#0E1A4A08] 2xl:h-[483px] 2xl:h-[400px] md:h-[380px] min-h-[300px] 2xl:w-[817px] xl:w-[750px] lg:w-[600px] md:w-[500px] max-w-full lg:ml-[35%] md:ml-[30%] relative 2xl:mt-13 xl:mt-10 mt-8 z-20 relative overflow-hidden rotating-border">
+        <div className="bg-[#0E1A4A08] 2xl:h-[483px] 2xl:h-[400px] md:h-[380px] min-h-[300px] 2xl:w-[817px] xl:w-[750px] lg:w-[600px] md:w-[500px] max-w-full lg:ml-[35%] md:ml-[30%] relative 2xl:mt-13 xl:mt-10 mt-8 z-20 relative overflow-hidden rotating-border problem-bg-animation">
+          <div className="problem-bg-animation-2"></div>
           <Image
             src="/glass-overlay.png"
             height={100}

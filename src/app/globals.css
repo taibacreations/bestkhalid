@@ -321,6 +321,9 @@ svg.swiper-navigation-icon {
     padding: 20px 20px;
     text-align: center;
   }
+  .solution-points-2 {
+    background-image: url(/points-bg-new-1.png);
+  }
 }
 
 @media screen and (max-width: 1366px) {
@@ -428,75 +431,455 @@ svg.swiper-navigation-icon {
   }
 }
 
-.curve-blue {
-  position: relative;
-}
-
-.curve-blue::after {
-  content: "";
-  background: linear-gradient(180deg, #2e90fa 0.29%, #2e90fa 82.84%);
-  box-shadow: 0px 4px 18.5px 0px #2e90fa;
-  width: 16px;
-  height: 16px;
+@media screen and (min-width: 1537px) {
+  .li-1::before {
+  content: ".";
   position: absolute;
-  top: -8px; /* Changed from -15 to center on border */
-  left: 50%;
-  margin-left: -8px; /* Half of width */
-  transform-origin: 8px 604px; /* 596 + 8 */
-  border-radius: 50%;
-  z-index: 999;
-  animation: rotateDotFast 7s linear infinite; /* Faster - 4 seconds */
+  left: 19%;
+  top: 4%;
+  font-size: 40px !important;
+}
+.li-2::before {
+  content: ".";
+  position: absolute;
+  left: 15.5%;
+  top: 4%;
+  font-size: 40px !important;
+} 
+.li-3::before {
+  content: ".";
+  position: absolute;
+  left: 22%;
+  top: 4%;
+  font-size: 40px !important;
+} 
+
+.li-4::before {
+  content: ".";
+  position: absolute;
+  left: 16%;
+  top: 4%;
+  font-size: 40px !important;
+} 
+.li-5::before {
+  content: ".";
+  position: absolute;
+  left: 11%;
+  top: 4%;
+  font-size: 40px !important;
+} 
+.li-6::before {
+  content: ".";
+  position: absolute;
+  left: 17%;
+  top: 4%;
+  font-size: 40px !important;
+} 
 }
 
-@keyframes rotateDotFast {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+@media screen and (max-width: 1536px) {
+  .li-1::before {
+  content: ".";
+  position: absolute;
+  left: 17%;
+  top: 4%;
+  font-size: 40px !important;
+}
+.li-2::before {
+  content: ".";
+  position: absolute;
+  left: 14%;
+  top: 4%;
+  font-size: 40px !important;
+} 
+.li-3::before {
+  content: ".";
+  position: absolute;
+  left: 20%;
+  top: 4%;
+  font-size: 40px !important;
+} 
+
+.li-4::before {
+  content: ".";
+  position: absolute;
+  left: 14%;
+  top: 4%;
+  font-size: 40px !important;
+} 
+.li-5::before {
+  content: ".";
+  position: absolute;
+  left: 9%;
+  top: 4%;
+  font-size: 40px !important;
+} 
+.li-6::before {
+  content: ".";
+  position: absolute;
+  left: 15%;
+  top: 4%;
+  font-size: 40px !important;
+} 
 }
 
 @media screen and (max-width: 1023px) {
-  .curve-blue::after {
-    transform-origin: 8px 308px; /* 300 + 8 */
-  }
-
-  .curve-blue::before {
-    transform-origin: 151.5px 310px;
-  }
-}
-.solution-point {
-  position: relative;
-}
-
-.solution-point::before {
-  content: "";
+  .li-1::before {
+  content: ".";
   position: absolute;
-  inset: -1px; /* Adjust based on your desired border thickness */
-  padding: 1px;
-  background: conic-gradient(
-    from 0deg,
-    transparent 0deg,
-    transparent 340deg,
-    rgba(123, 182, 255, 0.3) 350deg,
-    #7bb6ff 355deg,
-    #7bb6ff 360deg
-  );
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: destination-out;
-  mask-composite: exclude;
-  border-radius: inherit; /* Matches the shape of your element */
-  animation: solutionBorder 3s linear infinite;
-  pointer-events: none;
-  z-index: 10;
+  left: 17%;
+  top: 4%;
+  font-size: 30px !important;
+}
+.li-2::before {
+  content: ".";
+  position: absolute;
+  left: 14%;
+  top: 4%;
+  font-size: 30px !important;
+} 
+.li-3::before {
+  content: ".";
+  position: absolute;
+  left: 15%;
+  top: 1%;
+  font-size: 30px !important;
+} 
+
+.li-4::before {
+  content: ".";
+  position: absolute;
+  left: 14%;
+  top: 4%;
+  font-size: 30px !important;
+} 
+.li-5::before {
+  content: ".";
+  position: absolute;
+  left: 9%;
+  top: 4%;
+  font-size: 30px !important;
+} 
+.li-6::before {
+  content: ".";
+  position: absolute;
+  left: 9%;
+  top: 0%;
+  font-size: 30px !important;
+} 
 }
 
-@keyframes solutionBorder {
+@media screen and (max-width: 767px) {
+  .li-1::before {
+  content: ".";
+  position: absolute;
+  left: 8%;
+  top: 25%;
+  font-size: 30px !important;
+}
+.li-2::before {
+  content: ".";
+  position: absolute;
+  left: 8%;
+  top: 28%;
+  font-size: 30px !important;
+} 
+.li-3::before {
+  content: ".";
+  position: absolute;
+  left: 8%;
+  top: 18%;
+  font-size: 30px !important;
+} 
+
+.li-4::before {
+  content: ".";
+  position: absolute;
+  left: 8%;
+  top: 28%;
+  font-size: 30px !important;
+} 
+.li-5::before {
+  content: ".";
+  position: absolute;
+  left: 8%;
+  top: 18%;
+  font-size: 30px !important;
+} 
+.li-6::before {
+  content: ".";
+  position: absolute;
+  left: 6%;
+  top: 27%;
+  font-size: 30px !important;
+} 
+}
+
+.problem-bg-animation::after {
+  content: "";
+  background-image: url("/problem-bg-vector.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 169px;
+  height: 169px;
+  max-height: 100%;
+  max-width: 100%;
+  z-index: 10;
+  animation: travelAroundBorder 8s linear infinite;
+}
+
+@keyframes travelAroundBorder {
+  /* Start: top-left */
   0% {
+    top: 0;
+    left: 0;
     transform: rotate(0deg);
   }
+
+  /* Reach top-right */
+  25% {
+    top: 0;
+    left: 79.3%;
+    transform: rotate(0deg);
+  }
+
+  /* Rotate at top-right */
+  25.1% {
+    transform: rotate(90deg);
+  }
+
+  /* Reach bottom-right */
+  50% {
+    top: calc(65% - 12px);
+    left: 79.3%;
+    transform: rotate(90deg);
+  }
+
+  /* Rotate at bottom-right */
+  50.1% {
+    transform: rotate(180deg);
+    top: 65%
+  }
+  /* Reach bottom-left */
+  75% {
+    top: 65%;
+    left: 0;
+    transform: rotate(180deg);
+  }
+
+  /* Rotate at bottom-left */
+  75.1% {
+    transform: rotate(270deg);
+    top: 65%;
+  }
+
+  /* Back to top-left */
   100% {
-    transform: rotate(360deg);
+    top: 0;
+    left: 0;
+    transform: rotate(270deg);
+  }
+}
+
+.problem-bg-animation::before {
+  content: "";
+  background-image: url("/problem-bg-vector.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 169px;
+  height: 169px;
+  max-height: 100%;
+  max-width: 100%;
+  z-index: 10;
+  animation: travelAroundBorders 8s linear infinite;
+  animation-delay: 2s;
+}
+
+@keyframes travelAroundBorders {
+  /* Start: top-left */
+  0% {
+    top: 0;
+    left: 0;
+    transform: rotate(0deg);
+  }
+
+  /* Reach top-right */
+  25% {
+    top: 0;
+    left: 79.3%;
+    transform: rotate(0deg);
+  }
+
+  /* Rotate at top-right */
+  25.1% {
+    transform: rotate(90deg);
+  }
+
+  /* Reach bottom-right */
+  50% {
+    top: calc(65% - 12px);
+    left: 79.3%;
+    transform: rotate(90deg);
+  }
+
+  /* Rotate at bottom-right */
+  50.1% {
+    transform: rotate(180deg);
+    top: 65%
+  }
+  /* Reach bottom-left */
+  75% {
+    top: 65%;
+    left: 0;
+    transform: rotate(180deg);
+  }
+
+  /* Rotate at bottom-left */
+  75.1% {
+    transform: rotate(270deg);
+    top: 65%;
+  }
+
+  /* Back to top-left */
+  100% {
+    top: 0;
+    left: 0;
+    transform: rotate(270deg);
+  }
+}
+.problem-bg-animation-2::before {
+  content: "";
+  background-image: url("/problem-bg-vector.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 169px;
+  height: 169px;
+  max-height: 100%;
+  max-width: 100%;
+  z-index: 10;
+  animation: travelAroundBorderss 8s linear infinite;
+  animation-delay: 4s;
+}
+
+@keyframes travelAroundBorderss {
+  /* Start: top-left */
+  0% {
+    top: 0;
+    left: 0;
+    transform: rotate(0deg);
+  }
+
+  /* Reach top-right */
+  25% {
+    top: 0;
+    left: 79.3%;
+    transform: rotate(0deg);
+  }
+
+  /* Rotate at top-right */
+  25.1% {
+    transform: rotate(90deg);
+  }
+
+  /* Reach bottom-right */
+  50% {
+    top: calc(65% - 12px);
+    left: 79.3%;
+    transform: rotate(90deg);
+  }
+
+  /* Rotate at bottom-right */
+  50.1% {
+    transform: rotate(180deg);
+    top: 65%
+  }
+  /* Reach bottom-left */
+  75% {
+    top: 65%;
+    left: 0;
+    transform: rotate(180deg);
+  }
+
+  /* Rotate at bottom-left */
+  75.1% {
+    transform: rotate(270deg);
+    top: 65%;
+  }
+
+  /* Back to top-left */
+  100% {
+    top: 0;
+    left: 0;
+    transform: rotate(270deg);
+  }
+}
+.problem-bg-animation-2::after {
+  content: "";
+  background-image: url("/problem-bg-vector.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 169px;
+  height: 169px;
+  max-height: 100%;
+  max-width: 100%;
+  z-index: 10;
+  animation: travelAroundBordersss 8s linear infinite;
+  animation-delay: 6s;
+}
+
+@keyframes travelAroundBordersss {
+  /* Start: top-left */
+  0% {
+    top: 0;
+    left: 0;
+    transform: rotate(0deg);
+  }
+
+  /* Reach top-right */
+  25% {
+    top: 0;
+    left: 79.3%;
+    transform: rotate(0deg);
+  }
+
+  /* Rotate at top-right */
+  25.1% {
+    transform: rotate(90deg);
+  }
+
+  /* Reach bottom-right */
+  50% {
+    top: calc(65% - 12px);
+    left: 79.3%;
+    transform: rotate(90deg);
+  }
+
+  /* Rotate at bottom-right */
+  50.1% {
+    transform: rotate(180deg);
+    top: 65%
+  }
+  /* Reach bottom-left */
+  75% {
+    top: 65%;
+    left: 0;
+    transform: rotate(180deg);
+  }
+
+  /* Rotate at bottom-left */
+  75.1% {
+    transform: rotate(270deg);
+    top: 65%;
+  }
+
+  /* Back to top-left */
+  100% {
+    top: 0;
+    left: 0;
+    transform: rotate(270deg);
   }
 }
