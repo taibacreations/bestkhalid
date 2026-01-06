@@ -448,18 +448,7 @@ svg.swiper-navigation-icon {
   animation: rotateDotFast 7s linear infinite; /* Faster - 4 seconds */
 }
 
-
-
 @keyframes rotateDotFast {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes rotateBarSlow {
   0% {
     transform: rotate(0deg);
   }
@@ -472,28 +461,10 @@ svg.swiper-navigation-icon {
   .curve-blue::after {
     transform-origin: 8px 308px; /* 300 + 8 */
   }
-  
+
   .curve-blue::before {
     transform-origin: 151.5px 310px;
   }
-}
-.curve-blue::before {
-  content: "";
-  background: linear-gradient(180deg, #2e90fa 0.29%, #2e90fa 82.84%);
-  box-shadow: 0px 4px 18.5px 0px #2e90fa;
-  display: none;
-  width: 303px;
-  height: 20px;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  margin-left: -151.5px;
-  margin-top: -10px;
-  transform-origin: 151.5px 606px;
-  border-radius: 50px;
-  clip-path: ellipse(151.5px 10px at 50% 50%);
-  z-index: 998;
-  animation: rotateBarSlow 6.8s linear infinite; /* Slower - 8 seconds */
 }
 .solution-point {
   position: relative;
@@ -509,8 +480,8 @@ svg.swiper-navigation-icon {
     transparent 0deg,
     transparent 340deg,
     rgba(123, 182, 255, 0.3) 350deg,
-    #7BB6FF 355deg,
-    #7BB6FF 360deg
+    #7bb6ff 355deg,
+    #7bb6ff 360deg
   );
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: destination-out;

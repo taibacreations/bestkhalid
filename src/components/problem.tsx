@@ -1,12 +1,21 @@
 import Image from "next/image";
-import Revolving from "./revolving";
+import Circle from "./circle";
 
 const Problem = () => {
   return (
-    <section id="the-problem" className="-mt-7 relative lg:min-h-[110vh] py-5 lg:py-0 bg-[#0A0A0A] overflow-hidden xl:px-10 px-5">
-      <Image src="/names.png" height={100} width={100} alt="name" className="2xl:max-w-[1075px] 2xl:max-h-[1075px] xl:max-w-[600px] xl:max-h-[600px] lg:max-w-[500px] lg:max-h-[500px] max-w-[400px] max-h-[400px] w-full h-full 2xl:-top-[7vh] -top-[5vh] object-contain absolute 2xl:-right-[20.5vw] names z-30 hidden md:block"/>
-      <div className="absolute 2xl:-right-[55vw] -right-[75vw] -top-[18vh] revolving hidden md:block">
-        <Revolving />
+    <section
+      id="the-problem"
+      className="-mt-7 relative lg:min-h-[110vh] py-5 lg:py-0 bg-[#0A0A0A] overflow-hidden xl:px-10 px-5"
+    >
+      <Image
+        src="/names.png"
+        height={100}
+        width={100}
+        alt="name"
+        className="2xl:max-w-[1075px] 2xl:max-h-[1075px] xl:max-w-[600px] xl:max-h-[600px] lg:max-w-[500px] lg:max-h-[500px] max-w-[400px] max-h-[400px] w-full h-full 2xl:-top-[7vh] -top-[5vh] object-contain absolute 2xl:-right-[20.5vw] names z-30 hidden md:block"
+      />
+      <div className="absolute 2xl:-right-[55.5vw] -right-[75vw] lg:-top-[22vh] top-[-33vh] revolving hidden md:block">
+          <Circle />
       </div>
       <Image
         src="/macbook.svg"
@@ -27,15 +36,17 @@ const Problem = () => {
           className="lg:w-[100px] w-[70px] lg:h-[196px] h-auto lg:mb-10 mb-8"
         />
       </div>
-      <div className="absolute -right-[56%] hidden">
-        <Revolving />
-      </div>
       <div>
         <div className="text-center 2xl:max-w-[988px] xl:max-w-[900px] lg:max-w-[800px] md:max-w-[600px] max-w-full mx-auto">
           <div className="2xl:max-w-[842px] xl:max-w-[780px] lg:max-w-[700px] md:max-w-[550px] max-w-full mx-auto">
             <h5 className="font-bricolage font-normal 2xl:text-[28px] xl:text-[24px] lg:text-[22px] text-[20px] tracking-[-0.07em] capitalize text-white -mb-2">
-              <span className="2xl:text-[40px] xl:text-[36px] lg:text-[30px] text-[26px]">[</span> The Problem{" "}
-              <span className="2xl:text-[40px] xl:text-[36px] lg:text-[30px] text-[26px]">]</span>
+              <span className="2xl:text-[40px] xl:text-[36px] lg:text-[30px] text-[26px]">
+                [
+              </span>{" "}
+              The Problem{" "}
+              <span className="2xl:text-[40px] xl:text-[36px] lg:text-[30px] text-[26px]">
+                ]
+              </span>
             </h5>
             <h3 className="xl:mt-4 mt-2 font-bricolage font-bold 2xl:text-[48px] xl:text-[42px] lg:text-[38px] md:text-[32px] text-[30px] tracking-[-0.03em] leading-[142%] capitalize text-white">
               Your Website{" "}
