@@ -646,6 +646,22 @@ svg.swiper-navigation-icon {
 
   /* Rotate at top-right */
   25.1% {
+    transform: rotate(18deg);
+  }
+  /* Rotate at top-right */
+  25.2% {
+    transform: rotate(36deg);
+  }
+  /* Rotate at top-right */
+  25.3% {
+    transform: rotate(54deg);
+  }
+  /* Rotate at top-right */
+  25.4% {
+    transform: rotate(72deg);
+  }
+  /* Rotate at top-right */
+  25.5% {
     transform: rotate(90deg);
   }
 
