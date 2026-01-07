@@ -433,469 +433,731 @@ svg.swiper-navigation-icon {
 
 @media screen and (min-width: 1537px) {
   .li-1::before {
-  content: ".";
-  position: absolute;
-  left: 19%;
-  top: 4%;
-  font-size: 40px !important;
-}
-.li-2::before {
-  content: ".";
-  position: absolute;
-  left: 15.5%;
-  top: 4%;
-  font-size: 40px !important;
-} 
-.li-3::before {
-  content: ".";
-  position: absolute;
-  left: 22%;
-  top: 4%;
-  font-size: 40px !important;
-} 
+    content: ".";
+    position: absolute;
+    left: 19%;
+    top: 4%;
+    font-size: 40px !important;
+  }
+  .li-2::before {
+    content: ".";
+    position: absolute;
+    left: 15.5%;
+    top: 4%;
+    font-size: 40px !important;
+  }
+  .li-3::before {
+    content: ".";
+    position: absolute;
+    left: 22%;
+    top: 4%;
+    font-size: 40px !important;
+  }
 
-.li-4::before {
-  content: ".";
-  position: absolute;
-  left: 16%;
-  top: 4%;
-  font-size: 40px !important;
-} 
-.li-5::before {
-  content: ".";
-  position: absolute;
-  left: 11%;
-  top: 4%;
-  font-size: 40px !important;
-} 
-.li-6::before {
-  content: ".";
-  position: absolute;
-  left: 17%;
-  top: 4%;
-  font-size: 40px !important;
-} 
+  .li-4::before {
+    content: ".";
+    position: absolute;
+    left: 16%;
+    top: 4%;
+    font-size: 40px !important;
+  }
+  .li-5::before {
+    content: ".";
+    position: absolute;
+    left: 11%;
+    top: 4%;
+    font-size: 40px !important;
+  }
+  .li-6::before {
+    content: ".";
+    position: absolute;
+    left: 17%;
+    top: 4%;
+    font-size: 40px !important;
+  }
 }
 
 @media screen and (max-width: 1536px) {
   .li-1::before {
-  content: ".";
-  position: absolute;
-  left: 17%;
-  top: 4%;
-  font-size: 40px !important;
-}
-.li-2::before {
-  content: ".";
-  position: absolute;
-  left: 14%;
-  top: 4%;
-  font-size: 40px !important;
-} 
-.li-3::before {
-  content: ".";
-  position: absolute;
-  left: 20%;
-  top: 4%;
-  font-size: 40px !important;
-} 
+    content: ".";
+    position: absolute;
+    left: 17%;
+    top: 4%;
+    font-size: 40px !important;
+  }
+  .li-2::before {
+    content: ".";
+    position: absolute;
+    left: 14%;
+    top: 4%;
+    font-size: 40px !important;
+  }
+  .li-3::before {
+    content: ".";
+    position: absolute;
+    left: 20%;
+    top: 4%;
+    font-size: 40px !important;
+  }
 
-.li-4::before {
-  content: ".";
-  position: absolute;
-  left: 14%;
-  top: 4%;
-  font-size: 40px !important;
-} 
-.li-5::before {
-  content: ".";
-  position: absolute;
-  left: 9%;
-  top: 4%;
-  font-size: 40px !important;
-} 
-.li-6::before {
-  content: ".";
-  position: absolute;
-  left: 15%;
-  top: 4%;
-  font-size: 40px !important;
-} 
+  .li-4::before {
+    content: ".";
+    position: absolute;
+    left: 14%;
+    top: 4%;
+    font-size: 40px !important;
+  }
+  .li-5::before {
+    content: ".";
+    position: absolute;
+    left: 9%;
+    top: 4%;
+    font-size: 40px !important;
+  }
+  .li-6::before {
+    content: ".";
+    position: absolute;
+    left: 15%;
+    top: 4%;
+    font-size: 40px !important;
+  }
 }
 
 @media screen and (max-width: 1023px) {
   .li-1::before {
-  content: ".";
-  position: absolute;
-  left: 17%;
-  top: 4%;
-  font-size: 30px !important;
-}
-.li-2::before {
-  content: ".";
-  position: absolute;
-  left: 14%;
-  top: 4%;
-  font-size: 30px !important;
-} 
-.li-3::before {
-  content: ".";
-  position: absolute;
-  left: 15%;
-  top: 1%;
-  font-size: 30px !important;
-} 
+    content: ".";
+    position: absolute;
+    left: 17%;
+    top: 4%;
+    font-size: 30px !important;
+  }
+  .li-2::before {
+    content: ".";
+    position: absolute;
+    left: 14%;
+    top: 4%;
+    font-size: 30px !important;
+  }
+  .li-3::before {
+    content: ".";
+    position: absolute;
+    left: 15%;
+    top: 1%;
+    font-size: 30px !important;
+  }
 
-.li-4::before {
-  content: ".";
-  position: absolute;
-  left: 14%;
-  top: 4%;
-  font-size: 30px !important;
-} 
-.li-5::before {
-  content: ".";
-  position: absolute;
-  left: 9%;
-  top: 4%;
-  font-size: 30px !important;
-} 
-.li-6::before {
-  content: ".";
-  position: absolute;
-  left: 9%;
-  top: 0%;
-  font-size: 30px !important;
-} 
+  .li-4::before {
+    content: ".";
+    position: absolute;
+    left: 14%;
+    top: 4%;
+    font-size: 30px !important;
+  }
+  .li-5::before {
+    content: ".";
+    position: absolute;
+    left: 9%;
+    top: 4%;
+    font-size: 30px !important;
+  }
+  .li-6::before {
+    content: ".";
+    position: absolute;
+    left: 9%;
+    top: 0%;
+    font-size: 30px !important;
+  }
 }
 
 @media screen and (max-width: 767px) {
   .li-1::before {
-  content: ".";
-  position: absolute;
-  left: 8%;
-  top: 25%;
-  font-size: 30px !important;
-}
-.li-2::before {
-  content: ".";
-  position: absolute;
-  left: 8%;
-  top: 28%;
-  font-size: 30px !important;
-} 
-.li-3::before {
-  content: ".";
-  position: absolute;
-  left: 8%;
-  top: 18%;
-  font-size: 30px !important;
-} 
+    content: ".";
+    position: absolute;
+    left: 8%;
+    top: 25%;
+    font-size: 30px !important;
+  }
+  .li-2::before {
+    content: ".";
+    position: absolute;
+    left: 8%;
+    top: 28%;
+    font-size: 30px !important;
+  }
+  .li-3::before {
+    content: ".";
+    position: absolute;
+    left: 8%;
+    top: 18%;
+    font-size: 30px !important;
+  }
 
-.li-4::before {
-  content: ".";
-  position: absolute;
-  left: 8%;
-  top: 28%;
-  font-size: 30px !important;
-} 
-.li-5::before {
-  content: ".";
-  position: absolute;
-  left: 8%;
-  top: 18%;
-  font-size: 30px !important;
-} 
-.li-6::before {
-  content: ".";
-  position: absolute;
-  left: 6%;
-  top: 27%;
-  font-size: 30px !important;
-} 
-}
-
-.problem-bg-animation::after {
-  content: "";
-  background-image: url("/problem-bg-vector.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  position: absolute;
-  width: 169px;
-  height: 169px;
-  max-height: 100%;
-  max-width: 100%;
-  z-index: 10;
-  animation: travelAroundBorder 8s linear infinite;
+  .li-4::before {
+    content: ".";
+    position: absolute;
+    left: 8%;
+    top: 28%;
+    font-size: 30px !important;
+  }
+  .li-5::before {
+    content: ".";
+    position: absolute;
+    left: 8%;
+    top: 18%;
+    font-size: 30px !important;
+  }
+  .li-6::before {
+    content: ".";
+    position: absolute;
+    left: 6%;
+    top: 27%;
+    font-size: 30px !important;
+  }
 }
 
-@keyframes travelAroundBorder {
-  /* Start: top-left */
+header {
+  animation: headermove 1s ease-in;
+}
+
+@keyframes headermove {
   0% {
-    top: 0;
-    left: 0;
-    transform: rotate(0deg);
+    top: -10%;
+    opacity: 0;
   }
-
-  /* Reach top-right */
-  25% {
-    top: 0;
-    left: 79.3%;
-    transform: rotate(0deg);
-  }
-
-  /* Rotate at top-right */
-  25.1% {
-    transform: rotate(18deg);
-  }
-  /* Rotate at top-right */
-  25.2% {
-    transform: rotate(36deg);
-  }
-  /* Rotate at top-right */
-  25.3% {
-    transform: rotate(54deg);
-  }
-  /* Rotate at top-right */
-  25.4% {
-    transform: rotate(72deg);
-  }
-  /* Rotate at top-right */
-  25.5% {
-    transform: rotate(90deg);
-  }
-
-  /* Reach bottom-right */
   50% {
-    top: calc(65% - 12px);
-    left: 79.3%;
-    transform: rotate(90deg);
+    top: -5%;
+    opacity: 0.5;
   }
-
-  /* Rotate at bottom-right */
-  50.1% {
-    transform: rotate(180deg);
-    top: 65%
-  }
-  /* Reach bottom-left */
-  75% {
-    top: 65%;
-    left: 0;
-    transform: rotate(180deg);
-  }
-
-  /* Rotate at bottom-left */
-  75.1% {
-    transform: rotate(270deg);
-    top: 65%;
-  }
-
-  /* Back to top-left */
   100% {
     top: 0;
-    left: 0;
-    transform: rotate(270deg);
   }
 }
 
-.problem-bg-animation::before {
+@media screen and (min-width: 1537px) {
+  /* COMMON VECTOR STYLE */
+  .problem-bg-animation::before,
+  .problem-bg-animation::after,
+  .problem-bg-animation-2::before,
+  .problem-bg-animation-2::after {
+    content: "";
+    background-image: url("/problem-bg-vector.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 169px;
+    height: 169px;
+    max-width: 100%;
+    max-height: 100%;
+    z-index: 10;
+    animation: travelAroundBorder 8s linear infinite;
+  }
+
+  /* DELAYS */
+  .problem-bg-animation::after {
+    animation-delay: 0s;
+  }
+  .problem-bg-animation::before {
+    animation-delay: 2s;
+  }
+  .problem-bg-animation-2::before {
+    animation-delay: 4s;
+  }
+  .problem-bg-animation-2::after {
+    animation-delay: 6s;
+  }
+
+  /* KEYFRAMES (UNCHANGED LOGIC) */
+  @keyframes travelAroundBorder {
+    0% {
+      top: 0;
+      left: 0;
+      transform: rotate(0deg);
+    }
+
+    25% {
+      top: 0;
+      left: 79.3%;
+      transform: rotate(0deg);
+    }
+
+    25.1% {
+      transform: rotate(18deg);
+    }
+    25.2% {
+      transform: rotate(36deg);
+    }
+    25.3% {
+      transform: rotate(54deg);
+    }
+    25.4% {
+      transform: rotate(72deg);
+    }
+    25.5% {
+      transform: rotate(90deg);
+    }
+
+    50% {
+      top: calc(65% - 12px);
+      left: 79.3%;
+      transform: rotate(90deg);
+    }
+
+    50.1% {
+      top: 65%;
+      transform: rotate(180deg);
+    }
+
+    75% {
+      top: 65%;
+      left: 0;
+      transform: rotate(180deg);
+    }
+
+    75.1% {
+      top: 65%;
+      transform: rotate(270deg);
+    }
+
+    100% {
+      top: 0;
+      left: 0;
+      transform: rotate(270deg);
+    }
+  }
+}
+
+@media screen and (max-width: 1536px) {
+  /* COMMON VECTOR STYLE */
+  .problem-bg-animation::before,
+  .problem-bg-animation::after,
+  .problem-bg-animation-2::before,
+  .problem-bg-animation-2::after {
+    content: "";
+    background-image: url("/problem-bg-vector.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 169px;
+    height: 169px;
+    max-width: 100%;
+    max-height: 100%;
+    z-index: 10;
+    animation: travelAroundBorder 8s linear infinite;
+  }
+
+  /* DELAYS */
+  .problem-bg-animation::after {
+    animation-delay: 0s;
+  }
+  .problem-bg-animation::before {
+    animation-delay: 2s;
+  }
+  .problem-bg-animation-2::before {
+    animation-delay: 4s;
+  }
+  .problem-bg-animation-2::after {
+    animation-delay: 6s;
+  }
+
+  /* KEYFRAMES (UNCHANGED LOGIC) */
+  @keyframes travelAroundBorder {
+    0% {
+      top: 0;
+      left: 0;
+      transform: rotate(0deg);
+    }
+
+    25% {
+      top: 0;
+      left: 77.2%;
+      transform: rotate(0deg);
+    }
+
+    25.1% {
+      transform: rotate(18deg);
+    }
+    25.2% {
+      transform: rotate(36deg);
+    }
+    25.3% {
+      transform: rotate(54deg);
+    }
+    25.4% {
+      transform: rotate(72deg);
+    }
+    25.5% {
+      transform: rotate(90deg);
+    }
+
+    50% {
+      top: calc(55% - 12px);
+      left: 77.2%;
+      transform: rotate(90deg);
+    }
+
+    50.1% {
+      top: 55%;
+      transform: rotate(180deg);
+    }
+
+    75% {
+      top: 55%;
+      left: 0;
+      transform: rotate(180deg);
+    }
+
+    75.1% {
+      top: 55%;
+      transform: rotate(270deg);
+    }
+
+    100% {
+      top: 0;
+      left: 0;
+      transform: rotate(270deg);
+    }
+  }
+}
+
+@media screen and (max-width: 1279px) {
+  /* COMMON VECTOR STYLE */
+  .problem-bg-animation::before,
+  .problem-bg-animation::after,
+  .problem-bg-animation-2::before,
+  .problem-bg-animation-2::after {
+    content: "";
+    background-image: url("/problem-bg-vector.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 169px;
+    height: 169px;
+    max-width: 100%;
+    max-height: 100%;
+    z-index: 10;
+    animation: travelAroundBorder 8s linear infinite;
+  }
+
+  /* DELAYS */
+  .problem-bg-animation::after {
+    animation-delay: 0s;
+  }
+  .problem-bg-animation::before {
+    animation-delay: 2s;
+  }
+  .problem-bg-animation-2::before {
+    animation-delay: 4s;
+  }
+  .problem-bg-animation-2::after {
+    animation-delay: 6s;
+  }
+
+  /* KEYFRAMES (UNCHANGED LOGIC) */
+  @keyframes travelAroundBorder {
+    0% {
+      top: 0;
+      left: 0;
+      transform: rotate(0deg);
+    }
+
+    25% {
+      top: 0;
+      left: 72%;
+      transform: rotate(0deg);
+    }
+
+    25.1% {
+      transform: rotate(18deg);
+    }
+    25.2% {
+      transform: rotate(36deg);
+    }
+    25.3% {
+      transform: rotate(54deg);
+    }
+    25.4% {
+      transform: rotate(72deg);
+    }
+    25.5% {
+      transform: rotate(90deg);
+    }
+
+    50% {
+      top: calc(48% - 12px);
+      left: 72%;
+      transform: rotate(90deg);
+    }
+
+    50.1% {
+      top: 48%;
+      transform: rotate(180deg);
+    }
+
+    75% {
+      top: 48%;
+      left: 0;
+      transform: rotate(180deg);
+    }
+
+    75.1% {
+      top: 48%;
+      transform: rotate(270deg);
+    }
+
+    100% {
+      top: 0;
+      left: 0;
+      transform: rotate(270deg);
+    }
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  /* COMMON VECTOR STYLE */
+  .problem-bg-animation::before,
+  .problem-bg-animation::after,
+  .problem-bg-animation-2::before,
+  .problem-bg-animation-2::after {
+    content: "";
+    background-image: url("/problem-bg-vector.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 169px;
+    height: 169px;
+    max-width: 100%;
+    max-height: 100%;
+    z-index: 10;
+    animation: travelAroundBorder 8s linear infinite;
+  }
+
+  /* DELAYS */
+  .problem-bg-animation::after {
+    animation-delay: 0s;
+  }
+  .problem-bg-animation::before {
+    animation-delay: 2s;
+  }
+  .problem-bg-animation-2::before {
+    animation-delay: 4s;
+  }
+  .problem-bg-animation-2::after {
+    animation-delay: 6s;
+  }
+
+  /* KEYFRAMES (UNCHANGED LOGIC) */
+  @keyframes travelAroundBorder {
+    0% {
+      top: 0;
+      left: 0;
+      transform: rotate(0deg);
+    }
+
+    25% {
+      top: 0;
+      left: 66%;
+      transform: rotate(0deg);
+    }
+
+    25.1% {
+      transform: rotate(18deg);
+    }
+    25.2% {
+      transform: rotate(36deg);
+    }
+    25.3% {
+      transform: rotate(54deg);
+    }
+    25.4% {
+      transform: rotate(72deg);
+    }
+    25.5% {
+      transform: rotate(90deg);
+    }
+
+    50% {
+      top: calc(35% - 12px);
+      left: 66%;
+      transform: rotate(90deg);
+    }
+
+    50.1% {
+      top: 35%;
+      transform: rotate(180deg);
+    }
+
+    75% {
+      top: 35%;
+      left: 0;
+      transform: rotate(180deg);
+    }
+
+    75.1% {
+      top: 35%;
+      transform: rotate(270deg);
+    }
+
+    100% {
+      top: 0;
+      left: 0;
+      transform: rotate(270deg);
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  /* COMMON VECTOR STYLE */
+  .problem-bg-animation::before,
+  .problem-bg-animation::after,
+  .problem-bg-animation-2::before,
+  .problem-bg-animation-2::after {
+    content: "";
+    background-image: url("/problem-bg-vector.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 169px;
+    height: 169px;
+    max-width: 100%;
+    max-height: 100%;
+    z-index: 10;
+    animation: travelAroundBorder 8s linear infinite;
+  }
+
+  /* DELAYS */
+  .problem-bg-animation::after {
+    animation-delay: 0s;
+  }
+  .problem-bg-animation::before {
+    animation-delay: 2s;
+  }
+  .problem-bg-animation-2::before {
+    animation-delay: 4s;
+  }
+  .problem-bg-animation-2::after {
+    animation-delay: 6s;
+  }
+
+  /* KEYFRAMES (UNCHANGED LOGIC) */
+  @keyframes travelAroundBorder {
+    0% {
+      top: 0;
+      left: 0;
+      transform: rotate(0deg);
+    }
+
+    25% {
+      top: 0;
+      left: 56%;
+      transform: rotate(0deg);
+    }
+
+    25.1% {
+      transform: rotate(18deg);
+    }
+    25.2% {
+      transform: rotate(36deg);
+    }
+    25.3% {
+      transform: rotate(54deg);
+    }
+    25.4% {
+      transform: rotate(72deg);
+    }
+    25.5% {
+      transform: rotate(90deg);
+    }
+
+    50% {
+      top: calc(22% - 12px);
+      left: 56%;
+      transform: rotate(90deg);
+    }
+
+    50.1% {
+      top: 22%;
+      transform: rotate(180deg);
+    }
+
+    75% {
+      top: 22%;
+      left: 0;
+      transform: rotate(180deg);
+    }
+
+    75.1% {
+      top: 22%;
+      transform: rotate(270deg);
+    }
+
+    100% {
+      top: 0;
+      left: 0;
+      transform: rotate(270deg);
+    }
+  }
+}
+
+/* .li {
+  overflow: hidden;
+}
+
+.lii::after {
   content: "";
-  background-image: url("/problem-bg-vector.png");
-  background-size: contain;
-  background-repeat: no-repeat;
   position: absolute;
-  width: 169px;
-  height: 169px;
-  max-height: 100%;
-  max-width: 100%;
-  z-index: 10;
-  animation: travelAroundBorders 8s linear infinite;
-  animation-delay: 2s;
+  top: 0%;
+  left: 50%;
+  width: 110% !important;
+  height: 110%;
+  background: linear-gradient(180deg, #000000 0%, #7ab4fd 50%, #000000 100%);
+  border-radius: 32px;
+  transform: translate(-50%, -50%) rotate(25deg);
+  animation: rotation 5s infinite linear;
+  transform-origin: center;
+  z-index: -1;
+  padding: 20px;
+  margin: 20px;
 }
 
-@keyframes travelAroundBorders {
-  /* Start: top-left */
+.lii::after {
+  content: "";
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  width: 110% !important;
+  height: 110%;
+  background: linear-gradient(180deg, #000000 0%, #7ab4fd 50%, #000000 100%);
+  border-radius: 32px;
+  transform: translate(-50%, -50%) rotate(25deg);
+  animation: rotation 5s infinite linear;
+  transform-origin: center;
+  z-index: -1;
+  padding: 20px;
+  margin: 20px;
+}
+
+@keyframes rotation {
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+} */
+
+#btn {
+  animation: buttoncomes 1s ease-in-out;
+  overflow: hidden;
+  animation-delay: .5s;
+}
+@keyframes buttoncomes {
   0% {
-    top: 0;
-    left: 0;
-    transform: rotate(0deg);
+    top: -100;
+    opacity: 0;
   }
-
-  /* Reach top-right */
-  25% {
-    top: 0;
-    left: 79.3%;
-    transform: rotate(0deg);
-  }
-
-  /* Rotate at top-right */
-  25.1% {
-    transform: rotate(90deg);
-  }
-
-  /* Reach bottom-right */
   50% {
-    top: calc(65% - 12px);
-    left: 79.3%;
-    transform: rotate(90deg);
+    top: -50;
+    opacity: 1;
   }
-
-  /* Rotate at bottom-right */
-  50.1% {
-    transform: rotate(180deg);
-    top: 65%
-  }
-  /* Reach bottom-left */
-  75% {
-    top: 65%;
-    left: 0;
-    transform: rotate(180deg);
-  }
-
-  /* Rotate at bottom-left */
-  75.1% {
-    transform: rotate(270deg);
-    top: 65%;
-  }
-
-  /* Back to top-left */
   100% {
     top: 0;
-    left: 0;
-    transform: rotate(270deg);
-  }
-}
-.problem-bg-animation-2::before {
-  content: "";
-  background-image: url("/problem-bg-vector.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  position: absolute;
-  width: 169px;
-  height: 169px;
-  max-height: 100%;
-  max-width: 100%;
-  z-index: 10;
-  animation: travelAroundBorderss 8s linear infinite;
-  animation-delay: 4s;
-}
-
-@keyframes travelAroundBorderss {
-  /* Start: top-left */
-  0% {
-    top: 0;
-    left: 0;
-    transform: rotate(0deg);
-  }
-
-  /* Reach top-right */
-  25% {
-    top: 0;
-    left: 79.3%;
-    transform: rotate(0deg);
-  }
-
-  /* Rotate at top-right */
-  25.1% {
-    transform: rotate(90deg);
-  }
-
-  /* Reach bottom-right */
-  50% {
-    top: calc(65% - 12px);
-    left: 79.3%;
-    transform: rotate(90deg);
-  }
-
-  /* Rotate at bottom-right */
-  50.1% {
-    transform: rotate(180deg);
-    top: 65%
-  }
-  /* Reach bottom-left */
-  75% {
-    top: 65%;
-    left: 0;
-    transform: rotate(180deg);
-  }
-
-  /* Rotate at bottom-left */
-  75.1% {
-    transform: rotate(270deg);
-    top: 65%;
-  }
-
-  /* Back to top-left */
-  100% {
-    top: 0;
-    left: 0;
-    transform: rotate(270deg);
-  }
-}
-.problem-bg-animation-2::after {
-  content: "";
-  background-image: url("/problem-bg-vector.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  position: absolute;
-  width: 169px;
-  height: 169px;
-  max-height: 100%;
-  max-width: 100%;
-  z-index: 10;
-  animation: travelAroundBordersss 8s linear infinite;
-  animation-delay: 6s;
-}
-
-@keyframes travelAroundBordersss {
-  /* Start: top-left */
-  0% {
-    top: 0;
-    left: 0;
-    transform: rotate(0deg);
-  }
-
-  /* Reach top-right */
-  25% {
-    top: 0;
-    left: 79.3%;
-    transform: rotate(0deg);
-  }
-
-  /* Rotate at top-right */
-  25.1% {
-    transform: rotate(90deg);
-  }
-
-  /* Reach bottom-right */
-  50% {
-    top: calc(65% - 12px);
-    left: 79.3%;
-    transform: rotate(90deg);
-  }
-
-  /* Rotate at bottom-right */
-  50.1% {
-    transform: rotate(180deg);
-    top: 65%
-  }
-  /* Reach bottom-left */
-  75% {
-    top: 65%;
-    left: 0;
-    transform: rotate(180deg);
-  }
-
-  /* Rotate at bottom-left */
-  75.1% {
-    transform: rotate(270deg);
-    top: 65%;
-  }
-
-  /* Back to top-left */
-  100% {
-    top: 0;
-    left: 0;
-    transform: rotate(270deg);
+    opacity: 1;
   }
 }

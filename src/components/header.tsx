@@ -10,8 +10,6 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
-  const headerRef = useRef<HTMLDivElement>(null);
-
   const navItems = [
     { label: "Home", href: "#" },
     { label: "The Problem", href: "#the-problem" },
@@ -86,21 +84,8 @@ const Header = () => {
     return () => clearTimeout(timer);
   }, [isMenuOpen]);
 
-  // Animate entire header from top on page load
-  useEffect(() => {
-    if (!headerRef.current) return;
-    gsap.from(headerRef.current, {
-      y: -1000,
-      overflow: "hidden",
-      opacity: 0,
-      duration: 1.2,
-      ease: "power3.out",
-    });
-  }, []);
-
   return (
     <header
-      ref={headerRef}
       className={`fixed left-0 w-full z-50 transition-all duration-300 ${
         scrolled
           ? "bg-[#001f33]/80 backdrop-blur-md border-b border-[#37ACFF]/20"
