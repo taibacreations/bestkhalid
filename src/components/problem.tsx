@@ -1,7 +1,71 @@
+"use client";
 import Image from "next/image";
 import Circle from "./circle";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
 
 const Problem = () => {
+  const wrapWordsInSpans = (text: string) => {
+    return text.split(" ").map((word, i) => (
+      <span
+        key={i}
+        className="inline-block overflow-hidden align-top"
+        style={{ lineHeight: "1" }}
+      >
+        <span className="inline-block">{word}&nbsp;</span>
+      </span>
+    ));
+  };
+
+  const problemH5Ref = useRef<HTMLHeadingElement>(null);
+  const problemH3Ref = useRef<HTMLHeadingElement>(null);
+  const problemPRef = useRef<HTMLParagraphElement>(null); // ✅ Ref for paragraph
+
+  // Animation for headings (with bounce)
+  const animateWithBounce = (target: HTMLElement | null) => {
+    if (!target) return;
+    const words = target.querySelectorAll("span > span");
+    gsap.fromTo(
+      words,
+      { y: "-120%", opacity: 0 },
+      {
+        y: "5%",
+        opacity: 1,
+        duration: 0.9,
+        ease: "power2.out",
+        stagger: 0.04,
+        onComplete: () => {
+          gsap.to(words, {
+            y: 0,
+            duration: 0.4,
+            ease: "elastic.out(0.8, 0.5)",
+          });
+        },
+      }
+    );
+  };
+
+  // ✅ Animation for paragraph (NO bounce — smooth only)
+  const animateParagraph = (target: HTMLElement | null) => {
+    if (!target) return;
+    gsap.fromTo(
+      target.querySelectorAll("span > span"),
+      { y: "-100%", opacity: 0 },
+      { y: 0, opacity: 1, duration: 1.1, ease: "power3.out", stagger: 0.04, delay: 0.15 }
+    );
+  };
+
+  // Trigger all animations
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      animateWithBounce(problemH5Ref.current);
+      animateWithBounce(problemH3Ref.current);
+      animateParagraph(problemPRef.current); // ✅ Animate paragraph
+    });
+
+    return () => ctx.revert();
+  }, []);
+
   return (
     <section
       id="the-problem"
@@ -39,27 +103,31 @@ const Problem = () => {
       <div>
         <div className="text-center 2xl:max-w-[988px] xl:max-w-[900px] lg:max-w-[800px] md:max-w-[600px] max-w-full mx-auto">
           <div className="2xl:max-w-[842px] xl:max-w-[780px] lg:max-w-[700px] md:max-w-[550px] max-w-full mx-auto">
-            <h5 className="font-bricolage font-normal 2xl:text-[28px] xl:text-[24px] lg:text-[22px] text-[20px] tracking-[-0.07em] capitalize text-white -mb-2">
-              <span className="2xl:text-[40px] xl:text-[36px] lg:text-[30px] text-[26px]">
-                [
-              </span>{" "}
-              The Problem{" "}
-              <span className="2xl:text-[40px] xl:text-[36px] lg:text-[30px] text-[26px]">
-                ]
-              </span>
+            <h5
+              ref={problemH5Ref}
+              className="font-bricolage font-normal 2xl:text-[28px] xl:text-[24px] lg:text-[22px] text-[20px] tracking-[-0.07em] capitalize text-white -mb-2"
+            >
+              {wrapWordsInSpans(`[ The Problem ]`)}
             </h5>
-            <h3 className="xl:mt-4 mt-2 font-bricolage font-bold 2xl:text-[48px] xl:text-[42px] lg:text-[38px] md:text-[32px] text-[30px] tracking-[-0.03em] leading-[142%] capitalize text-white">
-              Your Website{" "}
-              <span className="text-white">Shouldn`t Be Why Patients</span>{" "}
-              <span className="text-white font-tartuffo font-thin tracking-[0.01em]">
-                Choose Your Competitor
-              </span>
+
+            <h3
+              ref={problemH3Ref}
+              className="xl:mt-4 mt-2 font-bricolage font-bold 2xl:text-[48px] xl:text-[42px] lg:text-[38px] md:text-[32px] text-[30px] tracking-[-0.03em] leading-[142%] capitalize text-white"
+            >
+              {wrapWordsInSpans(
+                `Your Website Shouldn't Be Why Patients Choose Your Competitor`
+              )}
             </h3>
           </div>
-          <p className="xl:mt-5 mt-3 font-bricolage font-normal xl:text-[18px] text-[16px] tracking-[-0.01em] capitalize leading-[142%] text-white">
-            Most healthcare websites are outdated, hard to navigate, and don’t
-            reflect the quality of care you provide. In today`s digital-first
-            world, patients expect a seamless online experience
+
+          {/* ✅ Animated paragraph — no bounce */}
+          <p
+            ref={problemPRef}
+            className="xl:mt-5 mt-3 font-bricolage font-normal xl:text-[18px] text-[16px] tracking-[-0.01em] capitalize leading-[142%] text-white"
+          >
+            {wrapWordsInSpans(
+              "Most healthcare websites are outdated, hard to navigate, and don’t reflect the quality of care you provide. In today`s digital-first world, patients expect a seamless online experience"
+            )}
           </p>
         </div>
         <div className="bg-[#0E1A4A08] 2xl:h-[483px] 2xl:h-[400px] md:h-[380px] min-h-[300px] 2xl:w-[817px] xl:w-[750px] lg:w-[600px] md:w-[500px] max-w-full lg:ml-[35%] md:ml-[30%] relative 2xl:mt-13 xl:mt-10 mt-8 z-20 relative overflow-hidden rotating-border problem-bg-animation">
@@ -73,7 +141,7 @@ const Problem = () => {
           />
           <div className="flex md:justify-end justify-start items-center 2xl:mr-20 xl:mr-[-4vw] lg:mr-[-12vw] md:mr-[-24vw] points-margin">
             <ul className="font-bricolage font-bold 2xl:text-[28px] xl:text-[26px] lg:text-[22px] text-[18px] leading-[142%] tracking-[-0.01em] capitalize text-white flex flex-col gap-3 justify-center 2xl:mt-12 mt-10 lg:mt-8 md:mt-5 mt-8 list-disc list">
-              <li className="">Slow load times</li>
+              <li className="li-2">Slow load times</li>
               <Image
                 src="/li-border.png"
                 height={100}
@@ -81,7 +149,7 @@ const Problem = () => {
                 alt="border"
                 className="2xl:w-full xl:w-[80%] md:w-[60%] w-full h-[2px]"
               />
-              <li>Confusing appointment booking</li>
+              <li className="li-2">Confusing appointment booking</li>
               <Image
                 src="/li-border.png"
                 height={100}
@@ -89,7 +157,7 @@ const Problem = () => {
                 alt="border"
                 className="2xl:w-full xl:w-[80%] md:w-[60%] w-full h-[2px]"
               />
-              <li>Unclear services</li>
+              <li className="li-2">Unclear services</li>
               <Image
                 src="/li-border.png"
                 height={100}
@@ -97,7 +165,7 @@ const Problem = () => {
                 alt="border"
                 className="2xl:w-full xl:w-[80%] md:w-[60%] w-full h-[2px]"
               />
-              <li>Not mobile-friendly</li>
+              <li className="li-2">Not mobile-friendly</li>
               <Image
                 src="/li-border.png"
                 height={100}
@@ -105,7 +173,7 @@ const Problem = () => {
                 alt="border"
                 className="2xl:w-full xl:w-[80%] md:w-[60%] w-full h-[2px]"
               />
-              <li>Poor SEO</li>
+              <li className="li-2">Poor SEO</li>
             </ul>
           </div>
           <Image

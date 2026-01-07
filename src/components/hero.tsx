@@ -51,7 +51,7 @@ const Hero = () => {
 
       const tl = gsap.timeline({ repeat: -1 });
       const duration = 1.2;
-      const hold = 4;
+      const hold = 2;
 
       bgLayersRef.current.forEach((_, i) => {
         const next = (i + 1) % bgLayersRef.current.length;

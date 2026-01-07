@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import gsap from "gsap";
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenu_open, setIsMenuOpen] = useState(false);
   const [activeHash, setActiveHash] = useState("");
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
@@ -19,16 +19,62 @@ const Header = () => {
     { label: "Process", href: "#process" },
   ];
 
-  // Track scroll position
+  // ✅ CTA background images
+  const ctaBgImages = [
+    "/hire-1.png",
+    "/hire-2.png",
+    "/hire-3.png",
+    "/hire-4.png",
+    "/hire-5.png",
+  ];
+
+  const ctaBgLayersRef = useRef<(HTMLDivElement | null)[]>([]);
+
+  // Preload & animate CTA backgrounds
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
+    // Preload
+    ctaBgImages.forEach((src) => {
+      const img = new window.Image();
+      img.src = src;
+    });
+
+    // Animate on mount
+    const animateCtaBg = () => {
+      if (ctaBgLayersRef.current.length !== ctaBgImages.length) return;
+
+      gsap.set(ctaBgLayersRef.current, { autoAlpha: 0 });
+      gsap.set(ctaBgLayersRef.current[0], { autoAlpha: 1 });  
+
+      const tl = gsap.timeline({ repeat: -1 });
+      const duration = 0.8;
+      const hold = 2.4;
+
+      ctaBgLayersRef.current.forEach((_, i) => {
+        const next = (i + 1) % ctaBgLayersRef.current.length;
+        tl
+          .to(ctaBgLayersRef.current[i], { autoAlpha: 0, duration }, `+=${hold}`)
+          .to(ctaBgLayersRef.current[next], { autoAlpha: 1, duration }, `-=${duration}`);
+      });
+
+      return () => {
+        tl.kill();
+        gsap.killTweensOf(ctaBgLayersRef.current);
+      };
     };
+
+    // Slight delay to ensure DOM is ready
+    const timer = setTimeout(animateCtaBg, 100);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Scroll effect
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Track active hash
+  // Active hash tracking
   useEffect(() => {
     const handleHashChange = () => setActiveHash(window.location.hash);
     setActiveHash(window.location.hash);
@@ -66,9 +112,9 @@ const Header = () => {
     setIsMenuOpen(false);
   };
 
-  // Mobile menu animation (stagger items)
+  // Mobile menu animation
   useEffect(() => {
-    if (!isMenuOpen) return;
+    if (!isMenu_open) return;
     const timer = setTimeout(() => {
       const items = document.querySelectorAll(".gsap-mobile-item");
       if (items.length === 0) return;
@@ -82,7 +128,7 @@ const Header = () => {
       });
     }, 10);
     return () => clearTimeout(timer);
-  }, [isMenuOpen]);
+  }, [isMenu_open]);
 
   return (
     <header
@@ -111,7 +157,7 @@ const Header = () => {
                 <a
                   href={item.href}
                   onClick={(e) => handleAnchorClick(e, item.href)}
-                  className={`relative z-10 py-3 transition-colors cursor-pointer ${
+                  className={`relative z-10 py-3 transition-colors cursor-pointer hover:underline ${
                     isActive(item.href)
                       ? "text-white underline"
                       : "text-white/90 hover:text-white"
@@ -138,9 +184,20 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Desktop CTA Button */}
-          <div className="hidden md:flex shrink-0">
-            <button className="bg-[#003459] text-white w-[100px] lg:w-[130px] xl:w-[150px] 2xl:w-[165px] h-[50px] 2xl:h-[59px] rounded-[334px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize button-border shadow-button underline">
+          {/* ✅ Desktop CTA Button with Animated Background */}
+          <div className="hidden md:flex shrink-0 relative">
+            {/* Background layers */}
+            {ctaBgImages.map((src, i) => (
+              <div
+                key={i}
+                ref={(el) => {ctaBgLayersRef.current[i] = el}}
+                className="absolute inset-0 rounded-[334px] bg-cover bg-center z-0"
+                style={{ backgroundImage: `url(${src})` }}
+              />
+            ))}
+
+            {/* Button content on top */}
+            <button className="relative bg-transparent text-white w-[100px] lg:w-[130px] xl:w-[150px] 2xl:w-[165px] h-[50px] 2xl:h-[59px] rounded-[334px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize underline z-10">
               <Image
                 src="/button-arrow.svg"
                 width={1000}
@@ -155,7 +212,7 @@ const Header = () => {
           {/* Mobile Menu Toggle */}
           <button
             className="md:hidden text-white p-1"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            onClick={() => setIsMenuOpen(!isMenu_open)}
             aria-label="Toggle navigation"
           >
             <svg
@@ -170,7 +227,7 @@ const Header = () => {
                 strokeLinejoin="round"
                 strokeWidth={2}
                 d={
-                  isMenuOpen
+                  isMenu_open
                     ? "M6 18L18 6M6 6l12 12"
                     : "M4 6h16M4 12h16M4 18h16"
                 }
@@ -179,8 +236,8 @@ const Header = () => {
           </button>
         </div>
 
-        {/* Mobile Menu Dropdown */}
-        {isMenuOpen && (
+        {/* Mobile Menu */}
+        {isMenu_open && (
           <div className="md:hidden mt-4 pb-4 px-6 bg-[#001f33]/95 backdrop-blur-sm rounded-xl border border-[#37ACFF]/20">
             <div className="flex flex-col gap-2 font-bricolage text-white text-[18px] font-normal tracking-[-0.07em] capitalize">
               {navItems.map((item) => (
