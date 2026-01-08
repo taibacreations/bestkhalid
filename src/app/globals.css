@@ -295,7 +295,7 @@ svg.swiper-navigation-icon {
     width: 220px;
   }
   .list {
-    margin-top: 20px;
+    margin-top: -20px !important;
   }
   .solution-points {
     height: 72px;
@@ -1175,5 +1175,11 @@ header {
   to {
     transform: translateY(0);
     opacity: 1;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .li-1::before,.lii-2::before,.li-3::before,.li-4::before,.li-5::before,.li-6::before {
+    display: none;
   }
 }

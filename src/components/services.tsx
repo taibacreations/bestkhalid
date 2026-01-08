@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Image from "next/image";
 import Servicespoints from "./services-points";
 import ServicespointsMobile from "./services-points-mobile";
@@ -69,6 +69,68 @@ const Services = () => {
     };
   }, []);
 
+useEffect(() => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  const mbook = document.querySelector("#mbook");
+  const points = document.querySelector("#service-points");
+  if (!points) return;
+
+  const duration = 1.6;
+  const start = "top 50%";
+
+  // Enhanced "from depth" animation
+  gsap.fromTo(
+    mbook,
+    {
+      scale: 1.35,     // start slightly larger (simulates "closer")
+      y: 40,           // start lower (adds drop-in feel)
+      opacity: 0,
+      rotateX: 8,      // subtle 3D tilt (optional but nice)
+    },
+    {
+      scale: 1,
+      y: 0,
+      opacity: 1,
+      rotateX: 0,
+      delay: .5,
+      duration,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: mbook,
+        start: start,
+        once: true,
+        // markers: true, // for debugging
+      }
+    }
+  );
+  // Enhanced "from depth" animation
+  gsap.fromTo(
+    points,
+    {
+      x: 100,
+      opacity: 0,
+    },
+    {
+      x: 0,
+      opacity: 1,
+      delay: .5,
+      duration,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: points,
+        start: start,
+        once: true,
+        // markers: true, // for debugging
+      }
+    }
+  );
+
+  return () => {
+    ScrollTrigger.getAll().forEach((t) => t.kill());
+  };
+}, []);
+
   return (
     <section
       id="services"
@@ -77,7 +139,10 @@ const Services = () => {
       <div className="relative xl:pt-23 lg:pt-20 z-40">
         <div className="text-center max-w-[992px] mx-auto z-40 relative">
           <div className="overflow-hidden mt-4 ">
-            <h3 id="services-h3" className="font-bricolage font-bold 2xl:text-[48px] xl:text-[42px] lg:text-[38px] md:text-[32px] text-[30px] tracking-[-0.03em] leading-[123%] capitalize text-white">
+            <h3
+              id="services-h3"
+              className="font-bricolage font-bold 2xl:text-[48px] xl:text-[42px] lg:text-[38px] md:text-[32px] text-[30px] tracking-[-0.03em] leading-[123%] capitalize text-white"
+            >
               Healthcare Web{" "}
               <span className="text-white font-tartuffo font-thin tracking-[0.01em]">
                 Design Services
@@ -86,6 +151,7 @@ const Services = () => {
           </div>
         </div>
         <Image
+          id="mbook"
           src="/macbook-2.svg"
           height={100}
           width={100}
@@ -100,7 +166,7 @@ const Services = () => {
           alt="services-blur"
           className="w-full xl:h-[100px] 2xl:h-auto absolute left-0 2xl:-bottom-120 xl:-bottom-15 lg:-bottom-70 -bottom-60"
         />
-        <div className="absolute left-[12%] lg:top-[28%] top-[20%] hidden md:block">
+        <div id="service-points" className="absolute left-[12%] lg:top-[28%] top-[20%] hidden md:block">
           <Servicespoints />
         </div>
         <div className="relative flex justify-center items-center text-center md:hidden mt-[8vh] px-5">

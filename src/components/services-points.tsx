@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 
 const Servicespoints = () => {
   const services = [
@@ -9,6 +10,7 @@ const Servicespoints = () => {
       wrapperClass: "items-start max-w-fit left-[82%] xl:top-[-4.9vh] top-[-3vh]",
       contentClass: "group-hover:w-[480px] text-left 2xl:px-8 xl:px-6 px-4",
       descAlign: "left-0 text-left 2xl:px-8 xl:px-6 px-4 -mt-2.5",
+      image: "/a.png", // ✅ Unique image
     },
     {
       title: "Website Redesigns",
@@ -17,6 +19,7 @@ const Servicespoints = () => {
       wrapperClass: "items-start max-w-fit left-[42%] lg:top-[2vh] top-[0vh]",
       contentClass: "group-hover:w-[480px] text-left 2xl:px-8 xl:px-6 px-4",
       descAlign: "left-0 text-left 2xl:px-8 xl:px-6 px-4 -mt-2.5",
+      image: "/a.png", // ✅ Unique image
     },
     {
       title: "Custom Website Design",
@@ -25,6 +28,7 @@ const Servicespoints = () => {
       wrapperClass: "items-start max-w-fit lg:top-[9.3vh] top-[6vh]",
       contentClass: "group-hover:w-[480px] 2xl:px-8 xl:px-6 px-4",
       descAlign: "left-0 text-left 2xl:px-8 xl:px-6 px-4 -mt-2.5",
+      image: "/e.png", // ✅ Unique image
     },
     {
       title: "Patient Booking & Form Integration",
@@ -33,14 +37,16 @@ const Servicespoints = () => {
       wrapperClass: "items-start max-w-fit lg:top-[17vh] top-[10vh] xl:left-[17%] -left-15",
       contentClass: "group-hover:w-[480px] 2xl:px-8 xl:px-6 px-4",
       descAlign: "left-0 text-left 2xl:px-8 xl:px-6 px-4 -mt-2.5",
+      image: "/c.png", // ✅ Unique image
     },
     {
       title: "Website Care & Maintenance",
       description:
         "Ongoing support, updates, and security to keep your site running smoothly.",
       wrapperClass: "items-start max-w-fit lg:top-[24.5vh] top-[16vh] xl:left-[34%] left-[0%] -z-10 hover:z-10",
-      contentClass: "group-hover:w-[480px] 2xl:px-8 xl:px-6 px-4 z-10",
-      descAlign: "left-0 text-left 2xl:px-8 px-6 -mt-2.5 z-10",
+      contentClass: "group-hover:w-[480px] 2xl:px-8 xl:px-6 px-4 -z-10",
+      descAlign: "left-0 text-left 2xl:px-8 px-6 -mt-2.5 -z-10",
+      image: "/d.png", // ✅ Unique image
     },
   ];
 
@@ -49,14 +55,25 @@ const Servicespoints = () => {
       {services.map((item, i) => (
         <div key={i} className={`group relative flex ${item.wrapperClass}`}>
           
-          {/* Background */}
-          <div className="absolute inset-0 bg-[url(/glassy-2.png)] bg-cover bg-center rounded-[32px] transition-all duration-300 xl:h-[64px] group-hover:h-[120px]" />
+
+          {/* ✅ 2. Unique service image overlay */}
+          <div className="absolute inset-0 rounded-[32px] overflow-hidden transition-all duration-300 xl:h-[64px] group-hover:h-[120px]">
+            <Image
+              src={item.image}
+              alt={`${item.title} visual`}
+              fill
+              className="object-cover"
+              priority={i < 2} // Optional: load first 2 images immediately
+            />
+          </div>
+
+          {/* 3. Hover blue fill (on top of image) */}
           <div className="absolute inset-0 bg-blue-600 rounded-[32px] opacity-0 group-hover:opacity-100 transition-all duration-300 h-[64px] group-hover:h-[120px] z-10" />
 
-          {/* Content */}
+          {/* 4. Text content (on top of all) */}
           <div
             className={`
-              relative z-10
+              relative z-20
               2xl:px-8 xl:px-6 xl:py-4 px-4 py-3
               rounded-[32px]
               w-fit
