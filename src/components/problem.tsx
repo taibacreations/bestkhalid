@@ -1,74 +1,107 @@
 "use client";
 import Image from "next/image";
 import Circle from "./circle";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const Problem = () => {
-useEffect(() => {
-  // Register ScrollTrigger (safe in useEffect)
-  gsap.registerPlugin(ScrollTrigger);
+  useEffect(() => {
+    // Register ScrollTrigger (safe in useEffect)
+    gsap.registerPlugin(ScrollTrigger);
 
-  const animateElement = (
-    headingSelector: string,
-    rotation: number,
-    startY: string,
-    rotationD: number
-  ) => {
-    const heading = document.querySelector(headingSelector);
-    if (!heading) return;
+    const animateElement = (
+      headingSelector: string,
+      rotation: number,
+      startY: string,
+      rotationD: number
+    ) => {
+      const heading = document.querySelector(headingSelector);
+      if (!heading) return;
 
-    const wrapper = heading.parentElement;
-    if (!wrapper) return;
+      const wrapper = heading.parentElement;
+      if (!wrapper) return;
 
-    // Start with overflow hidden (in case it was reset)
+      // Start with overflow hidden (in case it was reset)
+      wrapper.style.overflow = "hidden";
+
+      gsap.fromTo(
+        heading,
+        {
+          y: startY,
+          rotation: rotation,
+          opacity: 0,
+        },
+        {
+          y: "5%",
+          rotation: rotationD,
+          opacity: 1,
+          duration: 1.4,
+          ease: "spring(1, 90, 18)",
+          scrollTrigger: {
+            trigger: heading, // or use wrapper
+            start: "top 85%", // animate when top of element hits 85% from top of viewport
+            once: true, // animate only once
+          },
+          onComplete: () => {
+            gsap.to(heading, {
+              y: 0,
+              rotation: 0,
+              duration: 0.6,
+              ease: "spring(1, 120, 22)",
+              onComplete: () => {
+                if (wrapper) {
+                  wrapper.style.overflow = "visible";
+                }
+              },
+            });
+          },
+        }
+      );
+    };
+
+    animateElement("#problem-h5", -5, "-100%", 2);
+    animateElement("#problem-h3", -5, "-120%", 2);
+    animateElement("#problem-content", 0, "-150%", 0);
+
+    // Cleanup: kill ScrollTriggers on unmount
+    return () => {
+      ScrollTrigger.getAll().forEach((t) => t.kill());
+    };
+  }, []);
+
+  gsap.to("#ul", {});
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const list = document.querySelector("#ul") as HTMLElement | null;
+    const wrapper = list?.parentElement as HTMLElement | null;
+
+    if (!list || !wrapper) return;
+
+    // Start hidden
     wrapper.style.overflow = "hidden";
+    gsap.set(list, { x: "-100%", opacity: 0 });
 
-    gsap.fromTo(
-      heading,
-      {
-        y: startY,
-        rotation: rotation,
-        opacity: 0,
+    gsap.to(list, {
+      x: 0,
+      opacity: 1,
+      duration: 1.5,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: list,
+        start: "top 85%",
+        once: true,
       },
-      {
-        y: "5%",
-        rotation: rotationD,
-        opacity: 1,
-        duration: 1.4,
-        ease: "spring(1, 90, 18)",
-        scrollTrigger: {
-          trigger: heading,           // or use wrapper
-          start: "top 85%",           // animate when top of element hits 85% from top of viewport
-          once: true,                 // animate only once
-        },
-        onComplete: () => {
-          gsap.to(heading, {
-            y: 0,
-            rotation: 0,
-            duration: 0.6,
-            ease: "spring(1, 120, 22)",
-            onComplete: () => {
-              if (wrapper) {
-                wrapper.style.overflow = "visible";
-              }
-            },
-          });
-        },
-      }
-    );
-  };
+      onComplete: () => {
+        wrapper.style.overflow = "visible";
+      },
+    });
 
-  animateElement("#problem-h5", -5, "-100%", 2);
-  animateElement("#problem-h3", -5, "-120%", 2);
-  animateElement("#problem-content", 0, "-150%", 0);
-
-  // Cleanup: kill ScrollTriggers on unmount
-  return () => {
-    ScrollTrigger.getAll().forEach(t => t.kill());
-  };
-}, []);
+    return () => {
+      ScrollTrigger.getAll().forEach((t) => t.kill());
+    };
+  }, []);
 
   return (
     <section
@@ -153,41 +186,46 @@ useEffect(() => {
             className="absolute inset-0 w-full md:h-auto min-h-[300px] z-0 overflow-hidden"
           />
           <div className="flex md:justify-end justify-start items-center 2xl:mr-20 xl:mr-[-4vw] lg:mr-[-12vw] md:mr-[-24vw] points-margin">
-            <ul className="font-bricolage font-bold 2xl:text-[28px] xl:text-[26px] lg:text-[22px] text-[18px] leading-[142%] tracking-[-0.01em] capitalize text-white flex flex-col gap-3 justify-center 2xl:mt-12 mt-10 lg:mt-8 md:mt-5 mt-8 list-disc list">
-              <li className="li-2">Slow load times</li>
-              <Image
-                src="/li-border.png"
-                height={100}
-                width={100}
-                alt="border"
-                className="2xl:w-full xl:w-[80%] md:w-[60%] w-full h-[2px]"
-              />
-              <li className="li-2">Confusing appointment booking</li>
-              <Image
-                src="/li-border.png"
-                height={100}
-                width={100}
-                alt="border"
-                className="2xl:w-full xl:w-[80%] md:w-[60%] w-full h-[2px]"
-              />
-              <li className="li-2">Unclear services</li>
-              <Image
-                src="/li-border.png"
-                height={100}
-                width={100}
-                alt="border"
-                className="2xl:w-full xl:w-[80%] md:w-[60%] w-full h-[2px]"
-              />
-              <li className="li-2">Not mobile-friendly</li>
-              <Image
-                src="/li-border.png"
-                height={100}
-                width={100}
-                alt="border"
-                className="2xl:w-full xl:w-[80%] md:w-[60%] w-full h-[2px]"
-              />
-              <li className="li-2">Poor SEO</li>
-            </ul>
+            <div className="2xl:mt-12 mt-10 lg:mt-8 md:mt-5 mt-8 overflow-hidden">
+              <ul
+                id="ul"
+                className="font-bricolage font-bold 2xl:text-[28px] xl:text-[26px] lg:text-[22px] text-[18px] leading-[142%] tracking-[-0.01em] capitalize text-white flex flex-col gap-3 justify-center list-disc list"
+              >
+                <li className="li-2">Slow load times</li>
+                <Image
+                  src="/li-border.png"
+                  height={100}
+                  width={100}
+                  alt="border"
+                  className="2xl:w-full xl:w-[80%] md:w-[60%] w-full h-[2px]"
+                />
+                <li className="li-2">Confusing appointment booking</li>
+                <Image
+                  src="/li-border.png"
+                  height={100}
+                  width={100}
+                  alt="border"
+                  className="2xl:w-full xl:w-[80%] md:w-[60%] w-full h-[2px]"
+                />
+                <li className="li-2">Unclear services</li>
+                <Image
+                  src="/li-border.png"
+                  height={100}
+                  width={100}
+                  alt="border"
+                  className="2xl:w-full xl:w-[80%] md:w-[60%] w-full h-[2px]"
+                />
+                <li className="li-2">Not mobile-friendly</li>
+                <Image
+                  src="/li-border.png"
+                  height={100}
+                  width={100}
+                  alt="border"
+                  className="2xl:w-full xl:w-[80%] md:w-[60%] w-full h-[2px]"
+                />
+                <li className="li-2">Poor SEO</li>
+              </ul>
+            </div>
           </div>
           <Image
             src="/macbook.svg"

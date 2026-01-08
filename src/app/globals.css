@@ -439,7 +439,7 @@ svg.swiper-navigation-icon {
     top: 4%;
     font-size: 40px !important;
   }
-  .li-2::before {
+  .lii-2::before {
     content: ".";
     position: absolute;
     left: 15.5%;
@@ -485,7 +485,7 @@ svg.swiper-navigation-icon {
     top: 4%;
     font-size: 40px !important;
   }
-  .li-2::before {
+  .lii-2::before {
     content: ".";
     position: absolute;
     left: 14%;
@@ -531,7 +531,7 @@ svg.swiper-navigation-icon {
     top: 4%;
     font-size: 30px !important;
   }
-  .li-2::before {
+  .lii-2::before {
     content: ".";
     position: absolute;
     left: 14%;
@@ -577,7 +577,7 @@ svg.swiper-navigation-icon {
     top: 25%;
     font-size: 30px !important;
   }
-  .li-2::before {
+  .lii-2::before {
     content: ".";
     position: absolute;
     left: 8%;

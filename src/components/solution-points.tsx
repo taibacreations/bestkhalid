@@ -10,7 +10,7 @@ const Solutionoints = () => {
             Patient-friendly and mobile-optimized
           </li>
 
-          <li className="bg-[url(/points-bg-new-1.png)] 2xl:bg-cover bg-contain bg-no-repeat 2xl:w-[372.09px] xl:w-[330px] lg:w-[290px] md:w-[250px] w-full 2xl:h-[87.64px] xl:h-[80px] lg:h-[70px] md:h-[60px] h-[82px] font-bricolage font-bold 2xl:text-[20px] xl:text-[18px] lg:text-[16px] text-[14px] leading-[142%] tracking-[-0.01%] text-white flex justify-center items-center text-center 2xl:px-15 lg:px-14 px-10 2xl:ml-[2%] xl:ml-[15%] md:ml-[0%] solution-points solution-points-2 hover:bg-[#0029CC] rounded-[32px] hover:bg-[#0029CC] rounded-[32px] hover:bg-none transition-all duration-300 relative li-2 li">
+          <li className="bg-[url(/points-bg-new-1.png)] 2xl:bg-cover bg-contain bg-no-repeat 2xl:w-[372.09px] xl:w-[330px] lg:w-[290px] md:w-[250px] w-full 2xl:h-[87.64px] xl:h-[80px] lg:h-[70px] md:h-[60px] h-[82px] font-bricolage font-bold 2xl:text-[20px] xl:text-[18px] lg:text-[16px] text-[14px] leading-[142%] tracking-[-0.01%] text-white flex justify-center items-center text-center 2xl:px-15 lg:px-14 px-10 2xl:ml-[2%] xl:ml-[15%] md:ml-[0%] solution-points solution-points-2 hover:bg-[#0029CC] rounded-[32px] hover:bg-[#0029CC] rounded-[32px] hover:bg-none transition-all duration-300 relative lii-2 li">
             <div className="lii"></div>
             Designed to build trust and credibility
           </li>
