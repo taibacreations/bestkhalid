@@ -7,9 +7,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const Problem = () => {
   useEffect(() => {
-    // Register ScrollTrigger (safe in useEffect)
     gsap.registerPlugin(ScrollTrigger);
 
+    // === Animate headings & paragraph ===
     const animateElement = (
       headingSelector: string,
       rotation: number,
@@ -22,7 +22,6 @@ const Problem = () => {
       const wrapper = heading.parentElement;
       if (!wrapper) return;
 
-      // Start with overflow hidden (in case it was reset)
       wrapper.style.overflow = "hidden";
 
       gsap.fromTo(
@@ -39,9 +38,9 @@ const Problem = () => {
           duration: 1.4,
           ease: "spring(1, 90, 18)",
           scrollTrigger: {
-            trigger: heading, // or use wrapper
-            start: "top 85%", // animate when top of element hits 85% from top of viewport
-            once: true, // animate only once
+            trigger: heading,
+            start: "top 85%",
+            once: true,
           },
           onComplete: () => {
             gsap.to(heading, {
@@ -60,44 +59,37 @@ const Problem = () => {
       );
     };
 
+    // Run text animations
     animateElement("#problem-h5", -5, "-100%", 2);
     animateElement("#problem-h3", -5, "-120%", 2);
     animateElement("#problem-content", 0, "-150%", 0);
 
-    // Cleanup: kill ScrollTriggers on unmount
-    return () => {
-      ScrollTrigger.getAll().forEach((t) => t.kill());
-    };
-  }, []);
-
-  gsap.to("#ul", {});
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
+    // === Animate UL list from right ===
     const list = document.querySelector("#ul") as HTMLElement | null;
     const wrapper = list?.parentElement as HTMLElement | null;
 
-    if (!list || !wrapper) return;
+    if (list && wrapper) {
+      // Ensure it starts hidden
+      wrapper.style.overflow = "hidden";
+      gsap.set(list, { x: "-100%", opacity: 0 }); // from right
 
-    // Start hidden
-    wrapper.style.overflow = "hidden";
-    gsap.set(list, { x: "-100%", opacity: 0 });
+      gsap.to(list, {
+        x: 0,
+        opacity: 1,
+        duration: 1.5,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: list,
+          start: "top 85%",
+          once: true,
+        },
+        onComplete: () => {
+          wrapper.style.overflow = "visible";
+        },
+      });
+    }
 
-    gsap.to(list, {
-      x: 0,
-      opacity: 1,
-      duration: 1.5,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: list,
-        start: "top 85%",
-        once: true,
-      },
-      onComplete: () => {
-        wrapper.style.overflow = "visible";
-      },
-    });
-
+    // Cleanup
     return () => {
       ScrollTrigger.getAll().forEach((t) => t.kill());
     };
