@@ -19,12 +19,6 @@ const Lead = () => {
       const heading = document.querySelector(headingSelector);
       if (!heading) return;
 
-      const wrapper = heading.parentElement;
-      if (!wrapper) return;
-
-      // Start with overflow hidden (in case it was reset)
-      wrapper.style.overflow = "hidden";
-
       gsap.fromTo(
         heading,
         {
@@ -49,20 +43,13 @@ const Lead = () => {
               rotation: 0,
               duration: 0.6,
               ease: "spring(1, 120, 22)",
-              onComplete: () => {
-                if (wrapper) {
-                  wrapper.style.overflow = "visible";
-                }
-              },
             });
           },
         }
       );
     };
 
-    animateElement("#leads-h5", -5, "-100%", 2);
-    animateElement("#leads-h3", -5, "-120%", 2);
-    animateElement("#leads-content", 0, "-150%", 0);
+    animateElement("#leads", 0, "-100%", 0);
 
     // Cleanup: kill ScrollTriggers on unmount
     return () => {
@@ -80,7 +67,7 @@ const Lead = () => {
         className="w-full h-auto absolute left-0 2xl:-bottom-[50vh] lg:-bottom-[30vh] bottom-[10vh] z-20"
       />
       <div className="xl:pt-33 lg:pt-20 pt-10">
-        <div className="text-center max-w-[992px] mx-auto z-40 relative">
+        <div id="leads" className="text-center max-w-[992px] mx-auto z-40 relative">
           <h5
             id="leads-h5"
             className="font-bricolage font-normal 2xl:text-[28px] xl:text-[24px] lg:text-[22px] text-[20px] tracking-[-0.07em] capitalize text-white"
@@ -111,7 +98,7 @@ const Lead = () => {
           <div className="absolute lg:bottom-55 md:bottom-15 -bottom-[10vh] left-1/2 -translate-x-1/2 z-20 w-full">
             <div className="flex flex-col justify-center items-center md:gap-5 gap-3">
               <div>
-                <button className="bg-[#003459] text-white md:w-[190px] max-w-fit p-3 lg:w-[230px] xl:w-[250px] 2xl:w-[336px] md:h-[50px] 2xl:h-[59px] rounded-[334px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize shadow-button">
+                <button className="bg-[#003459] text-white md:min-w-[190px] max-w-fit p-3 lg:min-w-[230px] xl:min-w-[250px] 2xl:min-w-[336px] md:h-[50px] 2xl:h-[59px] rounded-[334px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize shadow-button">
                   <Image
                     src="/button-arrow.svg"
                     width={1000}

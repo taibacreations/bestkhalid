@@ -11,29 +11,19 @@ const Process = () => {
 
     const animateElement = (
       headingSelector: string,
-      rotation: number,
       startY: string,
-      rotationD: number
     ) => {
       const heading = document.querySelector(headingSelector);
       if (!heading) return;
-
-      const wrapper = heading.parentElement;
-      if (!wrapper) return;
-
-      // Start with overflow hidden (in case it was reset)
-      wrapper.style.overflow = "hidden";
 
       gsap.fromTo(
         heading,
         {
           y: startY,
-          rotation: rotation,
           opacity: 0,
         },
         {
-          y: "5%",
-          rotation: rotationD,
+          y: "0%",
           opacity: 1,
           duration: 1.4,
           ease: "spring(1, 90, 18)",
@@ -42,26 +32,11 @@ const Process = () => {
             start: "top 85%", // animate when top of element hits 85% from top of viewport
             once: true, // animate only once
           },
-          onComplete: () => {
-            gsap.to(heading, {
-              y: 0,
-              rotation: 0,
-              duration: 0.6,
-              ease: "spring(1, 120, 22)",
-              onComplete: () => {
-                if (wrapper) {
-                  wrapper.style.overflow = "visible";
-                }
-              },
-            });
-          },
         }
       );
     };
 
-    animateElement("#process-h5", -5, "-100%", 2);
-    animateElement("#process-h3", -5, "-120%", 2);
-    animateElement("#process-content", 0, "-150%", 0);
+    animateElement("#proces", "-100%");
 
     // Cleanup: kill ScrollTriggers on unmount
     return () => {
@@ -71,7 +46,7 @@ const Process = () => {
 
   return (
     <section
-      id="process"
+    id="process"
       className="xl:pb-31 pb-10 bg-black xl:px-10 px-5 2xl:mt-[-5.5vh] mt-[-15vh] lg:mt-[0vh] relative"
     >
       <Image
@@ -83,7 +58,7 @@ const Process = () => {
       />
 
       <div>
-        <div className="text-center max-w-[992px] mx-auto z-40 relative">
+        <div id="proces" className="text-center max-w-[992px] mx-auto z-40 relative">
           <h5
             id="process-h5"
             className="font-bricolage font-normal 2xl:text-[28px] xl:text-[24px] lg:text-[22px] text-[20px] tracking-[-0.07em] capitalize text-white"

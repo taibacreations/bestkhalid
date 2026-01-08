@@ -124,8 +124,8 @@ const Footer = () => {
       </div>
 
       {/* Copyright */}
-      <div className="bg-[#171717] flex justify-center items-center h-[65px] text-center">
-        <h6 className="font-bricolage md:text-[16px] text-[15px] xl:text-[18px] font-normal leading-[142%] tracking-[-0.01em] capitalize text-white px-4">
+      <div className="bg-[#171717] flex justify-center items-center h-[65px] text-center overflow-hidden">
+        <h6 id="footer-h6" className="font-bricolage md:text-[16px] text-[15px] xl:text-[18px] font-normal leading-[142%] tracking-[-0.01em] capitalize text-white px-4">
           2026 © Copyrights BestKhalid. All Rights Reserved.
         </h6>
       </div>

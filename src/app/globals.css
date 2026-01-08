@@ -616,7 +616,7 @@ svg.swiper-navigation-icon {
 }
 
 header {
-  animation: headermove 1s ease-in;
+  animation: headermove 1.5s ease-out;
 }
 
 @keyframes headermove {
@@ -1158,6 +1158,22 @@ header {
   }
   100% {
     top: 0;
+    opacity: 1;
+  }
+}
+
+#footer-h6 {
+  animation: copy 1s ease-in-out both;
+  animation-delay: 1s;
+}
+
+@keyframes copy {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
     opacity: 1;
   }
 }

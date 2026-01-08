@@ -6,7 +6,6 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const Hero = () => {
-
   const bgLayersRef = useRef<(HTMLDivElement | null)[]>([]);
 
   // Background layer loop (unchanged)
@@ -148,7 +147,10 @@ const Hero = () => {
           </h5>
 
           <div className="overflow-hidden">
-            <h2 id="hero-h2" className="font-bricolage font-extrabold 2xl:text-[90.64px] xl:text-[70px] lg:text-[55px] md:text-[42px] leading-[100%] text-[36px] tracking-[-0.07em] uppercase text-white">
+            <h2
+              id="hero-h2"
+              className="font-bricolage font-extrabold 2xl:text-[90.64px] xl:text-[70px] lg:text-[55px] md:text-[42px] leading-[100%] text-[36px] tracking-[-0.07em] uppercase text-white"
+            >
               <div>Websites for</div>
               <span className="font-tartuffo font-thin tracking-normal capitalize 2xl:-mt-12 xl:-mt-9 lg:-mt-7 -mt-5 inline-block">
                 Healthcare Providers
@@ -156,7 +158,10 @@ const Hero = () => {
             </h2>
           </div>
 
-          <p id="hero-content" className="font-bricolage font-normal 2xl:text-[28px] xl:text-[24px] lg:text-[20px] text-[18px] tracking-[-0.07em] capitalize text-white leading-[142%] mt-[2.4vh]">
+          <p
+            id="hero-content"
+            className="font-bricolage font-normal 2xl:text-[28px] xl:text-[24px] lg:text-[20px] text-[18px] tracking-[-0.07em] capitalize text-white leading-[142%] mt-[2.4vh]"
+          >
             Turn your clinic`s website into a trusted, conversion-driven digital
             front door that attracts new patients and elevates your practice
           </p>
@@ -214,7 +219,9 @@ const Hero = () => {
         </div>
 
         {/* Hero Image */}
-        <div className="md:absolute 2xl:-right-51 lg:right-0 md:-right-10 right-0 hero z-20 md:mt-0 mt-[5vh]">
+        <div
+          className="md:absolute 2xl:-right-51 lg:right-0 md:-right-10 right-0 hero z-20 md:mt-0 mt-[5vh]"
+        >
           <Image
             src="/hero.svg"
             height={100}
