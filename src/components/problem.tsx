@@ -3,68 +3,72 @@ import Image from "next/image";
 import Circle from "./circle";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const Problem = () => {
-  const wrapWordsInSpans = (text: string) => {
-    return text.split(" ").map((word, i) => (
-      <span
-        key={i}
-        className="inline-block overflow-hidden align-top"
-        style={{ lineHeight: "1" }}
-      >
-        <span className="inline-block">{word}&nbsp;</span>
-      </span>
-    ));
-  };
+useEffect(() => {
+  // Register ScrollTrigger (safe in useEffect)
+  gsap.registerPlugin(ScrollTrigger);
 
-  const problemH5Ref = useRef<HTMLHeadingElement>(null);
-  const problemH3Ref = useRef<HTMLHeadingElement>(null);
-  const problemPRef = useRef<HTMLParagraphElement>(null); // ✅ Ref for paragraph
+  const animateElement = (
+    headingSelector: string,
+    rotation: number,
+    startY: string,
+    rotationD: number
+  ) => {
+    const heading = document.querySelector(headingSelector);
+    if (!heading) return;
 
-  // Animation for headings (with bounce)
-  const animateWithBounce = (target: HTMLElement | null) => {
-    if (!target) return;
-    const words = target.querySelectorAll("span > span");
+    const wrapper = heading.parentElement;
+    if (!wrapper) return;
+
+    // Start with overflow hidden (in case it was reset)
+    wrapper.style.overflow = "hidden";
+
     gsap.fromTo(
-      words,
-      { y: "-120%", opacity: 0 },
+      heading,
+      {
+        y: startY,
+        rotation: rotation,
+        opacity: 0,
+      },
       {
         y: "5%",
+        rotation: rotationD,
         opacity: 1,
-        duration: 0.9,
-        ease: "power2.out",
-        stagger: 0.04,
+        duration: 1.4,
+        ease: "spring(1, 90, 18)",
+        scrollTrigger: {
+          trigger: heading,           // or use wrapper
+          start: "top 85%",           // animate when top of element hits 85% from top of viewport
+          once: true,                 // animate only once
+        },
         onComplete: () => {
-          gsap.to(words, {
+          gsap.to(heading, {
             y: 0,
-            duration: 0.4,
-            ease: "elastic.out(0.8, 0.5)",
+            rotation: 0,
+            duration: 0.6,
+            ease: "spring(1, 120, 22)",
+            onComplete: () => {
+              if (wrapper) {
+                wrapper.style.overflow = "visible";
+              }
+            },
           });
         },
       }
     );
   };
 
-  // ✅ Animation for paragraph (NO bounce — smooth only)
-  const animateParagraph = (target: HTMLElement | null) => {
-    if (!target) return;
-    gsap.fromTo(
-      target.querySelectorAll("span > span"),
-      { y: "-100%", opacity: 0 },
-      { y: 0, opacity: 1, duration: 1.1, ease: "power3.out", stagger: 0.04, delay: 0.15 }
-    );
+  animateElement("#problem-h5", -5, "-100%", 2);
+  animateElement("#problem-h3", -5, "-120%", 2);
+  animateElement("#problem-content", 0, "-150%", 0);
+
+  // Cleanup: kill ScrollTriggers on unmount
+  return () => {
+    ScrollTrigger.getAll().forEach(t => t.kill());
   };
-
-  // Trigger all animations
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      animateWithBounce(problemH5Ref.current);
-      animateWithBounce(problemH3Ref.current);
-      animateParagraph(problemPRef.current); // ✅ Animate paragraph
-    });
-
-    return () => ctx.revert();
-  }, []);
+}, []);
 
   return (
     <section
@@ -104,30 +108,39 @@ const Problem = () => {
         <div className="text-center 2xl:max-w-[988px] xl:max-w-[900px] lg:max-w-[800px] md:max-w-[600px] max-w-full mx-auto">
           <div className="2xl:max-w-[842px] xl:max-w-[780px] lg:max-w-[700px] md:max-w-[550px] max-w-full mx-auto">
             <h5
-              ref={problemH5Ref}
+              id="problem-h5"
               className="font-bricolage font-normal 2xl:text-[28px] xl:text-[24px] lg:text-[22px] text-[20px] tracking-[-0.07em] capitalize text-white -mb-2"
             >
-              {wrapWordsInSpans(`[ The Problem ]`)}
+              <span className="2xl:text-[40px] xl:text-[36px] lg:text-[30px] text-[26px]">
+                [
+              </span>{" "}
+              The Problem{" "}
+              <span className="2xl:text-[40px] xl:text-[36px] lg:text-[30px] text-[26px]">
+                ]
+              </span>
             </h5>
 
-            <h3
-              ref={problemH3Ref}
-              className="xl:mt-4 mt-2 font-bricolage font-bold 2xl:text-[48px] xl:text-[42px] lg:text-[38px] md:text-[32px] text-[30px] tracking-[-0.03em] leading-[142%] capitalize text-white"
-            >
-              {wrapWordsInSpans(
-                `Your Website Shouldn't Be Why Patients Choose Your Competitor`
-              )}
-            </h3>
+            <div className="xl:mt-4 mt-2 overflow-hidden">
+              <h3
+                id="problem-h3"
+                className="font-bricolage font-bold 2xl:text-[48px] xl:text-[42px] lg:text-[38px] md:text-[32px] text-[30px] tracking-[-0.03em] leading-[142%] capitalize text-white"
+              >
+                Your Website Shouldn't Be Why Patients{" "}
+                <span className="text-white font-tartuffo font-thin tracking-[0.01em]">
+                  Choose Your Competitor
+                </span>
+              </h3>
+            </div>
           </div>
 
           {/* ✅ Animated paragraph — no bounce */}
           <p
-            ref={problemPRef}
+            id="problem-content"
             className="xl:mt-5 mt-3 font-bricolage font-normal xl:text-[18px] text-[16px] tracking-[-0.01em] capitalize leading-[142%] text-white"
           >
-            {wrapWordsInSpans(
-              "Most healthcare websites are outdated, hard to navigate, and don’t reflect the quality of care you provide. In today`s digital-first world, patients expect a seamless online experience"
-            )}
+            Most healthcare websites are outdated, hard to navigate, and don’t
+            reflect the quality of care you provide. In today`s digital-first
+            world, patients expect a seamless online experience
           </p>
         </div>
         <div className="bg-[#0E1A4A08] 2xl:h-[483px] 2xl:h-[400px] md:h-[380px] min-h-[300px] 2xl:w-[817px] xl:w-[750px] lg:w-[600px] md:w-[500px] max-w-full lg:ml-[35%] md:ml-[30%] relative 2xl:mt-13 xl:mt-10 mt-8 z-20 relative overflow-hidden rotating-border problem-bg-animation">

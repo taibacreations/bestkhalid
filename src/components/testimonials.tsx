@@ -1,10 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 // Import Swiper styles
 import "swiper/css";
@@ -133,11 +135,80 @@ const Testimonials = () => {
     );
   };
 
+  useEffect(() => {
+    // Register ScrollTrigger (safe in useEffect)
+    gsap.registerPlugin(ScrollTrigger);
+
+    const animateElement = (
+      headingSelector: string,
+      rotation: number,
+      startY: string,
+      rotationD: number
+    ) => {
+      const heading = document.querySelector(headingSelector);
+      if (!heading) return;
+
+      const wrapper = heading.parentElement;
+      if (!wrapper) return;
+
+      // Start with overflow hidden (in case it was reset)
+      wrapper.style.overflow = "hidden";
+
+      gsap.fromTo(
+        heading,
+        {
+          y: startY,
+          rotation: rotation,
+          opacity: 0,
+        },
+        {
+          y: "5%",
+          rotation: rotationD,
+          opacity: 1,
+          duration: 1.4,
+          ease: "spring(1, 90, 18)",
+          scrollTrigger: {
+            trigger: heading, // or use wrapper
+            start: "top 85%", // animate when top of element hits 85% from top of viewport
+            once: true, // animate only once
+          },
+          onComplete: () => {
+            gsap.to(heading, {
+              y: 0,
+              rotation: 0,
+              duration: 0.6,
+              ease: "spring(1, 120, 22)",
+              onComplete: () => {
+                if (wrapper) {
+                  wrapper.style.overflow = "visible";
+                }
+              },
+            });
+          },
+        }
+      );
+    };
+
+    animateElement("#testi-h5", -5, "-100%", 2);
+    animateElement("#testi-h3", -5, "-120%", 2);
+
+    // Cleanup: kill ScrollTriggers on unmount
+    return () => {
+      ScrollTrigger.getAll().forEach((t) => t.kill());
+    };
+  }, []);
+
   return (
-    <section id="social-proof" className="bg-[#171717] lg:py-16 py-10 relative overflow-hidden">
+    <section
+      id="social-proof"
+      className="bg-[#171717] lg:py-16 py-10 relative overflow-hidden"
+    >
       <div className="max-w-[1390px] mx-auto px-4 xl:px-10">
         <div className="text-center max-w-[992px] mx-auto z-40 relative mb-9">
-          <h5 className="font-bricolage font-normal 2xl:text-[28px] xl:text-[24px] lg:text-[22px] text-[20px] tracking-[-0.07em] capitalize text-white">
+          <h5
+            id="testi-h5"
+            className="font-bricolage font-normal 2xl:text-[28px] xl:text-[24px] lg:text-[22px] text-[20px] tracking-[-0.07em] capitalize text-white"
+          >
             <span className="2xl:text-[40px] xl:text-[36px] lg:text-[30px] text-[26px]">
               [
             </span>{" "}
@@ -146,12 +217,17 @@ const Testimonials = () => {
               ]
             </span>
           </h5>
-          <h3 className=" font-bricolage font-bold 2xl:text-[48px] xl:text-[42px] lg:text-[38px] md:text-[32px] text-[30px] tracking-[-0.03em] leading-[123%] capitalize text-white">
-            Trusted by Growing{" "}
-            <span className="text-white font-tartuffo font-thin tracking-[0.01em]">
-              Healthcare Practices
-            </span>
-          </h3>
+          <div className="overflow-hidden">
+            <h3
+              id="testi-h3"
+              className="font-bricolage font-bold 2xl:text-[48px] xl:text-[42px] lg:text-[38px] md:text-[32px] text-[30px] tracking-[-0.03em] leading-[123%] capitalize text-white"
+            >
+              Trusted by Growing{" "}
+              <span className="text-white font-tartuffo font-thin tracking-[0.01em]">
+                Healthcare Practices
+              </span>
+            </h3>
+          </div>
         </div>
         {/* Custom Navigation */}
         <div className="flex xl:justify-between justify-center z-20 relative h-0">

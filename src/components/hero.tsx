@@ -3,33 +3,10 @@ import Image from "next/image";
 import Ring from "./ring";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const Hero = () => {
-  const h5Text = "Modern, Patient-Focused";
-  const h2Line1 = "Websites for";
-  const h2Line2 = "Healthcare Providers";
-  const pText =
-    "Turn your clinic`s website into a trusted, conversion-driven digital front door that attracts new patients and elevates your practice";
 
-  // Wrap each word in a span with overflow-hidden parent to enable mask
-  const wrapWordsInSpans = (text: string) => {
-    return text.split(" ").map((word, i) => (
-      <span
-        key={i}
-        className="inline-block overflow-hidden align-top"
-        style={{ lineHeight: "1" }}
-      >
-        <span className="inline-block">{word}&nbsp;</span>
-      </span>
-    ));
-  };
-
-  // Refs for animated elements
-  const h5Ref = useRef<HTMLHeadingElement>(null);
-  const h2Line1Ref = useRef<HTMLDivElement>(null);
-  const h2Line2Ref = useRef<HTMLSpanElement>(null);
-  const pRef = useRef<HTMLParagraphElement>(null);
-  const heroImgRef = useRef<HTMLDivElement>(null);
   const bgLayersRef = useRef<(HTMLDivElement | null)[]>([]);
 
   // Background layer loop (unchanged)
@@ -55,9 +32,15 @@ const Hero = () => {
 
       bgLayersRef.current.forEach((_, i) => {
         const next = (i + 1) % bgLayersRef.current.length;
-        tl
-          .to(bgLayersRef.current[i], { autoAlpha: 0, duration }, `+=${hold}`)
-          .to(bgLayersRef.current[next], { autoAlpha: 1, duration }, `-=${duration}`);
+        tl.to(
+          bgLayersRef.current[i],
+          { autoAlpha: 0, duration },
+          `+=${hold}`
+        ).to(
+          bgLayersRef.current[next],
+          { autoAlpha: 1, duration },
+          `-=${duration}`
+        );
       });
 
       return () => {
@@ -67,84 +50,68 @@ const Hero = () => {
     }
   }, []);
 
-  // Main entrance animation
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      const animateWithBounce = (target: HTMLElement | null) => {
-        if (!target) return;
-        const words = target.querySelectorAll("span > span");
-        gsap.fromTo(
-          words,
-          {
-            y: "-120%", // Start above (hidden)
-            opacity: 0,
+    // Register ScrollTrigger (safe in useEffect)
+    gsap.registerPlugin(ScrollTrigger);
+
+    const animateElement = (
+      headingSelector: string,
+      rotation: number,
+      startY: string,
+      rotationD: number
+    ) => {
+      const heading = document.querySelector(headingSelector);
+      if (!heading) return;
+
+      const wrapper = heading.parentElement;
+      if (!wrapper) return;
+
+      // Start with overflow hidden (in case it was reset)
+      wrapper.style.overflow = "hidden";
+
+      gsap.fromTo(
+        heading,
+        {
+          y: startY,
+          rotation: rotation,
+          opacity: 0,
+        },
+        {
+          y: "5%",
+          rotation: rotationD,
+          opacity: 1,
+          duration: 1.4,
+          ease: "spring(1, 90, 18)",
+          scrollTrigger: {
+            trigger: heading, // or use wrapper
+            start: "top 85%", // animate when top of element hits 85% from top of viewport
+            once: true, // animate only once
           },
-          {
-            y: "5%", // Slight overshoot downward (into overflow)
-            opacity: 1,
-            duration: 0.9,
-            ease: "power2.out",
-            stagger: 0.04,
-            onComplete: () => {
-              // Bounce back to y: 0
-              gsap.to(words, {
-                y: 0,
-                duration: 0.4,
-                ease: "elastic.out(0.8, 0.5)", // Subtle elastic bounce
-              });
-            },
-          }
-        );
-      };
-
-      const animateParagraph = (target: HTMLElement | null) => {
-        if (!target) return;
-        gsap.fromTo(
-          target.querySelectorAll("span > span"),
-          {
-            y: "-100%",
-            opacity: 0,
+          onComplete: () => {
+            gsap.to(heading, {
+              y: 0,
+              rotation: 0,
+              duration: 0.6,
+              ease: "spring(1, 120, 22)",
+              onComplete: () => {
+                if (wrapper) {
+                  wrapper.style.overflow = "visible";
+                }
+              },
+            });
           },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 1.1,
-            ease: "power3.out",
-            stagger: 0.04,
-            delay: 0.1,
-          }
-        );
-      };
+        }
+      );
+    };
 
-      const animateImage = (target: HTMLElement | null) => {
-        if (!target) return;
-        gsap.fromTo(
-          target.querySelector("img"),
-          {
-            scale: 2.18,
-            y: -30, // Start slightly higher to simulate Z-depth
-            opacity: 0,
-            transformPerspective: 800,
-          },
-          {
-            scale: 1,
-            y: 0,
-            opacity: 1,
-            duration: 1.3,
-            ease: "power3.out",
-          }
-        );
-      };
+    animateElement("#hero-h5", -5, "-100%", 2);
+    animateElement("#hero-h2", -5, "-120%", 2);
+    animateElement("#hero-content", 0, "-150%", 0);
 
-      // Trigger
-      animateWithBounce(h5Ref.current);
-      animateWithBounce(h2Line1Ref.current);
-      animateWithBounce(h2Line2Ref.current);
-      animateParagraph(pRef.current);
-      animateImage(heroImgRef.current);
-    });
-
-    return () => ctx.revert();
+    // Cleanup: kill ScrollTriggers on unmount
+    return () => {
+      ScrollTrigger.getAll().forEach((t) => t.kill());
+    };
   }, []);
 
   return (
@@ -154,7 +121,9 @@ const Hero = () => {
         (src, i) => (
           <div
             key={i}
-            ref={(el) => { bgLayersRef.current[i] = el; }}
+            ref={(el) => {
+              bgLayersRef.current[i] = el;
+            }}
             className="absolute inset-0 bg-cover bg-center z-0 will-change-opacity"
             style={{ backgroundImage: `url(${src})` }}
           />
@@ -172,31 +141,31 @@ const Hero = () => {
       <div className="max-w-[1525px] mx-auto px-4 xl:px-10 flex flex-col md:flex-row items-center md:justify-between justify-center md:min-h-[120vh] pt-30 md:pt-0 relative">
         <div className="2xl:max-w-[682px] xl:max-w-[550px] md:max-w-[42%]">
           <h5
-            ref={h5Ref}
+            id="hero-h5"
             className="font-bricolage font-normal 2xl:text-[40px] xl:text-[36px] lg:text-[30px] text-[24px] tracking-[-0.07em] capitalize text-white"
           >
-            {wrapWordsInSpans(h5Text)}
+            Modern, Patient-Focused
           </h5>
 
-          <h2 className="font-bricolage font-extrabold 2xl:text-[90.64px] xl:text-[70px] lg:text-[55px] md:text-[42px] leading-[100%] text-[36px] tracking-[-0.07em] uppercase text-white">
-            <div ref={h2Line1Ref}>{wrapWordsInSpans(h2Line1)}</div>
-            <span
-              ref={h2Line2Ref}
-              className="font-tartuffo font-thin tracking-normal capitalize 2xl:-mt-12 xl:-mt-9 lg:-mt-7 -mt-5 inline-block"
-            >
-              {wrapWordsInSpans(h2Line2)}
-            </span>
-          </h2>
+          <div className="overflow-hidden">
+            <h2 id="hero-h2" className="font-bricolage font-extrabold 2xl:text-[90.64px] xl:text-[70px] lg:text-[55px] md:text-[42px] leading-[100%] text-[36px] tracking-[-0.07em] uppercase text-white">
+              <div>Websites for</div>
+              <span className="font-tartuffo font-thin tracking-normal capitalize 2xl:-mt-12 xl:-mt-9 lg:-mt-7 -mt-5 inline-block">
+                Healthcare Providers
+              </span>
+            </h2>
+          </div>
 
-          <p
-            ref={pRef}
-            className="font-bricolage font-normal 2xl:text-[28px] xl:text-[24px] lg:text-[20px] text-[18px] tracking-[-0.07em] capitalize text-white leading-[142%] mt-[2.4vh]"
-          >
-            {wrapWordsInSpans(pText)}
+          <p id="hero-content" className="font-bricolage font-normal 2xl:text-[28px] xl:text-[24px] lg:text-[20px] text-[18px] tracking-[-0.07em] capitalize text-white leading-[142%] mt-[2.4vh]">
+            Turn your clinic`s website into a trusted, conversion-driven digital
+            front door that attracts new patients and elevates your practice
           </p>
 
           {/* CTA Button (unchanged) */}
-          <button className="mt-7.5 bg-[#003459] text-white rounded-[334px] 2xl:w-[371px] lg:w-[300px] max-w-fit lg:max-w-full px-4 lg:px-0 2xl:h-[69px] h-[60px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize underline button-border" id="btn">
+          <button
+            className="mt-7.5 bg-[#003459] text-white rounded-[334px] 2xl:w-[371px] lg:w-[300px] max-w-fit lg:max-w-full px-4 lg:px-0 2xl:h-[69px] h-[60px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize underline button-border"
+            id="btn"
+          >
             <Image
               src="/button-arrow.svg"
               width={1000}
@@ -245,10 +214,7 @@ const Hero = () => {
         </div>
 
         {/* Hero Image */}
-        <div
-          ref={heroImgRef}
-          className="md:absolute 2xl:-right-51 lg:right-0 md:-right-10 right-0 hero z-20 md:mt-0 mt-[5vh]"
-        >
+        <div className="md:absolute 2xl:-right-51 lg:right-0 md:-right-10 right-0 hero z-20 md:mt-0 mt-[5vh]">
           <Image
             src="/hero.svg"
             height={100}
