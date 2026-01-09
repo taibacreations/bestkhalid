@@ -1183,3 +1183,22 @@ header {
     display: none;
   }
 }
+
+@media screen and (max-width: 1414px) and (min-width:1350px) {
+  .beam-process {
+    margin-top: 16px !important;
+    margin-bottom: 16px !important;
+  }
+}
+@media screen and (max-width: 1349px) and (min-width:1250px) {
+  .beam-process {
+    margin-top: 26px !important;
+    margin-bottom: 26px !important;
+  }
+}
+@media screen and (max-width: 1249px) and (min-width:1060px) {
+  .beam-process {
+    margin-top: 30px !important;
+    margin-bottom: 30px !important;
+  }
+}
