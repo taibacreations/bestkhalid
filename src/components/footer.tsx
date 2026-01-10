@@ -3,7 +3,8 @@ import Image from "next/image";
 const Footer = () => {
   return (
     <footer className="">
-      <div className="bg-[#0029CC] h-auto py-8 md:py-0 md:h-[436px]">
+      <div className="bg-[#0029CC] h-auto py-8 md:py-0 md:h-[436px] relative">
+        <Image src="/footer-name.svg" alt="footername" height={100} width={100} className="absolute -bottom-8 left-1/2 -translate-x-[50%] xl:w-[843px] lg:w-[600px] md:w-[500px] w-[90vw]"/>
         <div className="max-w-[1525px] mx-auto px-4 xl:px-10 flex flex-col md:flex-row justify-between items-start md:pt-35 gap-8 md:gap-0">
           
           {/* Section 1: CTA — stays first */}
@@ -124,7 +125,7 @@ const Footer = () => {
       </div>
 
       {/* Copyright */}
-      <div className="bg-[#171717] flex justify-center items-center h-[65px] text-center overflow-hidden">
+      <div className="bg-[#171717] flex justify-center items-center h-[65px] text-center overflow-hidden relative">
         <h6 id="footer-h6" className="font-bricolage md:text-[16px] text-[15px] xl:text-[18px] font-normal leading-[142%] tracking-[-0.01em] capitalize text-white px-4">
           2026 © Copyrights BestKhalid. All Rights Reserved.
         </h6>
