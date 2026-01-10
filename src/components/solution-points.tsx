@@ -10,27 +10,27 @@ const Solutionoints = () => {
             <div className="lii"></div>
             Patient-friendly and mobile-optimized
             <BorderBeam
-              size={169}
-              duration={5}
+              size={140}
+              duration={8}
               colorFrom="#00000000"
               colorTo="#7AB4FD"
-              className="z-50 relative"
+              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5"
             />
             <BorderBeam
               size={52.44}
-              duration={5}
+              duration={8}
               delay={1.33}
               colorFrom="#00000000"
               colorTo="#7AB4FD"
-              className="z-50 relative"
+              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5"
             />
             <BorderBeam
               size={91.36}
-              duration={5}
+              duration={8}
               delay={3.33}
               colorFrom="#00000000"
               colorTo="#7AB4FD"
-              className="z-50 relative"
+              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5"
             />
           </li>
 
@@ -38,27 +38,27 @@ const Solutionoints = () => {
             <div className="lii"></div>
             Designed to build trust and credibility
             <BorderBeam
-              size={169}
-              duration={5}
+              size={140}
+              duration={8}
               colorFrom="#00000000"
               colorTo="#7AB4FD"
-              className="z-50 relative"
+              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5"
             />
             <BorderBeam
               size={52.44}
-              duration={5}
+              duration={8}
               delay={1.33}
               colorFrom="#00000000"
               colorTo="#7AB4FD"
-              className="z-50 relative"
+              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5"
             />
             <BorderBeam
               size={91.36}
-              duration={5}
+              duration={8}
               delay={3.33}
               colorFrom="#00000000"
               colorTo="#7AB4FD"
-              className="z-50 relative"
+              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5"
             />
           </li>
 
@@ -68,27 +68,27 @@ const Solutionoints = () => {
               Equipped with online booking & lead capture
             </span>
             <BorderBeam
-              size={169}
-              duration={5}
+              size={140}
+              duration={8}
               colorFrom="#00000000"
               colorTo="#7AB4FD"
-              className="z-50 relative"
+              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5"
             />
             <BorderBeam
               size={52.44}
-              duration={5}
+              duration={8}
               delay={1.33}
               colorFrom="#00000000"
               colorTo="#7AB4FD"
-              className="z-50 relative"
+              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5"
             />
             <BorderBeam
               size={91.36}
-              duration={5}
+              duration={8}
               delay={3.33}
               colorFrom="#00000000"
               colorTo="#7AB4FD"
-              className="z-50 relative"
+              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5"
             />
           </li>
         </ul>
@@ -108,27 +108,27 @@ const Solutionoints = () => {
             <div className="lii"></div>
              SEO-optimized to help you rank locally
             <BorderBeam
-              size={169}
-              duration={5}
+              size={140}
+              duration={8}
               colorFrom="#00000000"
               colorTo="#7AB4FD"
-              className="z-50 relative"
+              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5"
             />
             <BorderBeam
               size={52.44}
-              duration={5}
+              duration={8}
               delay={1.33}
               colorFrom="#00000000"
               colorTo="#7AB4FD"
-              className="z-50 relative"
+              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5"
             />
             <BorderBeam
               size={91.36}
-              duration={5}
+              duration={8}
               delay={3.33}
               colorFrom="#00000000"
               colorTo="#7AB4FD"
-              className="z-50 relative"
+              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5"
             />
           </li>
 
@@ -136,27 +136,27 @@ const Solutionoints = () => {
             <div className="lii"></div>
             Accessible and compliant with best practices
             <BorderBeam
-              size={169}
-              duration={5}
+              size={140}
+              duration={8}
               colorFrom="#00000000"
               colorTo="#7AB4FD"
-              className="z-50 relative"
+              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5"
             />
             <BorderBeam
               size={52.44}
-              duration={5}
+              duration={8}
               delay={1.33}
               colorFrom="#00000000"
               colorTo="#7AB4FD"
-              className="z-50 relative"
+              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5"
             />
             <BorderBeam
               size={91.36}
-              duration={5}
+              duration={8}
               delay={3.33}
               colorFrom="#00000000"
               colorTo="#7AB4FD"
-              className="z-50 relative"
+              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5"
             />
           </li>
 
@@ -166,27 +166,27 @@ const Solutionoints = () => {
               Tailored to your specialty and workflow
             </span>
             <BorderBeam
-              size={169}
-              duration={5}
+              size={140}
+              duration={8}
               colorFrom="#00000000"
               colorTo="#7AB4FD"
-              className="z-50 relative"
+              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5"
             />
             <BorderBeam
               size={52.44}
-              duration={5}
+              duration={8}
               delay={1.33}
               colorFrom="#00000000"
               colorTo="#7AB4FD"
-              className="z-50 relative"
+              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5"
             />
             <BorderBeam
               size={91.36}
-              duration={5}
+              duration={8}
               delay={3.33}
               colorFrom="#00000000"
               colorTo="#7AB4FD"
-              className="z-50 relative"
+              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5"
             />
           </li>
         </ul>

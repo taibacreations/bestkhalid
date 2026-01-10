@@ -1,5 +1,6 @@
-'use client';
-import Image from 'next/image';
+"use client";
+import { BorderBeam } from "@stianlarsen/border-beam";
+import Image from "next/image";
 
 const Servicespoints = () => {
   const services = [
@@ -7,7 +8,8 @@ const Servicespoints = () => {
       title: "Local SEO for Healthcare",
       description:
         "Beautiful, modern layouts built around your brand and patients’ needs.",
-      wrapperClass: "items-start max-w-fit left-[82%] xl:top-[-4.9vh] top-[-3vh]",
+      wrapperClass:
+        "items-start max-w-fit left-[82%] xl:top-[-4.9vh] top-[-3vh]",
       contentClass: "group-hover:w-[480px] text-left 2xl:px-8 xl:px-6 px-4",
       descAlign: "left-0 text-left 2xl:px-8 xl:px-6 px-4 -mt-2.5",
       image: "/a.png", // ✅ Unique image
@@ -34,7 +36,8 @@ const Servicespoints = () => {
       title: "Patient Booking & Form Integration",
       description:
         "Seamless scheduling and contact forms to boost patient engagement.",
-      wrapperClass: "items-start max-w-fit lg:top-[17vh] top-[10vh] xl:left-[17%] -left-15",
+      wrapperClass:
+        "items-start max-w-fit lg:top-[17vh] top-[10vh] xl:left-[17%] -left-15",
       contentClass: "group-hover:w-[480px] 2xl:px-8 xl:px-6 px-4",
       descAlign: "left-0 text-left 2xl:px-8 xl:px-6 px-4 -mt-2.5",
       image: "/c.png", // ✅ Unique image
@@ -43,7 +46,8 @@ const Servicespoints = () => {
       title: "Website Care & Maintenance",
       description:
         "Ongoing support, updates, and security to keep your site running smoothly.",
-      wrapperClass: "items-start max-w-fit lg:top-[24.5vh] top-[16vh] xl:left-[34%] left-[0%] -z-10 hover:z-10",
+      wrapperClass:
+        "items-start max-w-fit lg:top-[24.5vh] top-[16vh] xl:left-[34%] left-[0%] -z-10 hover:z-10",
       contentClass: "group-hover:w-[480px] 2xl:px-8 xl:px-6 px-4 -z-10",
       descAlign: "left-0 text-left 2xl:px-8 px-6 -mt-2.5 -z-10",
       image: "/d.png", // ✅ Unique image
@@ -53,8 +57,69 @@ const Servicespoints = () => {
   return (
     <div className="flex flex-col gap-6">
       {services.map((item, i) => (
-        <div key={i} className={`group relative flex ${item.wrapperClass}`}>
-          
+        <div key={i} className={`group relative rounded-[32px] flex ${item.wrapperClass}`}>
+          <BorderBeam
+            size={121}
+            duration={10}
+            colorFrom="#00000000" // fully transparent
+            colorTo="#7AB4FD"
+            className="z-40 relative 2xl:mb-1 xl:-mb-0.5 hidden lg:block"
+          />
+          <BorderBeam
+            size={80}
+            duration={10}
+            delay={2}
+            colorFrom="#00000000" // fully transparent
+            colorTo="#7AB4FD"
+            className="z-40 relative 2xl:mb-1 xl:-mb-0.5 hidden lg:block"
+          />
+          <BorderBeam
+            size={80}
+            duration={10}
+            delay={4}
+            colorFrom="#00000000" // fully transparent
+            colorTo="#7AB4FD"
+            className="z-40 relative 2xl:mb-1 xl:-mb-0.5 hidden lg:block"
+          />
+          <BorderBeam
+            size={121}
+            duration={10}
+            delay={6}
+            colorFrom="#00000000" // fully transparent
+            colorTo="#7AB4FD"
+            className="z-40 relative 2xl:mb-1 xl:-mb-0.5 hidden lg:block"
+          />
+          <BorderBeam
+            size={100}
+            duration={10}
+            colorFrom="#00000000" // fully transparent
+            colorTo="#7AB4FD"
+            className="z-40 relative 2xl:mb-1 xl:-mb-0.5 lg:hidden"
+          />
+          <BorderBeam
+            size={60}
+            duration={10}
+            delay={2}
+            colorFrom="#00000000" // fully transparent
+            colorTo="#7AB4FD"
+            className="z-40 relative 2xl:mb-1 xl:-mb-0.5 lg:hidden"
+          />
+          <BorderBeam
+            size={60}
+            duration={10}
+            delay={4}
+            colorFrom="#00000000" // fully transparent
+            colorTo="#7AB4FD"
+            className="z-40 relative 2xl:mb-1 xl:-mb-0.5 lg:hidden"
+          />
+          <BorderBeam
+            size={100}
+            duration={10}
+            delay={6}
+            colorFrom="#00000000" // fully transparent
+            colorTo="#7AB4FD"
+            className="z-40 relative 2xl:mb-1 xl:-mb-0.5 lg:hidden"
+          />
 
           {/* ✅ 2. Unique service image overlay */}
           <div className="absolute inset-0 rounded-[32px] overflow-hidden transition-all duration-300 xl:h-[64px] group-hover:h-[120px]">

@@ -7,8 +7,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const Hero = () => {
   const bgLayersRef = useRef<(HTMLDivElement | null)[]>([]);
+  const consultationBgLayersRef = useRef<(HTMLDivElement | null)[]>([]);
+  const socialBgLayersRef = useRef<(HTMLDivElement | null)[]>([]);
 
-  // Background layer loop (unchanged)
+  // 🔁 Main hero background loop (unchanged)
   useEffect(() => {
     const imagePaths = [
       "/layer-1.png",
@@ -49,8 +51,79 @@ const Hero = () => {
     }
   }, []);
 
+  // 🔁 Consultation button & Social pill background animations
+  // 🔁 Consultation button & Social pill background animations — SAME as Header CTA
   useEffect(() => {
-    // Register ScrollTrigger (safe in useEffect)
+    const conImages = [
+      "/con-1.png",
+      "/con-2.png",
+      "/con-3.png",
+      "/con-4.png",
+      "/con-5.png",
+    ];
+    const icoImages = [
+      "/ico-1.png",
+      "/ico-2.png",
+      "/ico-3.png",
+      "/ico-4.png",
+      "/ico-5.png",
+    ];
+
+    // Preload all images
+    [...conImages, ...icoImages].forEach((src) => {
+      const img = new window.Image();
+      img.src = src;
+    });
+
+    const animateBgLayers = (
+      layers: (HTMLDivElement | null)[],
+      imageCount: number
+    ) => {
+      if (layers.length !== imageCount) return null;
+
+      gsap.set(layers, { autoAlpha: 0 });
+      gsap.set(layers[0], { autoAlpha: 1 });
+
+      const tl = gsap.timeline({ repeat: -1 });
+      const duration = 0.8;
+      const hold = 0.5;
+
+      layers.forEach((_, i) => {
+        const next = (i + 1) % layers.length;
+        tl.to(layers[i], { autoAlpha: 0, duration }, `+=${hold}`).to(
+          layers[next],
+          { autoAlpha: 1, duration },
+          `-=${duration}`
+        );
+      });
+
+      return tl;
+    };
+
+    let consultationTl: gsap.core.Timeline | null = null;
+    let socialTl: gsap.core.Timeline | null = null;
+
+    const timer = setTimeout(() => {
+      consultationTl = animateBgLayers(
+        consultationBgLayersRef.current,
+        conImages.length
+      );
+      socialTl = animateBgLayers(socialBgLayersRef.current, icoImages.length);
+    }, 100);
+
+    return () => {
+      clearTimeout(timer);
+      consultationTl?.kill();
+      socialTl?.kill();
+      gsap.killTweensOf([
+        ...consultationBgLayersRef.current,
+        ...socialBgLayersRef.current,
+      ]);
+    };
+  }, []);
+
+  // 📜 Scroll-triggered heading animations (unchanged)
+  useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
     const animateElement = (
@@ -65,7 +138,6 @@ const Hero = () => {
       const wrapper = heading.parentElement;
       if (!wrapper) return;
 
-      // Start with overflow hidden (in case it was reset)
       wrapper.style.overflow = "hidden";
 
       gsap.fromTo(
@@ -82,9 +154,9 @@ const Hero = () => {
           duration: 1.4,
           ease: "spring(1, 90, 18)",
           scrollTrigger: {
-            trigger: heading, // or use wrapper
-            start: "top 85%", // animate when top of element hits 85% from top of viewport
-            once: true, // animate only once
+            trigger: heading,
+            start: "top 85%",
+            once: true,
           },
           onComplete: () => {
             gsap.to(heading, {
@@ -107,7 +179,6 @@ const Hero = () => {
     animateElement("#hero-h2", -5, "-120%", 2);
     animateElement("#hero-content", 0, "-150%", 0);
 
-    // Cleanup: kill ScrollTriggers on unmount
     return () => {
       ScrollTrigger.getAll().forEach((t) => t.kill());
     };
@@ -166,62 +237,86 @@ const Hero = () => {
             front door that attracts new patients and elevates your practice
           </p>
 
-          {/* CTA Button (unchanged) */}
-          <button
-            className="mt-7.5 bg-[#003459] text-white rounded-[334px] 2xl:w-[371px] lg:w-[300px] max-w-fit lg:max-w-full px-4 lg:px-0 2xl:h-[69px] h-[60px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize underline button-border"
-            id="btn"
-          >
-            <Image
-              src="/button-arrow.svg"
-              width={1000}
-              height={100}
-              alt="button-arrow"
-              className="w-[12px] md:w-[14px] lg:w-[15px] h-auto"
-            />
-            Book a Free Consultation
-          </button>
+          {/* ✅ Animated Consultation CTA Button */}
+          <div className="mt-7.5 relative max-w-fit lg:max-w-full">
+            {/* Background layers for consultation button */}
+            {Array.from({ length: 5 }).map((_, i) => (
+              <div
+                key={`con-${i}`}
+                ref={(el) => {
+                  consultationBgLayersRef.current[i] = el;
+                }}
+                className="absolute inset-0 rounded-[334px] bg-contain bg-no-repeat bg-center z-0 2xl:w-[371px] lg:w-[300px] md:h-[50px] w-[250px] lg:px-0 2xl:h-[69px] h-[60px]"
+                style={{ backgroundImage: `url(/con-${i + 1}.png)` }}
+              />
+            ))}
+            <button
+              className="relative bg-transparent text-white rounded-[334px] 2xl:w-[371px] lg:w-[300px] w-full lg:px-0 2xl:h-[69px] h-[60px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize underline z-10 md:ml-[2.5vw] ml-[4.5vw] lg:ml-0 md:pb-[1vh] 2xl:pb-0"
+              id="btn"
+            >
+              <Image
+                src="/button-arrow.svg"
+                width={1000}
+                height={100}
+                alt="button-arrow"
+                className="w-[12px] md:w-[14px] lg:w-[15px] h-auto"
+              />
+              Book a Free Consultation
+            </button>
+          </div>
 
-          {/* Socials (unchanged) */}
+          {/* ✅ Animated Social Links Background */}
           <div className="md:flex items-center gap-1 2xl:mt-28 mt-24 z-50 relative hidden">
             <div className="lg:w-5 lg:h-5 w-4 h-4 rounded-full shadow-button bg-[#003459]" />
             <div className="2xl:w-[98px] lg:w-[90px] w-[70px] border border-dashed border-white h-[1px]" />
-            <div className="2xl:w-[201px] lg:w-[160px] w-[140px] h-[51px] rounded-full shadow-button button-border bg-[#003459] flex items-center justify-center gap-4">
-              <Image
-                src="/linkedin.svg"
-                width={100}
-                height={100}
-                alt="linkedin"
-                className="2xl:w-[19.77px] lg:w-[16px] w-[14px]"
-              />
-              <Image
-                src="/facebook.svg"
-                width={100}
-                height={100}
-                alt="facebook"
-                className="2xl:w-[19.77px] lg:w-[16px] w-[14px]"
-              />
-              <Image
-                src="/inst.svg"
-                width={100}
-                height={100}
-                alt="insta"
-                className="2xl:w-[19.77px] lg:w-[16px] w-[14px]"
-              />
-              <Image
-                src="/twitter.svg"
-                width={100}
-                height={100}
-                alt="twitter"
-                className="2xl:w-[19.77px] lg:w-[16px] w-[14px]"
-              />
+            <div className="relative 2xl:w-[201px] lg:w-[160px] w-[140px] h-[51px] rounded-full">
+              {/* Background layers for social pill */}
+              {Array.from({ length: 5 }).map((_, i) => (
+                <div
+                  key={`ico-${i}`}
+                  ref={(el) => {
+                    socialBgLayersRef.current[i] = el;
+                  }}
+                  className="absolute inset-0 rounded-full lg:bg-cover bg-contain bg-no-repeat bg-center z-0"
+                  style={{ backgroundImage: `url(/ico-${i + 1}.png)` }}
+                />
+              ))}
+              <div className="relative z-10 flex items-center justify-center gap-4 2xl:mt-[1.6vh] mt-[2vh]">
+                <Image
+                  src="/linkedin.svg"
+                  width={100}
+                  height={100}
+                  alt="linkedin"
+                  className="2xl:w-[19.77px] lg:w-[16px] w-[14px]"
+                />
+                <Image
+                  src="/facebook.svg"
+                  width={100}
+                  height={100}
+                  alt="facebook"
+                  className="2xl:w-[19.77px] lg:w-[16px] w-[14px]"
+                />
+                <Image
+                  src="/inst.svg"
+                  width={100}
+                  height={100}
+                  alt="insta"
+                  className="2xl:w-[19.77px] lg:w-[16px] w-[14px]"
+                />
+                <Image
+                  src="/twitter.svg"
+                  width={100}
+                  height={100}
+                  alt="twitter"
+                  className="2xl:w-[19.77px] lg:w-[16px] w-[14px]"
+                />
+              </div>
             </div>
           </div>
         </div>
 
         {/* Hero Image */}
-        <div
-          className="md:absolute 2xl:-right-51 lg:right-0 md:-right-10 right-0 hero z-20 md:mt-0 mt-[5vh]"
-        >
+        <div className="md:absolute 2xl:-right-51 lg:right-0 md:-right-10 right-0 hero z-20 md:mt-0 mt-[5vh]">
           <Image
             src="/hero.svg"
             height={100}

@@ -3,11 +3,50 @@ import Image from "next/image";
 import Projects from "./projects";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 const Lead = () => {
+  const downloadBgLayersRef = useRef<(HTMLDivElement | null)[]>([]);
+
+  // 🔁 Animate Download Button Background (same as Header CTA)
   useEffect(() => {
-    // Register ScrollTrigger (safe in useEffect)
+    const downImages = ["/down-1.png", "/down-2.png", "/down-3.png", "/down-4.png", "/down-5.png"];
+
+    // Preload images
+    downImages.forEach((src) => {
+      const img = new window.Image();
+      img.src = src;
+    });
+
+    const animateDownloadBg = () => {
+      if (downloadBgLayersRef.current.length !== downImages.length) return;
+
+      gsap.set(downloadBgLayersRef.current, { autoAlpha: 0 });
+      gsap.set(downloadBgLayersRef.current[0], { autoAlpha: 1 });
+
+      const tl = gsap.timeline({ repeat: -1 });
+      const duration = 0.8;
+      const hold = 0.5;
+
+      downloadBgLayersRef.current.forEach((_, i) => {
+        const next = (i + 1) % downloadBgLayersRef.current.length;
+        tl
+          .to(downloadBgLayersRef.current[i], { autoAlpha: 0, duration }, `+=${hold}`)
+          .to(downloadBgLayersRef.current[next], { autoAlpha: 1, duration }, `-=${duration}`);
+      });
+
+      return () => {
+        tl.kill();
+        gsap.killTweensOf(downloadBgLayersRef.current);
+      };
+    };
+
+    const timer = setTimeout(animateDownloadBg, 100);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // 📜 Scroll-triggered heading animation (unchanged)
+  useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
     const animateElement = (
@@ -33,9 +72,9 @@ const Lead = () => {
           duration: 1.4,
           ease: "spring(1, 90, 18)",
           scrollTrigger: {
-            trigger: heading, // or use wrapper
-            start: "top 85%", // animate when top of element hits 85% from top of viewport
-            once: true, // animate only once
+            trigger: heading,
+            start: "top 85%",
+            once: true,
           },
           onComplete: () => {
             gsap.to(heading, {
@@ -51,7 +90,6 @@ const Lead = () => {
 
     animateElement("#leads", 0, "-100%", 0);
 
-    // Cleanup: kill ScrollTriggers on unmount
     return () => {
       ScrollTrigger.getAll().forEach((t) => t.kill());
     };
@@ -97,8 +135,19 @@ const Lead = () => {
           <Projects />
           <div className="absolute lg:bottom-55 md:bottom-15 -bottom-[10vh] left-1/2 -translate-x-1/2 z-20 w-full">
             <div className="flex flex-col justify-center items-center md:gap-5 gap-3">
-              <div>
-                <button className="bg-[#003459] text-white md:min-w-[190px] max-w-fit p-3 lg:min-w-[230px] xl:min-w-[250px] 2xl:min-w-[336px] md:h-[50px] 2xl:h-[59px] rounded-[334px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize shadow-button">
+              {/* ✅ Animated Download Button */}
+              <div className="relative">
+                {/* Background layers */}
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <div
+                    key={`down-${i}`}
+                    ref={(el) => {downloadBgLayersRef.current[i] = el}}
+                    className="absolute inset-0 rounded-[334px] bg-cover bg-center z-0"
+                    style={{ backgroundImage: `url(/down-${i + 1}.png)` }}
+                  />
+                ))}
+                {/* Button on top */}
+                <button className="relative bg-transparent text-white md:min-w-[190px] max-w-fit p-3 lg:min-w-[230px] xl:min-w-[250px] 2xl:min-w-[336px] md:h-[50px] 2xl:h-[59px] rounded-[334px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize z-10">
                   <Image
                     src="/button-arrow.svg"
                     width={1000}

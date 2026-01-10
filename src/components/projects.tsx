@@ -3,6 +3,7 @@ import { useEffect, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { BorderBeam } from "@stianlarsen/border-beam";
 
 const Projects = () => {
   const leftRef = useRef<HTMLImageElement>(null);
@@ -53,14 +54,108 @@ const Projects = () => {
           alt="project-1"
           className="xl:w-[477px] lg:w-[400px] md:w-[300px] w-[180px] 2xl:scale-128 h-auto relative 2xl:left-[7%] left-[10%] 2xl:top-[5.5vh]"
         />
-        <Image
-          ref={centerRef}
-          src="/proj-new-1.svg"
-          height={100}
-          width={100}
-          alt="project-1"
-          className="2xl:w-[541px] xl:w-[500px] lg:w-[400px] md:w-[300px] w-[180px] z-10 h-auto"
-        />
+        <div ref={centerRef} className="2xl:min-w-[541px] xl:min-w-[500px] lg:min-w-[400px] md:min-w-[300px] min-w-[180px] z-10 h-auto relative rounded-[32px]">
+          <Image
+            src="/proj-new-1.svg"
+            height={100}
+            width={100}
+            alt="project-1"
+            className="w-full h-auto"
+          />
+          <BorderBeam
+            size={289}
+            duration={8}
+            colorFrom="#00000000" // fully transparent
+            colorTo="#7AB4FD"
+            className="z-40 relative hidden lg:block"
+          />
+          <BorderBeam
+            size={289}
+            duration={8}
+            delay={2}
+            colorFrom="#00000000" // fully transparent
+            colorTo="#7AB4FD"
+            className="z-40 relative hidden lg:block"
+          />
+          <BorderBeam
+            size={289}
+            duration={8}
+            delay={4}
+            colorFrom="#00000000" // fully transparent
+            colorTo="#7AB4FD"
+            className="z-40 relative hidden lg:block"
+          />
+          <BorderBeam
+            size={289}
+            duration={8}
+            delay={6}
+            colorFrom="#00000000" // fully transparent
+            colorTo="#7AB4FD"
+            className="z-40 relative hidden lg:block"
+          />
+          <BorderBeam
+            size={180}
+            duration={8}
+            colorFrom="#00000000" // fully transparent
+            colorTo="#7AB4FD"
+            className="z-40 relative lg:hidden hidden md:block"
+          />
+          <BorderBeam
+            size={180}
+            duration={8}
+            delay={2}
+            colorFrom="#00000000" // fully transparent
+            colorTo="#7AB4FD"
+            className="z-40 relative lg:hidden hidden md:block"
+          />
+          <BorderBeam
+            size={180}
+            duration={8}
+            delay={4}
+            colorFrom="#00000000" // fully transparent
+            colorTo="#7AB4FD"
+            className="z-40 relative lg:hidden hidden md:block"
+          />
+          <BorderBeam
+            size={180}
+            duration={8}
+            delay={6}
+            colorFrom="#00000000" // fully transparent
+            colorTo="#7AB4FD"
+            className="z-40 relative lg:hidden hidden md:block"
+          />
+          <BorderBeam
+            size={70}
+            duration={8}
+            colorFrom="#00000000" // fully transparent
+            colorTo="#7AB4FD"
+            className="z-40 relative md:hidden"
+          />
+          <BorderBeam
+            size={70}
+            duration={8}
+            delay={2}
+            colorFrom="#00000000" // fully transparent
+            colorTo="#7AB4FD"
+            className="z-40 relative md:hidden"
+          />
+          <BorderBeam
+            size={70}
+            duration={8}
+            delay={4}
+            colorFrom="#00000000" // fully transparent
+            colorTo="#7AB4FD"
+            className="z-40 relative md:hidden"
+          />
+          <BorderBeam
+            size={70}
+            duration={8}
+            delay={6}
+            colorFrom="#00000000" // fully transparent
+            colorTo="#7AB4FD"
+            className="z-40 relative md:hidden"
+          />
+        </div>
         <Image
           ref={rightRef}
           src="/proj-new-2.svg"

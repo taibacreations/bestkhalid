@@ -4,6 +4,7 @@ import Circle from "./circle";
 import { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { BorderBeam } from "@stianlarsen/border-beam";
 
 const Problem = () => {
   useEffect(() => {
@@ -168,8 +169,70 @@ const Problem = () => {
             world, patients expect a seamless online experience
           </p>
         </div>
-        <div className="bg-[#0E1A4A08] 2xl:h-[483px] 2xl:h-[400px] md:h-[380px] min-h-[300px] 2xl:w-[817px] xl:w-[750px] lg:w-[600px] md:w-[500px] max-w-full lg:ml-[35%] md:ml-[30%] relative 2xl:mt-13 xl:mt-10 mt-8 z-20 relative overflow-hidden rotating-border problem-bg-animation">
+        <div className="bg-[#0E1A4A08] xl:rounded-[32px] rounded-[20px] 2xl:h-[483px] 2xl:h-[400px] md:h-[380px] min-h-[300px] 2xl:w-[817px] xl:w-[750px] lg:w-[600px] md:w-[500px] max-w-full lg:ml-[35%] md:ml-[30%] relative 2xl:mt-13 xl:mt-10 mt-8 z-20 relative overflow-hidden rotating-border problem-bg-animation">
           <div className="problem-bg-animation-2"></div>
+          <BorderBeam
+            size={289}
+            duration={8}
+            colorFrom="#00000000"
+            colorTo="#7AB4FD"
+            className="z-50 relative xl:my-0 lg:mb-7 md:mb-20 mb-71 hidden xl:block"
+          />
+          <BorderBeam
+            size={289}
+            duration={8}
+            delay={2}
+            colorFrom="#00000000"
+            colorTo="#7AB4FD"
+            className="z-50 relative xl:my-0 lg:mb-7 md:mb-20 mb-71 hidden xl:block"
+          />
+          <BorderBeam
+            size={289}
+            duration={8}
+            delay={4}
+            colorFrom="#00000000"
+            colorTo="#7AB4FD"
+            className="z-50 relative xl:my-0 lg:mb-7 md:mb-20 mb-71 hidden xl:block"
+          />
+          <BorderBeam
+            size={289}
+            duration={8}
+            delay={6}
+            colorFrom="#00000000"
+            colorTo="#7AB4FD"
+            className="z-50 relative xl:my-0 lg:mb-7 md:mb-20 mb-71 hidden xl:block"
+          />
+          <BorderBeam
+            size={150}
+            duration={8}
+            colorFrom="#00000000"
+            colorTo="#7AB4FD"
+            className="z-50 relative xl:my-0 lg:mb-7 md:mb-20 mb-71 xl:hidden"
+          />
+          <BorderBeam
+            size={150}
+            duration={8}
+            delay={2}
+            colorFrom="#00000000"
+            colorTo="#7AB4FD"
+            className="z-50 relative xl:my-0 lg:mb-7 md:mb-20 mb-71 xl:hidden"
+          />
+          <BorderBeam
+            size={150}
+            duration={8}
+            delay={4}
+            colorFrom="#00000000"
+            colorTo="#7AB4FD"
+            className="z-50 relative xl:my-0 lg:mb-7 md:mb-20 mb-71 xl:hidden"
+          />
+          <BorderBeam
+            size={150}
+            duration={8}
+            delay={6}
+            colorFrom="#00000000"
+            colorTo="#7AB4FD"
+            className="z-50 relative xl:my-0 lg:mb-7 md:mb-20 mb-71 xl:hidden"
+          />
           <Image
             src="/glass-overlay.png"
             height={100}

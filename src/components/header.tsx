@@ -47,7 +47,7 @@ const Header = () => {
 
       const tl = gsap.timeline({ repeat: -1 });
       const duration = 0.8;
-      const hold = 2.4;
+      const hold = .5;
 
       ctaBgLayersRef.current.forEach((_, i) => {
         const next = (i + 1) % ctaBgLayersRef.current.length;
@@ -191,7 +191,7 @@ const Header = () => {
               <div
                 key={i}
                 ref={(el) => {ctaBgLayersRef.current[i] = el}}
-                className="absolute inset-0 rounded-[334px] bg-cover bg-center z-0"
+                className="absolute inset-0 rounded-[334px] lg:bg-cover bg-contain bg-no-repeat bg-center z-0"
                 style={{ backgroundImage: `url(${src})` }}
               />
             ))}
