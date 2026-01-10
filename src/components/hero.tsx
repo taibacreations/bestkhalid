@@ -55,18 +55,18 @@ const Hero = () => {
   // 🔁 Consultation button & Social pill background animations — SAME as Header CTA
   useEffect(() => {
     const conImages = [
-      "/con-1.png",
-      "/con-2.png",
-      "/con-3.png",
-      "/con-4.png",
-      "/con-5.png",
+      "/cons-1.png",
+      "/cons-2.png",
+      "/cons-3.png",
+      "/cons-4.png",
+      "/cons-5.png",
     ];
     const icoImages = [
-      "/ico-1.png",
-      "/ico-2.png",
-      "/ico-3.png",
-      "/ico-4.png",
-      "/ico-5.png",
+      "/icon-1.png",
+      "/icon-2.png",
+      "/icon-3.png",
+      "/icon-4.png",
+      "/icon-5.png",
     ];
 
     // Preload all images
@@ -238,21 +238,20 @@ const Hero = () => {
           </p>
 
           {/* ✅ Animated Consultation CTA Button */}
-          <div className="mt-7.5 relative max-w-fit lg:max-w-full">
+          <div id="btn" className="mt-7.5 relative max-w-fit lg:max-w-full">
             {/* Background layers for consultation button */}
             {Array.from({ length: 5 }).map((_, i) => (
               <div
-                key={`con-${i}`}
+                key={`cons-${i}`}
                 ref={(el) => {
                   consultationBgLayersRef.current[i] = el;
                 }}
                 className="absolute inset-0 rounded-[334px] bg-contain bg-no-repeat bg-center z-0 2xl:w-[371px] lg:w-[300px] md:h-[50px] w-[250px] lg:px-0 2xl:h-[69px] h-[60px]"
-                style={{ backgroundImage: `url(/con-${i + 1}.png)` }}
+                style={{ backgroundImage: `url(/cons-${i + 1}.png)` }}
               />
             ))}
             <button
               className="relative bg-transparent text-white rounded-[334px] 2xl:w-[371px] lg:w-[300px] w-full lg:px-0 2xl:h-[69px] h-[60px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize underline z-10 md:ml-[2.5vw] ml-[4.5vw] lg:ml-0 md:pb-[1vh] 2xl:pb-0"
-              id="btn"
             >
               <Image
                 src="/button-arrow.svg"
@@ -273,7 +272,7 @@ const Hero = () => {
               {/* Background layers for social pill */}
               {Array.from({ length: 5 }).map((_, i) => (
                 <div
-                  key={`ico-${i}`}
+                  key={`icon-${i}`}
                   ref={(el) => {
                     socialBgLayersRef.current[i] = el;
                   }}

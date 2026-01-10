@@ -10,7 +10,7 @@ const Lead = () => {
 
   // 🔁 Animate Download Button Background (same as Header CTA)
   useEffect(() => {
-    const downImages = ["/down-1.png", "/down-2.png", "/down-3.png", "/down-4.png", "/down-5.png"];
+    const downImages = ["/dow-1.png", "/dow-2.png", "/dow-3.png", "/dow-4.png", "/dow-5.png"];
 
     // Preload images
     downImages.forEach((src) => {
@@ -140,7 +140,7 @@ const Lead = () => {
                 {/* Background layers */}
                 {Array.from({ length: 5 }).map((_, i) => (
                   <div
-                    key={`down-${i}`}
+                    key={`dow-${i}`}
                     ref={(el) => {downloadBgLayersRef.current[i] = el}}
                     className="absolute inset-0 rounded-[334px] bg-cover bg-center z-0"
                     style={{ backgroundImage: `url(/down-${i + 1}.png)` }}

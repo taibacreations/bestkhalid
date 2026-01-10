@@ -21,11 +21,11 @@ const Header = () => {
 
   // ✅ CTA background images
   const ctaBgImages = [
-    "/hire-1.png",
-    "/hire-2.png",
-    "/hire-3.png",
-    "/hire-4.png",
-    "/hire-5.png",
+    "/hir-1.png",
+    "/hir-2.png",
+    "/hir-3.png",
+    "/hir-4.png",
+    "/hir-5.png",
   ];
 
   const ctaBgLayersRef = useRef<(HTMLDivElement | null)[]>([]);
