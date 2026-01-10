@@ -4,10 +4,11 @@ import Header from "@/components/header";
 import { Bricolage_Grotesque } from "next/font/google";
 import Footer from "@/components/footer";
 import { tartuffo } from "./fonts";
+import SmoothScroll from "@/components/SmoothScroll";
 
 const bricolageGrotesque = Bricolage_Grotesque({
   subsets: ["latin"],
-  weight: ["200","300","400", "500", "600", "700", "800"],
+  weight: ["200", "300", "400", "500", "600", "700", "800"],
   variable: "--font-bricolage-grotesque",
 });
 
@@ -26,11 +27,13 @@ export default function RootLayout({
       <body
         className={`${bricolageGrotesque.variable} ${tartuffo.variable} antialiased`}
       >
-        <main>
-          <Header />
-        {children}
-        <Footer />
-        </main>
+        <SmoothScroll>
+          <main>
+            <Header />
+            {children}
+            <Footer />
+          </main>
+        </SmoothScroll>
       </body>
     </html>
   );
