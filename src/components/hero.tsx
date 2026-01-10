@@ -246,12 +246,12 @@ const Hero = () => {
                 ref={(el) => {
                   consultationBgLayersRef.current[i] = el;
                 }}
-                className="absolute inset-0 rounded-[334px] bg-contain bg-no-repeat bg-center z-0 2xl:w-[371px] lg:w-[300px] md:h-[50px] w-[250px] lg:px-0 2xl:h-[69px] h-[60px]"
+                className="absolute inset-0 rounded-[334px] bg-contain bg-no-repeat bg-center z-0 2xl:w-[371px] lg:w-[300px] md:h-[50px] w-full lg:px-0 2xl:h-[69px] h-[60px]"
                 style={{ backgroundImage: `url(/cons-${i + 1}.png)` }}
               />
             ))}
             <button
-              className="relative bg-transparent text-white rounded-[334px] 2xl:w-[371px] lg:w-[300px] w-full lg:px-0 2xl:h-[69px] h-[60px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize underline z-10 md:ml-[2.5vw] ml-[4.5vw] lg:ml-0 md:pb-[1vh] 2xl:pb-0"
+              className="relative bg-transparent text-white rounded-[334px] 2xl:w-[371px] lg:w-[300px] w-full lg:px-0 2xl:h-[69px] h-[60px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize underline z-10 md:ml-[2.5vw] lg:ml-0 lg:pb-[1vh] md:-mt-1.5 lg:mt-0 md:pl-[0vw] 2xl:pb-0 p-8 lg:pt-0 lg:pl-0 lg:pr-0"
             >
               <Image
                 src="/button-arrow.svg"
@@ -277,7 +277,7 @@ const Hero = () => {
                     socialBgLayersRef.current[i] = el;
                   }}
                   className="absolute inset-0 rounded-full lg:bg-cover bg-contain bg-no-repeat bg-center z-0"
-                  style={{ backgroundImage: `url(/ico-${i + 1}.png)` }}
+                  style={{ backgroundImage: `url(/icon-${i + 1}.png)` }}
                 />
               ))}
               <div className="relative z-10 flex items-center justify-center gap-4 2xl:mt-[1.6vh] mt-[2vh]">

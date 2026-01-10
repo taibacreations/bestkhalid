@@ -142,12 +142,12 @@ const Lead = () => {
                   <div
                     key={`dow-${i}`}
                     ref={(el) => {downloadBgLayersRef.current[i] = el}}
-                    className="absolute inset-0 rounded-[334px] bg-cover bg-center z-0"
-                    style={{ backgroundImage: `url(/down-${i + 1}.png)` }}
+                    className="absolute inset-0 rounded-[334px] bg-contain bg-no-repeat bg-center z-0"
+                    style={{ backgroundImage: `url(/dow-${i + 1}.png)` }}
                   />
                 ))}
                 {/* Button on top */}
-                <button className="relative bg-transparent text-white md:min-w-[190px] max-w-fit p-3 lg:min-w-[230px] xl:min-w-[250px] 2xl:min-w-[336px] md:h-[50px] 2xl:h-[59px] rounded-[334px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize z-10">
+                <button className="relative bg-transparent text-white md:min-w-[190px] max-w-fit lg:p-3 p-6 lg:min-w-[230px] xl:min-w-[250px] 2xl:min-w-[336px] md:h-[50px] 2xl:h-[59px] rounded-[334px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize z-10">
                   <Image
                     src="/button-arrow.svg"
                     width={1000}

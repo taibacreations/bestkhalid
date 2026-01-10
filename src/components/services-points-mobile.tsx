@@ -1,4 +1,6 @@
-'use client';
+"use client";
+
+import { BorderBeam } from "@stianlarsen/border-beam";
 
 const ServicespointsMobile = () => {
   const services = [
@@ -37,8 +39,10 @@ const ServicespointsMobile = () => {
   return (
     <div className="flex flex-col gap-6">
       {services.map((item, i) => (
-        <div key={i} className={`group relative flex justify-center ${item.wrapperClass}`}>
-          
+        <div
+          key={i}
+          className={`group relative flex justify-center ${item.wrapperClass}`}
+        >
           {/* Background */}
           <div className="absolute inset-0 bg-[url(/glassy-2.png)] bg-cover bg-center rounded-[32px] transition-all duration-300 py-3 group-hover:h-[120px]" />
           <div className="absolute inset-0 bg-blue-600 rounded-[32px] opacity-0 group-hover:opacity-100 transition-all duration-300 h-[64px] group-hover:h-[120px]" />
@@ -61,16 +65,43 @@ const ServicespointsMobile = () => {
 
             <p
               className="
-                absolute top-[64px] left-1/2 -translate-x-1/2
-                opacity-0 translate-y-2
-                group-hover:opacity-100 group-hover:translate-y-0
-                transition-all duration-300
-                font-bricolage text-[14px] md:text-[16px] text-white text-center
+                font-bricolage text-[14px] text-white text-center
                 w-[90%]
               "
             >
               {item.description}
             </p>
+            <BorderBeam
+              size={100}
+              duration={10}
+              colorFrom="#00000000" // fully transparent
+              colorTo="#7AB4FD"
+              className="z-40 relative 2xl:mb-1 xl:-mb-0.5 lg:hidden"
+            />
+            <BorderBeam
+              size={60}
+              duration={10}
+              delay={2}
+              colorFrom="#00000000" // fully transparent
+              colorTo="#7AB4FD"
+              className="z-40 relative 2xl:mb-1 xl:-mb-0.5 lg:hidden"
+            />
+            <BorderBeam
+              size={60}
+              duration={10}
+              delay={4}
+              colorFrom="#00000000" // fully transparent
+              colorTo="#7AB4FD"
+              className="z-40 relative 2xl:mb-1 xl:-mb-0.5 lg:hidden"
+            />
+            <BorderBeam
+              size={100}
+              duration={10}
+              delay={6}
+              colorFrom="#00000000" // fully transparent
+              colorTo="#7AB4FD"
+              className="z-40 relative 2xl:mb-1 xl:-mb-0.5 lg:hidden"
+            />
           </div>
         </div>
       ))}
