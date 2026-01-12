@@ -731,3 +731,10 @@ header {
     margin-top: 202px;
   }
 }
+
+
+@media screen and (max-width: 400px) and (min-width: 351px) {
+  .sol-poin {
+    margin-bottom: 12px;
+  }
+}

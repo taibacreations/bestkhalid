@@ -14,7 +14,7 @@ const Solutionoints = () => {
               duration={8}
               colorFrom="#00000000"
               colorTo="#7AB4FD"
-              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5"
+              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5 sol-point"
             />
             <BorderBeam
               size={52.44}
@@ -22,7 +22,7 @@ const Solutionoints = () => {
               delay={1.33}
               colorFrom="#00000000"
               colorTo="#7AB4FD"
-              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5"
+              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5 sol-point"
             />
             <BorderBeam
               size={91.36}
@@ -30,7 +30,7 @@ const Solutionoints = () => {
               delay={3.33}
               colorFrom="#00000000"
               colorTo="#7AB4FD"
-              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5"
+              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5 sol-point"
             />
           </li>
 
@@ -42,7 +42,7 @@ const Solutionoints = () => {
               duration={8}
               colorFrom="#00000000"
               colorTo="#7AB4FD"
-              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5"
+              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5 sol-point"
             />
             <BorderBeam
               size={52.44}
@@ -50,7 +50,7 @@ const Solutionoints = () => {
               delay={1.33}
               colorFrom="#00000000"
               colorTo="#7AB4FD"
-              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5"
+              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5 sol-point"
             />
             <BorderBeam
               size={91.36}
@@ -58,7 +58,7 @@ const Solutionoints = () => {
               delay={3.33}
               colorFrom="#00000000"
               colorTo="#7AB4FD"
-              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5"
+              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5 sol-point"
             />
           </li>
 
@@ -72,7 +72,7 @@ const Solutionoints = () => {
               duration={8}
               colorFrom="#00000000"
               colorTo="#7AB4FD"
-              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5"
+              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5 md:mb-2.5 sol-poin"
             />
             <BorderBeam
               size={52.44}
@@ -80,7 +80,7 @@ const Solutionoints = () => {
               delay={1.33}
               colorFrom="#00000000"
               colorTo="#7AB4FD"
-              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5"
+              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5 md:mb-2.5 sol-poin"
             />
             <BorderBeam
               size={91.36}
@@ -88,7 +88,7 @@ const Solutionoints = () => {
               delay={3.33}
               colorFrom="#00000000"
               colorTo="#7AB4FD"
-              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5"
+              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5 md:mb-2.5 sol-poin"
             />
           </li>
         </ul>
@@ -112,7 +112,7 @@ const Solutionoints = () => {
               duration={8}
               colorFrom="#00000000"
               colorTo="#7AB4FD"
-              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5"
+              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5 sol-poin"
             />
             <BorderBeam
               size={52.44}
@@ -120,7 +120,7 @@ const Solutionoints = () => {
               delay={1.33}
               colorFrom="#00000000"
               colorTo="#7AB4FD"
-              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5"
+              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5 sol-poin"
             />
             <BorderBeam
               size={91.36}
@@ -128,7 +128,7 @@ const Solutionoints = () => {
               delay={3.33}
               colorFrom="#00000000"
               colorTo="#7AB4FD"
-              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5"
+              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5 sol-poin"
             />
           </li>
 
@@ -140,7 +140,7 @@ const Solutionoints = () => {
               duration={8}
               colorFrom="#00000000"
               colorTo="#7AB4FD"
-              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5"
+              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5 sol-poin"
             />
             <BorderBeam
               size={52.44}
@@ -148,7 +148,7 @@ const Solutionoints = () => {
               delay={1.33}
               colorFrom="#00000000"
               colorTo="#7AB4FD"
-              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5"
+              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5 sol-poin"
             />
             <BorderBeam
               size={91.36}
@@ -156,7 +156,7 @@ const Solutionoints = () => {
               delay={3.33}
               colorFrom="#00000000"
               colorTo="#7AB4FD"
-              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5"
+              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5 sol-poin"
             />
           </li>
 
@@ -170,7 +170,7 @@ const Solutionoints = () => {
               duration={8}
               colorFrom="#00000000"
               colorTo="#7AB4FD"
-              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5"
+              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5 md:mb-2.5 sol-poin"
             />
             <BorderBeam
               size={52.44}
@@ -178,7 +178,7 @@ const Solutionoints = () => {
               delay={1.33}
               colorFrom="#00000000"
               colorTo="#7AB4FD"
-              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5"
+              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5 md:mb-2.5 sol-poin"
             />
             <BorderBeam
               size={91.36}
@@ -186,7 +186,7 @@ const Solutionoints = () => {
               delay={3.33}
               colorFrom="#00000000"
               colorTo="#7AB4FD"
-              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5"
+              className="z-50 relative 2xl:mb-0 xl:mb-1 lg:mb-0.5 md:mb-2.5 sol-poin"
             />
           </li>
         </ul>
