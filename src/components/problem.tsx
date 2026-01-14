@@ -176,7 +176,7 @@ const Problem = () => {
             duration={8}
             colorFrom="#00000000"
             colorTo="#7AB4FD"
-            className="z-50 relative xl:my-0 lg:mb-7 md:mb-20 mb-71 hidden xl:block"
+            className="z-50 relative xl:my-0 lg:mb-7 md:mb-20 mb-71 hidden xl:block thick-beam"
           />
           <BorderBeam
             size={289}
@@ -184,7 +184,7 @@ const Problem = () => {
             delay={2}
             colorFrom="#00000000"
             colorTo="#7AB4FD"
-            className="z-50 relative xl:my-0 lg:mb-7 md:mb-20 mb-71 hidden xl:block"
+            className="z-50 relative xl:my-0 lg:mb-7 md:mb-20 mb-71 hidden xl:block thick-beam"
           />
           <BorderBeam
             size={289}
@@ -192,7 +192,7 @@ const Problem = () => {
             delay={4}
             colorFrom="#00000000"
             colorTo="#7AB4FD"
-            className="z-50 relative xl:my-0 lg:mb-7 md:mb-20 mb-71 hidden xl:block"
+            className="z-50 relative xl:my-0 lg:mb-7 md:mb-20 mb-71 hidden xl:block thick-beam"
           />
           <BorderBeam
             size={289}
@@ -200,7 +200,7 @@ const Problem = () => {
             delay={6}
             colorFrom="#00000000"
             colorTo="#7AB4FD"
-            className="z-50 relative xl:my-0 lg:mb-7 md:mb-20 mb-71 hidden xl:block"
+            className="z-50 relative xl:my-0 lg:mb-7 md:mb-20 mb-71 hidden xl:block thick-beam"
           />
           <BorderBeam
             size={150}

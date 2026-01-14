@@ -787,3 +787,16 @@ header {
     margin-bottom: 2px;
   }
 }
+.thick-beam {
+  border-width: 3px !important; /* ← This controls thickness */
+  border-style: solid;
+  border-color: transparent; /* Beam color is handled by mask, not this */
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+/* Ensure the ::before pseudo-element covers the full border area */
+.thick-beam::before {
+  border-radius: 50% !important;
+  inset: -3px !important; /* Must match border-width (e.g., -3px for 3px) */
+}
