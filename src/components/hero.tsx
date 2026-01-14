@@ -325,11 +325,12 @@ const Hero = () => {
         {/* Hero Image */}
         <div className="md:absolute 2xl:-right-51 lg:right-0 md:-right-10 right-0 hero z-20 md:mt-0 mt-[5vh]">
           <Image
-            src="/hero.svg"
+            src="https://res.cloudinary.com/duwampjn2/image/upload/v1768380785/best-khalid/hero.svg"
             height={100}
             width={100}
             alt="hero"
             className="2xl:w-[1057px] xl:w-[850px] lg:w-[700px] md:w-[600px] w-full md:scale-100 scale-120 2xl:h-[1107px] h-auto"
+            priority
           />
         </div>
       </div>
