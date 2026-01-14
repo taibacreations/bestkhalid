@@ -153,14 +153,14 @@ const Solution = () => {
   return (
     <section
       id="the-solution"
-      className="bg-[url(/stones.png)] bg-cover bg-center w-full lg:min-h-screen py-10 lg:py-0 relative xl:px-10 px-5"
+      className="bg-[url(/stones.png)] bg-cover bg-center w-full xl:min-h-screen xl:mt-18 md:mt-10 lg:mt-0 mt-[5vh] pb-10 lg:pb-0 relative xl:px-10 px-5"
     >
       <Image
         src="/points-blur.png"
         height={100}
         width={100}
         alt="points-blur"
-        className="w-full xl:h-[533px] h-[300px] absolute left-0 z-30 lg:-top-60 -top-20 hidden md:block"
+        className="w-full xl:h-[533px] h-[300px] absolute left-0 z-30 lg:-top-50 -top-20 hidden md:block"
       />
       <Image
         src="/blue-blur.png"

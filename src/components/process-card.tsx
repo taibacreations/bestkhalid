@@ -10,7 +10,7 @@ export default function ProcessCard() {
         duration={10}
         colorFrom="#00000000" // fully transparent
         colorTo="#7AB4FD"
-        className="z-40 relative rounded-[32px] my-19 lg:my-12 xl:my-2.5 2xl:my-0 hidden md:block"
+        className="z-40 relative rounded-[32px] my-19 lg:my-12 xl:my-2.5 2xl:my-0 hidden md:block process-card"
       />
       <BorderBeam
         size={100}
@@ -18,7 +18,7 @@ export default function ProcessCard() {
         delay={2}
         colorFrom="#00000000" // fully transparent
         colorTo="#7AB4FD"
-        className="z-40 relative rounded-[32px] my-19 lg:my-12 xl:my-2.5 2xl:my-0 hidden md:block"
+        className="z-40 relative rounded-[32px] my-19 lg:my-12 xl:my-2.5 2xl:my-0 hidden md:block process-card"
       />
       <BorderBeam
         size={289}
@@ -26,7 +26,7 @@ export default function ProcessCard() {
         delay={4}
         colorFrom="#00000000" // fully transparent
         colorTo="#7AB4FD"
-        className="z-40 relative rounded-[32px] my-19 lg:my-12 xl:my-2.5 2xl:my-0 hidden md:block"
+        className="z-40 relative rounded-[32px] my-19 lg:my-12 xl:my-2.5 2xl:my-0 hidden md:block process-card"
       />
       <BorderBeam
         size={100}
@@ -34,7 +34,7 @@ export default function ProcessCard() {
         delay={6}
         colorFrom="#00000000" // fully transparent
         colorTo="#7AB4FD"
-        className="z-40 relative rounded-[32px] my-19 lg:my-12 xl:my-2.5 2xl:my-0 hidden md:block"
+        className="z-40 relative rounded-[32px] my-19 lg:my-12 xl:my-2.5 2xl:my-0 hidden md:block process-card"
       />
       <Image
         src="/line.png"

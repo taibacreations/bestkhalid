@@ -99,7 +99,7 @@ const Problem = () => {
   return (
     <section
       id="the-problem"
-      className="-mt-7 relative lg:min-h-[110vh] py-5 lg:py-0 bg-[#0A0A0A] overflow-hidden xl:px-10 px-5"
+      className="-mt-7 relative xl:min-h-[110vh] lg:min-h-screen py-5 lg:py-0 bg-[#0A0A0A] overflow-hidden xl:px-10 px-5 scroll-mt-[10vh]"
     >
       <Image
         src="/names.png"
@@ -118,7 +118,7 @@ const Problem = () => {
         alt="macbook"
         className="2xl:w-[1398px] xl:w-[1150px] lg:w-[850px] w-[750px] h-auto absolute lg:-left-5 -left-30 xl:top-27 lg:top-40 top-50 hidden md:block z-30"
       />
-      <div className="md:flex gap-4 items-end absolute xl:bottom-[15.5%] lg:bottom-[24%] md:bottom-[7%] bottom-[25%] 2xl:left-64 lg:left-[5%] left-3 hidden hover:translate-y-[-75px] hover:translate-x-[-16px] hover:transition-all duration-300 z-30">
+      <div className="md:flex gap-4 items-end absolute xl:bottom-[15.5%] lg:bottom-[16%] md:bottom-[7%] bottom-[25%] 2xl:left-64 lg:left-[5%] left-3 hidden hover:translate-y-[-75px] hover:translate-x-[-16px] hover:transition-all hover:delay-300 duration-300 z-40">
         <div className="bg-[url(/hero-text-bg.png)] bg-cover 2xl:w-[479px] 2xl:h-[94px] xl:w-[400px] lg:w-[350px] w-[300px] lg:h-[80px] h-[60px] rounded-full font-bricolage font-normal 2xl:text-[24px] xl:text-[22px] lg:text-[20px] text-[16px] leading-[142%] tracking-[-0.01em] capitalize text-white flex justify-center items-center text-center">
           A weak website means missed appointments and lost trust.
         </div>
@@ -207,7 +207,7 @@ const Problem = () => {
             duration={8}
             colorFrom="#00000000"
             colorTo="#7AB4FD"
-            className="z-50 relative xl:my-0 lg:mb-7 md:mb-20 mb-71 xl:hidden"
+            className="z-50 relative xl:my-0 lg:mb-7 md:mb-20 mb-71 xl:hidden problem-bg"
           />
           <BorderBeam
             size={150}
@@ -215,7 +215,7 @@ const Problem = () => {
             delay={2}
             colorFrom="#00000000"
             colorTo="#7AB4FD"
-            className="z-50 relative xl:my-0 lg:mb-7 md:mb-20 mb-71 xl:hidden"
+            className="z-50 relative xl:my-0 lg:mb-7 md:mb-20 mb-71 xl:hidden problem-bg"
           />
           <BorderBeam
             size={150}
@@ -223,7 +223,7 @@ const Problem = () => {
             delay={4}
             colorFrom="#00000000"
             colorTo="#7AB4FD"
-            className="z-50 relative xl:my-0 lg:mb-7 md:mb-20 mb-71 xl:hidden"
+            className="z-50 relative xl:my-0 lg:mb-7 md:mb-20 mb-71 xl:hidden problem-bg"
           />
           <BorderBeam
             size={150}
@@ -231,7 +231,7 @@ const Problem = () => {
             delay={6}
             colorFrom="#00000000"
             colorTo="#7AB4FD"
-            className="z-50 relative xl:my-0 lg:mb-7 md:mb-20 mb-71 xl:hidden"
+            className="z-50 relative xl:my-0 lg:mb-7 md:mb-20 mb-71 xl:hidden problem-bg"
           />
           <Image
             src="/glass-overlay.png"

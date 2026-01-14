@@ -412,8 +412,6 @@ svg.swiper-navigation-icon {
   }
 }
 
-
-
 @media screen and (min-width: 1537px) {
   .li-1::before {
     content: ".";
@@ -663,7 +661,7 @@ header {
 #btn {
   animation: buttoncomes 1s ease-in-out;
   overflow: hidden;
-  animation-delay: .5s;
+  animation-delay: 0.5s;
 }
 @keyframes buttoncomes {
   0% {
@@ -697,24 +695,29 @@ header {
 }
 
 @media screen and (max-width: 400px) {
-  .li-1::before,.lii-2::before,.li-3::before,.li-4::before,.li-5::before,.li-6::before {
+  .li-1::before,
+  .lii-2::before,
+  .li-3::before,
+  .li-4::before,
+  .li-5::before,
+  .li-6::before {
     display: none;
   }
 }
 
-@media screen and (max-width: 1414px) and (min-width:1350px) {
+@media screen and (max-width: 1414px) and (min-width: 1350px) {
   .beam-process {
     margin-top: 16px !important;
     margin-bottom: 16px !important;
   }
 }
-@media screen and (max-width: 1349px) and (min-width:1250px) {
+@media screen and (max-width: 1349px) and (min-width: 1250px) {
   .beam-process {
     margin-top: 26px !important;
     margin-bottom: 26px !important;
   }
 }
-@media screen and (max-width: 1249px) and (min-width:1060px) {
+@media screen and (max-width: 1249px) and (min-width: 1060px) {
   .beam-process {
     margin-top: 30px !important;
     margin-bottom: 30px !important;
@@ -732,9 +735,55 @@ header {
   }
 }
 
-
 @media screen and (max-width: 400px) and (min-width: 351px) {
   .sol-poin {
     margin-bottom: 12px;
+  }
+  .sol-point {
+    margin-bottom: 2px;
+  }
+}
+
+.testi-gradient {
+  background: linear-gradient(
+    270deg,
+    rgba(120, 120, 120, 0.4) 0%,
+    rgba(80, 80, 80, 0) 29.82%
+  );
+}
+
+@media screen and (max-width: 1400px) and (min-width: 1330px) {
+  .process-card {
+    margin-top: 18px !important;
+    margin-bottom: 18px !important;
+  }
+}
+@media screen and (max-width: 1329px) and (min-width: 1240px) {
+  .process-card {
+    margin-top: 25px !important;
+    margin-bottom: 25px !important;
+  }
+}
+@media screen and (max-width: 1239px) and (min-width: 1080px) {
+  .process-card {
+    margin-top: 30px !important;
+    margin-bottom: 30px !important;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .problem-bg {
+    margin-bottom: 253px !important;
+  }
+}
+@media screen and (max-width: 340px) {
+  .problem-bg {
+    margin-bottom: 230px !important;
+  }
+  .sol-poin {
+    margin-bottom: 3px;
+  }
+  .sol-point {
+    margin-bottom: 2px;
   }
 }

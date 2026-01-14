@@ -42,7 +42,7 @@ const LogoMarquee = () => {
   return (
     <section className="bg-[#0029CC] md:mt-[-100px] mb-20 z-40 relative">
       <div className="lg:h-[105px] md:h-[90px] max-w-[1525px] mx-auto px-4 xl:px-10 flex items-center overflow-hidden">
-        <Marquee pauseOnHover speed={30} className="flex items-center h-full">
+        <Marquee pauseOnHover speed={50} className="flex items-center h-full">
           {allLogos.map((logo, index) => (
             <div key={index} className="flex items-center h-full">
               {/* Logo container with responsive max-width */}

@@ -5,7 +5,7 @@ const Servicespoints = () => {
   return (
     <div className="flex flex-col gap-6 w-full relative">
       <div className="group absolute 2xl:w-[340px] xl:w-[295px] lg:w-[273px] w-[240px] lg:top-[-4.8vh] top-[2vh] left-[20.5vw]">
-        <div className="bg-[url(/a.png)] bg-cover bg-no-repeat max-w-fit lg:px-8 lg:py-4 px-4 py-2.5 lg:rounded-[32px] rounded-[20px] group-hover:hidden">
+        <div className="bg-[url(/a.png)] bg-cover bg-no-repeat max-w-fit lg:px-8 lg:py-4 px-4 py-2.5 lg:rounded-[32px] rounded-[20px] group-hover:hidden group-hover:transition group-hover:duration-300">
           <h5 className="font-bricolage font-bold 2xl:text-[24px] xl:text-[20px] text-[18px] leading-[123%] tracking-[-0.03em] capitalize text-white">
             Local SEO for Healthcare
           </h5>
@@ -72,7 +72,7 @@ const Servicespoints = () => {
             className="z-40 relative 2xl:mb-1 xl:-mb-0.5 lg:hidden"
           />
         </div>
-        <div className="bg-[#0029CB] bg-cover bg-center bg-no-repeat w-[480px] lg:px-8 lg:py-4 px-4 py-2.5 lg:rounded-[32px] rounded-[20px] hidden group-hover:block w-[480px]">
+        <div className="bg-[#0029CB] bg-cover bg-center bg-no-repeat w-[480px] lg:px-8 lg:py-4 px-4 py-2.5 lg:rounded-[32px] rounded-[20px] hidden group-hover:block group-hover:transition group-hover:duration-300 w-[480px]">
           <h5 className="font-bricolage font-bold 2xl:text-[24px] xl:text-[20px] text-[18px] leading-[123%] tracking-[-0.03em] capitalize text-white">
             Local SEO for Healthcare
           </h5>
@@ -146,7 +146,7 @@ const Servicespoints = () => {
       </div>
 
       <div className="group absolute left-[10.8vw] lg:top-[11.8vh] top-[15vh] 2xl:w-[278px] xl:w-[242px] lg:w-[225px] w-[193px]">
-        <div className="bg-[url(/a.png)] bg-cover bg-no-repeat max-w-fit lg:px-8 lg:py-4 px-4 py-2.5 lg:rounded-[32px] rounded-[20px] group-hover:hidden">
+        <div className="bg-[url(/a.png)] bg-cover bg-no-repeat max-w-fit lg:px-8 lg:py-4 px-4 py-2.5 lg:rounded-[32px] rounded-[20px] group-hover:hidden group-hover:transition group-hover:duration-300">
           <h5 className="font-bricolage font-bold 2xl:text-[24px] xl:text-[20px] text-[18px] leading-[123%] tracking-[-0.03em] capitalize text-white">
             Website Redesigns
           </h5>
@@ -213,7 +213,7 @@ const Servicespoints = () => {
             className="z-40 relative 2xl:mb-1 xl:-mb-0.5 lg:hidden"
           />
         </div>
-        <div className="bg-[#0029CB] bg-cover bg-center bg-no-repeat w-[480px] lg:px-8 lg:py-4 px-4 py-2.5 lg:rounded-[32px] rounded-[20px] hidden group-hover:block w-[480px]">
+        <div className="bg-[#0029CB] bg-cover bg-center bg-no-repeat w-[480px] lg:px-8 lg:py-4 px-4 py-2.5 lg:rounded-[32px] rounded-[20px] hidden group-hover:block group-hover:transition group-hover:duration-300 w-[480px]">
           <h5 className="font-bricolage font-bold 2xl:text-[24px] xl:text-[20px] text-[18px] leading-[123%] tracking-[-0.03em] capitalize text-white">
             Website Redesigns
           </h5>
@@ -287,7 +287,7 @@ const Servicespoints = () => {
       </div>
 
       <div className="group absolute top-[28.4vh] 2xl:w-[328px] xl:w-[285px] lg:w-[263px] w-[230px]">
-        <div className="bg-[url(/e.png)] bg-cover bg-no-repeat max-w-fit lg:px-8 lg:py-4 px-4 py-2.5 lg:rounded-[32px] rounded-[20px] group-hover:hidden">
+        <div className="bg-[url(/e.png)] bg-cover bg-no-repeat max-w-fit lg:px-8 lg:py-4 px-4 py-2.5 lg:rounded-[32px] rounded-[20px] group-hover:hidden group-hover:transition group-hover:duration-300">
           <h5 className="font-bricolage font-bold 2xl:text-[24px] xl:text-[20px] text-[18px] leading-[123%] tracking-[-0.03em] capitalize text-white">
             Custom Website Design
           </h5>
@@ -354,7 +354,7 @@ const Servicespoints = () => {
             className="z-40 relative 2xl:mb-1 xl:-mb-0.5 lg:hidden"
           />
         </div>
-        <div className="bg-[#0029CB] bg-cover bg-center bg-no-repeat w-[480px] lg:px-8 lg:py-4 px-4 py-2.5 lg:rounded-[32px] rounded-[20px] hidden group-hover:block w-[480px]">
+        <div className="bg-[#0029CB] bg-cover bg-center bg-no-repeat w-[480px] lg:px-8 lg:py-4 px-4 py-2.5 lg:rounded-[32px] rounded-[20px] hidden group-hover:block group-hover:transition group-hover:duration-300 w-[480px]">
           <h5 className="font-bricolage font-bold 2xl:text-[24px] xl:text-[20px] text-[18px] leading-[123%] tracking-[-0.03em] capitalize text-white">
             Custom Website Design
           </h5>
@@ -427,7 +427,7 @@ const Servicespoints = () => {
       </div>
 
       <div className="group absolute left-[4.1vw] top-[45vh] 2xl:w-[455px] xl:w-[390px] lg:w-[357px] w-[325px]">
-        <div className="bg-[url(/c.png)] bg-cover bg-no-repeat max-w-fit lg:px-8 lg:py-4 px-4 py-2.5 lg:rounded-[32px] rounded-[20px] group-hover:hidden">
+        <div className="bg-[url(/c.png)] bg-cover bg-no-repeat max-w-fit lg:px-8 lg:py-4 px-4 py-2.5 lg:rounded-[32px] rounded-[20px] group-hover:hidden group-hover:transition group-hover:duration-300">
           <h5 className="font-bricolage font-bold 2xl:text-[24px] xl:text-[20px] text-[18px] leading-[123%] tracking-[-0.03em] capitalize text-white">
             Patient Booking & Form Integration
           </h5>
@@ -494,7 +494,7 @@ const Servicespoints = () => {
             className="z-40 relative 2xl:mb-1 xl:-mb-0.5 lg:hidden"
           />
         </div>
-        <div className="bg-[#0029CB] bg-cover bg-center bg-no-repeat w-[480px] lg:px-8 lg:py-4 px-4 py-2.5 lg:rounded-[32px] rounded-[20px] hidden group-hover:block w-[480px]">
+        <div className="bg-[#0029CB] bg-cover bg-center bg-no-repeat w-[480px] lg:px-8 lg:py-4 px-4 py-2.5 lg:rounded-[32px] rounded-[20px] hidden group-hover:block group-hover:transition group-hover:duration-300 w-[480px]">
           <h5 className="font-bricolage font-bold 2xl:text-[24px] xl:text-[20px] text-[18px] leading-[123%] tracking-[-0.03em] capitalize text-white">
             Patient Booking & Form Integration
           </h5>
@@ -566,8 +566,8 @@ const Servicespoints = () => {
         </div>
       </div>
 
-      <div className="group absolute left-[4.2vw] top-[61.2vh] 2xl:w-[386px] xl:w-[334px] lg:w-[306px] w-[273px]">
-        <div className="bg-[url(/d.png)] bg-cover bg-no-repeat max-w-fit lg:px-8 lg:py-4 px-4 py-2.5 lg:rounded-[32px] rounded-[20px] group-hover:hidden">
+      <div className="group absolute left-[4.2vw] xl:left-[8.2vw] top-[61.2vh] 2xl:w-[386px] xl:w-[334px] lg:w-[306px] w-[273px]">
+        <div className="bg-[url(/d.png)] bg-cover bg-no-repeat max-w-fit lg:px-8 lg:py-4 px-4 py-2.5 lg:rounded-[32px] rounded-[20px] group-hover:hidden group-hover:transition group-hover:duration-300">
           <h5 className="font-bricolage font-bold 2xl:text-[24px] xl:text-[20px] text-[18px] leading-[123%] tracking-[-0.03em] capitalize text-white">
             Website Care & Maintenance
           </h5>
@@ -634,7 +634,7 @@ const Servicespoints = () => {
             className="z-40 relative 2xl:mb-1 xl:-mb-0.5 lg:hidden"
           />
         </div>
-        <div className="bg-[#0029CB] bg-cover bg-center bg-no-repeat w-[480px] lg:px-8 lg:py-4 px-4 py-2.5 lg:rounded-[32px] rounded-[20px] hidden group-hover:block">
+        <div className="bg-[#0029CB] bg-cover bg-center bg-no-repeat w-[480px] lg:px-8 lg:py-4 px-4 py-2.5 lg:rounded-[32px] rounded-[20px] hidden group-hover:block group-hover:transition group-hover:duration-300 relative -z-20 group-hover:z-50">
           <h5 className="font-bricolage font-bold 2xl:text-[24px] xl:text-[20px] text-[18px] leading-[123%] tracking-[-0.03em] capitalize text-white">
             Website Care & Maintenance
           </h5>

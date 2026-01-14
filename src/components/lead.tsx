@@ -102,7 +102,7 @@ const Lead = () => {
         height={100}
         width={100}
         alt="blur"
-        className="w-full h-auto absolute left-0 2xl:-bottom-[50vh] lg:-bottom-[30vh] bottom-[10vh] z-20"
+        className="w-full h-auto absolute left-0 2xl:-bottom-[50vh] xl:-bottom-[33vh] lg:-bottom-[20vh] md:bottom-[10vh] bottom-[25%] z-20"
       />
       <div className="xl:pt-33 lg:pt-20 pt-10">
         <div id="leads" className="text-center max-w-[992px] mx-auto z-40 relative">
@@ -133,7 +133,7 @@ const Lead = () => {
         </div>
         <div className="mt-10 2xl:w-[1453px] h-auto mx-auto relative">
           <Projects />
-          <div className="absolute lg:bottom-55 md:bottom-15 -bottom-[10vh] left-1/2 -translate-x-1/2 z-20 w-full">
+          <div className="absolute xl:bottom-55 lg:bottom-40 md:bottom-15 -bottom-[5vh] left-1/2 -translate-x-1/2 z-20 w-full">
             <div className="flex flex-col justify-center items-center md:gap-5 gap-3">
               {/* ✅ Animated Download Button */}
               <div className="relative">

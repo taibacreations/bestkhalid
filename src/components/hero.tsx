@@ -4,6 +4,7 @@ import Ring from "./ring";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Link from "next/link";
 
 const Hero = () => {
   const bgLayersRef = useRef<(HTMLDivElement | null)[]>([]);
@@ -201,12 +202,21 @@ const Hero = () => {
       )}
 
       <Image
-        src="/hero-blur.png"
+        src="/hero-blur-new.png"
         height={100}
         width={100}
         alt="dots"
         className="w-full left-0 object-cover absolute xl:bottom-0 lg:bottom-15 md:bottom-25 -bottom-5 z-30"
       />
+      <Link href="#the-problem" className="scroll-mt-[20vh]">
+        <Image
+          src="/scroll-down.svg"
+          height={100}
+          width={100}
+          alt="dots"
+          className="md:w-[101px] w-[70px] h-auto left-1/2 -translate-x-1/2 object-cover absolute md:bottom-[15.5%] bottom-0 z-40"
+        />
+      </Link>
 
       <div className="max-w-[1525px] mx-auto px-4 xl:px-10 flex flex-col md:flex-row items-center md:justify-between justify-center md:min-h-[120vh] pt-30 md:pt-0 relative">
         <div className="2xl:max-w-[682px] xl:max-w-[550px] md:max-w-[42%]">
@@ -250,9 +260,7 @@ const Hero = () => {
                 style={{ backgroundImage: `url(/cons-${i + 1}.png)` }}
               />
             ))}
-            <button
-              className="relative bg-transparent text-white rounded-[334px] 2xl:w-[371px] lg:w-[300px] w-full lg:px-0 2xl:h-[69px] h-[60px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize underline z-10 md:ml-[2.5vw] lg:ml-0 lg:pb-[1vh] md:-mt-1.5 lg:mt-0 md:pl-[0vw] 2xl:pb-0 p-8 lg:pt-0 lg:pl-0 lg:pr-0"
-            >
+            <button className="relative bg-transparent text-white rounded-[334px] 2xl:w-[371px] lg:w-[300px] w-full lg:px-0 2xl:h-[69px] h-[60px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize underline z-10 md:ml-[2.5vw] lg:ml-0 lg:pb-[1vh] md:-mt-1.5 lg:mt-0 md:pl-[0vw] 2xl:pb-0 p-8 lg:pt-0 lg:pl-0 lg:pr-0">
               <Image
                 src="/button-arrow.svg"
                 width={1000}
@@ -265,7 +273,7 @@ const Hero = () => {
           </div>
 
           {/* ✅ Animated Social Links Background */}
-          <div className="md:flex items-center gap-1 2xl:mt-28 mt-24 z-50 relative hidden">
+          <div className="md:flex items-center gap-1 2xl:mt-28 mt-24 z-40 relative hidden">
             <div className="lg:w-5 lg:h-5 w-4 h-4 rounded-full shadow-button bg-[#003459]" />
             <div className="2xl:w-[98px] lg:w-[90px] w-[70px] border border-dashed border-white h-[1px]" />
             <div className="relative 2xl:w-[201px] lg:w-[160px] w-[140px] h-[51px] rounded-full">
