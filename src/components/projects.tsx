@@ -48,19 +48,21 @@ const Projects = () => {
       <div className="flex justify-center items-center w-full">
         <Image
           ref={leftRef}
-          src="/proj-new-3.svg"
+          src="https://res.cloudinary.com/duwampjn2/image/upload/v1768380820/best-khalid/proj-new-3.svg"
           height={100}
           width={100}
           alt="project-1"
           className="xl:w-[477px] lg:w-[400px] md:w-[300px] w-[180px] 2xl:scale-128 h-auto relative 2xl:left-[7%] left-[10%] 2xl:top-[5.5vh]"
+          priority
         />
         <div ref={centerRef} className="2xl:min-w-[541px] xl:min-w-[500px] lg:min-w-[400px] md:min-w-[300px] min-w-[180px] z-10 h-auto relative lg:rounded-[32px] rounded-[20px]">
           <Image
-            src="/center-project.svg"
+            src="https://res.cloudinary.com/duwampjn2/image/upload/v1768380776/best-khalid/center-project.svg"
             height={100}
             width={100}
             alt="project-1"
             className="w-full h-auto"
+            priority
           />
           <BorderBeam
             size={289}
@@ -158,11 +160,12 @@ const Projects = () => {
         </div>
         <Image
           ref={rightRef}
-          src="/proj-new-2.svg"
+          src="https://res.cloudinary.com/duwampjn2/image/upload/v1768380808/best-khalid/proj-new-2.svg"
           height={100}
           width={100}
           alt="project-1"
           className="2xl:w-[477px] lg:w-[400px] md:w-[300px] w-[180px] 2xl:scale-128 h-auto relative 2xl:right-[6%] right-[10%] 2xl:top-[5.5vh]"
+          priority
         />
       </div>
     </div>

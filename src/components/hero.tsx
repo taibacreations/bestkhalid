@@ -330,7 +330,7 @@ const Hero = () => {
             width={100}
             alt="hero"
             className="2xl:w-[1057px] xl:w-[850px] lg:w-[700px] md:w-[600px] w-full md:scale-100 scale-120 2xl:h-[1107px] h-auto"
-            priority
+            priority={true}
           />
         </div>
       </div>
