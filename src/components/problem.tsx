@@ -111,13 +111,12 @@ const Problem = () => {
       <div className="absolute 2xl:-right-[55.5vw] -right-[75vw] lg:-top-[22vh] top-[-33vh] revolving hidden md:block">
         <Circle />
       </div>
-      <Image
-        src="https://res.cloudinary.com/duwampjn2/image/upload/v1768380796/best-khalid/macbook.svg"
+      <img
+        src="/macbook.webp"
         height={100}
         width={100}
         alt="macbook"
         className="2xl:w-[1398px] xl:w-[1150px] lg:w-[850px] w-[750px] h-auto absolute lg:-left-5 -left-30 xl:top-27 lg:top-40 top-50 hidden md:block z-30"
-        priority
       />
       <div className="md:flex gap-4 items-end absolute xl:bottom-[15.5%] lg:bottom-[16%] md:bottom-[7%] bottom-[25%] 2xl:left-64 lg:left-[5%] left-3 hidden hover:translate-y-[-75px] hover:translate-x-[-16px] hover:transition-all hover:delay-300 duration-300 z-40">
         <div className="bg-[url(/hero-text-bg.png)] bg-cover 2xl:w-[479px] 2xl:h-[94px] xl:w-[400px] lg:w-[350px] w-[300px] lg:h-[80px] h-[60px] rounded-full font-bricolage font-normal 2xl:text-[24px] xl:text-[22px] lg:text-[20px] text-[16px] leading-[142%] tracking-[-0.01em] capitalize text-white flex justify-center items-center text-center">

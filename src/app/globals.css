@@ -800,3 +800,7 @@ header {
   border-radius: 50% !important;
   inset: -3px !important; /* Must match border-width (e.g., -3px for 3px) */
 }
+
+button, a {
+  cursor: pointer;
+}

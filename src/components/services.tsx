@@ -151,14 +151,13 @@ useEffect(() => {
             </h3>
           </div>
         </div>
-        <Image
+        <img
           id="mbook"
-          src="https://res.cloudinary.com/duwampjn2/image/upload/v1768380799/best-khalid/macbook-2.svg"
+          src="/macbook-2.webp"
           height={100}
           width={100}
           alt="macbook-2"
           className="2xl:w-[1446px] xl:w-[1100px] lg:w-[950px] md:w-[850px] relative md:scale-100 scale-130 w-full h-auto 2xl:ml-[25.2%] xl:ml-[27%] md:ml-[20%] 2xl:-mt-43 xl:-mt-25 z-20"
-          priority
         />
         <div className="xl:w-[822px] xl:h-[822px] lg:w-[730px] lg:h-[730px] w-[600px] h-[600px] border border-[#F0F0F0] rounded-full absolute top-0 left-[20.5%] top-[29%] -z-10 hidden md:block" />
         <Image

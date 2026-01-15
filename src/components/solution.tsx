@@ -209,13 +209,12 @@ const Solution = () => {
           id="iphone"
           className="xl:w-[1036px] lg:w-[800px] md:w-[700px] w-full h-auto xl:h-[777px] mx-auto z-40 relative md:mt-[-6vh] my-[4vh] hidden md:block"
         >
-          <Image
-            src="https://res.cloudinary.com/duwampjn2/image/upload/v1768380793/best-khalid/iphone.svg"
+          <img
+            src="/iphone.webp"
             height={100}
             width={100}
             alt="iphone"
             className="w-full h-auto scale-150 md:scale-100"
-            priority
           />
         </div>
         {/* ✅ Overflow-hidden wrapper for points */}

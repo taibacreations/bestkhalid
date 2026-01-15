@@ -80,7 +80,7 @@ const Process = () => {
               </span>
             </h3>
           </div>
-          <p id="process-content" className="mt-5.5 font-bricolage font-normal xl:text-[18px] text-[16px] tracking-[-0.01em] capitalize leading-[142%] text-white">
+          <p id="process-content" className="mt-5.5 font-bricolage font-normal xl:text-[18px] md:text-[16px] text-[14px] tracking-[-0.01em] capitalize leading-[142%] text-white">
             Simple, transparent, and done for you
           </p>
         </div>
