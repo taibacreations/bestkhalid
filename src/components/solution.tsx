@@ -207,7 +207,7 @@ const Solution = () => {
         </div>
         <div
           id="iphone"
-          className="xl:w-[1036px] lg:w-[800px] md:w-[700px] w-full h-auto xl:h-[777px] mx-auto z-40 relative md:mt-[-6vh] my-[4vh] hidden md:block"
+          className="xl:w-[1036px] lg:w-[800px] md:w-[700px] w-full h-auto xl:h-[777px] mx-auto z-30 relative md:mt-[-6vh] my-[4vh] hidden md:block"
         >
           <img
             src="/iphone.webp"
