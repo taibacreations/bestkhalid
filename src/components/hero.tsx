@@ -37,11 +37,11 @@ const Hero = () => {
         tl.to(
           bgLayersRef.current[i],
           { autoAlpha: 0, duration },
-          `+=${hold}`
+          `+=${hold}`,
         ).to(
           bgLayersRef.current[next],
           { autoAlpha: 1, duration },
-          `-=${duration}`
+          `-=${duration}`,
         );
       });
 
@@ -78,7 +78,7 @@ const Hero = () => {
 
     const animateBgLayers = (
       layers: (HTMLDivElement | null)[],
-      imageCount: number
+      imageCount: number,
     ) => {
       if (layers.length !== imageCount) return null;
 
@@ -94,7 +94,7 @@ const Hero = () => {
         tl.to(layers[i], { autoAlpha: 0, duration }, `+=${hold}`).to(
           layers[next],
           { autoAlpha: 1, duration },
-          `-=${duration}`
+          `-=${duration}`,
         );
       });
 
@@ -107,7 +107,7 @@ const Hero = () => {
     const timer = setTimeout(() => {
       consultationTl = animateBgLayers(
         consultationBgLayersRef.current,
-        conImages.length
+        conImages.length,
       );
       socialTl = animateBgLayers(socialBgLayersRef.current, icoImages.length);
     }, 100);
@@ -131,7 +131,7 @@ const Hero = () => {
       headingSelector: string,
       rotation: number,
       startY: string,
-      rotationD: number
+      rotationD: number,
     ) => {
       const heading = document.querySelector(headingSelector);
       if (!heading) return;
@@ -172,7 +172,7 @@ const Hero = () => {
               },
             });
           },
-        }
+        },
       );
     };
 
@@ -198,7 +198,7 @@ const Hero = () => {
             className="absolute inset-0 bg-cover bg-center z-0 will-change-opacity"
             style={{ backgroundImage: `url(${src})` }}
           />
-        )
+        ),
       )}
 
       <Image
@@ -289,34 +289,58 @@ const Hero = () => {
                 />
               ))}
               <div className="relative z-10 flex items-center justify-center gap-4 2xl:mt-[1.6vh] mt-[2vh]">
-                <Image
-                  src="/linkedin.svg"
-                  width={100}
-                  height={100}
-                  alt="linkedin"
-                  className="2xl:w-[19.77px] lg:w-[16px] w-[14px]"
-                />
-                <Image
-                  src="/facebook.svg"
-                  width={100}
-                  height={100}
-                  alt="facebook"
-                  className="2xl:w-[19.77px] lg:w-[16px] w-[14px]"
-                />
-                <Image
-                  src="/inst.svg"
-                  width={100}
-                  height={100}
-                  alt="insta"
-                  className="2xl:w-[19.77px] lg:w-[16px] w-[14px]"
-                />
-                <Image
-                  src="/twitter.svg"
-                  width={100}
-                  height={100}
-                  alt="twitter"
-                  className="2xl:w-[19.77px] lg:w-[16px] w-[14px]"
-                />
+                <Link
+                  href="https://www.linkedin.com/in/bestkhalid/"
+                  target="_blank"
+                  className="hover:scale-125 hover:-translate-y-1 transition-all duration-300"
+                >
+                  <Image
+                    src="/linkedin.svg"
+                    width={100}
+                    height={100}
+                    alt="linkedin"
+                    className="2xl:w-[19.77px] lg:w-[16px] w-[14px]"
+                  />
+                </Link>
+                <Link
+                  href="#"
+                  target="_blank"
+                  className="hover:scale-125 hover:-translate-y-1 transition-all duration-300"
+                >
+                  <Image
+                    src="/facebook.svg"
+                    width={100}
+                    height={100}
+                    alt="facebook"
+                    className="2xl:w-[19.77px] lg:w-[16px] w-[14px]"
+                  />
+                </Link>
+                <Link
+                  href="#"
+                  target="_blank"
+                  className="hover:scale-125 hover:-translate-y-1 transition-all duration-300"
+                >
+                  <Image
+                    src="/inst.svg"
+                    width={100}
+                    height={100}
+                    alt="insta"
+                    className="2xl:w-[19.77px] lg:w-[16px] w-[14px]"
+                  />
+                </Link>
+                <Link
+                  href="https://twitter.com/bestkhalid"
+                  target="_blank"
+                  className="hover:scale-125 hover:-translate-y-1 transition-all duration-300"
+                >
+                  <Image
+                    src="/twitter.svg"
+                    width={100}
+                    height={100}
+                    alt="twitter"
+                    className="2xl:w-[19.77px] lg:w-[16px] w-[14px]"
+                  />
+                </Link>
               </div>
             </div>
           </div>
