@@ -260,7 +260,7 @@ const Hero = () => {
                 style={{ backgroundImage: `url(/cons-${i + 1}.png)` }}
               />
             ))}
-            <button className="relative bg-transparent text-white rounded-[334px] 2xl:w-[371px] lg:w-[300px] w-full lg:px-0 2xl:h-[69px] h-[60px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize underline z-10 md:ml-[2.5vw] lg:ml-0 lg:pb-[1vh] md:-mt-1.5 lg:mt-0 md:pl-[0vw] 2xl:pb-0 p-8 lg:pt-0 lg:pl-0 lg:pr-0">
+            <Link href="/contact" className="relative bg-transparent text-white rounded-[334px] 2xl:w-[371px] lg:w-[300px] w-full lg:px-0 2xl:h-[69px] h-[60px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize underline z-10 md:ml-[2.5vw] lg:ml-0 lg:pb-[1vh] md:-mt-1.5 lg:mt-0 md:pl-[0vw] 2xl:pb-0 p-8 lg:pt-0 lg:pl-0 lg:pr-0">
               <Image
                 src="/button-arrow.svg"
                 width={1000}
@@ -269,7 +269,7 @@ const Hero = () => {
                 className="w-[12px] md:w-[14px] lg:w-[15px] h-auto"
               />
               Book a Free Consultation
-            </button>
+            </Link>
           </div>
 
           {/* ✅ Animated Social Links Background */}
@@ -303,7 +303,7 @@ const Hero = () => {
                   />
                 </Link>
                 <Link
-                  href="#"
+                  href="https://www.facebook.com/bestkhalid"
                   target="_blank"
                   className="hover:scale-125 hover:-translate-y-1 transition-all duration-300"
                 >
@@ -316,7 +316,7 @@ const Hero = () => {
                   />
                 </Link>
                 <Link
-                  href="#"
+                  href="https://www.instagram.com/bestkhalidm/"
                   target="_blank"
                   className="hover:scale-125 hover:-translate-y-1 transition-all duration-300"
                 >

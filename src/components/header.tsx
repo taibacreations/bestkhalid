@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import gsap from "gsap";
+import Link from "next/link";
 
 const Header = () => {
   const [isMenu_open, setIsMenuOpen] = useState(false);
@@ -11,12 +12,12 @@ const Header = () => {
   const pathname = usePathname();
 
   const navItems = [
-    { label: "Home", href: "#" },
-    { label: "The Problem", href: "#the-problem" },
-    { label: "The Solution", href: "#the-solution" },
+    { label: "Home", href: "/" },
     { label: "Services", href: "#services" },
     { label: "Social Proof", href: "#social-proof" },
     { label: "Process", href: "#process" },
+    { label: "Portfolio", href: "/portfolio" },
+    { label: "Blog", href: "/blog" },
   ];
 
   // ✅ CTA background images
@@ -151,7 +152,7 @@ const Header = () => {
           </div>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex bg-[url(/nav.png)] bg-cover bg-center rounded-full md:px-8 lg:px-0 lg:w-[650px] xl:w-[740px] 2xl:w-[817px] h-[50px] 2xl:h-[59px] justify-center items-center gap-4 lg:gap-6 xl:gap-8 font-bricolage text-white text-[16px] md:text-[15px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] font-normal tracking-[-0.07em] capitalize relative">
+          <nav className="hidden md:flex bg-[url(/nav.png)] bg-contain bg-no-repeat bg-center rounded-full md:px-8 lg:px-0 lg:w-[600px] xl:w-[740px] 2xl:w-[760px] h-[50px] 2xl:h-[59px] justify-center items-center gap-4 lg:gap-6 xl:gap-10 font-bricolage text-white text-[16px] md:text-[17px] lg:text-[20px] 2xl:text-[22px] font-normal tracking-[-0.07em] capitalize relative">
             {navItems.map((item) => (
               <div key={item.label} className="relative group">
                 <a
@@ -191,13 +192,13 @@ const Header = () => {
               <div
                 key={i}
                 ref={(el) => {ctaBgLayersRef.current[i] = el}}
-                className="absolute inset-0 rounded-[334px] lg:bg-cover bg-contain bg-no-repeat bg-center z-0"
+                className="absolute inset-0 rounded-[334px] xl:bg-cover bg-contain bg-no-repeat bg-center z-0"
                 style={{ backgroundImage: `url(${src})` }}
               />
             ))}
 
             {/* Button content on top */}
-            <button className="relative bg-transparent text-white w-[110px] lg:w-[130px] xl:w-[150px] 2xl:w-[165px] h-[50px] 2xl:h-[59px] rounded-[334px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize underline z-10">
+            <Link href="/contact" className="relative bg-transparent text-white w-[110px] lg:w-[130px] xl:w-[150px] 2xl:w-[165px] h-[50px] 2xl:h-[59px] rounded-[334px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize underline z-10">
               <Image
                 src="/button-arrow.svg"
                 width={1000}
@@ -206,7 +207,7 @@ const Header = () => {
                 className="w-[12px] md:w-[14px] lg:w-[15px] h-auto"
               />
               Hire Me
-            </button>
+            </Link>
           </div>
 
           {/* Mobile Menu Toggle */}

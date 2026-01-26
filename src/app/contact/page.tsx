@@ -459,7 +459,7 @@ export default function ContactPage() {
                 </Link>
                 <Link
                   className="hover:scale-125 hover:-translate-y-1 transition-all duration-300"
-                  href="#"
+                  href="https://www.facebook.com/bestkhalid"
                   target="_blank"
                 >
                   <Image
@@ -472,7 +472,7 @@ export default function ContactPage() {
                 </Link>
                 <Link
                   className="hover:scale-125 hover:-translate-y-1 transition-all duration-300"
-                  href="#"
+                  href="https://www.instagram.com/bestkhalidm/"
                   target="_blank"
                 >
                   <Image
