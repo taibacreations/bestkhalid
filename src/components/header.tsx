@@ -44,17 +44,23 @@ const Header = () => {
       if (ctaBgLayersRef.current.length !== ctaBgImages.length) return;
 
       gsap.set(ctaBgLayersRef.current, { autoAlpha: 0 });
-      gsap.set(ctaBgLayersRef.current[0], { autoAlpha: 1 });  
+      gsap.set(ctaBgLayersRef.current[0], { autoAlpha: 1 });
 
       const tl = gsap.timeline({ repeat: -1 });
       const duration = 0.8;
-      const hold = .5;
+      const hold = 0.5;
 
       ctaBgLayersRef.current.forEach((_, i) => {
         const next = (i + 1) % ctaBgLayersRef.current.length;
-        tl
-          .to(ctaBgLayersRef.current[i], { autoAlpha: 0, duration }, `+=${hold}`)
-          .to(ctaBgLayersRef.current[next], { autoAlpha: 1, duration }, `-=${duration}`);
+        tl.to(
+          ctaBgLayersRef.current[i],
+          { autoAlpha: 0, duration },
+          `+=${hold}`,
+        ).to(
+          ctaBgLayersRef.current[next],
+          { autoAlpha: 1, duration },
+          `-=${duration}`,
+        );
       });
 
       return () => {
@@ -84,32 +90,49 @@ const Header = () => {
   }, []);
 
   const isActive = (href: string) => {
-    if (!href.startsWith("#")) return pathname === href;
-    return activeHash === href;
+    // 🔹 Section links
+    if (href.startsWith("#")) {
+      return activeHash === href;
+    }
+
+    // 🔹 Home should NOT be active when a hash exists
+    if (href === "/") {
+      return pathname === "/" && !activeHash;
+    }
+
+    // 🔹 Normal routes
+    return pathname === href;
   };
 
   const handleAnchorClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
-    href: string
+    href: string,
   ) => {
-    e.preventDefault();
-    const targetId = href.substring(1);
-
-    if (!targetId) {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-      window.history.pushState(null, "", " ");
-      setActiveHash("");
+    // 🔹 If it's a normal route, let Next.js handle it
+    if (!href.startsWith("#")) {
+      setIsMenuOpen(false);
       return;
     }
+
+    // 🔹 Only prevent default for hash links
+    e.preventDefault();
+
+    const targetId = href.substring(1);
 
     const element = document.getElementById(targetId);
     if (element) {
       const offset = window.innerHeight * 0.1;
       const scrollPosition = element.offsetTop - offset;
-      window.scrollTo({ top: scrollPosition, behavior: "smooth" });
+
+      window.scrollTo({
+        top: scrollPosition,
+        behavior: "smooth",
+      });
+
       window.history.pushState(null, "", href);
       setActiveHash(href);
     }
+
     setIsMenuOpen(false);
   };
 
@@ -191,14 +214,19 @@ const Header = () => {
             {ctaBgImages.map((src, i) => (
               <div
                 key={i}
-                ref={(el) => {ctaBgLayersRef.current[i] = el}}
+                ref={(el) => {
+                  ctaBgLayersRef.current[i] = el;
+                }}
                 className="absolute inset-0 rounded-[334px] xl:bg-cover bg-contain bg-no-repeat bg-center z-0"
                 style={{ backgroundImage: `url(${src})` }}
               />
             ))}
 
             {/* Button content on top */}
-            <Link href="/contact" className="relative bg-transparent text-white w-[110px] lg:w-[130px] xl:w-[150px] 2xl:w-[165px] h-[50px] 2xl:h-[59px] rounded-[334px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize underline z-10">
+            <Link
+              href="/contact"
+              className="relative bg-transparent text-white w-[110px] lg:w-[130px] xl:w-[150px] 2xl:w-[165px] h-[50px] 2xl:h-[59px] rounded-[334px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize underline z-10"
+            >
               <Image
                 src="/button-arrow.svg"
                 width={1000}
