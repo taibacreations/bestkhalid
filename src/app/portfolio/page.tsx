@@ -77,8 +77,7 @@ const Portfolio = () => {
               Projects
             </h3>
             <p className="xl:mt-5 mt-3 font-bricolage font-normal xl:text-[18px] text-[16px] tracking-[-0.01em] capitalize leading-[142%] text-white">
-              Among the thousands of completed website projects, the ones below
-              are a few of my favorites...
+              Among the thousands of completed website projects, the ones below are a few of my favorites. Web Design is always evolving, and it’s been fascinating to see how my work has changed and grown over the years.
             </p>
           </div>
 
@@ -112,8 +111,7 @@ const Portfolio = () => {
             Projects
           </h3>
           <p className="xl:mt-5 mt-3 font-bricolage font-normal xl:text-[18px] text-[16px] tracking-[-0.01em] capitalize leading-[142%] text-white">
-            Among the thousands of completed website projects, the ones below
-            are a few of my favorites...
+            Among the thousands of completed website projects, the ones below are a few of my favorites. Web Design is always evolving, and it’s been fascinating to see how my work has changed and grown over the years.
           </p>
         </div>
 

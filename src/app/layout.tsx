@@ -15,6 +15,7 @@ const bricolageGrotesque = Bricolage_Grotesque({
 export const metadata: Metadata = {
   title: "KHALID MAHMOOD",
   description: "Websites for Healthcare Providers",
+
 };
 
 export default function RootLayout({
@@ -24,6 +25,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+
+      </head>
       <body
         className={`${bricolageGrotesque.variable} ${tartuffo.variable} antialiased`}
       >

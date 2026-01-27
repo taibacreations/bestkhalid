@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@portabletext/react": "^6.0.2",
     "@sanity/image-url": "^1.2.0",
     "@sanity/vision": "^4.22.0",
     "@stianlarsen/border-beam": "^1.0.13",
@@ -30,6 +31,7 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@tailwindcss/typography": "^0.5.19",
     "@types/node": "^20",
     "@types/nodemailer": "^7.0.5",
     "@types/react": "^19",
