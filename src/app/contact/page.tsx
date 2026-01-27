@@ -233,8 +233,8 @@ export default function ContactPage() {
       <div className="max-w-[1525px] px-4 xl:px-10 w-full grid md:grid-cols-2 md:gap-8 xl:gap-16 items-center relative z-10">
         {/* Left Side - Contact Form */}
         <div
-          ref={formRef}
-          className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-[32px] lg:p-8 p-5 shadow-[0_20px_60px_rgba(0,0,0,0.3)]"
+          ref={rightRef}
+          className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-[32px] lg:p-8 p-5 shadow-[0_20px_60px_rgba(0,0,0,0.3)] order-2 my-[5vh] md:my-0"
         >
           <h2 className="font-bricolage font-bold 2xl:text-[48px] xl:text-[42px] lg:text-[38px] md:text-[32px] text-[30px] tracking-[-0.03em] leading-[123%] capitalize text-white mb-3">
             Contact Us
@@ -362,7 +362,7 @@ export default function ContactPage() {
         </div>
 
         {/* Right Side - Contact Info */}
-        <div ref={rightRef} className="py-10">
+        <div ref={formRef} className="md:py-10 order-1">
           <h1 className="font-bricolage font-bold 2xl:text-[48px] xl:text-[42px] lg:text-[38px] md:text-[32px] text-[30px] tracking-[-0.03em] leading-[123%] mb-3 lg:mb-5 text-white">
             Let&apos;s Work{" "}
             <span className="font-[100] font-tartuffo tracking-normal capitalize">
