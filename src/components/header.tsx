@@ -89,6 +89,25 @@ const Header = () => {
     return () => window.removeEventListener("hashchange", handleHashChange);
   }, []);
 
+  // ✅ Handle smooth scroll on page load with hash
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      // Small delay to ensure page is rendered
+      setTimeout(() => {
+        const element = document.getElementById(hash.substring(1));
+        if (element) {
+          const offset = window.innerHeight * 0.1;
+          const scrollPosition = element.offsetTop - offset;
+          window.scrollTo({
+            top: scrollPosition,
+            behavior: "smooth",
+          });
+        }
+      }, 100);
+    }
+  }, [pathname]);
+
   const isActive = (href: string) => {
     // 🔹 Section links
     if (href.startsWith("#")) {
@@ -108,31 +127,40 @@ const Header = () => {
     e: React.MouseEvent<HTMLAnchorElement>,
     href: string,
   ) => {
-    // 🔹 If it's a normal route, let Next.js handle it
-    if (!href.startsWith("#")) {
+    // 🔹 Handle hash links (sections on homepage)
+    if (href.includes("#")) {
+      e.preventDefault();
+      
+      const [path, hash] = href.split("#");
+      const targetId = hash;
+
+      // If we're not on the target page, navigate there first
+      if (path && pathname !== path) {
+        window.location.href = href;
+        setIsMenuOpen(false);
+        return;
+      }
+
+      // Smooth scroll to section
+      const element = document.getElementById(targetId);
+      if (element) {
+        const offset = window.innerHeight * 0.1;
+        const scrollPosition = element.offsetTop - offset;
+
+        window.scrollTo({
+          top: scrollPosition,
+          behavior: "smooth",
+        });
+
+        window.history.pushState(null, "", `#${hash}`);
+        setActiveHash(`#${hash}`);
+      }
+
       setIsMenuOpen(false);
       return;
     }
 
-    // 🔹 Only prevent default for hash links
-    e.preventDefault();
-
-    const targetId = href.substring(1);
-
-    const element = document.getElementById(targetId);
-    if (element) {
-      const offset = window.innerHeight * 0.1;
-      const scrollPosition = element.offsetTop - offset;
-
-      window.scrollTo({
-        top: scrollPosition,
-        behavior: "smooth",
-      });
-
-      window.history.pushState(null, "", href);
-      setActiveHash(href);
-    }
-
+    // 🔹 For normal routes, let Next.js handle it
     setIsMenuOpen(false);
   };
 
@@ -299,7 +327,8 @@ const Header = () => {
                 </div>
               ))}
             </div>
-            <button
+            <Link
+              href="/contact"
               className="shadow-button mt-5 w-full bg-[#003459] text-white h-[50px] rounded-[334px] font-bricolage font-bold text-[20px] tracking-[-0.07em] capitalize flex items-center justify-center gap-2"
               style={{ boxShadow: "0px -5px 18px 0px #2E90FA inset" }}
             >
@@ -311,7 +340,7 @@ const Header = () => {
                 className="w-[13px] h-auto"
               />
               Hire Me
-            </button>
+            </Link>
           </div>
         )}
       </div>
