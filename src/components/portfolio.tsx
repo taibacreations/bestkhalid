@@ -21,6 +21,7 @@ const Portfolio = () => {
   const [projects, setProjects] = useState<SanityProject[]>([]);
   const [categories, setCategories] = useState<string[]>(["All"]);
   const [loading, setLoading] = useState(true);
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -60,7 +61,12 @@ const Portfolio = () => {
   const hasMore = visibleCount < filteredProjects.length;
 
   const handleLoadMore = () => {
-    setVisibleCount((prev) => prev + 6);
+    setIsLoadingMore(true);
+
+    setTimeout(() => {
+      setVisibleCount((prev) => prev + 6);
+      setIsLoadingMore(false);
+    }, 800); // smooth delay for UX
   };
 
   const handleCategoryChange = (category: string) => {
@@ -115,6 +121,7 @@ const Portfolio = () => {
           </p>
         </div>
 
+        {/* Category Buttons */}
         <div className="flex justify-center items-center flex-wrap gap-3 mb-12">
           {categories.map((category) => (
             <button
@@ -135,19 +142,44 @@ const Portfolio = () => {
           ))}
         </div>
 
+        {/* Projects Grid */}
         <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8">
           {visibleProjects.map((project, index) => (
             <ProjectCard key={project._id} project={project} index={index} />
           ))}
+
+          {/* Skeleton Loader for Load More */}
+          {isLoadingMore &&
+            [...Array(6)].map((_, index) => (
+              <div
+                key={"loader-" + index}
+                className="relative overflow-hidden rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10"
+              >
+                <div className="relative h-[350px] bg-white/10 animate-pulse">
+                  <div className="absolute top-4 left-4">
+                    <div className="w-20 h-7 bg-white/20 rounded-full animate-pulse" />
+                  </div>
+                </div>
+                <div className="p-6">
+                  <div className="h-6 bg-white/10 rounded w-3/4 mx-auto animate-pulse" />
+                </div>
+              </div>
+            ))}
         </div>
 
+        {/* Load More Button */}
         {hasMore && (
           <div className="flex justify-center mt-16">
             <button
               onClick={handleLoadMore}
-              className="lg:px-10 lg:py-4 px-8 py-3 bg-gradient-to-r from-blue-500 to-blue-900 text-white font-bricolage font-semibold text-lg rounded-full hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 transform hover:scale-105"
+              disabled={isLoadingMore}
+              className={`lg:px-10 lg:py-4 px-8 py-3 rounded-full font-bricolage font-semibold text-lg transition-all duration-300 transform ${
+                isLoadingMore
+                  ? "bg-white/20 text-white cursor-not-allowed"
+                  : "bg-gradient-to-r from-blue-500 to-blue-900 text-white hover:shadow-2xl hover:shadow-blue-500/50 hover:scale-105"
+              }`}
             >
-              Load More
+              {isLoadingMore ? "Loading..." : "Load More"}
             </button>
           </div>
         )}
@@ -216,6 +248,7 @@ const ProjectCard = ({
   );
 };
 
+// Fade-in animation
 if (typeof document !== "undefined") {
   const style = document.createElement("style");
   style.textContent = `
