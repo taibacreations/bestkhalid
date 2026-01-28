@@ -431,7 +431,7 @@ export default function ContactPage() {
 
           {/* Social Links */}
           <div className="flex items-center md:justify-start justify-center relative md:mt-[-2vh] lg:mt-0">
-            <div className="relative 2xl:w-[201px] lg:w-[160px] md:w-[140px] w-[180px] h-[51px] rounded-full">
+            <div className="relative w-[180px] h-[51px] rounded-full">
               {/* Background layers for social pill */}
               {Array.from({ length: 5 }).map((_, i) => (
                 <div
@@ -439,7 +439,7 @@ export default function ContactPage() {
                   ref={(el) => {
                     socialBgLayersRef.current[i] = el;
                   }}
-                  className="absolute inset-0 rounded-full 2xl:bg-cover bg-contain bg-no-repeat bg-center z-0"
+                  className="absolute inset-0 rounded-full bg-contain bg-no-repeat bg-center z-0"
                   style={{ backgroundImage: `url(/icon-${i + 1}.png)` }}
                 />
               ))}
@@ -454,7 +454,7 @@ export default function ContactPage() {
                     width={100}
                     height={100}
                     alt="linkedin"
-                    className="2xl:w-[19.77px] lg:w-[16px] w-[16px]"
+                    className="w-[20px]"
                   />
                 </Link>
                 <Link
@@ -467,7 +467,7 @@ export default function ContactPage() {
                     width={100}
                     height={100}
                     alt="facebook"
-                    className="2xl:w-[19.77px] lg:w-[16px] w-[16px]"
+                    className="w-[20px]"
                   />
                 </Link>
                 <Link
@@ -480,7 +480,7 @@ export default function ContactPage() {
                     width={100}
                     height={100}
                     alt="instagram"
-                    className="2xl:w-[19.77px] lg:w-[16px] w-[16px]"
+                    className="w-[20px]"
                   />
                 </Link>
                 <Link
@@ -493,7 +493,7 @@ export default function ContactPage() {
                     width={100}
                     height={100}
                     alt="twitter"
-                    className="2xl:w-[19.77px] lg:w-[16px] w-[16px]"
+                    className="w-[20px]"
                   />
                 </Link>
               </div>
