@@ -19,7 +19,7 @@ const BlogCard = ({ post, index }: { post: SanityBlog; index: number }) => {
         className="group relative overflow-hidden rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/30 transition-all duration-500 hover:shadow-2xl hover:shadow-white/10 cursor-pointer h-full"
         style={{ animation: `fadeInUp 0.6s ease-out ${index * 0.1}s both` }}
       >
-        <div className="relative 2xl:h-[300px] xl:h-[250px] h-[200px] overflow-hidden">
+        <div className="relative 2xl:h-[290px] xl:h-[250px] h-[200px] overflow-hidden">
           <div className="relative w-full h-[500px]">
             <img
               src={post.mainImage}
