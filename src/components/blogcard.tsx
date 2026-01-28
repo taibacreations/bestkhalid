@@ -16,7 +16,7 @@ const BlogCard = ({ post, index }: { post: SanityBlog; index: number }) => {
   return (
     <Link href={`/blog/${post.slug}`}>
       <div
-        className="group relative overflow-hidden rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/30 transition-all duration-500 hover:shadow-2xl hover:shadow-white/10 cursor-pointer"
+        className="group relative overflow-hidden rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/30 transition-all duration-500 hover:shadow-2xl hover:shadow-white/10 cursor-pointer h-full"
         style={{ animation: `fadeInUp 0.6s ease-out ${index * 0.1}s both` }}
       >
         <div className="relative 2xl:h-[300px] xl:h-[250px] h-[200px] overflow-hidden">
