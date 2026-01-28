@@ -7,9 +7,63 @@ import Services from "@/components/services";
 import Solution from "@/components/solution";
 import Testimonials from "@/components/testimonials";
 
+import { client } from "@/sanity/lib/client";
+import { urlFor } from "@/sanity/lib/image";
+import { Metadata } from "next";
+
+/* ---------------------------------
+   SEO (Home Page)
+---------------------------------- */
+export async function generateMetadata(): Promise<Metadata> {
+  const data = await client.fetch(`
+    *[_type == "homePageSeo"][0]{
+      seo{
+        metaTitle,
+        metaDescription,
+        keywords,
+        canonicalUrl,
+        noIndex,
+        openGraph{
+          ogTitle,
+          ogDescription,
+          ogImage
+        },
+        extraMeta
+      }
+    }
+  `);
+
+  const seo = data?.seo;
+
+  return {
+    title: seo?.metaTitle || "Home",
+    description: seo?.metaDescription,
+    keywords: seo?.keywords,
+    robots: seo?.noIndex ? "noindex,nofollow" : "index,follow",
+    alternates: {
+      canonical: seo?.canonicalUrl,
+    },
+    openGraph: {
+      title: seo?.openGraph?.ogTitle || seo?.metaTitle,
+      description:
+        seo?.openGraph?.ogDescription || seo?.metaDescription,
+      images: seo?.openGraph?.ogImage
+        ? [
+            {
+              url: urlFor(seo.openGraph.ogImage).url(),
+            },
+          ]
+        : [],
+    },
+  };
+}
+
+/* ---------------------------------
+   Home Page UI
+---------------------------------- */
 export default function Home() {
   return (
-    <div>
+    <main>
       <Hero />
       <LogoMarquee />
       <Problem />
@@ -18,6 +72,6 @@ export default function Home() {
       <Testimonials />
       <Lead />
       <Process />
-    </div>
+    </main>
   );
 }

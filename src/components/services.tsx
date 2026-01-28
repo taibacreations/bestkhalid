@@ -134,7 +134,7 @@ useEffect(() => {
   return (
     <section
       id="services"
-      className="bg-[url(/services-bg.png)] bg-cover bg-center md:min-h-screen xl:py-10 py-10 lg:py-0 relative z-40 overflow-hidden"
+      className="bg-[url(/services-bg.png)] bg-cover bg-center md:min-h-screen xl:py-10 py-10 lg:py-0 relative z-40 overflow-hidden scroll-mt-[10vh]"
     >
       <Image src="/services-blur-new.png" width={100} height={100} alt="blur-image" className="w-full h-auto absolute left-0 xl:top-[-25%] top-[-20%] z-40"/>
       <div className="relative xl:pt-23 lg:pt-20 z-40">
