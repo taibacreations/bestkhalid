@@ -712,6 +712,6 @@ button, a {
 
 .contact-bg {
   background-image: url('/contact.png');
-  background-size: cover;
+  background-size: contain;
   background-position: center;
 }

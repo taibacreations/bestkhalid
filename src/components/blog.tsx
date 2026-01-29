@@ -71,7 +71,7 @@ const BlogPage = () => {
   }
 
   return (
-    <section className="min-h-screen contact-bg bg-cover bg-center md:pt-[18vh] pt-[14vh] pb-[10vh]">
+    <section className="min-h-screen contact-bg bg-contain bg-center md:pt-[18vh] pt-[14vh] pb-[10vh]">
       <div className="max-w-[1525px] mx-auto px-4 xl:px-10">
         {/* Header */}
         <div className="text-center mb-12 max-w-[900px] mx-auto">
