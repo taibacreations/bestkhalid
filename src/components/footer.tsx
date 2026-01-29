@@ -78,7 +78,7 @@ const Footer = () => {
             <h4 className="font-bricolage text-[24px] lg:text-[28px] xl:text-[32px] 2xl:text-[34px] font-bold leading-[123%] tracking-[-0.07em] capitalize text-white">
               Contact
             </h4>
-            <Link href="mailto:info@bestkhalid.com" className="flex items-center gap-4 mt-3">
+            <Link href="mailto:taibacteam@gmail.com" className="flex items-center gap-4 mt-3">
               <Image
                 src="/envelope.svg"
                 height={100}
@@ -86,8 +86,8 @@ const Footer = () => {
                 alt="phone"
                 className="w-[16.76px]"
               />
-              <h5 className="font-bricolage text-[16px] xl:text-[18px] font-normal leading-[142%] tracking-[-0.01em] capitalize text-white">
-                info@bestkhalid.com
+              <h5 className="font-bricolage text-[16px] xl:text-[18px] font-normal leading-[142%] tracking-[-0.01em] text-white">
+                taibacteam@gmail.com
               </h5>
             </Link>
             <Link href="tel:+92 336 3216666" className="flex items-center gap-4 mt-2.5">

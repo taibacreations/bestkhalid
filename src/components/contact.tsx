@@ -406,7 +406,7 @@ export default function ContactPage() {
 
             {/* Email */}
             <Link
-              href="mailto:info@bestkhalid.com"
+              href="mailto:taibacteam@gmail.com"
               className="flex items-center gap-4 group max-w-fit"
             >
               <div className="w-11 h-11 bg-[url(/contact-cube.png)] bg-contain bg-center bg-no-repeat rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
@@ -424,7 +424,7 @@ export default function ContactPage() {
                 </svg>
               </div>
               <span className="text-white text-base lg:text-lg font-bricolage group-hover:text-blue-400 transition-colors">
-                info@bestkhalid.com
+                taibacteam@gmail.com
               </span>
             </Link>
           </div>
