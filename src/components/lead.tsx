@@ -113,22 +113,21 @@ const Lead = () => {
             <span className="2xl:text-[40px] xl:text-[36px] lg:text-[30px] text-[26px]">
               [
             </span>{" "}
-            Lead Magnet{" "}
+            Portfolio{" "}
             <span className="2xl:text-[40px] xl:text-[36px] lg:text-[30px] text-[26px]">
               ]
             </span>
           </h5>
           <div className="overflow-hidden -mt-1">
             <h3 id="leads-h3" className="font-bricolage font-bold 2xl:text-[48px] xl:text-[42px] lg:text-[38px] md:text-[32px] text-[30px] tracking-[-0.03em] leading-[123%] capitalize text-white">
-              Not Ready Yet?{" "}
+              Work That Speaks{" "}
               <span className="font-tartuffo font-thin tracking-[0.01em]">
-                Get My Free Guide
+                for Itself
               </span>
             </h3>
           </div>
           <p id="leads-content" className="mt-5.5 font-bricolage font-normal xl:text-[18px] text-[16px] tracking-[-0.01em] capitalize leading-[142%] text-white">
-            “Top 7 Website Essentials Every Healthcare Provider Needs to Attract
-            More Patients”
+            “A portfolio of projects showcasing my skills, problem-solving mindset, and the value I bring to every collaboration.”
           </p>
         </div>
         <div className="mt-10 2xl:w-[1453px] h-auto mx-auto relative">

@@ -193,14 +193,14 @@ const Header = () => {
       <div className="max-w-[1525px] mx-auto px-4 xl:px-10 py-3">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <div className="flex shrink-0">
+          <Link href="/" className="flex shrink-0">
             <h1 className="font-extrabold text-[28px] lg:text-[32px] xl:text-[36px] 2xl:text-[38px] leading-[95%] text-[#37ACFF] flex flex-col font-bricolage tracking-[-0.07em]">
               KHALID
               <span className="text-white text-[24px] lg:text-[26px] xl:text-[28px] 2xl:text-[30px] font-extralight mt-[-0.25vw]">
                 Mahmood <span>.</span>
               </span>
             </h1>
-          </div>
+          </Link>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex bg-[url(/nav.png)] bg-contain bg-no-repeat bg-center rounded-full md:px-8 lg:px-0 lg:w-[600px] xl:w-[740px] 2xl:w-[760px] h-[50px] 2xl:h-[59px] justify-center items-center gap-4 lg:gap-6 xl:gap-10 font-bricolage text-white text-[16px] md:text-[17px] lg:text-[20px] 2xl:text-[22px] font-normal tracking-[-0.07em] capitalize relative">

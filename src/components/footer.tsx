@@ -41,7 +41,7 @@ const Footer = () => {
 
   return (
     <footer className="">
-      <div className="bg-[#0029CC] h-auto py-8 md:py-0 md:h-[436px] relative">
+      <div className="bg-[#37ACFF] h-auto py-8 md:py-0 md:h-[436px] relative">
         <Image
           src="/footer-name.svg"
           alt="footername"
