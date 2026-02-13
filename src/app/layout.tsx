@@ -33,9 +33,9 @@ export default function RootLayout({
       >
         <SmoothScroll>
           <main>
-            {/* <Header /> */}
+            <Header />
             {children}
-            {/* <Footer /> */}
+            <Footer />
           </main>
         </SmoothScroll>
       </body>
