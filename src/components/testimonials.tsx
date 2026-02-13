@@ -12,82 +12,24 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "swiper/css";
 import "swiper/css/navigation";
 
-// Testimonial data
-const testimonialsData = [
-  {
-    name: "Jessica H.",
-    role: "Mother of two & Teacher",
-    quote: "“Finally something that actually works with toddlers!”",
-    image: "/testi-1.png",
-    stars: "/stars.png",
-  },
-  {
-    name: "Michael R.",
-    role: "Pediatric Dentist",
-    quote: "“My patients’ parents love the simplicity and results.”",
-    image: "/testi-1.png",
-    stars: "/stars.png",
-  },
-  {
-    name: "Amanda L.",
-    role: "Daycare Owner",
-    quote: "“Reduced meltdowns during transitions by 80%.”",
-    image: "/testi-1.png",
-    stars: "/stars.png",
-  },
-  {
-    name: "David K.",
-    role: "Clinic Manager",
-    quote: "“Easy onboarding for our entire staff.”",
-    image: "/testi-1.png",
-    stars: "/stars.png",
-  },
-  {
-    name: "Sarah T.",
-    role: "Speech Therapist",
-    quote: "“Engages kids better than any app we’ve tried.”",
-    image: "/testi-1.png",
-    stars: "/stars.png",
-  },
-  {
-    name: "Jessica H.",
-    role: "Mother of two & Teacher",
-    quote: "“Finally something that actually works with toddlers!”",
-    image: "/testi-1.png",
-    stars: "/stars.png",
-  },
-  {
-    name: "Michael R.",
-    role: "Pediatric Dentist",
-    quote: "“My patients’ parents love the simplicity and results.”",
-    image: "/testi-1.png",
-    stars: "/stars.png",
-  },
-  {
-    name: "Amanda L.",
-    role: "Daycare Owner",
-    quote: "“Reduced meltdowns during transitions by 80%.”",
-    image: "/testi-1.png",
-    stars: "/stars.png",
-  },
-  {
-    name: "David K.",
-    role: "Clinic Manager",
-    quote: "“Easy onboarding for our entire staff.”",
-    image: "/testi-1.png",
-    stars: "/stars.png",
-  },
-  {
-    name: "Sarah T.",
-    role: "Speech Therapist",
-    quote: "“Engages kids better than any app we’ve tried.”",
-    image: "/testi-1.png",
-    stars: "/stars.png",
-  },
-];
+interface TestimonialsProps {
+  sanityTestimonials?: Array<{
+    _id: string;
+    name: string;
+    role: string;
+    quote: string;
+    image: string;
+    rating?: number;
+  }>;
+}
 
-const Testimonials = () => {
+const Testimonials = ({ sanityTestimonials }: TestimonialsProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
+
+  // Duplicate the array to ensure smooth infinite loop
+  const testimonialsData = sanityTestimonials && Array.isArray(sanityTestimonials) && sanityTestimonials.length > 0
+    ? [...sanityTestimonials, ...sanityTestimonials]
+    : [];
 
   const getSlideBackground = (idx: number) => {
     const normalizedIdx = idx % 5; // Since testimonials repeat
@@ -340,7 +282,7 @@ const Testimonials = () => {
                         {item.quote}
                       </p>
                       <Image
-                        src={item.stars}
+                        src="/stars.png"
                         height={24}
                         width={110}
                         alt="Rating stars"

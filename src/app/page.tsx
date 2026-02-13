@@ -10,6 +10,7 @@ import Testimonials from "@/components/testimonials";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import { Metadata } from "next";
+import { groq } from "next-sanity";
 
 /* ---------------------------------
    SEO (Home Page)
@@ -61,7 +62,19 @@ export async function generateMetadata(): Promise<Metadata> {
 /* ---------------------------------
    Home Page UI
 ---------------------------------- */
-export default function Home() {
+export default async function Home() {
+  // Fetch testimonials data
+  const testimonials = await client.fetch(
+    groq`*[_type == "testimonial" && isActive == true] | order(order asc) {
+      _id,
+      name,
+      role,
+      quote,
+      "image": image.asset->url,
+      rating
+    }`
+  );
+
   return (
     <main>
       <Hero />
@@ -69,7 +82,7 @@ export default function Home() {
       <Problem />
       <Solution />
       <Services />
-      <Testimonials />
+      <Testimonials sanityTestimonials={testimonials} />
       <Lead />
       <Process />
     </main>

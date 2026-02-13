@@ -115,3 +115,14 @@ export const projectBySlugQuery = groq`
 export const categoriesQuery = groq`
   array::unique(*[_type == "project"].category)
 `
+
+export const testimonialsQuery = groq`
+  *[_type == "testimonial" && isActive == true] | order(order asc) {
+    _id,
+    name,
+    role,
+    quote,
+    "image": image.asset->url,
+    rating
+  }
+`;
