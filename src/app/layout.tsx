@@ -5,6 +5,7 @@ import { Bricolage_Grotesque } from "next/font/google";
 import Footer from "@/components/footer";
 import { tartuffo } from "./fonts";
 import SmoothScroll from "@/components/SmoothScroll";
+import ChatWidgets from "@/components/ChatWidgets";
 
 const bricolageGrotesque = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -36,6 +37,13 @@ export default function RootLayout({
             <Header />
             {children}
             <Footer />
+            {/* Chat Widgets - Add this at the end of body */}
+            <ChatWidgets
+              enableTawkTo={true}
+              enableWhatsApp={true}
+              whatsAppMessage="Hello Khalid! I'd like to discuss a project."
+              whatsAppPosition="right"
+            />
           </main>
         </SmoothScroll>
       </body>

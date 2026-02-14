@@ -21,43 +21,43 @@ const Header = () => {
   ];
 
   // ✅ CTA background images
-  const ctaBgImages = [
-    "/hir-1.png",
-    "/hir-2.png",
-    "/hir-3.png",
-    "/hir-4.png",
-    "/hir-5.png",
+  const consultationBtnImages = [
+    "/headercta-1.png",
+    "/headercta-2.png",
+    "/headercta-3.png",
+    "/headercta-4.png",
+    "/headercta-5.png",
   ];
 
-  const ctaBgLayersRef = useRef<(HTMLDivElement | null)[]>([]);
+  const consultationBtnImagesRef = useRef<(HTMLDivElement | null)[]>([]);
 
   // Preload & animate CTA backgrounds
   useEffect(() => {
     // Preload
-    ctaBgImages.forEach((src) => {
+    consultationBtnImages.forEach((src) => {
       const img = new window.Image();
       img.src = src;
     });
 
     // Animate on mount
     const animateCtaBg = () => {
-      if (ctaBgLayersRef.current.length !== ctaBgImages.length) return;
+      if (consultationBtnImagesRef.current.length !== consultationBtnImages.length) return;
 
-      gsap.set(ctaBgLayersRef.current, { autoAlpha: 0 });
-      gsap.set(ctaBgLayersRef.current[0], { autoAlpha: 1 });
+      gsap.set(consultationBtnImagesRef.current, { autoAlpha: 0 });
+      gsap.set(consultationBtnImagesRef.current[0], { autoAlpha: 1 });
 
       const tl = gsap.timeline({ repeat: -1 });
       const duration = 0.8;
       const hold = 0.5;
 
-      ctaBgLayersRef.current.forEach((_, i) => {
-        const next = (i + 1) % ctaBgLayersRef.current.length;
+      consultationBtnImagesRef.current.forEach((_, i) => {
+        const next = (i + 1) % consultationBtnImagesRef.current.length;
         tl.to(
-          ctaBgLayersRef.current[i],
+          consultationBtnImagesRef.current[i],
           { autoAlpha: 0, duration },
           `+=${hold}`,
         ).to(
-          ctaBgLayersRef.current[next],
+          consultationBtnImagesRef.current[next],
           { autoAlpha: 1, duration },
           `-=${duration}`,
         );
@@ -65,7 +65,7 @@ const Header = () => {
 
       return () => {
         tl.kill();
-        gsap.killTweensOf(ctaBgLayersRef.current);
+        gsap.killTweensOf(consultationBtnImagesRef.current);
       };
     };
 
@@ -130,7 +130,7 @@ const Header = () => {
     // 🔹 Handle hash links (sections on homepage)
     if (href.includes("#")) {
       e.preventDefault();
-      
+
       const [path, hash] = href.split("#");
       const targetId = hash;
 
@@ -184,11 +184,10 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed left-0 w-full z-50 transition-all duration-300 ${
-        scrolled
+      className={`fixed left-0 w-full z-50 transition-all duration-300 ${scrolled
           ? "bg-[#001f33]/80 backdrop-blur-md border-b border-[#37ACFF]/20"
           : "bg-transparent"
-      }`}
+        }`}
     >
       <div className="max-w-[1525px] mx-auto px-4 xl:px-10 py-3">
         <div className="flex justify-between items-center">
@@ -203,49 +202,49 @@ const Header = () => {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex bg-[url(/nav.png)] bg-contain bg-no-repeat bg-center rounded-full md:px-8 lg:px-0 lg:w-[600px] xl:w-[740px] 2xl:w-[760px] h-[50px] 2xl:h-[59px] justify-center items-center gap-4 lg:gap-6 xl:gap-10 font-bricolage text-white text-[16px] md:text-[17px] lg:text-[20px] 2xl:text-[22px] font-normal tracking-[-0.07em] capitalize relative">
-            {navItems.map((item) => (
-              <div key={item.label} className="relative group">
-                <a
-                  href={item.href}
-                  onClick={(e) => handleAnchorClick(e, item.href)}
-                  className={`relative z-10 py-3 transition-colors cursor-pointer hover:underline ${
-                    isActive(item.href)
-                      ? "text-white underline"
-                      : "text-white/90 hover:text-white"
-                  }`}
-                >
-                  {item.label}
-                  <span
-                    className={`absolute -left-5 top-1/2 -translate-y-1/2 transition-opacity duration-200 ${
-                      isActive(item.href)
-                        ? "opacity-100"
-                        : "opacity-0 group-hover:opacity-100"
-                    }`}
+          <div className="lg:absolute left-1/2 -translate-x-1/2">
+            <nav className="hidden lg:flex bg-[url(/nav.png)] bg-contain bg-no-repeat bg-center rounded-full md:px-8 lg:px-0 lg:w-[600px] xl:w-[740px] 2xl:w-[680px] h-[50px] 2xl:h-[59px] justify-center items-center gap-4 lg:gap-6 xl:gap-8 font-bricolage text-white text-[16px] md:text-[17px] lg:text-[20px] 2xl:text-[21px] font-normal tracking-[-0.07em] capitalize relative">
+              {navItems.map((item) => (
+                <div key={item.label} className="relative group">
+                  <a
+                    href={item.href}
+                    onClick={(e) => handleAnchorClick(e, item.href)}
+                    className={`relative z-10 py-3 transition-colors cursor-pointer hover:underline ${isActive(item.href)
+                        ? "text-white underline"
+                        : "text-white/90 hover:text-white"
+                      }`}
                   >
-                    <Image
-                      src="/button-arrow.svg"
-                      width={12}
-                      height={12}
-                      alt=""
-                      className="lg:w-[15px] w-[12px] h-auto"
-                    />
-                  </span>
-                </a>
-              </div>
-            ))}
-          </nav>
+                    {item.label}
+                    <span
+                      className={`absolute -left-5 top-1/2 -translate-y-1/2 transition-opacity duration-200 ${isActive(item.href)
+                          ? "opacity-100"
+                          : "opacity-0 group-hover:opacity-100"
+                        }`}
+                    >
+                      <Image
+                        src="/button-arrow.svg"
+                        width={12}
+                        height={12}
+                        alt=""
+                        className="lg:w-[15px] w-[12px] h-auto"
+                      />
+                    </span>
+                  </a>
+                </div>
+              ))}
+            </nav>
+          </div>
 
           {/* ✅ Desktop CTA Button with Animated Background */}
-          <div className="hidden md:flex shrink-0 relative">
+          <div className="hidden md:flex shrink-0 relative lg:mr-0 md:mr-[-22vw]">
             {/* Background layers */}
-            {ctaBgImages.map((src, i) => (
+            {consultationBtnImages.map((src, i) => (
               <div
                 key={i}
                 ref={(el) => {
-                  ctaBgLayersRef.current[i] = el;
+                  consultationBtnImagesRef.current[i] = el;
                 }}
-                className="absolute inset-0 rounded-[334px] xl:bg-cover bg-contain bg-no-repeat bg-center z-0"
+                className="absolute inset-0 rounded-[334px] bg-contain bg-no-repeat bg-center z-0"
                 style={{ backgroundImage: `url(${src})` }}
               />
             ))}
@@ -253,7 +252,7 @@ const Header = () => {
             {/* Button content on top */}
             <Link
               href="/contact"
-              className="relative bg-transparent text-white w-[110px] lg:w-[130px] xl:w-[150px] 2xl:w-[165px] h-[50px] 2xl:h-[59px] rounded-[334px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize underline z-10"
+              className="relative bg-transparent text-white 2xl:w-[270px] xl:w-[220px] md:w-[180px] w-full lg:px-0 xl:h-[59px] h-[50px] rounded-[334px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[16px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize underline z-10"
             >
               <Image
                 src="/button-arrow.svg"
@@ -262,13 +261,13 @@ const Header = () => {
                 alt="button-arrow"
                 className="w-[12px] md:w-[14px] lg:w-[15px] h-auto"
               />
-              Hire Me
+              Book Consultation
             </Link>
           </div>
 
           {/* Mobile Menu Toggle */}
           <button
-            className="md:hidden text-white p-1"
+            className="lg:hidden text-white p-1.5 bg-[url(/contact-cube.png)] bg-cover bg-center"
             onClick={() => setIsMenuOpen(!isMenu_open)}
             aria-label="Toggle navigation"
           >
@@ -295,7 +294,7 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isMenu_open && (
-          <div className="md:hidden mt-4 pb-4 px-6 bg-[#001f33]/95 backdrop-blur-sm rounded-xl border border-[#37ACFF]/20">
+          <div className="lg:hidden mt-4 pb-4 px-6 md:px-10 bg-[#001f33]/95 backdrop-blur-sm rounded-xl border border-[#37ACFF]/20">
             <div className="flex flex-col gap-2 font-bricolage text-white text-[18px] font-normal tracking-[-0.07em] capitalize">
               {navItems.map((item) => (
                 <div
@@ -305,11 +304,10 @@ const Header = () => {
                   <a
                     href={item.href}
                     onClick={(e) => handleAnchorClick(e, item.href)}
-                    className={`block py-1 transition cursor-pointer ${
-                      isActive(item.href)
+                    className={`block py-1 transition cursor-pointer ${isActive(item.href)
                         ? "text-[#37ACFF]"
                         : "text-white hover:text-[#37ACFF]"
-                    }`}
+                      }`}
                   >
                     {item.label}
                     {isActive(item.href) && (
@@ -329,7 +327,7 @@ const Header = () => {
             </div>
             <Link
               href="/contact"
-              className="shadow-button mt-5 w-full bg-[#003459] text-white h-[50px] rounded-[334px] font-bricolage font-bold text-[20px] tracking-[-0.07em] capitalize flex items-center justify-center gap-2"
+              className="md:hidden shadow-button mt-5 w-full bg-[#003459] text-white h-[50px] rounded-[334px] font-bricolage font-bold text-[20px] tracking-[-0.07em] capitalize flex items-center justify-center gap-2"
               style={{ boxShadow: "0px -5px 18px 0px #2E90FA inset" }}
             >
               <Image
@@ -339,7 +337,7 @@ const Header = () => {
                 alt="button-arrow"
                 className="w-[13px] h-auto"
               />
-              Hire Me
+              Book Consultation
             </Link>
           </div>
         )}

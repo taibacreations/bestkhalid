@@ -9,6 +9,7 @@ import Link from "next/link";
 const Hero = () => {
   const bgLayersRef = useRef<(HTMLDivElement | null)[]>([]);
   const consultationBgLayersRef = useRef<(HTMLDivElement | null)[]>([]);
+  const fiverrBgLayersRef = useRef<(HTMLDivElement | null)[]>([]);
   const socialBgLayersRef = useRef<(HTMLDivElement | null)[]>([]);
 
   // 🔁 Main hero background loop (unchanged)
@@ -52,10 +53,16 @@ const Hero = () => {
     }
   }, []);
 
-  // 🔁 Consultation button & Social pill background animations
-  // 🔁 Consultation button & Social pill background animations — SAME as Header CTA
+  // 🔁 Consultation button & Social pill background animations (+ Fiverr btn anim)
   useEffect(() => {
     const conImages = [
+      "/cons-1.png",
+      "/cons-2.png",
+      "/cons-3.png",
+      "/cons-4.png",
+      "/cons-5.png",
+    ];
+    const fiverrImages = [
       "/cons-1.png",
       "/cons-2.png",
       "/cons-3.png",
@@ -71,7 +78,7 @@ const Hero = () => {
     ];
 
     // Preload all images
-    [...conImages, ...icoImages].forEach((src) => {
+    [...conImages, ...fiverrImages, ...icoImages].forEach((src) => {
       const img = new window.Image();
       img.src = src;
     });
@@ -102,6 +109,7 @@ const Hero = () => {
     };
 
     let consultationTl: gsap.core.Timeline | null = null;
+    let fiverrTl: gsap.core.Timeline | null = null;
     let socialTl: gsap.core.Timeline | null = null;
 
     const timer = setTimeout(() => {
@@ -109,15 +117,18 @@ const Hero = () => {
         consultationBgLayersRef.current,
         conImages.length,
       );
+      fiverrTl = animateBgLayers(fiverrBgLayersRef.current, fiverrImages.length);
       socialTl = animateBgLayers(socialBgLayersRef.current, icoImages.length);
     }, 100);
 
     return () => {
       clearTimeout(timer);
       consultationTl?.kill();
+      fiverrTl?.kill();
       socialTl?.kill();
       gsap.killTweensOf([
         ...consultationBgLayersRef.current,
+        ...fiverrBgLayersRef.current,
         ...socialBgLayersRef.current,
       ]);
     };
@@ -219,57 +230,91 @@ const Hero = () => {
       </Link>
 
       <div className="max-w-[1525px] mx-auto px-4 xl:px-10 flex flex-col md:flex-row items-center md:justify-between justify-center md:min-h-[120vh] pt-30 md:pt-0 relative">
-        <div className="2xl:max-w-[682px] xl:max-w-[550px] md:max-w-[42%]">
-          <h5
-            id="hero-h5"
-            className="font-bricolage font-normal 2xl:text-[40px] xl:text-[36px] lg:text-[30px] text-[24px] tracking-[-0.07em] capitalize text-white"
-          >
-            Modern, Patient-Focused
-          </h5>
-
-          <div className="overflow-hidden">
-            <h2
-              id="hero-h2"
-              className="font-bricolage font-extrabold 2xl:text-[90.64px] xl:text-[70px] lg:text-[55px] md:text-[42px] leading-[100%] text-[36px] tracking-[-0.07em] uppercase text-white"
+        <div className="">
+          <div className="2xl:max-w-[682px] xl:max-w-[550px] md:max-w-[42%]">
+            <h5
+              id="hero-h5"
+              className="font-bricolage font-normal 2xl:text-[40px] xl:text-[36px] lg:text-[30px] text-[24px] tracking-[-0.07em] capitalize text-white"
             >
-              <div>Websites for</div>
-              <span className="font-tartuffo font-thin tracking-normal capitalize 2xl:-mt-12 xl:-mt-9 lg:-mt-7 -mt-5 inline-block">
-                Healthcare Providers
-              </span>
-            </h2>
+              Modern, Patient-Focused
+            </h5>
+
+            <div className="overflow-hidden">
+              <h2
+                id="hero-h2"
+                className="font-bricolage font-extrabold 2xl:text-[90.64px] xl:text-[70px] lg:text-[55px] md:text-[42px] leading-[100%] text-[36px] tracking-[-0.07em] uppercase text-white"
+              >
+                <div>Websites for</div>
+                <span className="font-tartuffo font-thin tracking-normal capitalize 2xl:-mt-12 xl:-mt-9 lg:-mt-7 -mt-5 inline-block">
+                  Healthcare Providers
+                </span>
+              </h2>
+            </div>
+
+            <p
+              id="hero-content"
+              className="font-bricolage font-normal 2xl:text-[28px] xl:text-[24px] lg:text-[20px] text-[18px] tracking-[-0.07em] capitalize text-white leading-[142%] mt-[2.4vh]"
+            >
+              Turn your clinic`s website into a trusted, conversion-driven digital
+              front door that attracts new patients and elevates your practice
+            </p>
           </div>
 
-          <p
-            id="hero-content"
-            className="font-bricolage font-normal 2xl:text-[28px] xl:text-[24px] lg:text-[20px] text-[18px] tracking-[-0.07em] capitalize text-white leading-[142%] mt-[2.4vh]"
-          >
-            Turn your clinic`s website into a trusted, conversion-driven digital
-            front door that attracts new patients and elevates your practice
-          </p>
-
-          {/* ✅ Animated Consultation CTA Button */}
-          <div id="btn" className="mt-7.5 relative max-w-fit lg:max-w-full">
-            {/* Background layers for consultation button */}
-            {Array.from({ length: 5 }).map((_, i) => (
-              <div
-                key={`cons-${i}`}
-                ref={(el) => {
-                  consultationBgLayersRef.current[i] = el;
-                }}
-                className="absolute inset-0 rounded-[334px] bg-contain bg-no-repeat bg-center z-0 2xl:w-[371px] lg:w-[300px] md:h-[50px] w-full lg:px-0 2xl:h-[69px] h-[60px]"
-                style={{ backgroundImage: `url(/cons-${i + 1}.png)` }}
-              />
-            ))}
-            <Link href="/contact" className="relative bg-transparent text-white rounded-[334px] 2xl:w-[371px] lg:w-[300px] w-full lg:px-0 2xl:h-[69px] h-[60px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize underline z-10 md:ml-[2.5vw] lg:ml-0 lg:pb-[1vh] md:-mt-1.5 lg:mt-0 md:pl-[0vw] 2xl:pb-0 p-8 lg:pt-0 lg:pl-0 lg:pr-0">
-              <Image
-                src="/button-arrow.svg"
-                width={1000}
-                height={100}
-                alt="button-arrow"
-                className="w-[12px] md:w-[14px] lg:w-[15px] h-auto"
-              />
-              Book a Free Consultation
-            </Link>
+          {/* ✅ Animated Consultation CTA Button and Fiverr Button in a Row */}
+          <div id="btn" className="mt-7.5 relative flex flex-col xl:flex-row lg:gap-4 md:gap-3 gap-2 max-w-fit lg:max-w-full">
+            {/* Consultation Button */}
+            <div className="relative w-full">
+              {/* Background layers for consultation button */}
+              {Array.from({ length: 5 }).map((_, i) => (
+                <div
+                  key={`cons-${i}`}
+                  ref={(el) => {
+                    consultationBgLayersRef.current[i] = el;
+                  }}
+                  className="absolute inset-0 rounded-[334px] bg-contain bg-no-repeat bg-center z-0 2xl:w-[320px] lg:w-[280px] md:h-[50px] w-full lg:px-0 2xl:h-[69px] h-[60px]"
+                  style={{ backgroundImage: `url(/cons-${i + 1}.png)` }}
+                />
+              ))}
+              <Link href="/contact" className="relative bg-transparent text-white rounded-[334px] 2xl:w-[320px] lg:w-[280px] w-full lg:px-0 2xl:h-[69px] h-[60px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize underline z-10 md:ml-[2.5vw] lg:ml-0 lg:pb-[1vh] md:-mt-1.5 lg:mt-0 md:pl-[0vw] 2xl:pb-0 p-8 lg:pt-0 lg:pl-0 lg:pr-0">
+                <Image
+                  src="/button-arrow.svg"
+                  width={1000}
+                  height={100}
+                  alt="button-arrow"
+                  className="w-[12px] md:w-[14px] lg:w-[15px] h-auto"
+                />
+                Book a Free Consultation
+              </Link>
+            </div>
+            {/* Fiverr Button */}
+            <div className="relative w-full">
+              {/* Background layers for Fiverr button */}
+              {Array.from({ length: 5 }).map((_, i) => (
+                <div
+                  key={`fiverr-${i}`}
+                  ref={(el) => {
+                    fiverrBgLayersRef.current[i] = el;
+                  }}
+                  className="absolute inset-0 rounded-[334px] bg-contain bg-no-repeat bg-center z-0 2xl:w-[320px] lg:w-[280px] md:h-[50px] w-full lg:px-0 2xl:h-[69px] h-[60px]"
+                  style={{ backgroundImage: `url(/cons-${i + 1}.png)` }}
+                />
+              ))}
+              <Link
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative bg-transparent text-white rounded-[334px] 2xl:w-[320px] lg:w-[280px] w-full lg:px-0 2xl:h-[69px] h-[60px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize underline z-10 md:ml-[2.5vw] lg:ml-0 lg:pb-[1vh] md:-mt-1.5 lg:mt-0 md:pl-[0vw] 2xl:pb-0 p-8 lg:pt-0 lg:pl-0 lg:pr-0"
+              >
+                <Image
+                  src="/button-arrow.svg"
+                  width={1000}
+                  height={100}
+                  alt="button-arrow"
+                  className="w-[12px] md:w-[14px] lg:w-[15px] h-auto"
+                />
+                Explore My Fiverr Gigs
+              </Link>
+            </div>
           </div>
 
           {/* ✅ Animated Social Links Background */}
@@ -347,7 +392,7 @@ const Hero = () => {
         </div>
 
         {/* Hero Image */}
-        <div className="md:absolute 2xl:-right-51 lg:right-0 md:-right-10 right-0 hero z-20 md:mt-0 mt-[5vh]">
+        <div className="md:absolute 2xl:-right-51 lg:right-0 md:-right-10 right-0 hero z-20 md:mt-0 mt-[6vh]">
           <img
             src="/hero.webp"
             height={100}
@@ -372,7 +417,7 @@ const Hero = () => {
         </Link>
       </div>
 
-      <div className="absolute 2xl:right-40 xl:right-35 lg:right-25 md:right-15 rings -translate-x-1/2 md:translate-x-0 xl:top-56 lg:top-65 md:top-75 top-125 z-10">
+      <div className="absolute 2xl:right-40 xl:right-35 lg:right-25 md:right-15 rings -translate-x-1/2 md:translate-x-0 xl:top-56 lg:top-65 md:top-75 top-140 z-10">
         <Ring />
       </div>
     </section>

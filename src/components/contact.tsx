@@ -11,7 +11,7 @@ export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    address: "",
+    company: "",
     phone: "",
     message: "",
   });
@@ -58,7 +58,7 @@ export default function ContactPage() {
         setFormData({
           name: "",
           email: "",
-          address: "",
+          company: "",
           phone: "",
           message: "",
         });
@@ -273,13 +273,13 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Address */}
+            {/* Company Name */}
             <div className="mb-5">
               <input
                 type="text"
-                name="address"
-                placeholder="Address"
-                value={formData.address}
+                name="company"
+                placeholder="Company Name"
+                value={formData.company}
                 onChange={handleChange}
                 disabled={formStatus.type === "loading"}
                 className="w-full px-3 lg:px-5 py-2 lg:py-3 font-bricolage font-normal xl:text-[18px] text-[16px] tracking-[-0.01em] capitalize leading-[142%] bg-white/8 border border-white/15 rounded-xl text-white placeholder:text-white/40 focus:outline-none focus:border-blue-500 focus:bg-white/10 focus:ring-4 focus:ring-blue-500/10 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
@@ -338,13 +338,12 @@ export default function ContactPage() {
             {/* Status Message */}
             {formStatus.type !== "idle" && (
               <div
-                className={`mt-5 p-4 rounded-xl border font-bricolage text-[14px] lg:text-[16px] transition-all duration-300 ${
-                  formStatus.type === "success"
-                    ? "bg-green-500/10 border-green-500/30 text-green-400"
-                    : formStatus.type === "error"
-                      ? "bg-red-500/10 border-red-500/30 text-red-400"
-                      : "bg-blue-500/10 border-blue-500/30 text-blue-400"
-                }`}
+                className={`mt-5 p-4 rounded-xl border font-bricolage text-[14px] lg:text-[16px] transition-all duration-300 ${formStatus.type === "success"
+                  ? "bg-green-500/10 border-green-500/30 text-green-400"
+                  : formStatus.type === "error"
+                    ? "bg-red-500/10 border-red-500/30 text-red-400"
+                    : "bg-blue-500/10 border-blue-500/30 text-blue-400"
+                  }`}
               >
                 <div className="flex items-start gap-3">
                   <span className="text-xl flex-shrink-0 mt-0.5">
@@ -365,7 +364,7 @@ export default function ContactPage() {
         <div ref={formRef} className="md:py-10 order-1">
           <h1 className="font-bricolage font-bold 2xl:text-[48px] xl:text-[42px] lg:text-[38px] md:text-[32px] text-[30px] tracking-[-0.03em] leading-[123%] mb-3 lg:mb-5 text-white">
             Let&apos;s Work{" "}
-            <span className="font-[100] font-tartuffo tracking-normal capitalize">
+            <span className="font-thin font-tartuffo tracking-normal capitalize">
               Together
             </span>
           </h1>
@@ -406,7 +405,7 @@ export default function ContactPage() {
 
             {/* Email */}
             <Link
-              href="mailto:taibacteam@gmail.com"
+              href="mailto:hello@bestkhalid.com"
               className="flex items-center gap-4 group max-w-fit"
             >
               <div className="w-11 h-11 bg-[url(/contact-cube.png)] bg-contain bg-center bg-no-repeat rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
@@ -424,7 +423,7 @@ export default function ContactPage() {
                 </svg>
               </div>
               <span className="text-white text-base lg:text-lg font-bricolage group-hover:text-blue-400 transition-colors">
-                taibacteam@gmail.com
+                hello@bestkhalid.com
               </span>
             </Link>
           </div>
