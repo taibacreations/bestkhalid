@@ -9,7 +9,7 @@ interface ChatWidgetsProps {
   enableWhatsApp?: boolean;
   whatsAppNumber?: string;
   whatsAppMessage?: string;
-  whatsAppPosition?: "left" | "right";
+  whatsAppPosition?: "left";
 }
 
 export default function ChatWidgets({
@@ -17,7 +17,7 @@ export default function ChatWidgets({
   enableWhatsApp = true,
   whatsAppNumber,
   whatsAppMessage,
-  whatsAppPosition = "right",
+  whatsAppPosition = "left",
 }: ChatWidgetsProps) {
   return (
     <>
@@ -27,7 +27,7 @@ export default function ChatWidgets({
           phoneNumber={whatsAppNumber}
           message={whatsAppMessage}
           position={whatsAppPosition}
-          bottomOffset="130px" // ← Changed this!
+          bottomOffset="20px" // ← Changed this!
         />
       )}
     </>

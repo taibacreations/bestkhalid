@@ -4,6 +4,7 @@ import Projects from "./projects";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
+import Link from "next/link";
 
 const Lead = () => {
   const downloadBgLayersRef = useRef<(HTMLDivElement | null)[]>([]);
@@ -102,7 +103,7 @@ const Lead = () => {
         height={100}
         width={100}
         alt="blur"
-        className="w-full h-auto absolute left-0 2xl:-bottom-[50vh] xl:-bottom-[33vh] lg:-bottom-[20vh] md:bottom-[10vh] bottom-[25%] z-20"
+        className="w-full h-auto absolute left-0 2xl:-bottom-[50vh] xl:-bottom-[33vh] lg:-bottom-[5vh] md:bottom-[10vh] bottom-[30%] z-20"
       />
       <div className="xl:pt-33 lg:pt-20 pt-10">
         <div id="leads" className="text-center max-w-[992px] mx-auto z-40 relative">
@@ -140,13 +141,13 @@ const Lead = () => {
                 {Array.from({ length: 5 }).map((_, i) => (
                   <div
                     key={`dow-${i}`}
-                    ref={(el) => {downloadBgLayersRef.current[i] = el}}
+                    ref={(el) => { downloadBgLayersRef.current[i] = el }}
                     className="absolute inset-0 rounded-[334px] bg-contain bg-no-repeat bg-center z-0"
                     style={{ backgroundImage: `url(/dow-${i + 1}.png)` }}
                   />
                 ))}
                 {/* Button on top */}
-                <button className="relative bg-transparent text-white md:min-w-[190px] max-w-fit lg:p-3 p-6 lg:min-w-[230px] xl:min-w-[250px] 2xl:min-w-[336px] md:h-[50px] 2xl:h-[59px] rounded-[334px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize z-10">
+                <Link href="/portfolio" className="relative bg-transparent text-white md:min-w-[190px] max-w-fit lg:p-3 p-6 lg:min-w-[230px] xl:min-w-[250px] 2xl:min-w-[336px] md:h-[50px] 2xl:h-[59px] rounded-[334px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[18px] lg:text-[20px] xl:text-[22px] 2xl:text-[24px] tracking-[-0.07em] capitalize z-10">
                   <Image
                     src="/button-arrow.svg"
                     width={1000}
@@ -154,11 +155,11 @@ const Lead = () => {
                     alt="button-arrow"
                     className="w-[12px] md:w-[14px] lg:w-[15px] h-auto"
                   />
-                  Download Free Guide
-                </button>
+                  See Recent Work
+                </Link>
               </div>
               <p className="font-bricolage font-normal xl:text-[18px] text-[16px] leading-[142%] tracking-[-0.01em] capitalize text-white mb-[-5px] text-center">
-                Perfect for growing your email list!
+                Explore real projects focused on leads & conversions
               </p>
             </div>
           </div>

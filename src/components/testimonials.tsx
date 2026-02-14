@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
@@ -11,6 +11,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
+import Link from "next/link";
 
 interface TestimonialsProps {
   sanityTestimonials?: Array<{
@@ -76,6 +77,60 @@ const Testimonials = ({ sanityTestimonials }: TestimonialsProps) => {
       normalizedIdx === rightIdx
     );
   };
+
+  // ✅ CTA background images
+  const moreReviews = [
+    "/cons-1.png",
+    "/cons-2.png",
+    "/cons-3.png",
+    "/cons-4.png",
+    "/cons-5.png",
+  ];
+
+  const moreReviewsRef = useRef<(HTMLDivElement | null)[]>([]);
+
+  // Preload & animate CTA backgrounds
+  useEffect(() => {
+    // Preload
+    moreReviews.forEach((src) => {
+      const img = new window.Image();
+      img.src = src;
+    });
+
+    // Animate on mount
+    const animateCtaBg = () => {
+      if (moreReviewsRef.current.length !== moreReviews.length) return;
+
+      gsap.set(moreReviewsRef.current, { autoAlpha: 0 });
+      gsap.set(moreReviewsRef.current[0], { autoAlpha: 1 });
+
+      const tl = gsap.timeline({ repeat: -1 });
+      const duration = 0.8;
+      const hold = 0.5;
+
+      moreReviewsRef.current.forEach((_, i) => {
+        const next = (i + 1) % moreReviewsRef.current.length;
+        tl.to(
+          moreReviewsRef.current[i],
+          { autoAlpha: 0, duration },
+          `+=${hold}`,
+        ).to(
+          moreReviewsRef.current[next],
+          { autoAlpha: 1, duration },
+          `-=${duration}`,
+        );
+      });
+
+      return () => {
+        tl.kill();
+        gsap.killTweensOf(moreReviewsRef.current);
+      };
+    };
+
+    // Slight delay to ensure DOM is ready
+    const timer = setTimeout(animateCtaBg, 100);
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     // Register ScrollTrigger (safe in useEffect)
@@ -166,14 +221,14 @@ const Testimonials = ({ sanityTestimonials }: TestimonialsProps) => {
             >
               Trusted by Growing{" "}
               <span className="text-white font-tartuffo font-thin tracking-[0.01em]">
-                Healthcare Practices
+              Brands & Businesses 
               </span>
             </h3>
           </div>
         </div>
         {/* Custom Navigation */}
         <div className="flex xl:justify-between justify-center z-20 relative h-0">
-          <button className="swiper-button-prev-custom bg-white lg:w-[42px] lg:h-[42px] w-[35px] h-[35px] rounded-full flex justify-center items-center absolute 2xl:left-[-7.3%] xl:left-0 xl:top-[9vh] lg:top-[28vh] md:top-[27vh] top-[24vh] lg:left-[45%] md:left-[43%] left-[37%]">
+          <button className="swiper-button-prev-custom bg-white lg:w-[42px] lg:h-[42px] w-[35px] h-[35px] rounded-full flex justify-center items-center absolute 2xl:left-[-7.3%] xl:left-0 xl:top-[9vh] lg:top-[24vh] md:top-[24vh] top-[22vh] lg:left-[45%] md:left-[43%] left-[37%]">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -190,7 +245,7 @@ const Testimonials = ({ sanityTestimonials }: TestimonialsProps) => {
             </svg>
           </button>
 
-          <button className="swiper-button-next-custom bg-white lg:w-[42px] lg:h-[42px] w-[35px] h-[35px] rounded-full flex justify-center items-center absolute 2xl:right-[-7.3%] xl:right-0 xl:top-[9vh] lg:top-[28vh] md:top-[27vh] top-[24vh] lg:right-[45%] md:right-[43%] right-[37%]">
+          <button className="swiper-button-next-custom bg-white lg:w-[42px] lg:h-[42px] w-[35px] h-[35px] rounded-full flex justify-center items-center absolute 2xl:right-[-7.3%] xl:right-0 xl:top-[9vh] lg:top-[24vh] md:top-[24vh] top-[22vh] lg:right-[45%] md:right-[43%] right-[37%]">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -295,6 +350,38 @@ const Testimonials = ({ sanityTestimonials }: TestimonialsProps) => {
             </SwiperSlide>
           ))}
         </Swiper>
+        <div className="flex justify-center items-center md:mt-[7vh] mt-[6vh] xl:mt-0">
+          {/* ✅ Desktop CTA Button with Animated Background */}
+          <div className="flex shrink-0 relative">
+            {/* Background layers */}
+            {moreReviews.map((src, i) => (
+              <div
+                key={i}
+                ref={(el) => {
+                  moreReviewsRef.current[i] = el;
+                }}
+                className="absolute inset-0 rounded-[334px] bg-contain bg-no-repeat bg-center z-0"
+                style={{ backgroundImage: `url(${src})` }}
+              />
+            ))}
+
+            {/* Button content on top */}
+            <Link
+              href="https://www.fiverr.com/s/vvL0wkz"
+              target="_blank"
+              className="relative bg-transparent text-white md:w-[270px] w-[90vw] lg:px-0 xl:h-[59px] h-[50px] rounded-[334px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[16px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize underline z-10"
+            >
+              <Image
+                src="/button-arrow.svg"
+                width={1000}
+                height={100}
+                alt="button-arrow"
+                className="w-[12px] md:w-[14px] lg:w-[15px] h-auto"
+              />
+              Read More Reviews
+            </Link>
+          </div>
+        </div>
       </div>
     </section>
   );

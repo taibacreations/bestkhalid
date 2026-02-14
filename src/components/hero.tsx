@@ -231,22 +231,22 @@ const Hero = () => {
 
       <div className="max-w-[1525px] mx-auto px-4 xl:px-10 flex flex-col md:flex-row items-center md:justify-between justify-center md:min-h-[120vh] pt-30 md:pt-0 relative">
         <div className="">
-          <div className="2xl:max-w-[682px] xl:max-w-[550px] md:max-w-[42%]">
+          <div className="2xl:max-w-[760px] xl:max-w-[560px] lg:max-w-[500px] md:max-w-[450px] relative z-30">
             <h5
               id="hero-h5"
-              className="font-bricolage font-normal 2xl:text-[40px] xl:text-[36px] lg:text-[30px] text-[24px] tracking-[-0.07em] capitalize text-white"
+              className="font-bricolage font-normal 2xl:text-[40px] xl:text-[34px] lg:text-[30px] text-[20px] tracking-[-0.07em] capitalize text-white"
             >
-              Modern, Patient-Focused
+              Top-Rated & Pro-Verified Web Designer
             </h5>
 
             <div className="overflow-hidden">
               <h2
                 id="hero-h2"
-                className="font-bricolage font-extrabold 2xl:text-[90.64px] xl:text-[70px] lg:text-[55px] md:text-[42px] leading-[100%] text-[36px] tracking-[-0.07em] uppercase text-white"
+                className="font-bricolage font-extrabold 2xl:text-[78px] xl:text-[58px] lg:text-[45px] md:text-[42px] leading-[100%] text-[32px] tracking-[-0.07em] uppercase text-white"
               >
-                <div>Websites for</div>
-                <span className="font-tartuffo font-thin tracking-normal capitalize 2xl:-mt-12 xl:-mt-9 lg:-mt-7 -mt-5 inline-block">
-                  Healthcare Providers
+                <div>More Than Designs</div>
+                <span className="font-tartuffo font-thin tracking-normal capitalize 2xl:-mt-12 xl:-mt-9 lg:-mt-7 md:-mt-5 inline-block">
+                Get 10× More Leads & Sales
                 </span>
               </h2>
             </div>
@@ -255,13 +255,12 @@ const Hero = () => {
               id="hero-content"
               className="font-bricolage font-normal 2xl:text-[28px] xl:text-[24px] lg:text-[20px] text-[18px] tracking-[-0.07em] capitalize text-white leading-[142%] mt-[2.4vh]"
             >
-              Turn your clinic`s website into a trusted, conversion-driven digital
-              front door that attracts new patients and elevates your practice
+              I design strategic, conversion-optimized, performance-focused experiences that turn traffic into customers.
             </p>
           </div>
 
           {/* ✅ Animated Consultation CTA Button and Fiverr Button in a Row */}
-          <div id="btn" className="mt-7.5 relative flex flex-col xl:flex-row lg:gap-4 md:gap-3 gap-2 max-w-fit lg:max-w-full">
+          <div id="btn" className="mt-7.5 relative flex flex-col xl:flex-row lg:gap-4 md:gap-3 gap-2 max-w-fit lg:max-w-full z-30">
             {/* Consultation Button */}
             <div className="relative w-full">
               {/* Background layers for consultation button */}
@@ -300,7 +299,7 @@ const Hero = () => {
                 />
               ))}
               <Link
-                href="#"
+                href="https://www.fiverr.com/s/vvL0wkz"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="relative bg-transparent text-white rounded-[334px] 2xl:w-[320px] lg:w-[280px] w-full lg:px-0 2xl:h-[69px] h-[60px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize underline z-10 md:ml-[2.5vw] lg:ml-0 lg:pb-[1vh] md:-mt-1.5 lg:mt-0 md:pl-[0vw] 2xl:pb-0 p-8 lg:pt-0 lg:pl-0 lg:pr-0"
@@ -413,7 +412,7 @@ const Hero = () => {
             alt="button-arrow"
             className="w-[12px] md:w-[14px] lg:w-[15px] h-auto"
           />
-          See Healthcare Website Examples
+          See Recent Website Projects
         </Link>
       </div>
 
