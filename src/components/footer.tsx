@@ -61,7 +61,7 @@ const Footer = () => {
             <p className="mt-2.5 font-bricolage font-normal text-[16px] xl:text-[18px] tracking-[-0.01em] capitalize">
               Let`s build something that sets your clinic apart.
             </p>
-            <button className="mt-5.5 flex justify-center items-center gap-2 underline text-[16px] xl:text-[18px] font-bricolage capitalize tracking-[-0.07em] font-bold text-[#37ACFF] bg-white hover:opacity-90 rounded-full lg:w-[256px] max-w-fit px-4 h-[44px]">
+            <button className="mt-5.5 flex justify-center items-center gap-2 text-[16px] xl:text-[18px] font-bricolage capitalize tracking-[-0.07em] font-bold text-[#37ACFF] bg-white hover:opacity-90 rounded-full lg:w-[256px] max-w-fit px-4 h-[44px]">
               <svg xmlnsXlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="17" height="12" viewBox="0 0 17 12" fill="none">
                 <path d="M0.75 5.52297L-3.49691e-07 5.52297L-4.15258e-07 6.27297L0.75 6.27297L0.75 5.52297ZM16.2803 6.0533C16.5732 5.76041 16.5732 5.28554 16.2803 4.99264L11.5074 0.219671C11.2145 -0.073222 10.7396 -0.073222 10.4467 0.219671C10.1538 0.512564 10.1538 0.987438 10.4467 1.28033L14.6893 5.52297L10.4467 9.76561C10.1538 10.0585 10.1538 10.5334 10.4467 10.8263C10.7396 11.1192 11.2145 11.1192 11.5074 10.8263L16.2803 6.0533ZM0.75 5.52297L0.75 6.27297L15.75 6.27297L15.75 5.52297L15.75 4.77297L0.75 4.77297L0.75 5.52297ZM0.75 5.52297L1.5 5.52297L1.5 1.52297L0.75 1.52297L0 1.52297L-3.49691e-07 5.52297L0.75 5.52297Z" fill="#37ACFF"></path>
               </svg>

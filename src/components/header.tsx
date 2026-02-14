@@ -252,7 +252,7 @@ const Header = () => {
             {/* Button content on top */}
             <Link
               href="/contact"
-              className="relative bg-transparent text-white 2xl:w-[270px] xl:w-[220px] md:w-[180px] w-full lg:px-0 xl:h-[59px] h-[50px] rounded-[334px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[16px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize underline z-10"
+              className="relative bg-transparent text-white 2xl:w-[270px] xl:w-[220px] md:w-[180px] w-full lg:px-0 xl:h-[59px] h-[50px] rounded-[334px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[16px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize z-10"
             >
               <Image
                 src="/button-arrow.svg"

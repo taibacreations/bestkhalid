@@ -329,7 +329,7 @@ export default function ContactPage() {
               <button
                 type="submit"
                 disabled={formStatus.type === "loading"}
-                className="relative w-full xl:py-3 lg:py-2 py-2 block font-bold font-bricolage text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize underline bg-transparent text-white rounded-[32px] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 z-10 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0"
+                className="relative w-full xl:py-3 lg:py-2 py-2 block font-bold font-bricolage text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize bg-transparent text-white rounded-[32px] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 z-10 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0"
               >
                 {formStatus.type === "loading" ? "Sending..." : "Submit"}
               </button>

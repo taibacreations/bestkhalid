@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Ring from "./ring";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, MouseEvent } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
@@ -196,6 +196,16 @@ const Hero = () => {
     };
   }, []);
 
+  // Smooth scroll handler for scroll-down button
+  const handleSmoothScroll = (e: MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    // Find the target element by id "the-problem"
+    const el = document.getElementById("the-problem");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
     <section id="hero" className="relative md:min-h-[120vh] overflow-hidden">
       {/* Background layers */}
@@ -219,7 +229,12 @@ const Hero = () => {
         alt="dots"
         className="w-full left-0 object-cover absolute xl:bottom-0 lg:bottom-15 md:bottom-25 -bottom-5 z-30"
       />
-      <Link href="#the-problem" className="scroll-mt-[20vh]">
+      {/* Scroll Down Button - use onClick for smooth scroll */}
+      <a
+        href="#the-problem"
+        className="scroll-mt-[20vh]"
+        onClick={handleSmoothScroll}
+      >
         <Image
           src="/scroll-down.svg"
           height={100}
@@ -227,7 +242,7 @@ const Hero = () => {
           alt="dots"
           className="md:w-[101px] w-[70px] h-auto left-1/2 -translate-x-1/2 object-cover absolute md:bottom-[15.5%] bottom-0 z-40"
         />
-      </Link>
+      </a>
 
       <div className="max-w-[1525px] mx-auto px-4 xl:px-10 flex flex-col md:flex-row items-center md:justify-between justify-center md:min-h-[120vh] pt-30 md:pt-0 relative">
         <div className="">
@@ -274,7 +289,7 @@ const Hero = () => {
                   style={{ backgroundImage: `url(/cons-${i + 1}.png)` }}
                 />
               ))}
-              <Link href="/contact" className="relative bg-transparent text-white rounded-[334px] 2xl:w-[320px] lg:w-[280px] w-full lg:px-0 2xl:h-[69px] h-[60px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize underline z-10 md:ml-[2.5vw] lg:ml-0 lg:pb-[1vh] md:-mt-1.5 lg:mt-0 md:pl-[0vw] 2xl:pb-0 p-8 lg:pt-0 lg:pl-0 lg:pr-0">
+              <Link href="/contact" className="relative bg-transparent text-white rounded-[334px] 2xl:w-[320px] lg:w-[280px] w-full lg:px-0 2xl:h-[69px] h-[60px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize z-10 md:ml-[2.5vw] lg:ml-0 lg:pb-[1vh] md:-mt-1.5 lg:mt-0 md:pl-[0vw] 2xl:pb-0 p-8 lg:pt-0 lg:pl-0 lg:pr-0">
                 <Image
                   src="/button-arrow.svg"
                   width={1000}
@@ -302,7 +317,7 @@ const Hero = () => {
                 href="https://www.fiverr.com/s/vvL0wkz"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative bg-transparent text-white rounded-[334px] 2xl:w-[320px] lg:w-[280px] w-full lg:px-0 2xl:h-[69px] h-[60px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize underline z-10 md:ml-[2.5vw] lg:ml-0 lg:pb-[1vh] md:-mt-1.5 lg:mt-0 md:pl-[0vw] 2xl:pb-0 p-8 lg:pt-0 lg:pl-0 lg:pr-0"
+                className="relative bg-transparent text-white rounded-[334px] 2xl:w-[320px] lg:w-[280px] w-full lg:px-0 2xl:h-[69px] h-[60px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize z-10 md:ml-[2.5vw] lg:ml-0 lg:pb-[1vh] md:-mt-1.5 lg:mt-0 md:pl-[0vw] 2xl:pb-0 p-8 lg:pt-0 lg:pl-0 lg:pr-0"
               >
                 <Image
                   src="/button-arrow.svg"
