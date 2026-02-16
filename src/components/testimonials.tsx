@@ -33,12 +33,13 @@ const Testimonials = ({ sanityTestimonials }: TestimonialsProps) => {
     : [];
 
   const getSlideBackground = (idx: number) => {
-    const normalizedIdx = idx % 5; // Since testimonials repeat
-    const normalizedActive = activeIndex % 5;
+    const totalSlides = sanityTestimonials?.length || 5;
+    const normalizedIdx = idx % totalSlides;
+    const normalizedActive = activeIndex % totalSlides;
 
     // Calculate adjacent indices (left and right of active)
-    const leftIdx = (normalizedActive - 1 + 5) % 5;
-    const rightIdx = (normalizedActive + 1) % 5;
+    const leftIdx = (normalizedActive - 1 + totalSlides) % totalSlides;
+    const rightIdx = (normalizedActive + 1) % totalSlides;
 
     // Active slide and its immediate neighbors get white background
     if (
@@ -50,25 +51,25 @@ const Testimonials = ({ sanityTestimonials }: TestimonialsProps) => {
     }
 
     // Determine if slide is on the left or right side of active
-    // For slides on the right side, reverse the gradient direction
     let distance = normalizedIdx - normalizedActive;
-    if (distance < -2) distance += 5; // Handle wrap-around
-    if (distance > 2) distance -= 5;
+    if (distance < -(totalSlides / 2)) distance += totalSlides;
+    if (distance > totalSlides / 2) distance -= totalSlides;
 
     if (distance > 0) {
-      // Right side - reverse gradient (90deg instead of 270deg)
+      // Right side - reverse gradient (fade from left to right)
       return "linear-gradient(90deg, rgba(120, 120, 120, 0.4) 0%, rgba(80, 80, 80, 0) 29.82%)";
     } else {
-      // Left side - normal gradient
+      // Left side - normal gradient (fade from right to left)
       return "linear-gradient(270deg, rgba(120, 120, 120, 0.4) 0%, rgba(80, 80, 80, 0) 29.82%)";
     }
   };
 
   const isContentVisible = (idx: number) => {
-    const normalizedIdx = idx % 5;
-    const normalizedActive = activeIndex % 5;
-    const leftIdx = (normalizedActive - 1 + 5) % 5;
-    const rightIdx = (normalizedActive + 1) % 5;
+    const totalSlides = sanityTestimonials?.length || 5;
+    const normalizedIdx = idx % totalSlides;
+    const normalizedActive = activeIndex % totalSlides;
+    const leftIdx = (normalizedActive - 1 + totalSlides) % totalSlides;
+    const rightIdx = (normalizedActive + 1) % totalSlides;
 
     // Only show content for active slide and its neighbors
     return (
@@ -270,6 +271,7 @@ const Testimonials = ({ sanityTestimonials }: TestimonialsProps) => {
           slidesPerView={1}
           centeredSlides={true}
           loop={true}
+          speed={600}
           autoplay={{
             delay: 4000,
             disableOnInteraction: false,
@@ -308,44 +310,48 @@ const Testimonials = ({ sanityTestimonials }: TestimonialsProps) => {
           {testimonialsData.map((item, idx) => (
             <SwiperSlide key={idx} className="!flex !justify-center">
               <div
-                className="w-full md:max-w-[442px] max-w-[90vw] md:h-[211px] p-5 rounded-[20px] flex flex-col justify-center md:px-6 md:py-0 xl:px-8.5 testimonial-card transition-all duration-300"
+                className="w-full md:max-w-[442px] max-w-[90vw] md:h-[211px] p-5 rounded-[20px] flex flex-col justify-center md:px-6 md:py-0 xl:px-8.5 transition-all duration-300"
                 style={{
                   background: getSlideBackground(idx),
                 }}
               >
-                {isContentVisible(idx) && (
-                  <>
-                    <div className="flex items-center gap-3.5">
-                      <Image
-                        src={item.image}
-                        height={100}
-                        width={100}
-                        alt={item.name}
-                        className="xl:w-[76px] w-[65px] h-auto rounded-full object-cover"
-                      />
-                      <div>
-                        <h5 className="font-bricolage font-bold text-[20px] xl:text-[24px] leading-[123%] tracking-[-0.03em] capitalize text-[#000000]">
-                          {item.name}
-                        </h5>
-                        <p className="font-bricolage font-normal text-[12px] xl:text-[14px] leading-[142%] tracking-[-0.01em] capitalize text-[#000000]">
-                          {item.role}
-                        </p>
-                      </div>
-                    </div>
-                    <div className="mt-2 md:mt-3">
-                      <p className="font-bricolage font-normal text-[16px] xl:text-[18px] leading-[142%] tracking-[-0.01em] text-[#000000]">
-                        {item.quote}
+                <div 
+                  className="transition-opacity duration-300"
+                  style={{
+                    opacity: isContentVisible(idx) ? 1 : 0,
+                    pointerEvents: isContentVisible(idx) ? 'auto' : 'none'
+                  }}
+                >
+                  <div className="flex items-center gap-3.5">
+                    <Image
+                      src={item.image}
+                      height={100}
+                      width={100}
+                      alt={item.name}
+                      className="xl:w-[76px] w-[65px] h-auto rounded-full object-cover"
+                    />
+                    <div>
+                      <h5 className="font-bricolage font-bold text-[20px] xl:text-[24px] leading-[123%] tracking-[-0.03em] capitalize text-[#000000]">
+                        {item.name}
+                      </h5>
+                      <p className="font-bricolage font-normal text-[12px] xl:text-[14px] leading-[142%] tracking-[-0.01em] capitalize text-[#000000]">
+                        {item.role}
                       </p>
-                      <Image
-                        src="/stars.png"
-                        height={24}
-                        width={110}
-                        alt="Rating stars"
-                        className="w-[110px] mt-2"
-                      />
                     </div>
-                  </>
-                )}
+                  </div>
+                  <div className="mt-2 md:mt-3">
+                    <p className="font-bricolage font-normal text-[16px] xl:text-[18px] leading-[142%] tracking-[-0.01em] text-[#000000]">
+                      {item.quote}
+                    </p>
+                    <Image
+                      src="/stars.png"
+                      height={24}
+                      width={110}
+                      alt="Rating stars"
+                      className="w-[110px] mt-2"
+                    />
+                  </div>
+                </div>
               </div>
             </SwiperSlide>
           ))}
