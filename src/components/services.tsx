@@ -69,74 +69,74 @@ const Services = () => {
     };
   }, []);
 
-useEffect(() => {
-  gsap.registerPlugin(ScrollTrigger);
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
 
-  const mbook = document.querySelector("#mbook");
-  const points = document.querySelector("#service-points");
-  if (!points) return;
+    const mbook = document.querySelector("#mbook");
+    const points = document.querySelector("#service-points");
+    if (!points) return;
 
-  const duration = 1.6;
-  const start = "top 50%";
+    const duration = 1.6;
+    const start = "top 50%";
 
-  // Enhanced "from depth" animation
-  gsap.fromTo(
-    mbook,
-    {
-      scale: 1.35,     // start slightly larger (simulates "closer")
-      y: 40,           // start lower (adds drop-in feel)
-      opacity: 0,
-      rotateX: 8,      // subtle 3D tilt (optional but nice)
-    },
-    {
-      scale: 1,
-      y: 0,
-      opacity: 1,
-      rotateX: 0,
-      delay: .5,
-      duration,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: mbook,
-        start: start,
-        once: true,
-        // markers: true, // for debugging
+    // Enhanced "from depth" animation
+    gsap.fromTo(
+      mbook,
+      {
+        scale: 1.35,     // start slightly larger (simulates "closer")
+        y: 40,           // start lower (adds drop-in feel)
+        opacity: 0,
+        rotateX: 8,      // subtle 3D tilt (optional but nice)
+      },
+      {
+        scale: 1,
+        y: 0,
+        opacity: 1,
+        rotateX: 0,
+        delay: .5,
+        duration,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: mbook,
+          start: start,
+          once: true,
+          // markers: true, // for debugging
+        }
       }
-    }
-  );
-  // Enhanced "from depth" animation
-  gsap.fromTo(
-    points,
-    {
-      x: 100,
-      opacity: 0,
-    },
-    {
-      x: 0,
-      opacity: 1,
-      delay: .5,
-      duration,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: points,
-        start: start,
-        once: true,
-        // markers: true, // for debugging
+    );
+    // Enhanced "from depth" animation
+    gsap.fromTo(
+      points,
+      {
+        x: 100,
+        opacity: 0,
+      },
+      {
+        x: 0,
+        opacity: 1,
+        delay: .5,
+        duration,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: points,
+          start: start,
+          once: true,
+          // markers: true, // for debugging
+        }
       }
-    }
-  );
+    );
 
-  return () => {
-    ScrollTrigger.getAll().forEach((t) => t.kill());
-  };
-}, []);
+    return () => {
+      ScrollTrigger.getAll().forEach((t) => t.kill());
+    };
+  }, []);
 
   return (
     <section
       id="services"
       className="bg-[url(/services-bg.png)] bg-cover bg-center md:min-h-screen xl:py-10 py-10 lg:py-0 relative z-40 overflow-hidden scroll-mt-[10vh]"
     >
-      <Image src="/services-blur-new.png" width={100} height={100} alt="blur-image" className="w-full h-auto absolute left-0 xl:top-[-25%] top-[-20%] z-40"/>
+      <Image src="/services-blur-new.png" width={100} height={100} alt="blur-image" className="w-full h-auto absolute left-0 xl:top-[-25%] top-[-20%] z-40" />
       <div className="relative xl:pt-23 lg:pt-20 z-40">
         <div className="text-center max-w-[992px] mx-auto z-40 relative">
           <div className="overflow-hidden mt-4 ">
@@ -144,7 +144,7 @@ useEffect(() => {
               id="services-h3"
               className="font-bricolage font-bold 2xl:text-[48px] xl:text-[42px] lg:text-[38px] md:text-[32px] text-[30px] tracking-[-0.03em] leading-[123%] capitalize text-white"
             >
-              Healthcare Web{" "}
+              High-Performance Web{" "}
               <span className="text-white font-tartuffo font-thin tracking-[0.01em]">
                 Design Services
               </span>

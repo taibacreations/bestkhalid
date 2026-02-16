@@ -6,9 +6,9 @@ const Solutionoints = () => {
     <section className="max-w-[1355px] xl:px-10 px-5 mx-auto z-40 relative">
       <div className="flex flex-col md:flex-row items-center md:justify-between justify-center gap-6 md:gap-0 md:mt-0 mt-[5vh]">
         <ul className="flex flex-col xl:gap-12 lg:gap-8 gap-6">
-          <li className="bg-[url(/points-bg-new.png)] 2xl:bg-cover bg-contain bg-no-repeat 2xl:w-[364.11px] xl:w-[320px] lg:w-[280px] md:w-[250px] w-full 2xl:h-[87.64px] xl:h-[80px] lg:h-[70px] md:h-[60px] h-[82px] font-briclage font-bold 2xl:text-[20px] xl:text-[18px] lg:text-[16px] text-[14px] leading-[142%] tracking-[-0.01%] text-white flex justify-center items-center text-center xl:px-15 lg:px-10 md:px-9 2xl:ml-[18%] xl:ml-[30%] lg:ml-[15%] md:ml-[5%] solution-points solution-points-2 solution-point relative hover:bg-[#0029CC] rounded-[32px] hover:bg-none transition-all duration-300 relative li-1 li">
+          <li className="bg-[url(/points-bg-new.png)] 2xl:bg-cover bg-contain bg-no-repeat 2xl:w-[364.11px] xl:w-[320px] lg:w-[280px] md:w-[250px] w-full 2xl:h-[87.64px] xl:h-[80px] lg:h-[70px] md:h-[60px] h-[82px] font-briclage font-bold 2xl:text-[20px] xl:text-[18px] lg:text-[16px] text-[14px] leading-[142%] tracking-[-0.01%] text-white flex justify-center items-center text-center xl:px-15 lg:px-10 md:px-9 2xl:ml-[18%] xl:ml-[30%] lg:ml-[15%] md:ml-[5%] solution-points solution-points-2 solution-point relative hover:bg-[#0029CC] rounded-[32px] hover:bg-none transition-all duration-300 li-1 li">
             <div className="lii"></div>
-            Patient-friendly and mobile-optimized
+            Conversion-focused & mobile-optimized
             <BorderBeam
               size={140}
               duration={8}

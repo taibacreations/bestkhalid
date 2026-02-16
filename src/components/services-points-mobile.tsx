@@ -5,9 +5,9 @@ import { BorderBeam } from "@stianlarsen/border-beam";
 const ServicespointsMobile = () => {
   const services = [
     {
-      title: "Local SEO for Healthcare",
+      title: "SEO, CRO & Performance Optimization",
       description:
-        "Beautiful, modern layouts built around your brand and patients’ needs.",
+        "Data-driven optimization that turns traffic into leads and customers.",
       wrapperClass: "",
     },
     {
@@ -23,9 +23,9 @@ const ServicespointsMobile = () => {
       wrapperClass: "",
     },
     {
-      title: "Patient Booking & Form Integration",
+      title: "Advanced AI Integrations",
       description:
-        "Seamless scheduling and contact forms to boost patient engagement.",
+        "Intelligent systems designed to capture leads, automate processes, and boost performance.",
       wrapperClass: "",
     },
     {
@@ -66,7 +66,7 @@ const ServicespointsMobile = () => {
             <p
               className="
                 font-bricolage text-[14px] text-white text-center
-                w-[90%]
+                w-[90%] mx-auto
               "
             >
               {item.description}

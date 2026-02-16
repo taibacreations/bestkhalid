@@ -190,9 +190,9 @@ const Solution = () => {
               id="solution-h3"
               className="font-bricolage font-bold 2xl:text-[48px] xl:text-[42px] lg:text-[38px] md:text-[32px] text-[30px] tracking-[-0.03em] leading-[123%] capitalize text-white inline-block"
             >
-              I Build Clean, Professional, HIPAA-Conscious Websites{" "}
+              I Build Clean, Professional, High-Performance Websites{" "}
               <span className="text-white font-tartuffo font-thin tracking-[0.01em]">
-                That Bring You More Patients
+                That Drive More Leads & Sales
               </span>
             </h3>
           </div>
@@ -201,8 +201,7 @@ const Solution = () => {
             id="solution-content"
             className="lg:mt-7 mt-5 font-bricolage font-normal xl:text-[18px] text-[16px] tracking-[-0.01em] capitalize leading-[142%] text-white"
           >
-            I specialize exclusively in web design for healthcare providers, so
-            every site I build is
+            I design strategic, conversion-optimized, performance-focused websites that turn traffic into customers and support long-term business growth.
           </p>
         </div>
         <div

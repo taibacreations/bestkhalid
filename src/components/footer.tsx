@@ -53,20 +53,20 @@ const Footer = () => {
           {/* Section 1: CTA — stays first */}
           <div className="flex flex-col max-w-full md:max-w-[250px] lg:max-w-[350px] xl:max-w-[416px] order-1">
             <h4 className="font-bricolage text-[24px] lg:text-[28px] xl:text-[32px] 2xl:text-[34px] font-bold leading-[123%] tracking-[-0.07em] capitalize text-white">
-              Ready to Grow Your Practice With{" "}
-              <span className="font-[100] font-tartuffo tracking-[-0.01em]">
-                a Website Patients Trust?
+              Ready to Get 10× More{" "} <br />
+              <span className="font-thin font-tartuffo tracking-[-0.01em]">
+                Leads & Sales?
               </span>
             </h4>
             <p className="mt-2.5 font-bricolage font-normal text-[16px] xl:text-[18px] tracking-[-0.01em] capitalize">
-              Let`s build something that sets your clinic apart.
+              Let’s create a strategic, conversion-focused experience built to scale.
             </p>
-            <button className="mt-5.5 flex justify-center items-center gap-2 text-[16px] xl:text-[18px] font-bricolage capitalize tracking-[-0.07em] font-bold text-[#37ACFF] bg-white hover:opacity-90 rounded-full lg:w-[256px] max-w-fit px-4 h-[44px]">
+            <Link href="/contact" className="mt-5.5 flex justify-center items-center gap-2 text-[16px] xl:text-[18px] font-bricolage capitalize tracking-[-0.07em] font-bold text-[#37ACFF] bg-white hover:opacity-90 rounded-full lg:w-[256px] max-w-fit px-4 h-[44px]">
               <svg xmlnsXlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="17" height="12" viewBox="0 0 17 12" fill="none">
                 <path d="M0.75 5.52297L-3.49691e-07 5.52297L-4.15258e-07 6.27297L0.75 6.27297L0.75 5.52297ZM16.2803 6.0533C16.5732 5.76041 16.5732 5.28554 16.2803 4.99264L11.5074 0.219671C11.2145 -0.073222 10.7396 -0.073222 10.4467 0.219671C10.1538 0.512564 10.1538 0.987438 10.4467 1.28033L14.6893 5.52297L10.4467 9.76561C10.1538 10.0585 10.1538 10.5334 10.4467 10.8263C10.7396 11.1192 11.2145 11.1192 11.5074 10.8263L16.2803 6.0533ZM0.75 5.52297L0.75 6.27297L15.75 6.27297L15.75 5.52297L15.75 4.77297L0.75 4.77297L0.75 5.52297ZM0.75 5.52297L1.5 5.52297L1.5 1.52297L0.75 1.52297L0 1.52297L-3.49691e-07 5.52297L0.75 5.52297Z" fill="#37ACFF"></path>
               </svg>
-              Download Free Guide
-            </button>
+              Book a Free Consultation
+            </Link>
           </div>
 
           {/* Section 2: Contact — appears LAST on mobile */}

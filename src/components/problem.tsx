@@ -151,7 +151,7 @@ const Problem = () => {
                 id="problem-h3"
                 className="font-bricolage font-bold 2xl:text-[48px] xl:text-[42px] lg:text-[38px] md:text-[32px] text-[30px] tracking-[-0.03em] leading-[142%] capitalize text-white"
               >
-                Your Website Shouldn't Be Why Patients{" "}
+                Your Website Shouldn’t Be Why Customers{" "}
                 <span className="text-white font-tartuffo font-thin tracking-[0.01em]">
                   Choose Your Competitor
                 </span>
@@ -164,9 +164,7 @@ const Problem = () => {
             id="problem-content"
             className="xl:mt-5 mt-3 font-bricolage font-normal xl:text-[18px] text-[16px] tracking-[-0.01em] capitalize leading-[142%] text-white"
           >
-            Most healthcare websites are outdated, hard to navigate, and don’t
-            reflect the quality of care you provide. In today`s digital-first
-            world, patients expect a seamless online experience
+            Most business websites are outdated, slow, and unclear about their value. In today’s digital-first world, visitors expect a fast, seamless experience that guides them to take action.
           </p>
         </div>
         <div className="bg-[#0E1A4A08] xl:rounded-[32px] rounded-[20px] 2xl:h-[483px] 2xl:h-[400px] md:h-[380px] min-h-[300px] 2xl:w-[817px] xl:w-[750px] lg:w-[600px] md:w-[500px] max-w-full lg:ml-[35%] md:ml-[30%] relative 2xl:mt-13 xl:mt-10 mt-8 z-20 relative overflow-hidden rotating-border problem-bg-animation">
