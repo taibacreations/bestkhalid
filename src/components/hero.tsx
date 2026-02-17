@@ -301,7 +301,7 @@ const Hero = () => {
               </Link>
             </div>
             {/* Fiverr Button */}
-            <div className="relative w-full">
+            <div className="relative w-full 2xl:ml-[-5vw]">
               {/* Background layers for Fiverr button */}
               {Array.from({ length: 5 }).map((_, i) => (
                 <div

@@ -13,7 +13,11 @@ interface SanityProject {
   category: string;
   mainImage: string;
   color: string;
+  scrollSpeed?: number; // optional — falls back to DEFAULT_SCROLL_SPEED if not set in Sanity
 }
+
+// Default scroll speed in ms — matches the original hardcoded duration-[2500ms]
+const DEFAULT_SCROLL_SPEED = 2500;
 
 const Portfolio = () => {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -38,7 +42,8 @@ const Portfolio = () => {
             title,
             "category": category->title,
             "mainImage": mainImage.asset->url,
-            color
+            color,
+            scrollSpeed
           } | order(_createdAt desc)`
         );
         setProjects(projectsRes);
@@ -62,11 +67,10 @@ const Portfolio = () => {
 
   const handleLoadMore = () => {
     setIsLoadingMore(true);
-
     setTimeout(() => {
       setVisibleCount((prev) => prev + 6);
       setIsLoadingMore(false);
-    }, 800); // smooth delay for UX
+    }, 800);
   };
 
   const handleCategoryChange = (category: string) => {
@@ -83,7 +87,10 @@ const Portfolio = () => {
               Projects
             </h3>
             <p className="xl:mt-5 mt-3 font-bricolage font-normal xl:text-[18px] text-[16px] tracking-[-0.01em] capitalize leading-[142%] text-white">
-              Among the thousands of completed website projects, the ones below are a few of my favorites. Web Design is always evolving, and it’s been fascinating to see how my work has changed and grown over the years.
+              Among the thousands of completed website projects, the ones below
+              are a few of my favorites. Web Design is always evolving, and it's
+              been fascinating to see how my work has changed and grown over the
+              years.
             </p>
           </div>
 
@@ -117,7 +124,10 @@ const Portfolio = () => {
             Projects
           </h3>
           <p className="xl:mt-5 mt-3 font-bricolage font-normal xl:text-[18px] text-[16px] tracking-[-0.01em] capitalize leading-[142%] text-white">
-            Among the thousands of completed website projects, the ones below are a few of my favorites. Web Design is always evolving, and it’s been fascinating to see how my work has changed and grown over the years.
+            Among the thousands of completed website projects, the ones below
+            are a few of my favorites. Web Design is always evolving, and it's
+            been fascinating to see how my work has changed and grown over the
+            years.
           </p>
         </div>
 
@@ -188,7 +198,7 @@ const Portfolio = () => {
   );
 };
 
-// ProjectCard with smooth zoom and pan effect
+// ProjectCard — Y-axis pan speed driven by project.scrollSpeed from Sanity
 const ProjectCard = ({
   project,
   index,
@@ -197,6 +207,9 @@ const ProjectCard = ({
   index: number;
 }) => {
   const [isHovering, setIsHovering] = useState(false);
+
+  // Use Sanity value if set, otherwise fall back to the original default
+  const panDuration = project.scrollSpeed ?? DEFAULT_SCROLL_SPEED;
 
   return (
     <div
@@ -208,17 +221,19 @@ const ProjectCard = ({
       }}
     >
       <div className="relative h-[350px] overflow-hidden">
-        {/* Image with smooth scroll effect */}
+        {/* Image — scrolls from top → bottom on hover at the speed set in Sanity */}
         <div className="relative w-full h-[500px]">
           <img
             src={project.mainImage}
             alt={project.title}
-            className={`w-full h-full object-cover object-top transition-all ease-linear ${
-              isHovering ? "duration-[2500ms]" : "duration-700"
-            }`}
+            className="w-full h-full object-cover"
             style={{
               objectPosition: isHovering ? "center bottom" : "center top",
               transform: isHovering ? "scale(1.05)" : "scale(1)",
+              // Y-pan uses panDuration; the quick snap-back on mouse-leave uses 700ms
+              transition: isHovering
+                ? `object-position ${panDuration}ms linear, transform ${panDuration}ms ease`
+                : `object-position 700ms ease, transform 700ms ease`,
             }}
           />
         </div>

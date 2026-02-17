@@ -37,12 +37,12 @@ export default function RootLayout({
             {children}
             {!hideLayout && <Footer />}
             {/* Chat Widgets - Add this at the end of body */}
-            <ChatWidgets
+            {!hideLayout && <ChatWidgets
               enableTawkTo={true}
               enableWhatsApp={true}
               whatsAppMessage="Hello Khalid! I'd like to discuss a project."
               whatsAppPosition="left"
-            />
+            />}
           </main>
         </SmoothScroll>
       </body>
