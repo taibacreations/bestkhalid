@@ -41,12 +41,11 @@ export default {
       title: 'Image Scroll Speed (ms)',
       type: 'number',
       description:
-        'Controls how fast the image pans from top to bottom on hover. Lower = faster, Higher = slower. Recommended range: 1000–5000ms. Leave blank to use the default (2500ms).',
+        'Controls how fast the image pans from top to bottom on hover. Lower = faster, Higher = slower. Minimum 1ms. Leave blank to use the default (2500ms).',
       initialValue: 2500,
       validation: (Rule: Rule) =>
-        Rule.min(500)
-          .max(10000)
-          .error('Scroll speed must be between 500ms and 10,000ms')
+        Rule.min(1)
+          .error('Scroll speed must be at least 1ms')
           .optional()
     }
   ]
