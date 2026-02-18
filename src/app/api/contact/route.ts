@@ -1,55 +1,207 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+// Import Brevo with correct destructure per SDK documentation
+import * as Brevo from "@getbrevo/brevo";
 
+// Initialize Resend
 const resend = new Resend(process.env.RESEND_API_KEY);
+
+// Correct Brevo API setup
+// Instead of `new Brevo()`, use the specific API classes and .setApiKey on each as needed
+const brevoContactsApi = new Brevo.ContactsApi();
+const brevoEmailsApi = new Brevo.TransactionalEmailsApi();
+
+if (process.env.BREVO_API_KEY) {
+  // Set API Key for Contacts & Emails API as required
+  brevoContactsApi.setApiKey(Brevo.ContactsApiApiKeys.apiKey, process.env.BREVO_API_KEY);
+  brevoEmailsApi.setApiKey(Brevo.TransactionalEmailsApiApiKeys.apiKey, process.env.BREVO_API_KEY);
+}
+
+// Replace with your Brevo list ID
+const BREVO_LIST_ID = parseInt(process.env.BREVO_LIST_ID || "0", 10);
 
 export async function POST(req: Request) {
   try {
-    const { name, email, company, phone, message } = await req.json();
+    const body = await req.json();
+    const { name, email, company, phone, message } = body;
 
+    // Validation with detailed error
     if (!name || !email || !message) {
+      const missingFields = [];
+      if (!name) missingFields.push("name");
+      if (!email) missingFields.push("email");
+      if (!message) missingFields.push("message");
+      
+      console.error("Missing fields:", missingFields);
       return NextResponse.json(
-        { error: "Missing required fields" },
-        { status: 400 },
+        { error: `Missing required fields: ${missingFields.join(", ")}` },
+        { status: 400 }
       );
     }
 
-    // Email to website owner (notification)
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return NextResponse.json(
+        { error: "Invalid email format" },
+        { status: 400 }
+      );
+    }
+
+    // -------------------------------
+    // HTML: Owner Notification
+    // -------------------------------
     const notificationEmailHtml = `
-      <!DOCTYPE html> <html> <head> <meta charset="utf-8"> <title>New Contact Message</title> </head> <body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f9fafb;"> <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="max-width: 600px; margin: 40px auto; background-color: #ffffff; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);"> <thead> <tr> <td style="padding: 32px 24px 24px; text-align: center; background-color: #1e40af; color: white; border-top-left-radius: 8px; border-top-right-radius: 8px;"> <h1 style="margin: 0; font-size: 24px; font-weight: 600;">New Contact Message</h1> </td> </tr> </thead> <tbody> <tr> <td style="padding: 24px;"> <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%"> <tr> <td style="padding-bottom: 16px;"> <p style="margin: 0; font-size: 16px; color: #1f2937;"><strong>Name:</strong> ${name}</p> </td> </tr> <tr> <td style="padding-bottom: 16px;"> <p style="margin: 0; font-size: 16px; color: #1f2937;"><strong>Email:</strong> <a href="mailto:${email}" style="color: #1e40af; text-decoration: none;">${email}</a></p> </td> </tr> <tr> <td style="padding-bottom: 16px;"> <p style="margin: 0; font-size: 16px; color: #1f2937;"><strong>Phone:</strong> ${phone ? `<a href="tel:${phone}" style="color: #1e40af; text-decoration: none;">${phone}</a>` : "<span style='color: #6b7280;'>N/A</span>"}</p> </td> </tr> <tr> <td style="padding-bottom: 16px;"> <p style="margin: 0; font-size: 16px; color: #1f2937;"><strong>Company:</strong> ${company ? company : "<span style='color: #6b7280;'>N/A</span>"}</p> </td> </tr> <tr> <td style="padding-top: 16px; border-top: 1px solid #e5e7eb;"> <p style="margin: 0 0 8px; font-size: 16px; color: #1f2937;"><strong>Message:</strong></p> <div style="font-size: 15px; line-height: 1.5; color: #374151; white-space: pre-wrap;">${message}</div> </td> </tr> </table> </td> </tr> </tbody> <tfoot> <tr> <td style="padding: 20px 24px; text-align: center; font-size: 13px; color: #6b7280; background-color: #f3f4f6; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;"> This message was sent from your website contact form. </td> </tr> </tfoot> </table> </body> </html>
+      <!DOCTYPE html>
+      <html>
+      <head><meta charset="utf-8"><title>New Contact Message</title></head>
+      <body style="margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background-color:#f9fafb;">
+        <table role="presentation" width="100%" style="max-width:600px;margin:40px auto;background:#ffffff;border-radius:8px;">
+          <thead>
+            <tr><td style="padding:32px 24px;text-align:center;background:#1e40af;color:white;border-top-left-radius:8px;border-top-right-radius:8px;"><h1>New Contact Message</h1></td></tr>
+          </thead>
+          <tbody>
+            <tr><td style="padding:24px;">
+              <p><strong>Name:</strong> ${name}</p>
+              <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
+              <p><strong>Phone:</strong> ${phone || "N/A"}</p>
+              <p><strong>Company:</strong> ${company || "N/A"}</p>
+              <hr style="margin:20px 0;">
+              <p><strong>Message:</strong></p>
+              <div style="white-space:pre-wrap;">${message}</div>
+            </td></tr>
+          </tbody>
+        </table>
+      </body>
+      </html>
     `;
 
-    // Confirmation email to sender (thank you)
+    // -------------------------------
+    // HTML: Confirmation Email
+    // -------------------------------
     const confirmationEmailHtml = `
-      <!DOCTYPE html> <html> <head> <meta charset="utf-8"> <title>Thank You for Contacting Us</title> </head> <body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f9fafb;"> <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="max-width: 600px; margin: 40px auto; background-color: #ffffff; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);"> <thead> <tr> <td style="padding: 32px 24px 24px; text-align: center; background-color: #1e40af; color: white; border-top-left-radius: 8px; border-top-right-radius: 8px;"> <h1 style="margin: 0; font-size: 24px; font-weight: 600;">Thank You for Reaching Out! 🚀</h1> </td> </tr> </thead> <tbody> <tr> <td style="padding: 32px 24px;"> <p style="margin: 0 0 16px; font-size: 16px; color: #1f2937;">Hi ${name},</p> <p style="margin: 0 0 16px; font-size: 16px; color: #1f2937; line-height: 1.6;">Thank you for contacting me! I've received your message and I'm excited to connect with you.</p> <p style="margin: 0 0 16px; font-size: 16px; color: #1f2937; line-height: 1.6;">I'll review your inquiry and get back to you as soon as possible, typically within 24-48 hours.</p> <div style="margin: 24px 0; padding: 20px; background-color: #f3f4f6; border-left: 4px solid #1e40af; border-radius: 4px;"> <p style="margin: 0 0 8px; font-size: 14px; color: #6b7280; font-weight: 600;">YOUR MESSAGE:</p> <p style="margin: 0; font-size: 15px; color: #374151; line-height: 1.5; white-space: pre-wrap;">${message}</p> </div> <p style="margin: 24px 0 0; font-size: 16px; color: #1f2937;">Best regards,<br><strong>Khalid Mahmood</strong></p> </td> </tr> </tbody> <tfoot> <tr> <td style="padding: 20px 24px; text-align: center; background-color: #f3f4f6; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;"> <p style="margin: 0 0 8px; font-size: 14px; color: #1f2937; font-weight: 500;">Connect with me</p> <table role="presentation" cellspacing="0" cellpadding="0" border="0" style="margin: 0 auto;"> <tr> <td style="padding: 0 8px;"> <a href="tel:+923363216666" style="color: #1e40af; text-decoration: none; font-size: 13px;">📞 +92 336 3216666</a> </td> <td style="padding: 0 8px; color: #d1d5db;">|</td> <td style="padding: 0 8px;"> <a href="mailto:hello@bestkhalid.com" style="color: #1e40af; text-decoration: none; font-size: 13px;">✉️ hello@bestkhalid.com</a> </td> </tr> </table> <p style="margin: 12px 0 0; font-size: 12px; color: #9ca3af;">This is an automated confirmation email. Please do not reply to this message.</p> </td> </tr> </tfoot> </table> </body> </html>
+      <!DOCTYPE html>
+      <html>
+      <head><meta charset="utf-8"><title>Thank You</title></head>
+      <body style="margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background-color:#f9fafb;">
+        <table role="presentation" width="100%" style="max-width:600px;margin:40px auto;background:#ffffff;border-radius:8px;">
+          <thead>
+            <tr><td style="padding:32px 24px;text-align:center;background:#1e40af;color:white;border-top-left-radius:8px;border-top-right-radius:8px;"><h1>Thank You for Reaching Out 🚀</h1></td></tr>
+          </thead>
+          <tbody>
+            <tr><td style="padding:24px;">
+              <p>Hi ${name},</p>
+              <p>Thank you for contacting me. I've received your message and will respond within 24–48 hours.</p>
+              <hr style="margin:20px 0;">
+              <p><strong>Your Message:</strong></p>
+              <div style="white-space:pre-wrap;">${message}</div>
+              <p style="margin-top:30px;">Best regards,<br><strong>Khalid Mahmood</strong></p>
+            </td></tr>
+          </tbody>
+        </table>
+      </body>
+      </html>
     `;
 
-    // Send both emails
-    await Promise.all([
-      // Email to website owner
-      resend.emails.send({
-        from: `Website Contact <${process.env.FROM_EMAIL}>`,
-        to: process.env.CONTACT_RECEIVER!,
-        replyTo: email,
-        subject: `📩 New Contact Message from ${name}`,
-        html: notificationEmailHtml,
-      }),
-      // Confirmation email to sender
-      resend.emails.send({
-        from: `Khalid Mahmood <${process.env.FROM_EMAIL}>`,
-        to: email,
-        subject: `Thank you for reaching out, ${name}!`,
-        html: confirmationEmailHtml,
-      }),
-    ]);
+    const errors: string[] = [];
 
-    return NextResponse.json({ success: true });
-  } catch (error) {
-    console.error("Contact form error:", error);
+    // -------------------------------
+    // Add Contact to Brevo List (Optional - don't fail if this fails)
+    // -------------------------------
+    try {
+      if (process.env.BREVO_API_KEY && BREVO_LIST_ID) {
+        await brevoContactsApi.createContact({
+          email,
+          listIds: [BREVO_LIST_ID],
+          attributes: {
+            FIRSTNAME: name.split(" ")[0] || "",
+            LASTNAME: name.split(" ").slice(1).join(" ") || "",
+          },
+          updateEnabled: true,
+        });
+        console.log("✅ Contact added to Brevo list");
+      }
+    } catch (brevoError) {
+      console.warn("⚠️ Failed to add contact to Brevo:", brevoError);
+      errors.push("Brevo contact sync failed");
+      // Don't throw - continue with email sending
+    }
 
+    // -------------------------------
+    // Send Owner Notifications
+    // -------------------------------
+    const emailPromises: Promise<any>[] = [];
+
+    // Resend (Primary)
+    if (process.env.RESEND_API_KEY && process.env.FROM_EMAIL && process.env.CONTACT_RECEIVER) {
+      emailPromises.push(
+        resend.emails.send({
+          from: `Website Contact <${process.env.FROM_EMAIL}>`,
+          to: process.env.CONTACT_RECEIVER,
+          replyTo: email,
+          subject: `📩 New Contact Message from ${name}`,
+          html: notificationEmailHtml,
+        }).then(() => console.log("✅ Resend owner notification sent"))
+      );
+    }
+
+    // Brevo (Secondary)
+    if (process.env.BREVO_API_KEY && process.env.FROM_EMAIL && process.env.CONTACT_RECEIVER) {
+      emailPromises.push(
+        brevoEmailsApi.sendTransacEmail({
+          sender: {
+            name: "Website Contact",
+            email: process.env.FROM_EMAIL,
+          },
+          to: [{ email: process.env.CONTACT_RECEIVER }],
+          replyTo: { email, name },
+          subject: `📩 New Contact Message from ${name}`,
+          htmlContent: notificationEmailHtml,
+        }).then(() => console.log("✅ Brevo owner notification sent"))
+      );
+    }
+
+    // Confirmation email to sender (Resend only)
+    if (process.env.RESEND_API_KEY && process.env.FROM_EMAIL) {
+      emailPromises.push(
+        resend.emails.send({
+          from: `Khalid Mahmood <${process.env.FROM_EMAIL}>`,
+          to: email,
+          subject: `Thank you for reaching out, ${name}!`,
+          html: confirmationEmailHtml,
+        }).then(() => console.log("✅ Confirmation email sent"))
+      );
+    }
+
+    // Execute all email promises
+    if (emailPromises.length > 0) {
+      await Promise.all(emailPromises);
+    } else {
+      console.error("❌ No email service configured!");
+      return NextResponse.json(
+        { error: "Email service not configured. Please contact the administrator." },
+        { status: 500 }
+      );
+    }
+
+    console.log("✅ All emails sent successfully");
+    return NextResponse.json({ 
+      success: true,
+      message: "Message sent successfully"
+    });
+
+  } catch (error: any) {
+    console.error("❌ Contact form error:", error);
+    
+    // Provide more detailed error message
+    const errorMessage = error instanceof Error ? error.message : "Unknown error";
+    
     return NextResponse.json(
-      { error: "Failed to send message" },
-      { status: 500 },
+      { 
+        error: "Failed to send message",
+        details: process.env.NODE_ENV === "development" ? errorMessage : undefined
+      },
+      { status: 500 }
     );
   }
 }
