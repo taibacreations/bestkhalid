@@ -281,7 +281,7 @@ const Problem = () => {
             </div>
           </div>
           <Image
-            src="/macbook.svg"
+            src="/macbook.webp"
             height={100}
             width={100}
             alt="macbook"
