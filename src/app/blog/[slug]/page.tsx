@@ -43,7 +43,8 @@ export async function generateMetadata(
       }
     }
   `,
-    { slug } // ✅ THIS WAS THE PROBLEM
+    { slug },
+    { next: { revalidate: 0 } }
   );
 
   const seo = data?.seo;

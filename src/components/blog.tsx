@@ -23,8 +23,10 @@ const BlogPage = () => {
           color,
           content,
           publishedAt
-        }
-      `);
+        }`,
+        {},
+        { next: { revalidate: 0 } }
+      );
       setPosts(res);
       setLoading(false);
     };

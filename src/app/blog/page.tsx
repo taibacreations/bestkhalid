@@ -7,7 +7,8 @@ import { Metadata } from "next";
    SEO (Blog Listing Page)
 ---------------------------------- */
 export async function generateMetadata(): Promise<Metadata> {
-  const data = await client.fetch(`
+  const data = await client.fetch(
+    `
     *[_type == "blogPageSeo"][0]{
       seo{
         metaTitle,
@@ -22,7 +23,10 @@ export async function generateMetadata(): Promise<Metadata> {
         }
       }
     }
-  `);
+  `,
+    {},
+    { next: { revalidate: 0 } }
+  );
 
   const seo = data?.seo;
 

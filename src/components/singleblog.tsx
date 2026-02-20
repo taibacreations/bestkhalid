@@ -28,6 +28,7 @@ const SingleBlogPage = () => {
           publishedAt
         }`,
         { slug },
+        { next: { revalidate: 0 } }
       );
 
       setPost(res);
