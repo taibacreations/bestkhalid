@@ -16,8 +16,8 @@ import { groq } from "next-sanity";
    SEO (Home Page)
 ---------------------------------- */
 export async function generateMetadata(): Promise<Metadata> {
-  const data = await client.fetch(`
-    *[_type == "homePageSeo"][0]{
+  const data = await client.fetch(
+    `*[_type == "homePageSeo"][0]{
       seo{
         metaTitle,
         metaDescription,
@@ -31,8 +31,10 @@ export async function generateMetadata(): Promise<Metadata> {
         },
         extraMeta
       }
-    }
-  `);
+    }`,
+    {},
+    { next: { revalidate: 0 } }
+  );
 
   const seo = data?.seo;
 
@@ -72,7 +74,9 @@ export default async function Home() {
       quote,
       "image": image.asset->url,
       rating
-    }`
+    }`,
+    {},
+    { next: { revalidate: 0 } } // ← disables cache, always fetches fresh
   );
 
   return (
