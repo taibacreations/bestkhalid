@@ -47,7 +47,7 @@ const Projects = () => {
       <div className="flex justify-center items-center w-full">
         <img
           ref={leftRef}
-          src="/proj-new-3.webp"
+          src="/projs-new-3.webp"
           height={100}
           width={100}
           alt="project-1"
@@ -55,7 +55,7 @@ const Projects = () => {
         />
         <div ref={centerRef} className="2xl:min-w-[541px] xl:min-w-[500px] lg:min-w-[400px] md:min-w-[300px] min-w-[180px] z-10 h-auto relative lg:rounded-[32px] rounded-[20px]">
           <img
-            src="/center-project.webp"
+            src="/center-projects.webp"
             height={100}
             width={100}
             alt="project-1"
@@ -157,7 +157,7 @@ const Projects = () => {
         </div>
         <img
           ref={rightRef}
-          src="/proj-new-2.webp"
+          src="/projs-new-2.webp"
           height={100}
           width={100}
           alt="project-1"

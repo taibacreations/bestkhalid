@@ -31,7 +31,7 @@ const Portfolio = () => {
     const fetchData = async () => {
       try {
         const categoryRes: SanityCategory[] = await client.fetch(
-          `*[_type == "category"]{ title }`
+          `*[_type == "category"] | order(order asc, title asc){ title }`
         );
         const categoryTitles = categoryRes.map((c) => c.title);
         setCategories(["All", ...categoryTitles]);

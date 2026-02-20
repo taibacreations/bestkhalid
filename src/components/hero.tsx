@@ -12,6 +12,10 @@ const Hero = () => {
   const fiverrBgLayersRef = useRef<(HTMLDivElement | null)[]>([]);
   const socialBgLayersRef = useRef<(HTMLDivElement | null)[]>([]);
 
+  // Refs for Fiverr Pro image and Social Links section
+  const fiverrProRef = useRef<HTMLDivElement | null>(null);
+  const socialLinksRef = useRef<HTMLDivElement | null>(null);
+
   // 🔁 Main hero background loop (unchanged)
   useEffect(() => {
     const imagePaths = [
@@ -53,7 +57,7 @@ const Hero = () => {
     }
   }, []);
 
-  // 🔁 Consultation button & Social pill background animations (+ Fiverr btn anim)
+  // 🔁 Consultation, Fiverr, and Social pill background animations (unchanged)
   useEffect(() => {
     const conImages = [
       "/cons-1.png",
@@ -196,6 +200,42 @@ const Hero = () => {
     };
   }, []);
 
+  // Entry animation for Fiverr Pro image and Social Links (just like buttons: from above/offset landing to original position)
+  useEffect(() => {
+    if (fiverrProRef.current) {
+      gsap.fromTo(
+        fiverrProRef.current,
+        {
+          y: "-80%",
+          opacity: 0,
+        },
+        {
+          y: "0%",
+          opacity: 1,
+          duration: 1.2,
+          ease: "spring(1, 75, 18)",
+          delay: 0.16,
+        },
+      );
+    }
+    if (socialLinksRef.current) {
+      gsap.fromTo(
+        socialLinksRef.current,
+        {
+          y: "-80%",
+          opacity: 0,
+        },
+        {
+          y: "0%",
+          opacity: 1,
+          duration: 1.2,
+          ease: "spring(1, 75, 18)",
+          delay: 0.32,
+        },
+      );
+    }
+  }, []);
+
   // Smooth scroll handler for scroll-down button
   const handleSmoothScroll = (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -261,7 +301,7 @@ const Hero = () => {
               >
                 <div>More Than Designs</div>
                 <span className="font-tartuffo font-thin tracking-normal capitalize 2xl:-mt-12 xl:-mt-9 lg:-mt-7 md:-mt-5 inline-block">
-                Get 10× More Leads & Sales
+                  Get 10× More Leads & Sales
                 </span>
               </h2>
             </div>
@@ -331,75 +371,96 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* ✅ Animated Social Links Background */}
-          <div className="md:flex items-center gap-1 2xl:mt-28 mt-24 z-40 relative hidden">
-            <div className="lg:w-5 lg:h-5 w-4 h-4 rounded-full shadow-button bg-[#003459]" />
-            <div className="2xl:w-[98px] lg:w-[90px] w-[70px] border border-dashed border-white h-[1px]" />
-            <div className="relative 2xl:w-[201px] lg:w-[160px] w-[140px] h-[51px] rounded-full">
-              {/* Background layers for social pill */}
-              {Array.from({ length: 5 }).map((_, i) => (
-                <div
-                  key={`icon-${i}`}
-                  ref={(el) => {
-                    socialBgLayersRef.current[i] = el;
-                  }}
-                  className="absolute inset-0 rounded-full lg:bg-cover bg-contain bg-no-repeat bg-center z-0"
-                  style={{ backgroundImage: `url(/icon-${i + 1}.png)` }}
-                />
-              ))}
-              <div className="relative z-10 flex items-center justify-center gap-4 2xl:mt-[1.6vh] mt-[2vh]">
-                <Link
-                  href="https://www.linkedin.com/in/bestkhalid/"
-                  target="_blank"
-                  className="hover:scale-125 hover:-translate-y-1 transition-all duration-300"
-                >
-                  <Image
-                    src="/linkedin.svg"
-                    width={100}
-                    height={100}
-                    alt="linkedin"
-                    className="2xl:w-[19.77px] lg:w-[16px] w-[14px]"
+          {/* ✅ Fiverr Pro Image & Social Links, BOTH animated in "arrive" style like buttons */}
+          <div className="flex flex-col lg:flex-row justify-between lg:items-center lg:mt-[2vh] mt-[1vh]">
+            {/* Fiverr Pro starts offscreen and animates in */}
+            <div
+              ref={fiverrProRef}
+              className="relative 2xl:w-[348px] xl:w-[280px] md:w-[220px] w-[55vw] h-auto rounded-full object-contain"
+              style={{ willChange: "transform,opacity" }}
+            >
+              <img
+                src="/fiverr-pro.webp"
+                width={60}
+                height={51}
+                alt="fiverr-pro"
+                className="2xl:w-[348px] xl:w-[280px] md:w-[220px] w-[55vw] h-auto rounded-full object-contain"
+              />
+            </div>
+            {/* Social Links area slides in */}
+            <div
+              ref={socialLinksRef}
+              className="md:flex items-center gap-1 z-40 relative hidden 2xl:mr-[2vw] xl:mr-0 mr-[2vw]"
+              style={{ willChange: "transform,opacity" }}
+            >
+              <div className="xl:w-5 xl:h-5 w-4 h-4 rounded-full shadow-button bg-[#003459]" />
+              <div className="2xl:w-[98px] xl:w-[90px] lg:w-[60px] w-[70px] border border-dashed border-white h-[1px]" />
+              <div className="relative 2xl:w-[201px] xl:w-[160px] lg:w-[150px] w-[140px] h-[51px] rounded-full">
+                {/* Background layers for social pill */}
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <div
+                    key={`icon-${i}`}
+                    ref={(el) => {
+                      socialBgLayersRef.current[i] = el;
+                    }}
+                    className="absolute inset-0 rounded-full lg:bg-cover bg-contain bg-no-repeat bg-center z-0"
+                    style={{ backgroundImage: `url(/icon-${i + 1}.png)` }}
                   />
-                </Link>
-                <Link
-                  href="https://www.facebook.com/bestkhalid"
-                  target="_blank"
-                  className="hover:scale-125 hover:-translate-y-1 transition-all duration-300"
-                >
-                  <Image
-                    src="/facebook.svg"
-                    width={100}
-                    height={100}
-                    alt="facebook"
-                    className="2xl:w-[19.77px] lg:w-[16px] w-[14px]"
-                  />
-                </Link>
-                <Link
-                  href="https://www.instagram.com/bestkhalidm/"
-                  target="_blank"
-                  className="hover:scale-125 hover:-translate-y-1 transition-all duration-300"
-                >
-                  <Image
-                    src="/inst.svg"
-                    width={100}
-                    height={100}
-                    alt="insta"
-                    className="2xl:w-[19.77px] lg:w-[16px] w-[14px]"
-                  />
-                </Link>
-                <Link
-                  href="https://twitter.com/bestkhalid"
-                  target="_blank"
-                  className="hover:scale-125 hover:-translate-y-1 transition-all duration-300"
-                >
-                  <Image
-                    src="/twitter.svg"
-                    width={100}
-                    height={100}
-                    alt="twitter"
-                    className="2xl:w-[19.77px] lg:w-[16px] w-[14px]"
-                  />
-                </Link>
+                ))}
+                <div className="relative z-10 flex items-center justify-center gap-4 2xl:mt-[1.6vh] mt-[2vh]">
+                  <Link
+                    href="https://www.linkedin.com/in/bestkhalid/"
+                    target="_blank"
+                    className="hover:scale-125 hover:-translate-y-1 transition-all duration-300"
+                  >
+                    <Image
+                      src="/linkedin.svg"
+                      width={100}
+                      height={100}
+                      alt="linkedin"
+                      className="2xl:w-[19.77px] lg:w-[16px] w-[14px]"
+                    />
+                  </Link>
+                  <Link
+                    href="https://www.facebook.com/bestkhalid"
+                    target="_blank"
+                    className="hover:scale-125 hover:-translate-y-1 transition-all duration-300"
+                  >
+                    <Image
+                      src="/facebook.svg"
+                      width={100}
+                      height={100}
+                      alt="facebook"
+                      className="2xl:w-[19.77px] lg:w-[16px] w-[14px]"
+                    />
+                  </Link>
+                  <Link
+                    href="https://www.instagram.com/bestkhalidm/"
+                    target="_blank"
+                    className="hover:scale-125 hover:-translate-y-1 transition-all duration-300"
+                  >
+                    <Image
+                      src="/inst.svg"
+                      width={100}
+                      height={100}
+                      alt="insta"
+                      className="2xl:w-[19.77px] lg:w-[16px] w-[14px]"
+                    />
+                  </Link>
+                  <Link
+                    href="https://twitter.com/bestkhalid"
+                    target="_blank"
+                    className="hover:scale-125 hover:-translate-y-1 transition-all duration-300"
+                  >
+                    <Image
+                      src="/twitter.svg"
+                      width={100}
+                      height={100}
+                      alt="twitter"
+                      className="2xl:w-[19.77px] lg:w-[16px] w-[14px]"
+                    />
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
@@ -418,7 +479,7 @@ const Hero = () => {
       </div>
 
       {/* Floating CTA & Ring (unchanged) */}
-      <div className="absolute xl:right-60 lg:right-25 md:right-18 rings -translate-x-1/2 md:translate-x-0 md:bottom-55 bottom-15 z-40">
+      <div className="absolute xl:right-60 lg:right-25 md:right-18 rings -translate-x-1/2 md:translate-x-0 md:bottom-55 bottom-15 z-40 ring-btn">
         <Link href="/portfolio" className="bg-[url(/hero-text-bg.png)] bg-cover bg-center text-white rounded-[334px] 2xl:w-[443px] lg:w-[380px] md:w-[300px] w-[250px] lg:px-0 2xl:h-[59px] md:h-[50px] h-[40px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold healthcare text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize">
           <Image
             src="/button-arrow.svg"
@@ -431,7 +492,7 @@ const Hero = () => {
         </Link>
       </div>
 
-      <div className="absolute 2xl:right-40 xl:right-35 lg:right-25 md:right-15 rings -translate-x-1/2 md:translate-x-0 xl:top-56 lg:top-65 md:top-75 top-140 z-10">
+      <div className="absolute 2xl:right-40 xl:right-35 lg:right-25 md:right-15 rings -translate-x-1/2 md:translate-x-0 xl:top-56 lg:top-65 md:top-75 top-150 z-10">
         <Ring />
       </div>
     </section>

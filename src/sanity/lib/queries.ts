@@ -17,9 +17,9 @@ export const projectsWithCategoryQuery = groq`
   }
 `
 
-// Get all categories (sorted by order)
+// Sorts by order (ascending) first; categories without order sort last, then alphabetically by title
 export const categoriesWithOrderQuery = groq`
-  *[_type == "category"] | order(order asc) {
+  *[_type == "category"] | order(order asc, title asc) {
     _id,
     title,
     "slug": slug.current,

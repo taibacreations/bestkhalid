@@ -715,3 +715,12 @@ button, a {
   background-size: contain;
   background-position: center;
 }
+
+@media screen and (max-width: 337px) {
+  .rings {
+    top: 70vh !important;
+  }
+  .ring-btn {
+    top: 96vh !important;
+  }
+}

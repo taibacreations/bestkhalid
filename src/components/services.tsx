@@ -153,7 +153,7 @@ const Services = () => {
         </div>
         <img
           id="mbook"
-          src="/macbook-2.webp"
+          src="/macbooks-2.webp"
           height={100}
           width={100}
           alt="macbook-2"

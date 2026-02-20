@@ -206,10 +206,10 @@ const Solution = () => {
         </div>
         <div
           id="iphone"
-          className="xl:w-[1036px] lg:w-[800px] md:w-[700px] w-full h-auto xl:h-[777px] mx-auto z-30 relative md:mt-[-6vh] my-[4vh] hidden md:block"
+          className="xl:w-[389px] lg:w-[280px] md:w-[230px] w-full h-auto mx-auto z-30 relative md:mt-[2vh] my-[4vh] hidden md:block"
         >
           <img
-            src="/iphone.webp"
+            src="/iphones.webp"
             height={100}
             width={100}
             alt="iphone"
@@ -220,7 +220,7 @@ const Solution = () => {
         <div className="overflow-hidden">
           <div
             id="solution-points"
-            className="md:absolute md:left-1/2 md:-translate-x-1/2 2xl:top-69 lg:top-75 top-65 w-full z-40"
+            className="md:absolute md:left-1/2 md:-translate-x-1/2 2xl:top-72 lg:top-75 top-65 w-full z-40"
           >
             <Solutionoints />
           </div>
