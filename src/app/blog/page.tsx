@@ -8,8 +8,7 @@ import { Metadata } from "next";
 ---------------------------------- */
 export async function generateMetadata(): Promise<Metadata> {
   const data = await client.fetch(
-    `
-    *[_type == "blogPageSeo"][0]{
+    `*[_type == "blogSeo"][0]{
       seo{
         metaTitle,
         metaDescription,
@@ -22,8 +21,7 @@ export async function generateMetadata(): Promise<Metadata> {
           ogImage
         }
       }
-    }
-  `,
+    }`,
     {},
     { next: { revalidate: 0 } }
   );
@@ -32,16 +30,15 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     title: seo?.metaTitle || "Blog",
-    description: seo?.metaDescription,
-    keywords: seo?.keywords,
+    description: seo?.metaDescription || null,
+    keywords: seo?.keywords || null,
     robots: seo?.noIndex ? "noindex,nofollow" : "index,follow",
     alternates: {
-      canonical: seo?.canonicalUrl,
+      canonical: seo?.canonicalUrl || null,
     },
     openGraph: {
-      title: seo?.openGraph?.ogTitle || seo?.metaTitle,
-      description:
-        seo?.openGraph?.ogDescription || seo?.metaDescription,
+      title: seo?.openGraph?.ogTitle || seo?.metaTitle || "Blog",
+      description: seo?.openGraph?.ogDescription || seo?.metaDescription || null,
       images: seo?.openGraph?.ogImage
         ? [{ url: urlFor(seo.openGraph.ogImage).url() }]
         : [],

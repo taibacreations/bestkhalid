@@ -9,7 +9,7 @@ import { Metadata } from "next";
 export async function generateMetadata(): Promise<Metadata> {
   const data = await client.fetch(
     `
-    *[_type == "portfolioseo"][0]{
+    *[_type == "portfolioSeo"][0]{
       seo{
         metaTitle,
         metaDescription,
