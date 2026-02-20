@@ -310,7 +310,7 @@ const Testimonials = ({ sanityTestimonials }: TestimonialsProps) => {
           {testimonialsData.map((item, idx) => (
             <SwiperSlide key={idx} className="!flex !justify-center">
               <div
-                className="w-full md:max-w-[442px] max-w-[90vw] md:h-[211px] p-5 rounded-[20px] flex flex-col justify-center md:px-6 md:py-0 xl:px-8.5 transition-all duration-300"
+                className="w-full md:max-w-[442px] max-w-[90vw] md:min-h-[211px] xl:py-3 lg:py-2 p-5 rounded-[20px] flex flex-col justify-center md:px-6 md:py-0 xl:px-8.5 transition-all duration-300"
                 style={{
                   background: getSlideBackground(idx),
                 }}
