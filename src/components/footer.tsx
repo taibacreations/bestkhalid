@@ -42,8 +42,8 @@ const Footer = () => {
   return (
     <footer className="">
       <div className="bg-[#37ACFF] h-auto py-8 md:py-0 md:h-[436px] relative">
-        <Image
-          src="/footer-name.svg"
+        <img
+          src="/footer-name.webp"
           alt="footername"
           height={100}
           width={100}
@@ -75,8 +75,8 @@ const Footer = () => {
               Contact
             </h4>
             <Link href="mailto:hello@bestkhalid.com" className="flex items-center gap-4 mt-3 hover:underline">
-              <Image
-                src="/envelope.svg"
+              <img
+                src="/envelope.webp"
                 height={100}
                 width={100}
                 alt="phone"
@@ -88,7 +88,7 @@ const Footer = () => {
             </Link>
             <Link href="tel:+92 336 3216666" className="flex items-center gap-4 mt-2.5 hover:underline">
               <Image
-                src="/phone.svg"
+                src="/phone.webp"
                 height={100}
                 width={100}
                 alt="email"
@@ -149,7 +149,7 @@ const Footer = () => {
                   <span className="w-[14px] h-[14px] border-t-2 border-white rounded-full animate-spin"></span>
                 ) : (
                   <Image
-                    src="/email-arrow.svg"
+                    src="/email-arrow.webp"
                     height={14}
                     width={14}
                     alt="submit"

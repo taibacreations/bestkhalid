@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function ProcessCard() {
   return (
-    <div className="md:bg-[url(/process.png)] xl:rounded-[32px] lg:rounded-[20px] rounded-[14px] 2xl:bg-cover bg-no-repeat bg-contain bg-center 2xl:w-[1450px] min-h-[303px] mx-auto flex flex-col gap-8 md:flex-row md:justify-between items-center 2xl:px-31 lg:px-20 md:px-10 relative xl:mt-10 lg:mt-0 md:-mt-10 mt-[5vh] z-30">
+    <div className="md:bg-[url(/process.webp)] xl:rounded-[32px] lg:rounded-[20px] rounded-[14px] 2xl:bg-cover bg-no-repeat bg-contain bg-center 2xl:w-[1450px] min-h-[303px] mx-auto flex flex-col gap-8 md:flex-row md:justify-between items-center 2xl:px-31 lg:px-20 md:px-10 relative xl:mt-10 lg:mt-0 md:-mt-10 mt-[5vh] z-30">
       <BorderBeam
         size={289}
         duration={10}
@@ -41,7 +41,7 @@ export default function ProcessCard() {
         height={100}
         width={100}
         alt="line"
-        className="2xl:w-[1170px] w-[80vw] h-[1px] absolute xl:top-21 lg:top-23 top-26 hidden md:block"
+        className="2xl:w-[1170px] w-[80vw] h-px absolute xl:top-21 lg:top-23 top-26 hidden md:block"
       />
       <div className="md:max-w-[311px] max-w-full z-20 process rounded-[14px]">
         <div className="bg-white text-[#0A0A0A] rounded-full xl:w-[47px] xl:h-[47px] lg:w-[40px] lg:h-[40px] w-[35px] h-[35px] font-bricolage font-bold xl:text-[24px] md:text-[20px] text-[18px] leading-[123%] tracking-[-0.03em] flex justify-center items-center">

@@ -27,10 +27,11 @@ export async function generateMetadata(): Promise<Metadata> {
         openGraph{
           ogTitle,
           ogDescription,
-          ogImage
+          ogImage  // keep this if it exists in seo type
         },
         extraMeta
-      }
+      },
+      ogImage  // ← add this
     }`,
     {},
     { next: { revalidate: 0 } }
@@ -52,10 +53,10 @@ export async function generateMetadata(): Promise<Metadata> {
         seo?.openGraph?.ogDescription || seo?.metaDescription,
       images: seo?.openGraph?.ogImage
         ? [
-            {
-              url: urlFor(seo.openGraph.ogImage).url(),
-            },
-          ]
+          {
+            url: urlFor(seo.openGraph.ogImage).url(),
+          },
+        ]
         : [],
     },
   };

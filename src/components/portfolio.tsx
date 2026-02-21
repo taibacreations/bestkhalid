@@ -184,7 +184,7 @@ const Portfolio = () => {
               disabled={isLoadingMore}
               className={`lg:px-10 lg:py-4 px-8 py-3 rounded-full font-bricolage font-semibold text-lg transition-all duration-300 transform ${isLoadingMore
                 ? "bg-white/20 text-white cursor-not-allowed"
-                : "bg-gradient-to-r from-blue-500 to-blue-900 text-white hover:shadow-2xl hover:shadow-blue-500/50 hover:scale-105"
+                : "bg-linear-to-r from-blue-500 to-blue-900 text-white hover:shadow-2xl hover:shadow-blue-500/50 hover:scale-105"
                 }`}
             >
               {isLoadingMore ? "Loading..." : "Load More"}
@@ -239,7 +239,7 @@ const ProjectCard = ({
         </div>
 
         {/* Hover Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
         {/* Category Badge */}
         <div className="absolute top-4 left-4 z-10">

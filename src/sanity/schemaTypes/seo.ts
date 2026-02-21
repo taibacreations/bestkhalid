@@ -35,6 +35,31 @@ export default defineType({
       initialValue: false,
     }),
     defineField({
+      name: "openGraph",
+      title: "Open Graph",
+      type: "object",
+      fields: [
+        defineField({
+          name: "ogTitle",
+          title: "OG Title",
+          type: "string",
+        }),
+        defineField({
+          name: "ogDescription",
+          title: "OG Description",
+          type: "text",
+          rows: 3,
+        }),
+        defineField({
+          name: "ogImage",
+          title: "OG Image",
+          type: "image",
+          description: "Recommended size: 1200×630px",
+          options: { hotspot: true },
+        }),
+      ],
+    }),
+    defineField({
       name: "extraMeta",
       title: "Extra Meta (Unlimited)",
       type: "array",

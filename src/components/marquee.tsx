@@ -2,32 +2,31 @@
 "use client";
 
 import Marquee from "react-fast-marquee";
-import Image from "next/image";
 
 const LogoMarquee = () => {
   const logos = [
     {
-      src: "/marquee-1.png",
+      src: "/marquee-1.webp",
       className: "max-w-[80px] sm:max-w-[100px] md:max-w-[120px] lg:max-w-[140px] xl:max-w-[150px] 2xl:max-w-[157px]",
     },
     {
-      src: "/marquee-2.png",
+      src: "/marquee-2.webp",
       className: "max-w-[100px] sm:max-w-[130px] md:max-w-[160px] lg:max-w-[180px] xl:max-w-[190px] 2xl:max-w-[196px]",
     },
     {
-      src: "/marquee-3.png",
+      src: "/marquee-3.webp",
       className: "max-w-[90px] sm:max-w-[120px] md:max-w-[150px] lg:max-w-[170px] xl:max-w-[180px] 2xl:max-w-[184px]",
     },
     {
-      src: "/marquee-4.png",
+      src: "/marquee-4.webp",
       className: "max-w-[50px] sm:max-w-[60px] md:max-w-[70px] lg:max-w-[80px] xl:max-w-[90px] 2xl:max-w-[94px]",
     },
   ];
 
   const Separator = () => (
     <div className="mx-4 sm:mx-6 md:mx-8 lg:mx-10">
-      <Image
-        src="/marquee-border.svg"
+      <img
+        src="/marquee-border.webp"
         width={2}
         height={32}
         alt="separator"
@@ -46,8 +45,8 @@ const LogoMarquee = () => {
           {allLogos.map((logo, index) => (
             <div key={index} className="flex items-center h-full">
               {/* Logo container with responsive max-width */}
-              <div className={`flex items-center justify-center h-[50px] px-2 ${logo.className} flex-shrink-0`}>
-                <Image
+              <div className={`flex items-center justify-center h-[50px] px-2 ${logo.className} shrink-0`}>
+                <img
                   src={logo.src}
                   width={500} // large placeholder for aspect ratio
                   height={60}

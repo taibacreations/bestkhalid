@@ -134,9 +134,9 @@ const Services = () => {
   return (
     <section
       id="services"
-      className="bg-[url(/services-bg.png)] bg-cover bg-center md:min-h-screen xl:py-10 py-10 lg:py-0 relative z-40 overflow-hidden scroll-mt-[10vh]"
+      className="bg-[url(/services-bg.webp)] bg-cover bg-center md:min-h-screen xl:py-10 py-10 lg:py-0 relative z-40 overflow-hidden scroll-mt-[10vh]"
     >
-      <Image src="/services-blur-new.png" width={100} height={100} alt="blur-image" className="w-full h-auto absolute left-0 xl:top-[-25%] top-[-20%] z-40" />
+      <Image src="/services-blur-new.webp" width={100} height={100} alt="blur-image" className="w-full h-auto absolute left-0 xl:top-[-25%] top-[-20%] z-40" />
       <div className="relative xl:pt-23 lg:pt-20 z-40">
         <div className="text-center max-w-[992px] mx-auto z-40 relative">
           <div className="overflow-hidden mt-4 ">
@@ -159,9 +159,9 @@ const Services = () => {
           alt="macbook-2"
           className="2xl:w-[1446px] xl:w-[1100px] lg:w-[950px] md:w-[850px] relative md:scale-100 scale-130 w-full h-auto 2xl:ml-[25.2%] xl:ml-[27%] md:ml-[20%] 2xl:-mt-43 xl:-mt-25 z-20"
         />
-        <div className="xl:w-[822px] xl:h-[822px] lg:w-[730px] lg:h-[730px] w-[600px] h-[600px] border border-[#F0F0F0] rounded-full absolute top-0 left-[20.5%] top-[29%] -z-10 hidden md:block" />
+        <div className="xl:w-[822px] xl:h-[822px] lg:w-[730px] lg:h-[730px] w-[600px] h-[600px] border border-[#F0F0F0] rounded-full absolute left-[20.5%] top-[29%] -z-10 hidden md:block" />
         <Image
-          src="/services-blur.png"
+          src="/services-blur.webp"
           height={100}
           width={100}
           alt="services-blur"

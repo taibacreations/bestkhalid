@@ -1,5 +1,5 @@
 "use client"
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 const Circle = () => {
   const [rotation, setRotation] = useState(0);
@@ -57,7 +57,7 @@ const Circle = () => {
                 left: `${x}px`,
                 top: `${y}px`,
                 transform: `rotate(${rotation}deg)`,
-                backgroundImage: 'url("/edit-blue.png")',
+                backgroundImage: 'url("/edit-blue.webp")',
                 rotate: '-180deg',
                 marginLeft: marginLeft,
                 backgroundSize: 'contain',

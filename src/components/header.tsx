@@ -22,11 +22,11 @@ const Header = () => {
 
   // ✅ CTA background images
   const consultationBtnImages = [
-    "/headercta-1.png",
-    "/headercta-2.png",
-    "/headercta-3.png",
-    "/headercta-4.png",
-    "/headercta-5.png",
+    "/headercta-1.webp",
+    "/headercta-2.webp",
+    "/headercta-3.webp",
+    "/headercta-4.webp",
+    "/headercta-5.webp",
   ];
 
   const consultationBtnImagesRef = useRef<(HTMLDivElement | null)[]>([]);
@@ -203,7 +203,7 @@ const Header = () => {
 
           {/* Desktop Nav */}
           <div className="lg:absolute left-1/2 -translate-x-1/2">
-            <nav className="hidden lg:flex bg-[url(/nav.png)] bg-contain bg-no-repeat bg-center rounded-full md:px-8 lg:px-0 lg:w-[600px] xl:w-[740px] 2xl:w-[680px] h-[50px] 2xl:h-[59px] justify-center items-center gap-4 lg:gap-6 xl:gap-8 font-bricolage text-white text-[16px] md:text-[17px] lg:text-[20px] 2xl:text-[21px] font-normal tracking-[-0.07em] capitalize relative">
+            <nav className="hidden lg:flex bg-[url(/nav.webp)] bg-contain bg-no-repeat bg-center rounded-full md:px-8 lg:px-0 lg:w-[600px] xl:w-[740px] 2xl:w-[680px] h-[50px] 2xl:h-[59px] justify-center items-center gap-4 lg:gap-6 xl:gap-8 font-bricolage text-white text-[16px] md:text-[17px] lg:text-[20px] 2xl:text-[21px] font-normal tracking-[-0.07em] capitalize relative">
               {navItems.map((item) => (
                 <div key={item.label} className="relative group">
                   <a
@@ -222,7 +222,7 @@ const Header = () => {
                         }`}
                     >
                       <Image
-                        src="/button-arrow.svg"
+                        src="/button-arrow.webp"
                         width={12}
                         height={12}
                         alt=""
@@ -255,7 +255,7 @@ const Header = () => {
               className="relative bg-transparent text-white 2xl:w-[270px] xl:w-[220px] md:w-[180px] w-full lg:px-0 xl:h-[59px] h-[50px] rounded-[334px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[16px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize z-10"
             >
               <Image
-                src="/button-arrow.svg"
+                src="/button-arrow.webp"
                 width={1000}
                 height={100}
                 alt="button-arrow"
@@ -267,7 +267,7 @@ const Header = () => {
 
           {/* Mobile Menu Toggle */}
           <button
-            className="lg:hidden text-white p-1.5 bg-[url(/contact-cube.png)] bg-cover bg-center"
+            className="lg:hidden text-white p-1.5 bg-[url(/contact-cube.webp)] bg-cover bg-center"
             onClick={() => setIsMenuOpen(!isMenu_open)}
             aria-label="Toggle navigation"
           >
@@ -313,7 +313,7 @@ const Header = () => {
                     {isActive(item.href) && (
                       <span className="absolute -left-5 top-1/2 -translate-y-1/2">
                         <Image
-                          src="/button-arrow.svg"
+                          src="/button-arrow.webp"
                           width={12}
                           height={12}
                           alt="Active"
@@ -331,7 +331,7 @@ const Header = () => {
               style={{ boxShadow: "0px -5px 18px 0px #2E90FA inset" }}
             >
               <Image
-                src="/button-arrow.svg"
+                src="/button-arrow.webp"
                 width={1000}
                 height={100}
                 alt="button-arrow"

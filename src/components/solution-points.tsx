@@ -6,7 +6,7 @@ const Solutionoints = () => {
     <section className="max-w-[1355px] xl:px-10 px-5 mx-auto z-40 relative">
       <div className="flex flex-col md:flex-row items-center md:justify-between justify-center gap-6 md:gap-0 md:mt-0 mt-[5vh]">
         <ul className="flex flex-col xl:gap-12 lg:gap-8 gap-6">
-          <li className="bg-[url(/points-bg-new.png)] 2xl:bg-cover bg-contain bg-no-repeat 2xl:w-[364.11px] xl:w-[320px] lg:w-[280px] md:w-[250px] w-full 2xl:h-[87.64px] xl:h-[80px] lg:h-[70px] md:h-[60px] h-[82px] font-briclage font-bold 2xl:text-[20px] xl:text-[18px] lg:text-[16px] text-[14px] leading-[142%] tracking-[-0.01%] text-white flex justify-center items-center text-center xl:px-15 lg:px-10 md:px-9 2xl:ml-[13%] xl:ml-[25%] lg:ml-[15%] md:ml-[5%] solution-points solution-points-2 solution-point relative hover:bg-[#0029CC] rounded-[32px] hover:bg-none transition-all duration-300 li-1 li">
+          <li className="bg-[url(/points-bg-new.webp)] 2xl:bg-cover bg-contain bg-no-repeat 2xl:w-[364.11px] xl:w-[320px] lg:w-[280px] md:w-[250px] w-full 2xl:h-[87.64px] xl:h-[80px] lg:h-[70px] md:h-[60px] h-[82px] font-briclage font-bold 2xl:text-[20px] xl:text-[18px] lg:text-[16px] text-[14px] leading-[142%] tracking-[-0.01%] text-white flex justify-center items-center text-center xl:px-15 lg:px-10 md:px-9 2xl:ml-[13%] xl:ml-[25%] lg:ml-[15%] md:ml-[5%] solution-points solution-points-2 solution-point relative hover:bg-[#0029CC] rounded-[32px] hover:bg-none transition-all duration-300 li-1 li">
             <div className="lii"></div>
             Conversion-focused & mobile-optimized
             <BorderBeam
@@ -34,7 +34,7 @@ const Solutionoints = () => {
             />
           </li>
 
-          <li className="bg-[url(/points-bg-new-1.png)] 2xl:bg-cover bg-contain bg-no-repeat 2xl:w-[372.09px] xl:w-[330px] lg:w-[290px] md:w-[250px] w-full 2xl:h-[87.64px] xl:h-[80px] lg:h-[70px] md:h-[60px] h-[82px] font-bricolage font-bold 2xl:text-[20px] xl:text-[18px] lg:text-[16px] text-[14px] leading-[142%] tracking-[-0.01%] text-white flex justify-center items-center text-center 2xl:px-15 lg:px-14 px-10 2xl:ml-[-3%] xl:ml-[10%] md:ml-[0%] solution-points solution-points-2 hover:bg-[#0029CC] rounded-[32px] hover:bg-none transition-all duration-300 relative lii-2 li">
+          <li className="bg-[url(/points-bg-new-1.webp)] 2xl:bg-cover bg-contain bg-no-repeat 2xl:w-[372.09px] xl:w-[330px] lg:w-[290px] md:w-[250px] w-full 2xl:h-[87.64px] xl:h-[80px] lg:h-[70px] md:h-[60px] h-[82px] font-bricolage font-bold 2xl:text-[20px] xl:text-[18px] lg:text-[16px] text-[14px] leading-[142%] tracking-[-0.01%] text-white flex justify-center items-center text-center 2xl:px-15 lg:px-14 px-10 2xl:ml-[-3%] xl:ml-[10%] md:ml-[0%] solution-points solution-points-2 hover:bg-[#0029CC] rounded-[32px] hover:bg-none transition-all duration-300 relative lii-2 li">
             <div className="lii"></div>
             Designed to build trust and credibility
             <BorderBeam
@@ -62,7 +62,7 @@ const Solutionoints = () => {
             />
           </li>
 
-          <li className="md:bg-[url(/points-bg-new-2.png)] 2xl:bg-cover bg-contain bg-no-repeat 2xl:min-w-[443.91px] xl:w-[380px] lg:w-[340px] md:w-[250px] w-full 2xl:h-[87.64px] xl:h-[80px] lg:h-[70px] md:h-[60px] h-[82px] font-bricolage font-bold 2xl:text-[20px] xl:text-[18px] lg:text-[16px] text-[14px] leading-[142%] tracking-[-0.01%] text-white list-disc flex justify-center items-center text-center 2xl:px-22 lg:px-15 px-8 2xl:ml-[20%] xl:ml-[40%] md:ml-[30%] solution-points-2 hover:bg-[#0029CC] rounded-[32px] hover:bg-none transition-all duration-300 relative li-3 li">
+          <li className="md:bg-[url(/points-bg-new-2.webp)] 2xl:bg-cover bg-contain bg-no-repeat 2xl:min-w-[443.91px] xl:w-[380px] lg:w-[340px] md:w-[250px] w-full 2xl:h-[87.64px] xl:h-[80px] lg:h-[70px] md:h-[60px] h-[82px] font-bricolage font-bold 2xl:text-[20px] xl:text-[18px] lg:text-[16px] text-[14px] leading-[142%] tracking-[-0.01%] text-white list-disc flex justify-center items-center text-center 2xl:px-22 lg:px-15 px-8 2xl:ml-[20%] xl:ml-[40%] md:ml-[30%] solution-points-2 hover:bg-[#0029CC] rounded-[32px] hover:bg-none transition-all duration-300 relative li-3 li">
             <div className="lii"></div>
             <span className="md:mt-[-0.9vh] lg:mt-0">
               Equipped with online booking & lead capture
@@ -104,7 +104,7 @@ const Solutionoints = () => {
         </div>
 
         <ul className="flex flex-col xl:gap-12 lg:gap-8 gap-6">
-          <li className="bg-[url(/points-bg-new.png)] 2xl:bg-cover bg-contain bg-no-repeat 2xl:w-[364.11px] xl:w-[320px] lg:w-[280px] md:w-[250px] w-full 2xl:h-[87.64px] xl:h-[80px] lg:h-[70px] md:h-[60px] h-[82px] font-bricolage font-bold 2xl:text-[20px] xl:text-[18px] lg:text-[16px] text-[14px] leading-[142%] tracking-[-0.01%] text-white flex justify-center items-center text-center xl:px-15 lg:px-10 px-9 2xl:ml-[-7%] xl:-[-25%] md:ml-[-20%] solution-points-2 hover:bg-[#0029CC] rounded-[32px] hover:bg-none transition-all duration-300 relative li-4 li">
+          <li className="bg-[url(/points-bg-new.webp)] 2xl:bg-cover bg-contain bg-no-repeat 2xl:w-[364.11px] xl:w-[320px] lg:w-[280px] md:w-[250px] w-full 2xl:h-[87.64px] xl:h-[80px] lg:h-[70px] md:h-[60px] h-[82px] font-bricolage font-bold 2xl:text-[20px] xl:text-[18px] lg:text-[16px] text-[14px] leading-[142%] tracking-[-0.01%] text-white flex justify-center items-center text-center xl:px-15 lg:px-10 px-9 2xl:ml-[-7%] xl:-[-25%] md:ml-[-20%] solution-points-2 hover:bg-[#0029CC] rounded-[32px] hover:bg-none transition-all duration-300 relative li-4 li">
             <div className="lii"></div>
              SEO-optimized to help you rank locally
             <BorderBeam
@@ -132,7 +132,7 @@ const Solutionoints = () => {
             />
           </li>
 
-          <li className="bg-[url(/points-bg-new-1.png)] 2xl:bg-cover bg-contain bg-no-repeat 2xl:w-[372.09px] xl:w-[330px] lg:w-[290px] md:w-[250px] w-full 2xl:h-[87.64px] xl:h-[80px] lg:h-[70px] md:h-[60px] h-[82px] font-bricolage font-bold 2xl:text-[20px] xl:text-[18px] lg:text-[16px] text-[14px] leading-[142%] tracking-[-0.01%] text-white flex justify-center items-center text-center 2xl:px-15 lg:px-10 px-8 2xl:ml-[12%] md:ml-[0%] solution-points-2 hover:bg-[#0029CC] rounded-[32px] hover:bg-none transition-all duration-300 relative li-5 li">
+          <li className="bg-[url(/points-bg-new-1.webp)] 2xl:bg-cover bg-contain bg-no-repeat 2xl:w-[372.09px] xl:w-[330px] lg:w-[290px] md:w-[250px] w-full 2xl:h-[87.64px] xl:h-[80px] lg:h-[70px] md:h-[60px] h-[82px] font-bricolage font-bold 2xl:text-[20px] xl:text-[18px] lg:text-[16px] text-[14px] leading-[142%] tracking-[-0.01%] text-white flex justify-center items-center text-center 2xl:px-15 lg:px-10 px-8 2xl:ml-[12%] md:ml-[0%] solution-points-2 hover:bg-[#0029CC] rounded-[32px] hover:bg-none transition-all duration-300 relative li-5 li">
             <div className="lii"></div>
             Accessible and compliant with best practices
             <BorderBeam
@@ -160,7 +160,7 @@ const Solutionoints = () => {
             />
           </li>
 
-          <li className="md:bg-[url(/points-bg-new-3.png)] 2xl:bg-cover bg-contain bg-no-repeat 2xl:w-[443.91px] xl:w-[380px] lg:w-[340px] md:w-[250px] w-full 2xl:h-[87.64px] xl:h-[80px] lg:h-[70px] md:h-[60px] h-[82px] font-bricolage font-bold 2xl:text-[20px] xl:text-[18px] lg:text-[16px] text-[14px] leading-[142%] tracking-[-0.01%] text-white flex justify-center items-center text-center 2xl:px-22 lg:px-17 px-8 2xl:ml-[-13%] xl:ml-[-30%] md:ml-[-10%] solution-points-2 hover:bg-[#0029CC] rounded-[32px] hover:bg-none transition-all duration-300 relative li-6 li">
+          <li className="md:bg-[url(/points-bg-new-3.webp)] 2xl:bg-cover bg-contain bg-no-repeat 2xl:w-[443.91px] xl:w-[380px] lg:w-[340px] md:w-[250px] w-full 2xl:h-[87.64px] xl:h-[80px] lg:h-[70px] md:h-[60px] h-[82px] font-bricolage font-bold 2xl:text-[20px] xl:text-[18px] lg:text-[16px] text-[14px] leading-[142%] tracking-[-0.01%] text-white flex justify-center items-center text-center 2xl:px-22 lg:px-17 px-8 2xl:ml-[-13%] xl:ml-[-30%] md:ml-[-10%] solution-points-2 hover:bg-[#0029CC] rounded-[32px] hover:bg-none transition-all duration-300 relative li-6 li">
             <div className="lii"></div>
             <span className="md:mt-[-0.8vh] lg:mt-0">
               Tailored to your specialty and workflow

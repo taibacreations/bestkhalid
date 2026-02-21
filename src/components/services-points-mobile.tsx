@@ -44,7 +44,7 @@ const ServicespointsMobile = () => {
           className={`group relative flex justify-center ${item.wrapperClass}`}
         >
           {/* Background */}
-          <div className="absolute inset-0 bg-[url(/glassy-2.png)] bg-cover bg-center rounded-[32px] transition-all duration-300 py-3 group-hover:h-[120px]" />
+          <div className="absolute inset-0 bg-[url(/glassy-2.webp)] bg-cover bg-center rounded-[32px] transition-all duration-300 py-3 group-hover:h-[120px]" />
           <div className="absolute inset-0 bg-blue-600 rounded-[32px] opacity-0 group-hover:opacity-100 transition-all duration-300 h-[64px] group-hover:h-[120px]" />
 
           {/* Content */}

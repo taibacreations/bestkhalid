@@ -259,7 +259,7 @@ svg.swiper-navigation-icon {
 
 @media screen and (max-width: 767px) {
   .process {
-    background-image: url("/process.png");
+    background-image: url("/process.webp");
     background-size: 100% 100%;
     width: 100%;
     background-repeat: no-repeat;
@@ -271,7 +271,7 @@ svg.swiper-navigation-icon {
     text-align: center;
   }
   .solution-points-2 {
-    background-image: url(/points-bg-new-1.png);
+    background-image: url(/points-bg-new-1.webp);
   }
 }
 
@@ -711,7 +711,7 @@ button, a {
 }
 
 .contact-bg {
-  background-image: url('/contact.png');
+  background-image: url('/contact.webp');
   background-size: contain;
   background-position: center;
 }

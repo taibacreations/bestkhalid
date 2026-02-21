@@ -11,7 +11,7 @@ const Lead = () => {
 
   // 🔁 Animate Download Button Background (same as Header CTA)
   useEffect(() => {
-    const downImages = ["/dow-1.png", "/dow-2.png", "/dow-3.png", "/dow-4.png", "/dow-5.png"];
+    const downImages = ["/dow-1.webp", "/dow-2.webp", "/dow-3.webp", "/dow-4.webp", "/dow-5.webp"];
 
     // Preload images
     downImages.forEach((src) => {
@@ -97,9 +97,9 @@ const Lead = () => {
   }, []);
 
   return (
-    <section className="bg-[url(/lead-bg.png)] bg-cover bg-center min-h-screen relative xl:px-10 px-5">
+    <section className="bg-[url(/lead-bg.webp)] bg-cover bg-center min-h-screen relative xl:px-10 px-5">
       <Image
-        src="/lead-blur.png"
+        src="/lead-blur.webp"
         height={100}
         width={100}
         alt="blur"
@@ -143,13 +143,13 @@ const Lead = () => {
                     key={`dow-${i}`}
                     ref={(el) => { downloadBgLayersRef.current[i] = el }}
                     className="absolute inset-0 rounded-[334px] bg-contain bg-no-repeat bg-center z-0"
-                    style={{ backgroundImage: `url(/dow-${i + 1}.png)` }}
+                    style={{ backgroundImage: `url(/dow-${i + 1}.webp)` }}
                   />
                 ))}
                 {/* Button on top */}
                 <Link href="/portfolio" className="relative bg-transparent text-white md:min-w-[190px] max-w-fit lg:p-3 p-6 lg:min-w-[230px] xl:min-w-[250px] 2xl:min-w-[336px] md:h-[50px] 2xl:h-[59px] rounded-[334px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[18px] lg:text-[20px] xl:text-[22px] 2xl:text-[24px] tracking-[-0.07em] capitalize z-10">
                   <Image
-                    src="/button-arrow.svg"
+                    src="/button-arrow.webp"
                     width={1000}
                     height={100}
                     alt="button-arrow"

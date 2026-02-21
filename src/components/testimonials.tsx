@@ -81,11 +81,11 @@ const Testimonials = ({ sanityTestimonials }: TestimonialsProps) => {
 
   // ✅ CTA background images
   const moreReviews = [
-    "/cons-1.png",
-    "/cons-2.png",
-    "/cons-3.png",
-    "/cons-4.png",
-    "/cons-5.png",
+    "/cons-1.webp",
+    "/cons-2.webp",
+    "/cons-3.webp",
+    "/cons-4.webp",
+    "/cons-5.webp",
   ];
 
   const moreReviewsRef = useRef<(HTMLDivElement | null)[]>([]);
@@ -305,10 +305,10 @@ const Testimonials = ({ sanityTestimonials }: TestimonialsProps) => {
               spaceBetween: 30,
             },
           }}
-          className="!pb-10 !overflow-visible"
+          className="pb-10! overflow-visible!"
         >
           {testimonialsData.map((item, idx) => (
-            <SwiperSlide key={idx} className="!flex !justify-center">
+            <SwiperSlide key={idx} className="flex! justify-center!">
               <div
                 className="w-full md:max-w-[442px] max-w-[90vw] md:min-h-[211px] xl:py-3 lg:py-2 p-5 rounded-[20px] flex flex-col justify-center md:px-6 md:py-0 xl:px-8.5 transition-all duration-300"
                 style={{
@@ -343,8 +343,8 @@ const Testimonials = ({ sanityTestimonials }: TestimonialsProps) => {
                     <p className="font-bricolage font-normal text-[16px] xl:text-[18px] leading-[142%] tracking-[-0.01em] text-[#000000]">
                       {item.quote}
                     </p>
-                    <Image
-                      src="/stars.png"
+                    <img
+                      src="/stars.webp"
                       height={24}
                       width={110}
                       alt="Rating stars"
@@ -378,7 +378,7 @@ const Testimonials = ({ sanityTestimonials }: TestimonialsProps) => {
               className="relative bg-transparent text-white md:w-[270px] w-[90vw] lg:px-0 xl:h-[59px] h-[50px] rounded-[334px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[16px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize z-10"
             >
               <Image
-                src="/button-arrow.svg"
+                src="/button-arrow.webp"
                 width={1000}
                 height={100}
                 alt="button-arrow"

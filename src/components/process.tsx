@@ -48,10 +48,10 @@ const Process = () => {
   return (
     <section
     id="process"
-      className="xl:pb-31 pb-10 bg-black xl:px-10 px-5 2xl:mt-[-5.5vh] lg:mt-[-15vh] mt-[-25vh] md:mt-[-20vh] xl:mt-[0vh] relative scroll-mt-[10vh]"
+      className="xl:pb-31 pb-10 bg-black xl:px-10 px-5 2xl:mt-[-5.5vh] lg:mt-[-15vh] mt-[-25vh] md:mt-[-20vh] xl:mt-0 relative scroll-mt-[10vh]"
     >
       <Image
-        src="/lead-blur.png"
+        src="/lead-blur.webp"
         height={100}
         width={100}
         alt="blur"

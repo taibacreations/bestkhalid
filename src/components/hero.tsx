@@ -19,10 +19,10 @@ const Hero = () => {
   // 🔁 Main hero background loop (unchanged)
   useEffect(() => {
     const imagePaths = [
-      "/layer-1.png",
-      "/layer-2.png",
-      "/layer-3.png",
-      "/layer-4.png",
+      "/layer-1.webp",
+      "/layer-2.webp",
+      "/layer-3.webp",
+      "/layer-4.webp",
     ];
     imagePaths.forEach((src) => {
       const img = new window.Image();
@@ -60,25 +60,25 @@ const Hero = () => {
   // 🔁 Consultation, Fiverr, and Social pill background animations (unchanged)
   useEffect(() => {
     const conImages = [
-      "/cons-1.png",
-      "/cons-2.png",
-      "/cons-3.png",
-      "/cons-4.png",
-      "/cons-5.png",
+      "/cons-1.webp",
+      "/cons-2.webp",
+      "/cons-3.webp",
+      "/cons-4.webp",
+      "/cons-5.webp",
     ];
     const fiverrImages = [
-      "/cons-1.png",
-      "/cons-2.png",
-      "/cons-3.png",
-      "/cons-4.png",
-      "/cons-5.png",
+      "/cons-1.webp",
+      "/cons-2.webp",
+      "/cons-3.webp",
+      "/cons-4.webp",
+      "/cons-5.webp",
     ];
     const icoImages = [
-      "/icon-1.png",
-      "/icon-2.png",
-      "/icon-3.png",
-      "/icon-4.png",
-      "/icon-5.png",
+      "/icon-1.webp",
+      "/icon-2.webp",
+      "/icon-3.webp",
+      "/icon-4.webp",
+      "/icon-5.webp",
     ];
 
     // Preload all images
@@ -249,7 +249,7 @@ const Hero = () => {
   return (
     <section id="hero" className="relative md:min-h-[120vh] overflow-hidden">
       {/* Background layers */}
-      {["/layer-1.png", "/layer-2.png", "/layer-3.png", "/layer-4.png"].map(
+      {["/layer-1.webp", "/layer-2.webp", "/layer-3.webp", "/layer-4.webp"].map(
         (src, i) => (
           <div
             key={i}
@@ -263,7 +263,7 @@ const Hero = () => {
       )}
 
       <Image
-        src="/hero-blur-new.png"
+        src="/hero-blur-new.webp"
         height={100}
         width={100}
         alt="dots"
@@ -275,8 +275,8 @@ const Hero = () => {
         className="scroll-mt-[20vh]"
         onClick={handleSmoothScroll}
       >
-        <Image
-          src="/scroll-down.svg"
+        <img
+          src="/scroll-down.webp"
           height={100}
           width={100}
           alt="dots"
@@ -326,12 +326,12 @@ const Hero = () => {
                     consultationBgLayersRef.current[i] = el;
                   }}
                   className="absolute inset-0 rounded-[334px] bg-contain bg-no-repeat bg-center z-0 2xl:w-[320px] lg:w-[280px] md:h-[50px] w-full lg:px-0 2xl:h-[69px] h-[60px]"
-                  style={{ backgroundImage: `url(/cons-${i + 1}.png)` }}
+                  style={{ backgroundImage: `url(/cons-${i + 1}.webp)` }}
                 />
               ))}
-              <Link href="/contact" className="relative bg-transparent text-white rounded-[334px] 2xl:w-[320px] lg:w-[280px] w-full lg:px-0 2xl:h-[69px] h-[60px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize z-10 md:ml-[2.5vw] lg:ml-0 lg:pb-[1vh] md:-mt-1.5 lg:mt-0 md:pl-[0vw] 2xl:pb-0 p-8 lg:pt-0 lg:pl-0 lg:pr-0">
+              <Link href="/contact" className="relative bg-transparent text-white rounded-[334px] 2xl:w-[320px] lg:w-[280px] w-full lg:px-0 2xl:h-[69px] h-[60px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize z-10 md:ml-[2.5vw] lg:ml-0 lg:pb-[1vh] md:-mt-1.5 lg:mt-0 md:pl-0 2xl:pb-0 p-8 lg:pt-0 lg:pl-0 lg:pr-0">
                 <Image
-                  src="/button-arrow.svg"
+                  src="/button-arrow.webp"
                   width={1000}
                   height={100}
                   alt="button-arrow"
@@ -350,17 +350,17 @@ const Hero = () => {
                     fiverrBgLayersRef.current[i] = el;
                   }}
                   className="absolute inset-0 rounded-[334px] bg-contain bg-no-repeat bg-center z-0 2xl:w-[320px] lg:w-[280px] md:h-[50px] w-full lg:px-0 2xl:h-[69px] h-[60px]"
-                  style={{ backgroundImage: `url(/cons-${i + 1}.png)` }}
+                  style={{ backgroundImage: `url(/cons-${i + 1}.webp)` }}
                 />
               ))}
               <Link
                 href="https://www.fiverr.com/s/vvL0wkz"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative bg-transparent text-white rounded-[334px] 2xl:w-[320px] lg:w-[280px] w-full lg:px-0 2xl:h-[69px] h-[60px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize z-10 md:ml-[2.5vw] lg:ml-0 lg:pb-[1vh] md:-mt-1.5 lg:mt-0 md:pl-[0vw] 2xl:pb-0 p-8 lg:pt-0 lg:pl-0 lg:pr-0"
+                className="relative bg-transparent text-white rounded-[334px] 2xl:w-[320px] lg:w-[280px] w-full lg:px-0 2xl:h-[69px] h-[60px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize z-10 md:ml-[2.5vw] lg:ml-0 lg:pb-[1vh] md:-mt-1.5 lg:mt-0 md:pl-0 2xl:pb-0 p-8 lg:pt-0 lg:pl-0 lg:pr-0"
               >
                 <Image
-                  src="/button-arrow.svg"
+                  src="/button-arrow.webp"
                   width={1000}
                   height={100}
                   alt="button-arrow"
@@ -394,7 +394,7 @@ const Hero = () => {
               style={{ willChange: "transform,opacity" }}
             >
               <div className="xl:w-5 xl:h-5 w-4 h-4 rounded-full shadow-button bg-[#003459]" />
-              <div className="2xl:w-[98px] xl:w-[90px] lg:w-[60px] w-[70px] border border-dashed border-white h-[1px]" />
+              <div className="2xl:w-[98px] xl:w-[90px] lg:w-[60px] w-[70px] border border-dashed border-white h-px" />
               <div className="relative 2xl:w-[201px] xl:w-[160px] lg:w-[150px] w-[140px] h-[51px] rounded-full">
                 {/* Background layers for social pill */}
                 {Array.from({ length: 5 }).map((_, i) => (
@@ -404,7 +404,7 @@ const Hero = () => {
                       socialBgLayersRef.current[i] = el;
                     }}
                     className="absolute inset-0 rounded-full lg:bg-cover bg-contain bg-no-repeat bg-center z-0"
-                    style={{ backgroundImage: `url(/icon-${i + 1}.png)` }}
+                    style={{ backgroundImage: `url(/icon-${i + 1}.webp)` }}
                   />
                 ))}
                 <div className="relative z-10 flex items-center justify-center gap-4 2xl:mt-[1.6vh] mt-[2vh]">
@@ -414,7 +414,7 @@ const Hero = () => {
                     className="hover:scale-125 hover:-translate-y-1 transition-all duration-300"
                   >
                     <Image
-                      src="/linkedin.svg"
+                      src="/linkedin.webp"
                       width={100}
                       height={100}
                       alt="linkedin"
@@ -427,7 +427,7 @@ const Hero = () => {
                     className="hover:scale-125 hover:-translate-y-1 transition-all duration-300"
                   >
                     <Image
-                      src="/facebook.svg"
+                      src="/facebook.webp"
                       width={100}
                       height={100}
                       alt="facebook"
@@ -440,7 +440,7 @@ const Hero = () => {
                     className="hover:scale-125 hover:-translate-y-1 transition-all duration-300"
                   >
                     <Image
-                      src="/inst.svg"
+                      src="/inst.webp"
                       width={100}
                       height={100}
                       alt="insta"
@@ -453,7 +453,7 @@ const Hero = () => {
                     className="hover:scale-125 hover:-translate-y-1 transition-all duration-300"
                   >
                     <Image
-                      src="/twitter.svg"
+                      src="/twitter.webp"
                       width={100}
                       height={100}
                       alt="twitter"
@@ -480,9 +480,9 @@ const Hero = () => {
 
       {/* Floating CTA & Ring (unchanged) */}
       <div className="absolute xl:right-60 lg:right-25 md:right-18 rings -translate-x-1/2 md:translate-x-0 md:bottom-55 bottom-15 z-40 ring-btn">
-        <Link href="/portfolio" className="bg-[url(/hero-text-bg.png)] bg-cover bg-center text-white rounded-[334px] 2xl:w-[443px] lg:w-[380px] md:w-[300px] w-[250px] lg:px-0 2xl:h-[59px] md:h-[50px] h-[40px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold healthcare text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize">
+        <Link href="/portfolio" className="bg-[url(/hero-text-bg.webp)] bg-cover bg-center text-white rounded-[334px] 2xl:w-[443px] lg:w-[380px] md:w-[300px] w-[250px] lg:px-0 2xl:h-[59px] md:h-[50px] h-[40px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold healthcare text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize">
           <Image
-            src="/button-arrow.svg"
+            src="/button-arrow.webp"
             width={1000}
             height={100}
             alt="button-arrow"

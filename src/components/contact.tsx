@@ -94,15 +94,15 @@ export default function ContactPage() {
     const isMobile = typeof window !== "undefined" && window.innerWidth < 1024;
 
     const submitImages = isMobile
-      ? Array.from({ length: 5 }, (_, i) => `/mob-submit-${i + 1}.png`)
-      : Array.from({ length: 5 }, (_, i) => `/submit-${i + 1}.png`);
+      ? Array.from({ length: 5 }, (_, i) => `/mob-submit-${i + 1}.webp`)
+      : Array.from({ length: 5 }, (_, i) => `/submit-${i + 1}.webp`);
 
     const socialImages = [
-      "/icon-1.png",
-      "/icon-2.png",
-      "/icon-3.png",
-      "/icon-4.png",
-      "/icon-5.png",
+      "/icon-1.webp",
+      "/icon-2.webp",
+      "/icon-3.webp",
+      "/icon-4.webp",
+      "/icon-5.webp",
     ];
 
     // Preload images
@@ -323,7 +323,7 @@ export default function ContactPage() {
                     submitBgLayersRef.current[i] = el;
                   }}
                   className="absolute inset-0 rounded-[32px] bg-contain bg-no-repeat bg-center z-0 will-change-opacity"
-                  style={{ backgroundImage: `url(/submit-${i + 1}.png)` }}
+                  style={{ backgroundImage: `url(/submit-${i + 1}.webp)` }}
                 />
               ))}
               <button
@@ -346,7 +346,7 @@ export default function ContactPage() {
                   }`}
               >
                 <div className="flex items-start gap-3">
-                  <span className="text-xl flex-shrink-0 mt-0.5">
+                  <span className="text-xl shrink-0 mt-0.5">
                     {formStatus.type === "success"
                       ? "✓"
                       : formStatus.type === "error"
@@ -385,7 +385,7 @@ export default function ContactPage() {
               href="tel:+92 336 3216666"
               className="flex items-center gap-4 mb-6 group max-w-fit"
             >
-              <div className="w-11 h-11 bg-[url(/contact-cube.png)] bg-contain bg-center bg-no-repeat rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+              <div className="w-11 h-11 bg-[url(/contact-cube.webp)] bg-contain bg-center bg-no-repeat rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                 <svg
                   width="20"
                   height="20"
@@ -408,7 +408,7 @@ export default function ContactPage() {
               href="mailto:hello@bestkhalid.com"
               className="flex items-center gap-4 group max-w-fit"
             >
-              <div className="w-11 h-11 bg-[url(/contact-cube.png)] bg-contain bg-center bg-no-repeat rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+              <div className="w-11 h-11 bg-[url(/contact-cube.webp)] bg-contain bg-center bg-no-repeat rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                 <svg
                   width="20"
                   height="20"
@@ -439,7 +439,7 @@ export default function ContactPage() {
                     socialBgLayersRef.current[i] = el;
                   }}
                   className="absolute inset-0 rounded-full bg-contain bg-no-repeat bg-center z-0"
-                  style={{ backgroundImage: `url(/icon-${i + 1}.png)` }}
+                  style={{ backgroundImage: `url(/icon-${i + 1}.webp)` }}
                 />
               ))}
               <div className="relative z-10 flex items-center justify-center gap-4 2xl:mt-[1.6vh] mt-[2vh]">
@@ -449,7 +449,7 @@ export default function ContactPage() {
                   target="_blank"
                 >
                   <Image
-                    src="/linkedin.svg"
+                    src="/linkedin.webp"
                     width={100}
                     height={100}
                     alt="linkedin"
@@ -462,7 +462,7 @@ export default function ContactPage() {
                   target="_blank"
                 >
                   <Image
-                    src="/facebook.svg"
+                    src="/facebook.webp"
                     width={100}
                     height={100}
                     alt="facebook"
@@ -475,7 +475,7 @@ export default function ContactPage() {
                   target="_blank"
                 >
                   <Image
-                    src="/inst.svg"
+                    src="/inst.webp"
                     width={100}
                     height={100}
                     alt="instagram"
@@ -488,7 +488,7 @@ export default function ContactPage() {
                   target="_blank"
                 >
                   <Image
-                    src="/twitter.svg"
+                    src="/twitter.webp"
                     width={100}
                     height={100}
                     alt="twitter"

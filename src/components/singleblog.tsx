@@ -141,7 +141,7 @@ const SingleBlogPage = () => {
 
           {/* Subtle background glow */}
           <div className="absolute inset-0 -z-10 blur-3xl opacity-30">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full animate-pulse"></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-linear-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full animate-pulse"></div>
           </div>
         </div>
       </section>
@@ -152,7 +152,7 @@ const SingleBlogPage = () => {
     <section className="min-h-screen contact-bg bg-cover bg-center lg:pt-[18vh] md:pt-[8vh] pt-[5vh] lg:pb-[10vh] pb-[5vh]">
       <div className="max-w-[1525px] mx-auto px-4 xl:px-10">
         {/* Hero */}
-        <div className="relative overflow-hidden rounded-3xl mb-[-4vh] lg:mb-[6vh] md:mb-[0vh] shadow-2xl">
+        <div className="relative overflow-hidden rounded-3xl mb-[-4vh] lg:mb-[6vh] md:mb-0 shadow-2xl">
           <img
             src={post.mainImage}
             alt={post.title}

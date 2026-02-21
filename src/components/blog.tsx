@@ -98,7 +98,7 @@ const BlogPage = () => {
           <div className="flex justify-center mt-16">
             <button
               onClick={() => setVisibleCount((p) => p + 6)}
-              className="lg:px-10 lg:py-4 px-8 py-3 bg-gradient-to-r from-blue-500 to-blue-900 text-white font-bricolage font-semibold text-lg rounded-full hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 transform hover:scale-105"
+              className="lg:px-10 lg:py-4 px-8 py-3 bg-linear-to-r from-blue-500 to-blue-900 text-white font-bricolage font-semibold text-lg rounded-full hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 transform hover:scale-105"
             >
               Load More
             </button>
