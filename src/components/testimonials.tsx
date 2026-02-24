@@ -210,7 +210,7 @@ const Testimonials = ({ sanityTestimonials }: TestimonialsProps) => {
             <span className="2xl:text-[40px] xl:text-[36px] lg:text-[30px] text-[26px]">
               [
             </span>{" "}
-            Social Proof{" "}
+            Testimonials{" "}
             <span className="2xl:text-[40px] xl:text-[36px] lg:text-[30px] text-[26px]">
               ]
             </span>
