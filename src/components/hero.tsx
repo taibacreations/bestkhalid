@@ -267,7 +267,7 @@ const Hero = () => {
         height={100}
         width={100}
         alt="dots"
-        className="w-full left-0 object-cover absolute xl:bottom-0 lg:bottom-15 md:bottom-25 -bottom-5 z-30"
+        className="w-full left-0 object-cover absolute xl:bottom-0 lg:bottom-15 md:bottom-25 md:h-[300px] lg:h-auto -bottom-5 z-30 hero-blur"
       />
       {/* Scroll Down Button - use onClick for smooth scroll */}
       <a
@@ -280,7 +280,7 @@ const Hero = () => {
           height={100}
           width={100}
           alt="dots"
-          className="md:w-[101px] w-[70px] h-auto left-1/2 -translate-x-1/2 object-cover absolute md:bottom-[15.5%] bottom-0 z-40"
+          className="md:w-[101px] w-[70px] h-auto left-1/2 -translate-x-1/2 object-cover absolute md:bottom-[15.5%] bottom-0 z-40 hidden md:block"
         />
       </a>
 
@@ -467,19 +467,29 @@ const Hero = () => {
         </div>
 
         {/* Hero Image */}
-        <div className="md:absolute 2xl:-right-51 lg:right-0 md:-right-10 right-0 hero z-20 md:mt-0 mt-[6vh]">
+        <div className="md:block hidden absolute 2xl:right-[-1vw] xl:top-[11.5vh] xl:right-[12vw] lg:right-[10vw] md:right-[4vw] right-0 hero z-20">
           <img
-            src="/hero.webp"
+            src="/heros.webp"
             height={100}
             width={100}
             alt="hero"
-            className="2xl:w-[1057px] xl:w-[850px] lg:w-[700px] md:w-[600px] w-full md:scale-100 scale-120 2xl:h-[1107px] h-auto"
+            className="2xl:w-[601px] xl:w-[500px] lg:w-[450px] md:w-[400px] w-full h-auto"
+          />
+        </div>
+        {/* Hero Image */}
+        <div className="md:hidden hero z-20 mb-[5vh]">
+          <img
+            src="/hero-mob.webp"
+            height={100}
+            width={100}
+            alt="hero"
+            className="w-[80vw] h-auto"
           />
         </div>
       </div>
 
       {/* Floating CTA & Ring (unchanged) */}
-      <div className="absolute xl:right-60 lg:right-25 md:right-18 rings -translate-x-1/2 md:translate-x-0 md:bottom-55 bottom-15 z-40 ring-btn">
+      <div className="absolute xl:right-60 lg:right-25 md:right-18 rings -translate-x-1/2 md:translate-x-0 md:bottom-55 bottom-5 z-40 ring-btn">
         <Link href="/portfolio" className="bg-[url(/hero-text-bg.webp)] bg-cover bg-center text-white rounded-[334px] 2xl:w-[443px] lg:w-[380px] md:w-[300px] w-[250px] lg:px-0 2xl:h-[59px] md:h-[50px] h-[40px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold healthcare text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize">
           <Image
             src="/button-arrow.webp"

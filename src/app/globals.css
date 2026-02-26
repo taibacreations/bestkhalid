@@ -691,6 +691,9 @@ header {
   .sol-point {
     margin-bottom: 2px;
   }
+  .hero-blur {
+    height: 140px;
+  }
 }
 .thick-beam {
   border-width: 3px !important; /* ← This controls thickness */
