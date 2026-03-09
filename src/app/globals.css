@@ -10,6 +10,8 @@
   --color-foreground: var(--foreground);
   --font-bricolage: var(--font-bricolage-grotesque);
   --font-tartuffo: var(--font-tartuffo);
+  --font-inter: var(--font-inter);
+  --font-sora: var(--font-sora);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -20,7 +22,7 @@
 }
 
 body {
-  background: #0A0A0A;
+  background: #0a0a0a;
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
   overflow: hidden;
@@ -709,12 +711,13 @@ header {
   inset: -3px !important; /* Must match border-width (e.g., -3px for 3px) */
 }
 
-button, a {
+button,
+a {
   cursor: pointer;
 }
 
 .contact-bg {
-  background-image: url('/contact.webp');
+  background-image: url("/contact.webp");
   background-size: contain;
   background-position: center;
 }
@@ -725,5 +728,78 @@ button, a {
   }
   .ring-btn {
     top: 96vh !important;
+  }
+}
+
+.button-shadow {
+  box-shadow: 0px -6px 20.3px 0px #2e90fa inset;
+}
+.box-shadow {
+  box-shadow: 0px 0px 15px 0px #2563eb80;
+  border: 1px solid #294683;
+  border-radius: 16px;
+  cursor: pointer;
+}
+.box-shadow:hover {
+  background: linear-gradient(90deg, #155dfc 0%, #0129cb 100%);
+  transition: all 0.6s ease-in-out;
+}
+.law-box:hover {
+  background: linear-gradient(90deg, #155dfc 0%, #0129cb 100%);
+  transition: all 0.6s ease-in-out;
+  cursor: pointer;
+}
+.law-box {
+  border-radius: 30px;
+}
+
+@media screen and (min-width: 1280px) and (max-width: 1320px) {
+  .potential-card {
+    max-width: 280px !important;
+  }
+  .law-box {
+    max-width: 390px !important;
+  }
+    .timeline-border {
+    left: -10.5vw !important;
+  }
+}
+
+  .for-border {
+    border-bottom: 2px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 3.89%,
+      #ffffff 23.5%,
+      #ffffff 49.5%,
+      #ffffff 78%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
+
+  .optimized-shadow {
+    box-shadow: 0px 0px 11.6px 0px #2563eb80;
+  }
+
+  @media screen and (max-width: 400px) {
+    .optimize-border {
+      right: 21.5vw !important;
+    }
+  }
+  @media screen and (max-width: 350px) {
+    .optimize-border {
+      right: 1vw !important;
+      width: 550px !important;
+    }
+  }
+
+  .timeline-box {
+    background: linear-gradient(90deg, #155dfc 0%, #0129cb 100%) !important;
+  }
+
+@media screen and (min-width: 1340px) and (max-width: 1400px) {
+  .timeline-border {
+    left: -3.9vw !important;
   }
 }

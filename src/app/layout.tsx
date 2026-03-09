@@ -7,11 +7,22 @@ import { tartuffo } from "./fonts";
 import SmoothScroll from "@/components/SmoothScroll";
 import ChatWidgets from "@/components/ChatWidgets";
 import { usePathname } from "next/navigation";
+import { Inter, Sora } from "next/font/google";
 
 const bricolageGrotesque = Bricolage_Grotesque({
   subsets: ["latin"],
   weight: ["200", "300", "400", "500", "600", "700", "800"],
   variable: "--font-bricolage-grotesque",
+});
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "600", "700", "800"],
+  variable: "--font-inter",
+});
+const sora = Sora({
+  subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "600", "700", "800",],
+  variable: "--font-sora",
 });
 
 export default function RootLayout({
@@ -29,7 +40,7 @@ export default function RootLayout({
 
       </head>
       <body
-        className={`${bricolageGrotesque.variable} ${tartuffo.variable} antialiased`}
+        className={`${bricolageGrotesque.variable} ${tartuffo.variable} ${inter.variable} ${sora.variable} antialiased`}
       >
         <SmoothScroll>
           <main>
