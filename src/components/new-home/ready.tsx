@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Ready = () => {
   return (
     <section className="md:py-[13vh] py-[10vh] relative">
@@ -25,7 +27,7 @@ const Ready = () => {
               strengthening your online presence, let’s discuss your goals.
             </p>
             <div className="flex flex-col justify-center items-center mt-[2vh] gap-[2vh]">
-              <button className="font-bricolage font-bold xl:text-[18px] md:text-[16px] text-[14px] leading-[100%] tracking-[-0.07em] capitalize underline bg-white xl:w-[378px] md:w-[320px] md:h-[44px] w-fit p-3 rounded-full flex justify-center items-center gap-2 text-[#0033FF] hover:opacity-80 transition-all duration-300">
+              <Link href={"/contact"} className="font-bricolage font-bold xl:text-[18px] md:text-[16px] text-[14px] leading-[100%] tracking-[-0.07em] capitalize bg-white xl:w-[378px] md:w-[320px] md:h-[44px] w-fit p-3 rounded-full flex justify-center items-center gap-2 text-[#0033FF] hover:opacity-80 transition-all duration-300">
                 <svg
                   xmlnsXlink="http://www.w3.org/1999/xlink"
                   xmlns="http://www.w3.org/2000/svg"
@@ -40,7 +42,7 @@ const Ready = () => {
                   ></path>
                 </svg>
                 Book Your Free Strategy Consultation
-              </button>
+              </Link>
               <p className="font-bricolage font-light text-[12px] leading-[142%] tracking-[-0.01em] capitalize text-white">
                 I only accept a limited number of law firm projects each month
                 to maintain quality and focus

@@ -10,6 +10,20 @@ import Potential from "@/components/new-home/potential";
 import Ready from "@/components/new-home/ready";
 import Timeline from "@/components/new-home/timeline";
 import Testimonials from "@/components/testimonials";
+import { client } from "@/sanity/lib/client";
+
+
+
+const testimonials = await client.fetch(`
+  *[_type == "testimonial" && isActive == true] | order(order asc) {
+    _id,
+    name,
+    role,
+    quote,
+    rating,
+    "image": image.asset->url
+  }
+`);
 
 const Home = () => {
   return (
@@ -20,7 +34,7 @@ const Home = () => {
         <Law />
         <Approach />
         <Timeline />
-        <Testimonials />
+        <Testimonials sanityTestimonials={testimonials} />
         <For />
         <Design />
         <Faq />

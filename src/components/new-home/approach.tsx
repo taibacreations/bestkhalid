@@ -1,3 +1,6 @@
+import Link from "next/link";
+import "@stianlarsen/border-beam/css";
+
 const Approach = () => {
   return (
     <section className="max-w-[1505px] mx-auto xl:px-10 px-4 relative my-[12vh]">
@@ -68,10 +71,10 @@ const Approach = () => {
           </div>
         </div>
         <div className="flex justify-center mt-[2vh]">
-          <button className="font-bricolage font-bold 2xl:text-[22px] xl:text-[20px] lg:text-[18px] text-[15px] leading-[100%] tracking-[-0.07em] capitalize underline bg-[#003459] button-shadow 2xl:w-[405px] 2xl:h-[59px] xl:w-[360px] lg:w-[320px] w-[250px] md:h-[50px] h-[40px] rounded-full my-[2vh] flex justify-center items-center gap-2">
+          <Link href={"/contact"} className="font-bricolage font-bold 2xl:text-[22px] xl:text-[20px] lg:text-[18px] text-[15px] leading-[100%] tracking-[-0.07em] capitalize bg-[#003459] button-shadow 2xl:w-[405px] 2xl:h-[59px] xl:w-[360px] lg:w-[320px] w-[250px] md:h-[50px] h-[40px] rounded-full my-[2vh] flex justify-center items-center gap-2">
             <img src="/button-arrow.webp" alt="arrow" />
             Book your Free Strategy Call
-          </button>
+          </Link>
         </div>
       </div>
     </section>

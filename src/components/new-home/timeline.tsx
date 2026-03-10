@@ -2,6 +2,8 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import "@stianlarsen/border-beam/css";
+import { BorderBeam } from "@stianlarsen/border-beam";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -52,7 +54,10 @@ const dotConfig: {
 
 const getActiveDotConfig = () => {
   const sorted = [...dotConfig].sort((a, b) => b.minWidth - a.minWidth);
-  return sorted.find((bp) => window.innerWidth >= bp.minWidth) ?? dotConfig[dotConfig.length - 1];
+  return (
+    sorted.find((bp) => window.innerWidth >= bp.minWidth) ??
+    dotConfig[dotConfig.length - 1]
+  );
 };
 
 const applyDotPositions = (dots: (HTMLDivElement | null)[]) => {
@@ -94,17 +99,45 @@ const challenges = [
 
 const results = [
   [
-    { icon: "timeline-icon5", text: "34% increase in consultation inquiries", wide: false },
-    { icon: "timeline-icon6", text: "Significant improvement in mobile engagement", wide: true },
-    { icon: "timeline-icon7", text: "Higher local search visibility", wide: false },
+    {
+      icon: "timeline-icon5",
+      text: "34% increase in consultation inquiries",
+      wide: false,
+    },
+    {
+      icon: "timeline-icon6",
+      text: "Significant improvement in mobile engagement",
+      wide: true,
+    },
+    {
+      icon: "timeline-icon7",
+      text: "Higher local search visibility",
+      wide: false,
+    },
   ],
   [
-    { icon: "timeline-icon5", text: "27% increase in form submissions", wide: false },
-    { icon: "timeline-icon6", text: "Longer average session duration", wide: true },
-    { icon: "timeline-icon7", text: "Stronger client trust perception", wide: false },
+    {
+      icon: "timeline-icon5",
+      text: "27% increase in form submissions",
+      wide: false,
+    },
+    {
+      icon: "timeline-icon6",
+      text: "Longer average session duration",
+      wide: true,
+    },
+    {
+      icon: "timeline-icon7",
+      text: "Stronger client trust perception",
+      wide: false,
+    },
   ],
   [
-    { icon: "timeline-icon5", text: "31% increase in inbound inquiries", wide: false },
+    {
+      icon: "timeline-icon5",
+      text: "31% increase in inbound inquiries",
+      wide: false,
+    },
     { icon: "timeline-icon6", text: "Reduced bounce rate", wide: true },
     { icon: "timeline-icon7", text: "Improved lead quality", wide: false },
   ],
@@ -124,8 +157,15 @@ const SectionCards = ({
   const sharedStrategyContent = (
     <div className="flex flex-col gap-[1.3vh]">
       {strategies[i].map((item, idx) => (
-        <div key={idx} className="flex items-center md:gap-[.5vw] gap-2 xl:mt-[.3vh] mt-[1vh]">
-          <img src={`/new-home/${item.icon}.webp`} alt="icon" className="xl:w-auto w-[25px]" />
+        <div
+          key={idx}
+          className="flex items-center md:gap-[.5vw] gap-2 xl:mt-[.3vh] mt-[1vh]"
+        >
+          <img
+            src={`/new-home/${item.icon}.webp`}
+            alt="icon"
+            className="xl:w-auto w-[25px]"
+          />
           <h5 className="font-bricolage font-normal 2xl:text-[18px] text-[16px] xl:leading-[81%] leading-[100%] tracking-[-0.01em] capitalize text-white">
             {item.text}
           </h5>
@@ -137,7 +177,10 @@ const SectionCards = ({
   const sharedResultContent = (
     <div className="flex flex-col gap-[1vh] pl-[1.5vw] mt-[1.4vh] w-full">
       {results[i].map((item, idx) => (
-        <div key={idx} className="flex items-center md:gap-[.5vw] gap-2 mt-[.3vh] md:px-0 px-4">
+        <div
+          key={idx}
+          className="flex items-center md:gap-[.5vw] gap-2 mt-[.3vh] md:px-0 px-4"
+        >
           <img src={`/new-home/${item.icon}.webp`} alt="icon" />
           <h5
             className={`font-bricolage font-normal 2xl:text-[18px] xl:text-[16px] text-[14px] tracking-[-0.01em] capitalize text-white ${
@@ -213,6 +256,22 @@ const SectionCards = ({
             </div>
             <div className="flex flex-col 2xl:gap-[2vh] gap-[1vh] items-center md:mt-0 mt-[1vh]">
               <div className="2xl:w-[414px] xl:w-[380px] md:w-[320px] w-[92vw] 2xl:h-[106px] xl:h-[100px] h-[90px] rounded-[32px] bg-[url(/new-home/timeline-card.webp)] 2xl:bg-cover bg-[length:100%_100%] bg-center bg-no-repeat">
+
+                <BorderBeam
+                  size={169}
+                  duration={8}
+                  colorFrom="#00000000" // fully transparent
+                  colorTo="#7AB4FD"
+                  className="z-40 relative rounded-[32px] 2xl:ml-[23.7vw] xl:ml-[28.3vw] lg:ml-[33.3vw] ml-0 xl:mb-[21.5vh] lg:mb-[19.3vh] lg:mt-auto md:mt-[30.3vh] mt-[30.5vh] md:mb-[19.5vh] mb-[20.3vh] timeline-beam-1"
+                />
+                <BorderBeam
+                  size={169}
+                  duration={10}
+                  colorFrom="#00000000" // fully transparent
+                  colorTo="#7AB4FD"
+                  className="z-40 relative rounded-[32px] 2xl:ml-[23.7vw] xl:ml-[28.3vw] lg:ml-[33.3vw] ml-0 xl:mb-[21.5vh] lg:mb-[19.3vh] lg:mt-auto md:mt-[30.3vh] mt-[30.5vh] md:mb-[19.5vh] mb-[20.3vh] timeline-beam-1"
+                />
+
                 <div className="flex flex-col items-center md:px-0 px-5">
                   <h3 className="font-bricolage font-bold 2xl:text-[28px] xl:text-[24px] text-[22px] leading-[142%] tracking-[-0.07em] text-white capitalize xl:w-[196px] xl:h-[45px] w-[140px] h-[35px] flex justify-center items-center bg-[#0430D2] rounded-bl-[20px] rounded-br-[20px]">
                     Challenge
@@ -223,6 +282,22 @@ const SectionCards = ({
                 </div>
               </div>
               <div className="2xl:w-[414px] xl:w-[380px] md:w-[320px] w-[92vw] 2xl:h-[207px] xl:h-[200px] h-[180px] rounded-[32px] bg-[url(/new-home/timeline-card1.webp)] 2xl:bg-cover bg-[length:100%_100%] bg-center bg-no-repeat flex flex-col items-center md:mt-0 mt-[1vh]">
+
+                <BorderBeam
+                  size={169}
+                  duration={8}
+                  colorFrom="#00000000" // fully transparent
+                  colorTo="#7AB4FD"
+                  className="z-40 relative rounded-[32px] 2xl:ml-[23.7vw] xl:ml-[28.3vw] lg:ml-[33.3vw] ml-0 2xl:mt-[12vh] xl:mt-[11.3vh] lg:mt-[10.2vh] md:mt-[40.5vh] mt-[41.8vh] timeline-beam-2"
+                />
+                <BorderBeam
+                  size={169}
+                  duration={10}
+                  colorFrom="#00000000" // fully transparent
+                  colorTo="#7AB4FD"
+                  className="z-40 relative rounded-[32px] 2xl:ml-[23.7vw] xl:ml-[28.3vw] lg:ml-[33.3vw] ml-0 2xl:mt-[12vh] xl:mt-[11.3vh] lg:mt-[10.2vh] md:mt-[40.5vh] mt-[41.8vh] timeline-beam-2"
+                />
+
                 <div className="flex flex-col items-center w-full">
                   <h3 className="font-bricolage font-bold 2xl:text-[28px] xl:text-[24px] text-[22px] leading-[142%] tracking-[-0.07em] text-white capitalize xl:w-[196px] xl:h-[45px] w-[140px] h-[35px] flex justify-center items-center bg-[#0430D2] rounded-bl-[20px] rounded-br-[20px]">
                     Result
@@ -256,14 +331,29 @@ const Timeline = () => {
     const activeLayer = activeLayerRefs.current[i];
 
     if (dot) {
-      gsap.to(dot, { opacity: 1, scale: 1.15, duration: DURATION * 0.6, ease: "back.out(1.7)" });
-      gsap.to(dot, { scale: 1, duration: 0.25, ease: "power2.out", delay: DURATION * 0.6 });
+      gsap.to(dot, {
+        opacity: 1,
+        scale: 1.15,
+        duration: DURATION * 0.6,
+        ease: "back.out(1.7)",
+      });
+      gsap.to(dot, {
+        scale: 1,
+        duration: 0.25,
+        ease: "power2.out",
+        delay: DURATION * 0.6,
+      });
     }
     if (title) {
       gsap.to(title, { opacity: 1, y: 0, duration: DURATION, ease: EASE });
     }
     if (mobileTitle) {
-      gsap.to(mobileTitle, { opacity: 1, y: 0, duration: DURATION, ease: EASE });
+      gsap.to(mobileTitle, {
+        opacity: 1,
+        y: 0,
+        duration: DURATION,
+        ease: EASE,
+      });
     }
     if (activeLayer) {
       gsap.to(activeLayer, { opacity: 1, duration: DURATION, ease: EASE });
@@ -283,7 +373,12 @@ const Timeline = () => {
       gsap.to(title, { opacity: 0, y: 8, duration: DURATION, ease: EASE });
     }
     if (mobileTitle) {
-      gsap.to(mobileTitle, { opacity: 0, y: 8, duration: DURATION, ease: EASE });
+      gsap.to(mobileTitle, {
+        opacity: 0,
+        y: 8,
+        duration: DURATION,
+        ease: EASE,
+      });
     }
     if (activeLayer) {
       gsap.to(activeLayer, { opacity: 0, duration: DURATION, ease: EASE });
@@ -323,21 +418,25 @@ const Timeline = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="md:mt-[10vh] mt-[6vh] md:mb-[15vh] mb-[10vh] relative">
+    <section
+      ref={sectionRef}
+      className="md:mt-[10vh] mt-[6vh] md:mb-[15vh] mb-[10vh] relative"
+    >
       <img
         src="/new-home/timeline-vector.webp"
         alt="vector"
         className="absolute left-0 bottom-[-13vh]"
       />
       <div className="flex justify-between max-w-[1525px] mx-auto xl:px-10 px-4 relative">
-
         {/* Vertical line + dots */}
         <div className="relative hidden md:block">
           <div className="border border-white 2xl:w-[1113px] xl:w-[1030px] lg:w-[960px] w-[1850px] absolute rotate-[90deg] 2xl:left-[-2vw] xl:left-[-2vw] lg:left-[-18vw] left-[-75vw] top-[50%] timeline-border" />
           {([0, 1, 2] as const).map((i) => (
             <div
               key={i}
-              ref={(el: HTMLDivElement | null) => { dotsRef.current[i] = el; }}
+              ref={(el: HTMLDivElement | null) => {
+                dotsRef.current[i] = el;
+              }}
               className="absolute"
               style={{ opacity: 0 }}
             >
@@ -353,7 +452,9 @@ const Timeline = () => {
           {(["#1", "#2", "#3"] as const).map((num, i) => (
             <div
               key={i}
-              ref={(el: HTMLDivElement | null) => { titlesRef.current[i] = el; }}
+              ref={(el: HTMLDivElement | null) => {
+                titlesRef.current[i] = el;
+              }}
               style={{ opacity: 0, transform: "translateY(8px)" }}
             >
               <h4 className="font-bricolage font-bold 2xl:text-[28px] xl:text-[24px] lg:text-[20px] text-[18px] leading-[142%] tracking-[-0.07em] capitalize text-white">
@@ -371,12 +472,18 @@ const Timeline = () => {
           {([0, 1, 2] as const).map((i) => (
             <div key={i}>
               <div
-                ref={(el: HTMLDivElement | null) => { cardGroupRefs.current[i] = el; }}
+                ref={(el: HTMLDivElement | null) => {
+                  cardGroupRefs.current[i] = el;
+                }}
               >
                 <SectionCards
                   i={i}
-                  activeLayerRef={(el: HTMLDivElement | null) => { activeLayerRefs.current[i] = el; }}
-                  mobileTitleRef={(el: HTMLDivElement | null) => { mobileTitlesRef.current[i] = el; }}
+                  activeLayerRef={(el: HTMLDivElement | null) => {
+                    activeLayerRefs.current[i] = el;
+                  }}
+                  mobileTitleRef={(el: HTMLDivElement | null) => {
+                    mobileTitlesRef.current[i] = el;
+                  }}
                 />
               </div>
 
@@ -386,7 +493,6 @@ const Timeline = () => {
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );

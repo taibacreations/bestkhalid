@@ -763,6 +763,13 @@ a {
     .timeline-border {
     left: -10.5vw !important;
   }
+  .design-beam {
+    margin-top: 3vh !important;
+    margin-bottom: 3vh !important;
+  }
+    .timeline-beam-1, .timeline-beam-2 {
+    margin-left: 31.7vw !important;
+  }
 }
 
   .for-border {
@@ -786,11 +793,27 @@ a {
     .optimize-border {
       right: 21.5vw !important;
     }
+    .design-beam-1 {
+      margin-bottom: 51.3vh !important;
+    }
+    .design-beam-2 {
+      margin-bottom: 28.5vh !important;
+    }
   }
   @media screen and (max-width: 350px) {
     .optimize-border {
       right: 1vw !important;
       width: 550px !important;
+    }
+    .design-beam-1 {
+      margin-bottom: 58vh !important;
+    }
+    .design-beam-2 {
+      margin-top: 26.5vh !important;
+      margin-bottom: 32.5vh !important;
+    }
+    .design-beam-3 {
+      margin-top: 52vh !important;
     }
   }
 
@@ -802,4 +825,25 @@ a {
   .timeline-border {
     left: -3.9vw !important;
   }
+  .design-beam {
+    margin-top: 2vh !important;
+    margin-bottom: 2vh !important;
+  }
+  .timeline-beam-1, .timeline-beam-2 {
+    margin-left: 29.8vw !important;
+  }
+}
+
+.thick-border {
+  border-width: 4px !important; /* ← This controls thickness */
+  border-style: solid;
+  border-color: transparent; /* Beam color is handled by mask, not this */
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+/* Ensure the ::before pseudo-element covers the full border area */
+.thick-border::before {
+  border-radius: 50% !important;
+  inset: -4px !important; /* Must match border-width (e.g., -3px for 3px) */
 }

@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import "@stianlarsen/border-beam/css";
+import { BorderBeam } from "@stianlarsen/border-beam";
 
 const Hero = () => {
   return (
@@ -26,10 +28,37 @@ const Hero = () => {
             expensive digital dust collectors into actual client acquisition
             assets.
           </p>
-          <button className="font-bricolage font-bold 2xl:text-[22px] xl:text-[20px] lg:text-[18px] text-[15px] leading-[100%] tracking-[-0.07em] capitalize underline bg-[#003459] button-shadow 2xl:w-[405px] 2xl:h-[59px] xl:w-[360px] lg:w-[320px] w-[250px] md:h-[50px] h-[40px] rounded-full my-[2vh] flex justify-center items-center gap-2">
+          <Link
+            href={"/contact"}
+            className="relative font-bricolage font-bold 2xl:text-[22px] xl:text-[20px] lg:text-[18px] text-[15px] leading-[100%] tracking-[-0.07em] capitalize bg-[#003459] button-shadow 2xl:w-[405px] 2xl:h-[59px] xl:w-[360px] lg:w-[320px] w-[250px] md:h-[50px] h-[40px] rounded-full my-[2vh] flex justify-center items-center gap-2 overflow-hidden border-0"
+          >
+            <BorderBeam
+              size={100}
+              duration={6}
+              colorFrom="#37ACFF"
+              colorTo="#37ABFF"
+              borderWidth={4}
+              className="hidden 2xl:block"
+            />
+            <BorderBeam
+              size={90}
+              duration={6}
+              colorFrom="#37ACFF"
+              colorTo="#37ABFF"
+              borderWidth={4}
+              className="2xl:hidden hidden md:block"
+            />
+            <BorderBeam
+              size={70}
+              duration={6}
+              colorFrom="#37ACFF"
+              colorTo="#37ABFF"
+              borderWidth={4}
+              className="md:hidden"
+            />
             <img src="/button-arrow.webp" alt="arrow" />
             Book your Free Strategy Call
-          </button>
+          </Link>
           <p className="font-bricolage font-extralight tracking-[0em] leading-[142%] capitalize 2xl:text-[20px] xl:text-[18px] lg:text-[15px] text-[13px] text-white">
             Limited law firm projects are accepted each month.
           </p>
@@ -106,7 +135,7 @@ const Hero = () => {
           <div className="absolute md:bottom-[0.5%] md:top-auto top-[90vh] md:right-[9%] left-[50%] -translate-x-1/2 md:left-auto md:translate-x-0">
             <Link
               href="/portfolio"
-              className="bg-[url(/new-home/hero-text-bg.webp)] bg-cover bg-center text-white rounded-[334px] 2xl:w-[443px] lg:w-[380px] md:w-[300px] w-[250px] lg:px-0 2xl:h-[59px] md:h-[50px] h-[40px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold healthcare text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize underline"
+              className="bg-[url(/new-home/hero-text-bg.webp)] bg-cover bg-center text-white rounded-[334px] 2xl:w-[443px] lg:w-[380px] md:w-[300px] w-[250px] lg:px-0 2xl:h-[59px] md:h-[50px] h-[40px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold healthcare text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize"
             >
               <Image
                 src="/button-arrow.webp"
