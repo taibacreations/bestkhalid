@@ -2,6 +2,7 @@ import ContactPage from "@/components/contact";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import { Metadata } from "next";
+import Script from "next/script";
 
 /* ---------------------------------
    SEO (Contact Page)
@@ -54,9 +55,29 @@ export async function generateMetadata(): Promise<Metadata> {
 ---------------------------------- */
 const Contact = () => {
   return (
-    <section>
-      <ContactPage />
-    </section>
+    <>
+      {/* Google Analytics (gtag.js) - Immediately after <head> */}
+      <Script
+        strategy="afterInteractive"
+        src="https://www.googletagmanager.com/gtag/js?id=G-4NDX1ZTJFY"
+        async
+      />
+      <Script
+        id="gtag-init"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-4NDX1ZTJFY');
+          `,
+        }}
+      />
+      <section>
+        <ContactPage />
+      </section>
+    </>
   );
 };
 

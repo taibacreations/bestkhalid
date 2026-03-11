@@ -11,8 +11,7 @@ import Ready from "@/components/new-home/ready";
 import Timeline from "@/components/new-home/timeline";
 import Testimonials from "@/components/testimonials";
 import { client } from "@/sanity/lib/client";
-
-
+import Script from "next/script";
 
 const testimonials = await client.fetch(`
   *[_type == "testimonial" && isActive == true] | order(order asc) {
@@ -27,7 +26,26 @@ const testimonials = await client.fetch(`
 
 const Home = () => {
   return (
-    <div>
+    <>
+      {/* Google Analytics (gtag.js) - Immediately after <head> */}
+      <Script
+        strategy="afterInteractive"
+        src="https://www.googletagmanager.com/gtag/js?id=G-4NDX1ZTJFY"
+        async
+      />
+      <Script
+        id="gtag-init"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-4NDX1ZTJFY');
+          `,
+        }}
+      />
+      <div>
         <Hero />
         <LogoMarquee />
         <Potential />
@@ -40,7 +58,8 @@ const Home = () => {
         <Faq />
         <Optimized />
         <Ready />
-    </div>
+      </div>
+    </>
   );
 };
 

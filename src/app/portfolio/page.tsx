@@ -2,6 +2,7 @@ import Portfolio from "@/components/portfolio";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import { Metadata } from "next";
+import Script from "next/script";
 
 /* ---------------------------------
    SEO (Portfolio Listing Page)
@@ -54,9 +55,28 @@ export async function generateMetadata(): Promise<Metadata> {
 ---------------------------------- */
 const PortfolioPage = () => {
   return (
-    <section>
-      <Portfolio />
-    </section>
+    <>
+      {/* Google Analytics (gtag.js) - Immediately after <head> */}
+      <Script
+        strategy="afterInteractive"
+        src="https://www.googletagmanager.com/gtag/js?id=G-4NDX1ZTJFY"
+      />
+      <Script
+        id="gtag-init"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-4NDX1ZTJFY');
+          `,
+        }}
+      />
+      <section>
+        <Portfolio />
+      </section>
+    </>
   );
 };
 
