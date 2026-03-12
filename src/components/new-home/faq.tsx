@@ -2,6 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface FaqItem {
   id: number;
@@ -13,6 +16,7 @@ interface FaqCardProps {
   item: FaqItem;
   isOpen: boolean;
   onToggle: () => void;
+  animRef: (el: HTMLDivElement | null) => void;
 }
 
 const faqData: FaqItem[] = [
@@ -42,7 +46,7 @@ const faqData: FaqItem[] = [
   },
 ];
 
-const FaqCard: React.FC<FaqCardProps> = ({ item, isOpen, onToggle }) => {
+const FaqCard: React.FC<FaqCardProps> = ({ item, isOpen, onToggle, animRef }) => {
   const answerRef = useRef<HTMLDivElement>(null);
   const iconRef = useRef<HTMLImageElement>(null);
   const isAnimating = useRef<boolean>(false);
@@ -61,16 +65,10 @@ const FaqCard: React.FC<FaqCardProps> = ({ item, isOpen, onToggle }) => {
           opacity: 1,
           duration: 0.45,
           ease: "power3.out",
-          onComplete: () => {
-            isAnimating.current = false;
-          },
-        },
+          onComplete: () => { isAnimating.current = false; },
+        }
       );
-      gsap.to(iconRef.current, {
-        rotation: 180,
-        duration: 0.35,
-        ease: "power2.out",
-      });
+      gsap.to(iconRef.current, { rotation: 180, duration: 0.35, ease: "power2.out" });
     } else {
       gsap.to(el, {
         height: 0,
@@ -82,15 +80,10 @@ const FaqCard: React.FC<FaqCardProps> = ({ item, isOpen, onToggle }) => {
           isAnimating.current = false;
         },
       });
-      gsap.to(iconRef.current, {
-        rotation: 0,
-        duration: 0.35,
-        ease: "power2.out",
-      });
+      gsap.to(iconRef.current, { rotation: 0, duration: 0.35, ease: "power2.out" });
     }
   }, [isOpen]);
 
-  // Set initial state
   useEffect(() => {
     const el = answerRef.current;
     if (!el) return;
@@ -100,22 +93,21 @@ const FaqCard: React.FC<FaqCardProps> = ({ item, isOpen, onToggle }) => {
       display: isOpen ? "block" : "none",
     });
     gsap.set(iconRef.current, { rotation: isOpen ? 180 : 0 });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <div
+      ref={animRef}
+      style={{ border: "1px solid #FFFFFF0F", willChange: "transform, opacity" }}
       className="rounded-[14px] cursor-pointer transition-colors duration-300 bg-[#0F193280] px-[4vw] relative"
-      style={{
-        background: isOpen ? "#0F193280" : "#0F193280",
-        border: "1px solid #FFFFFF0F",
-      }}
       onClick={onToggle}
     >
       <div className="flex items-center justify-between py-6 gap-4 relative z-30">
         <h3 className="font-bricolage font-bold 2xl:text-[24px] xl:text-[22px] md:text-[20px] text-[18px] leading-[123%] tracking-[-0.03em] text-white capitalize">
           {item.question}
         </h3>
-        <img ref={iconRef} src="/new-home/faq-arrow.webp" alt="arrow" className="xl:w-auto w-[25px]"/>
+        <img ref={iconRef} src="/new-home/faq-arrow.webp" alt="arrow" className="xl:w-auto w-[25px]" />
       </div>
 
       <div ref={answerRef} style={{ overflow: "hidden" }}>
@@ -130,27 +122,85 @@ const FaqCard: React.FC<FaqCardProps> = ({ item, isOpen, onToggle }) => {
 const Faq: React.FC = () => {
   const [openId, setOpenId] = useState<number>(1);
 
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const headingRef = useRef<HTMLHeadingElement | null>(null);
+  const vectorRef = useRef<HTMLImageElement | null>(null);
+  const cardAnimRefs = useRef<(HTMLDivElement | null)[]>([]);
+
   const handleToggle = (id: number): void => {
     setOpenId((prev) => (prev === id ? 0 : id));
   };
 
+  // 🎬 Scroll-triggered entry animations
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+
+      // Vector slides in from right
+      gsap.fromTo(
+        vectorRef.current,
+        { x: 80, opacity: 0 },
+        {
+          x: 0, opacity: 1, duration: 1, ease: "power3.out",
+          scrollTrigger: { trigger: sectionRef.current, start: "top 85%", once: true },
+        }
+      );
+
+      // Heading fades up
+      gsap.fromTo(
+        headingRef.current,
+        { y: 40, opacity: 0 },
+        {
+          y: 0, opacity: 1, duration: 0.8, ease: "power3.out",
+          scrollTrigger: { trigger: headingRef.current, start: "top 85%", once: true },
+        }
+      );
+
+      // FAQ cards stagger up
+      gsap.fromTo(
+        cardAnimRefs.current,
+        { y: 50, opacity: 0 },
+        {
+          y: 0, opacity: 1, duration: 0.7, ease: "power3.out", stagger: 0.12,
+          scrollTrigger: { trigger: cardAnimRefs.current[0], start: "top 85%", once: true },
+        }
+      );
+
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="max-w-[1525px] mx-auto xl:px-10 px-4 lg:my-[14vh] md:my-[10vh] my-[8vh] relative">
-      <img src="/new-home/faq-vector.webp" alt="vector" className="absolute right-[-16%] top-[-50vh] z-0"/>
+    <section
+      ref={sectionRef}
+      className="max-w-[1525px] mx-auto xl:px-10 px-4 lg:my-[14vh] md:my-[10vh] my-[8vh] relative"
+    >
+      <img
+        ref={vectorRef}
+        src="/new-home/faq-vector.webp"
+        alt="vector"
+        style={{ willChange: "transform, opacity" }}
+        className="absolute right-[-16%] top-[-50vh] z-0"
+      />
       <div>
         <div>
-          <h2 className="font-bricolage font-bold 2xl:text-[48px] xl:text-[42px] lg:text-[38px] text-[34px] leading-[123%] tracking-[-0.01em] text-center text-white capitalize relative z-30">
+          <h2
+            ref={headingRef}
+            style={{ willChange: "transform, opacity" }}
+            className="font-bricolage font-bold 2xl:text-[48px] xl:text-[42px] lg:text-[38px] text-[34px] leading-[123%] tracking-[-0.01em] text-center text-white capitalize relative z-30"
+          >
             Frequently Asked Questions
           </h2>
         </div>
 
         <div className="flex flex-col md:gap-5 gap-3 mt-12">
-          {faqData.map((item: FaqItem) => (
+          {faqData.map((item: FaqItem, index: number) => (
             <FaqCard
               key={item.id}
               item={item}
               isOpen={openId === item.id}
               onToggle={() => handleToggle(item.id)}
+              animRef={(el) => { cardAnimRefs.current[index] = el; }}
             />
           ))}
         </div>

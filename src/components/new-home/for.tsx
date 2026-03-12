@@ -2,6 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface CardData {
   id: string;
@@ -16,6 +19,7 @@ interface ForCardProps {
   isMobile: boolean;
   activeCardRef: React.MutableRefObject<string | null>;
   onActivate: (id: string, reset: () => void) => void;
+  animRef: (el: HTMLDivElement | null) => void;
 }
 
 const cardData: CardData[] = [
@@ -80,6 +84,7 @@ const ForCard: React.FC<ForCardProps> = ({
   isMobile,
   activeCardRef,
   onActivate,
+  animRef,
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const imgRef = useRef<HTMLImageElement>(null);
@@ -90,7 +95,6 @@ const ForCard: React.FC<ForCardProps> = ({
   const restMargin = isMobile ? "0px" : isXl ? "-13.5vh" : "-12.5vh";
   const marginTop = isFirst ? firstMargin : restMargin;
 
-  // Reusable reset function — can be called externally to un-stick this card
   const resetCard = (): void => {
     const card = cardRef.current;
     const img = imgRef.current;
@@ -121,10 +125,7 @@ const ForCard: React.FC<ForCardProps> = ({
     gsap.set(img, { opacity: 0, scale: 0.88, x: 10 });
 
     const onEnter = (): void => {
-      // Force-reset the previously active card before activating this one.
-      // This handles the case where mouseleave was swallowed by the overlapping area.
       onActivate(id, resetCard);
-
       gsap.killTweensOf([img, num, txt]);
       gsap.set(card, { zIndex: 50 });
       gsap.to(img, { opacity: 1, scale: 1, x: 0, duration: 0.55, ease: "power3.out" });
@@ -133,7 +134,6 @@ const ForCard: React.FC<ForCardProps> = ({
     };
 
     const onLeave = (): void => {
-      // Only reset if this card is still the active one
       if (activeCardRef.current === id) {
         activeCardRef.current = null;
       }
@@ -153,7 +153,11 @@ const ForCard: React.FC<ForCardProps> = ({
   // ─── MOBILE LAYOUT ───────────────────────────────────────────────────────────
   if (isMobile) {
     return (
-      <div className="flex items-start gap-4 py-5 for-border relative">
+      <div
+        ref={(el) => { animRef(el); }}
+        style={{ willChange: "transform, opacity" }}
+        className="flex items-start gap-4 py-5 for-border relative"
+      >
         <div className="flex flex-col gap-1 flex-1 min-w-0">
           <span className="font-sora font-extrabold text-[22px] text-white leading-none">
             {id}
@@ -174,9 +178,12 @@ const ForCard: React.FC<ForCardProps> = ({
   // ─── DESKTOP / TABLET LAYOUT ─────────────────────────────────────────────────
   return (
     <div
-      ref={cardRef}
+      ref={(el) => {
+        (cardRef as React.MutableRefObject<HTMLDivElement | null>).current = el;
+        animRef(el);
+      }}
+      style={{ marginTop, zIndex: 1, willChange: "transform, opacity" }}
       className="flex md:flex-row flex-col justify-between items-center relative cursor-pointer xl:h-[303px] h-[280px]"
-      style={{ marginTop, zIndex: 1 }}
     >
       <h3
         ref={numRef}
@@ -213,12 +220,14 @@ const ForCard: React.FC<ForCardProps> = ({
 const For: React.FC = () => {
   const { isXl, isMobile } = useBreakpoints();
 
-  // Shared ref to track which card is currently active + its reset fn
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const headingRef = useRef<HTMLHeadingElement | null>(null);
+  const cardAnimRefs = useRef<(HTMLDivElement | null)[]>([]);
+
   const activeCardRef = useRef<string | null>(null);
   const resetFnRef = useRef<(() => void) | null>(null);
 
   const handleActivate = (id: string, resetFn: () => void): void => {
-    // If a different card was previously active, force-reset it immediately
     if (activeCardRef.current !== null && activeCardRef.current !== id) {
       resetFnRef.current?.();
     }
@@ -226,11 +235,47 @@ const For: React.FC = () => {
     resetFnRef.current = resetFn;
   };
 
+  // 🎬 Scroll-triggered entry animations
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+
+      // Heading fades up
+      gsap.fromTo(
+        headingRef.current,
+        { y: 40, opacity: 0 },
+        {
+          y: 0, opacity: 1, duration: 0.8, ease: "power3.out",
+          scrollTrigger: { trigger: headingRef.current, start: "top 85%", once: true },
+        }
+      );
+
+      // Cards stagger up one by one
+      gsap.fromTo(
+        cardAnimRefs.current,
+        { y: 50, opacity: 0 },
+        {
+          y: 0, opacity: 1, duration: 0.7, ease: "power3.out", stagger: 0.1,
+          scrollTrigger: { trigger: cardAnimRefs.current[0], start: "top 85%", once: true },
+        }
+      );
+
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="max-w-[1370px] mx-auto xl:px-10 px-4 lg:mt-[14vh] lg:my-[8vh] md:mt-[10vh] my-[6vh]">
+    <section
+      ref={sectionRef}
+      className="max-w-[1370px] mx-auto xl:px-10 px-4 lg:mt-[14vh] lg:my-[8vh] md:mt-[10vh] my-[6vh]"
+    >
       <div>
         <div className="relative z-20">
-          <h2 className="flex flex-col justify-center item-center font-bricolage font-bold 2xl:text-[48px] xl:text-[42px] lg:text-[38px] text-[34px] leading-[123%] tracking-[-0.01em] text-center text-white capitalize">
+          <h2
+            ref={headingRef}
+            style={{ willChange: "transform, opacity" }}
+            className="flex flex-col justify-center item-center font-bricolage font-bold 2xl:text-[48px] xl:text-[42px] lg:text-[38px] text-[34px] leading-[123%] tracking-[-0.01em] text-center text-white capitalize"
+          >
             Who This Is For{" "}
             <span className="font-tartuffo font-thin tracking-0">
               This is for you if:
@@ -249,6 +294,7 @@ const For: React.FC = () => {
               isMobile={isMobile}
               activeCardRef={activeCardRef}
               onActivate={handleActivate}
+              animRef={(el) => { cardAnimRefs.current[index] = el; }}
             />
           ))}
         </div>

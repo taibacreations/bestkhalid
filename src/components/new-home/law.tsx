@@ -9,11 +9,13 @@ gsap.registerPlugin(ScrollTrigger);
 const Law = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const heading1Ref = useRef<HTMLHeadingElement>(null);
+  const subtitleRef = useRef<HTMLParagraphElement>(null);
+  const subheadingRef = useRef<HTMLHeadingElement>(null);
+  const row1Ref = useRef<(HTMLDivElement | null)[]>([]);
+  const row2Ref = useRef<(HTMLDivElement | null)[]>([]);
+  const footerTextRef = useRef<HTMLParagraphElement>(null);
 
-  const splitLetters = (
-    text: string,
-    startWhite: boolean = false
-  ) =>
+  const splitLetters = (text: string, startWhite: boolean = false) =>
     text.split("").map((char, i) =>
       char === " " ? (
         <span key={i} className="inline-block" style={{ marginRight: "0.25em" }} />
@@ -35,6 +37,8 @@ const Law = () => {
     const letters = el.querySelectorAll<HTMLSpanElement>(".letter");
 
     const ctx = gsap.context(() => {
+
+      // 🔡 Letter-by-letter color reveal (unchanged)
       gsap.fromTo(
         letters,
         { color: "rgba(255,255,255,0.15)" },
@@ -50,6 +54,78 @@ const Law = () => {
           },
         }
       );
+
+      // 📝 Subtitle & subheading fade up
+      gsap.fromTo(
+        [subtitleRef.current, subheadingRef.current],
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: "power3.out",
+          stagger: 0.15,
+          scrollTrigger: {
+            trigger: subtitleRef.current,
+            start: "top 85%",
+            once: true,
+          },
+        }
+      );
+
+      // 🃏 Row 1 cards slide up with stagger
+      gsap.fromTo(
+        row1Ref.current,
+        { y: 60, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.7,
+          ease: "power3.out",
+          stagger: 0.12,
+          scrollTrigger: {
+            trigger: row1Ref.current[0],
+            start: "top 85%",
+            once: true,
+          },
+        }
+      );
+
+      // 🃏 Row 2 cards slide up with stagger
+      gsap.fromTo(
+        row2Ref.current,
+        { y: 60, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.7,
+          ease: "power3.out",
+          stagger: 0.12,
+          scrollTrigger: {
+            trigger: row2Ref.current[0],
+            start: "top 85%",
+            once: true,
+          },
+        }
+      );
+
+      // 📌 Footer text fades up
+      gsap.fromTo(
+        footerTextRef.current,
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.9,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: footerTextRef.current,
+            start: "top 90%",
+            once: true,
+          },
+        }
+      );
+
     }, sectionRef);
 
     return () => ctx.revert();
@@ -71,20 +147,33 @@ const Law = () => {
             {splitLetters("Website Costing You Cases?")}
           </h2>
 
-          <p className="font-bricolage font-normal 2xl:text-[18px] text-[16px] leading-[142%] tracking-[-0.01em] capitalize text-white text-center my-[2vh]">
+          <p
+            ref={subtitleRef}
+            style={{ willChange: "transform, opacity" }}
+            className="font-bricolage font-normal 2xl:text-[18px] text-[16px] leading-[142%] tracking-[-0.01em] capitalize text-white text-center my-[2vh]"
+          >
             Nobody calls to tell you your website lost them. They just quietly
             hire the firm down the road whose website made them feel more
             confident.
           </p>
 
-          <h2 className="font-tartuffo font-normal 2xl:text-[44px] xl:text-[38px] lg:text-[36px] text-[32px] leading-[142%] capitalize text-white text-center">
+          <h2
+            ref={subheadingRef}
+            style={{ willChange: "transform, opacity" }}
+            className="font-tartuffo font-normal 2xl:text-[44px] xl:text-[38px] lg:text-[36px] text-[32px] leading-[142%] capitalize text-white text-center"
+          >
             Most law firm websites:
           </h2>
         </div>
 
         <div className="mt-[3vh]">
+          {/* Row 1 */}
           <div className="flex lg:flex-nowrap md:flex-wrap md:flex-row flex-col lg:justify-between justify-center md:gap-[20px] lg:gap-0 gap-[20px] items-center">
-            <div className="2xl:w-[460px] xl:w-[410px] lg:w-[320px] md:w-[48%] w-[100%] xl:h-[207px] bg-[url(/new-home/law.webp)] 2xl:bg-cover bg-contain bg-no-repeat bg-center xl:pt-[3vh] py-[3vh] md:px-[2.8vw] px-[20px] law-box">
+            <div
+              ref={(el) => { row1Ref.current[0] = el; }}
+              style={{ willChange: "transform, opacity" }}
+              className="2xl:w-[460px] xl:w-[410px] lg:w-[320px] md:w-[48%] w-[100%] xl:h-[207px] bg-[url(/new-home/law.webp)] 2xl:bg-cover bg-contain bg-no-repeat bg-center xl:pt-[3vh] py-[3vh] md:px-[2.8vw] px-[20px] law-box"
+            >
               <img src="/new-home/law1.webp" alt="icon" className="xl:w-auto w-[35px]" />
               <h4 className="font-bricolage font-bold xl:text-[20px] text-[16px] leading-[142%] capitalize text-white my-[1.3vh]">
                 Look Outdated or Generic
@@ -93,7 +182,11 @@ const Law = () => {
                 which, in a trust-based profession, is a big problem dressed up as a small one
               </p>
             </div>
-            <div className="2xl:w-[460px] xl:w-[410px] lg:w-[320px] md:w-[48%] w-[100%] xl:h-[207px] bg-[url(/new-home/law.webp)] 2xl:bg-cover md:bg-contain bg-[length:100%_100%] bg-no-repeat bg-center xl:pt-[3vh] py-[3vh] md:px-[2.8vw] px-[20px] law-box">
+            <div
+              ref={(el) => { row1Ref.current[1] = el; }}
+              style={{ willChange: "transform, opacity" }}
+              className="2xl:w-[460px] xl:w-[410px] lg:w-[320px] md:w-[48%] w-[100%] xl:h-[207px] bg-[url(/new-home/law.webp)] 2xl:bg-cover md:bg-contain bg-[length:100%_100%] bg-no-repeat bg-center xl:pt-[3vh] py-[3vh] md:px-[2.8vw] px-[20px] law-box"
+            >
               <img src="/new-home/law2.webp" alt="icon" className="xl:w-auto w-[35px]" />
               <h4 className="font-bricolage font-bold xl:text-[20px] text-[16px] leading-[142%] capitalize text-white my-[1.3vh]">
                 Have no real consultation funnel
@@ -102,7 +195,11 @@ const Law = () => {
                 a buried contact form is not a strategy
               </p>
             </div>
-            <div className="2xl:w-[460px] xl:w-[410px] lg:w-[320px] md:w-[48%] w-[100%] xl:h-[207px] bg-[url(/new-home/law.webp)] 2xl:bg-cover md:bg-contain bg-[length:100%_100%] bg-no-repeat bg-center xl:pt-[3vh] py-[3vh] md:px-[2.8vw] px-[20px] law-box lg:mt-0 md:mt-[-1.5vh]">
+            <div
+              ref={(el) => { row1Ref.current[2] = el; }}
+              style={{ willChange: "transform, opacity" }}
+              className="2xl:w-[460px] xl:w-[410px] lg:w-[320px] md:w-[48%] w-[100%] xl:h-[207px] bg-[url(/new-home/law.webp)] 2xl:bg-cover md:bg-contain bg-[length:100%_100%] bg-no-repeat bg-center xl:pt-[3vh] py-[3vh] md:px-[2.8vw] px-[20px] law-box lg:mt-0 md:mt-[-1.5vh]"
+            >
               <img src="/new-home/law3.webp" alt="icon" className="xl:w-auto w-[35px]" />
               <h4 className="font-bricolage font-bold xl:text-[20px] text-[16px] leading-[142%] capitalize text-white my-[1.3vh]">
                 Don't rank for high-intent legal keywords
@@ -113,8 +210,13 @@ const Law = () => {
             </div>
           </div>
 
+          {/* Row 2 */}
           <div className="flex lg:flex-nowrap md:flex-wrap md:flex-row flex-col lg:justify-between justify-center gap-[20px] lg:gap-0 mt-[20px] items-center xl:mt-[3vh] lg:mt-0 md:mt-[1.5vh]">
-            <div className="2xl:w-[460px] xl:w-[410px] lg:w-[320px] md:w-[48%] w-[100%] xl:h-[207px] bg-[url(/new-home/law.webp)] 2xl:bg-cover md:bg-contain bg-[length:100%_100%] bg-no-repeat bg-center xl:pt-[3vh] py-[3vh] md:px-[2.8vw] px-[20px] pr-[5vw] law-box">
+            <div
+              ref={(el) => { row2Ref.current[0] = el; }}
+              style={{ willChange: "transform, opacity" }}
+              className="2xl:w-[460px] xl:w-[410px] lg:w-[320px] md:w-[48%] w-[100%] xl:h-[207px] bg-[url(/new-home/law.webp)] 2xl:bg-cover md:bg-contain bg-[length:100%_100%] bg-no-repeat bg-center xl:pt-[3vh] py-[3vh] md:px-[2.8vw] px-[20px] pr-[5vw] law-box"
+            >
               <img src="/new-home/law4.webp" alt="icon" className="xl:w-auto w-[35px]" />
               <h4 className="font-bricolage font-bold xl:text-[20px] text-[16px] leading-[142%] capitalize text-white my-[1.3vh]">
                 Have no real consultation funnel
@@ -123,7 +225,11 @@ const Law = () => {
                 a buried contact form is not a strategy
               </p>
             </div>
-            <div className="2xl:w-[460px] xl:w-[410px] lg:w-[320px] md:w-[48%] w-[100%] xl:h-[207px] bg-[url(/new-home/law.webp)] 2xl:bg-cover md:bg-contain bg-[length:100%_100%] bg-no-repeat bg-center xl:pt-[3vh] py-[3vh] md:px-[2.8vw] px-[20px] law-box">
+            <div
+              ref={(el) => { row2Ref.current[1] = el; }}
+              style={{ willChange: "transform, opacity" }}
+              className="2xl:w-[460px] xl:w-[410px] lg:w-[320px] md:w-[48%] w-[100%] xl:h-[207px] bg-[url(/new-home/law.webp)] 2xl:bg-cover md:bg-contain bg-[length:100%_100%] bg-no-repeat bg-center xl:pt-[3vh] py-[3vh] md:px-[2.8vw] px-[20px] law-box"
+            >
               <img src="/new-home/law5.webp" alt="icon" className="xl:w-auto w-[35px]" />
               <h4 className="font-bricolage font-bold xl:text-[20px] text-[16px] leading-[142%] capitalize text-white my-[1.3vh]">
                 Load slowly on mobile
@@ -132,7 +238,11 @@ const Law = () => {
                 as over 60% of legal searches happen on a phone
               </p>
             </div>
-            <div className="2xl:w-[460px] xl:w-[410px] lg:w-[320px] md:w-[48%] w-[100%] xl:h-[207px] bg-[url(/new-home/law.webp)] 2xl:bg-cover md:bg-contain bg-[length:100%_100%] bg-no-repeat bg-center xl:pt-[3vh] py-[3vh] md:px-[2.8vw] px-[20px] law-box">
+            <div
+              ref={(el) => { row2Ref.current[2] = el; }}
+              style={{ willChange: "transform, opacity" }}
+              className="2xl:w-[460px] xl:w-[410px] lg:w-[320px] md:w-[48%] w-[100%] xl:h-[207px] bg-[url(/new-home/law.webp)] 2xl:bg-cover md:bg-contain bg-[length:100%_100%] bg-no-repeat bg-center xl:pt-[3vh] py-[3vh] md:px-[2.8vw] px-[20px] law-box"
+            >
               <img src="/new-home/law6.webp" alt="icon" className="xl:w-auto w-[35px]" />
               <h4 className="font-bricolage font-bold xl:text-[20px] text-[16px] leading-[142%] capitalize text-white my-[1.3vh]">
                 Build zero immediate credibility
@@ -144,7 +254,11 @@ const Law = () => {
           </div>
         </div>
 
-        <p className="xl:text-[20px] lg:text-[18px] text-[16px] leading-[32.5px] text-center text-[#FFFFFFE5] font-semibold font-inter lg:w-[890px] md:w-[80%] w-full mx-auto md:mt-[7.8vh] mt-[5vh]">
+        <p
+          ref={footerTextRef}
+          style={{ willChange: "transform, opacity" }}
+          className="xl:text-[20px] lg:text-[18px] text-[16px] leading-[32.5px] text-center text-[#FFFFFFE5] font-semibold font-inter lg:w-[890px] md:w-[80%] w-full mx-auto md:mt-[7.8vh] mt-[5vh]"
+        >
           Potential clients compare multiple firms quickly. If your website
           doesn't project authority instantly, they move on.
         </p>

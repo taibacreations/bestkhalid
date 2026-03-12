@@ -8,6 +8,48 @@ const Hero = () => {
   const ctaBgLayersRef = useRef<(HTMLDivElement | null)[]>([]);
   const socialBgLayersRef = useRef<(HTMLDivElement | null)[]>([]);
 
+  // Refs for entry animations
+  const contentRef = useRef<HTMLDivElement | null>(null);
+  const imageRef = useRef<HTMLImageElement | null>(null);
+  const floatingCtaRef = useRef<HTMLDivElement | null>(null);
+
+  // 🎬 Entry animations: content from left, image + CTA from right
+  useEffect(() => {
+    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+    if (contentRef.current) {
+      tl.fromTo(
+        contentRef.current,
+        { x: "-100px", opacity: 0 },
+        { x: "0px", opacity: 1, duration: 2 },
+        0,
+      );
+    }
+
+    if (imageRef.current) {
+      tl.fromTo(
+        imageRef.current,
+        { x: "140px", opacity: 0 },
+        { x: "0px", opacity: 1, duration: 2.1 },
+        0.15,
+      );
+    }
+
+    if (floatingCtaRef.current) {
+      tl.fromTo(
+        floatingCtaRef.current,
+        { x: "100px", opacity: 0 },
+        { x: "0px", opacity: 1, duration: 1.9 },
+        0.35,
+      );
+    }
+
+    return () => {
+      tl.kill();
+    };
+  }, []);
+
+  // 🔁 Button & social pill background animations
   useEffect(() => {
     const conImages = [
       "/new-home/cons-1.webp",
@@ -24,7 +66,6 @@ const Hero = () => {
       "/icon-5.webp",
     ];
 
-    // Preload all images
     [...conImages, ...icoImages].forEach((src) => {
       const img = new window.Image();
       img.src = src;
@@ -78,7 +119,13 @@ const Hero = () => {
     <section className="relative h-[109vh] overflow-hidden">
       <div className="bg-[url(/new-home/banner.webp)] bg-cover bg-center w-full h-full z-10 absolute" />
       <div className="relative z-20 max-w-[1525px] mx-auto xl:px-10 px-4 flex md:mt-[17.5vh] mt-[2vh]">
-        <div className="2xl:max-w-[635px] xl:max-w-[570px] lg:max-w-[430px] md:max-w-[330px] w-full mt-[10.5vh]">
+
+        {/* ← Content slides in from left */}
+        <div
+          ref={contentRef}
+          style={{ willChange: "transform, opacity" }}
+          className="2xl:max-w-[635px] xl:max-w-[570px] lg:max-w-[430px] md:max-w-[330px] w-full mt-[10.5vh]"
+        >
           <h3 className="font-bricolage font-normal 2xl:text-[30px] xl:text-[27px] lg:text-[20px] md:text-[16px] text-[14px] leading-[142%] capitalize text-white">
             Lead Capturing Law Firm Website Design.
           </h3>
@@ -129,7 +176,6 @@ const Hero = () => {
             <div className="xl:w-5 xl:h-5 w-4 h-4 rounded-full button-shadow bg-[#003459]" />
             <div className="2xl:w-[98px] xl:w-[90px] lg:w-[60px] w-[70px] border border-dashed border-white h-px" />
             <div className="relative 2xl:w-[201px] xl:w-[160px] lg:w-[150px] w-[140px] md:h-[51px] h-[40px] rounded-full">
-              {/* Animated background layers */}
               {Array.from({ length: 5 }).map((_, i) => (
                 <div
                   key={`icon-${i}`}
@@ -141,32 +187,16 @@ const Hero = () => {
                 />
               ))}
               <div className="relative z-10 flex items-center justify-center gap-4 rounded-full 2xl:mt-[1.5vh] md:mt-[1.8vh] mt-[1.3vh]">
-                <Link
-                  href="https://www.linkedin.com/in/bestkhalid/"
-                  target="_blank"
-                  className="hover:scale-125 hover:-translate-y-1 transition-all duration-300"
-                >
+                <Link href="https://www.linkedin.com/in/bestkhalid/" target="_blank" className="hover:scale-125 hover:-translate-y-1 transition-all duration-300">
                   <Image src="/linkedin.webp" width={100} height={100} alt="linkedin" className="2xl:w-[19.77px] lg:w-[16px] w-[14px]" />
                 </Link>
-                <Link
-                  href="https://www.facebook.com/bestkhalid"
-                  target="_blank"
-                  className="hover:scale-125 hover:-translate-y-1 transition-all duration-300"
-                >
+                <Link href="https://www.facebook.com/bestkhalid" target="_blank" className="hover:scale-125 hover:-translate-y-1 transition-all duration-300">
                   <Image src="/facebook.webp" width={100} height={100} alt="facebook" className="2xl:w-[19.77px] lg:w-[16px] w-[14px]" />
                 </Link>
-                <Link
-                  href="https://www.instagram.com/bestkhalidm/"
-                  target="_blank"
-                  className="hover:scale-125 hover:-translate-y-1 transition-all duration-300"
-                >
+                <Link href="https://www.instagram.com/bestkhalidm/" target="_blank" className="hover:scale-125 hover:-translate-y-1 transition-all duration-300">
                   <Image src="/inst.webp" width={100} height={100} alt="insta" className="2xl:w-[19.77px] lg:w-[16px] w-[14px]" />
                 </Link>
-                <Link
-                  href="https://twitter.com/bestkhalid"
-                  target="_blank"
-                  className="hover:scale-125 hover:-translate-y-1 transition-all duration-300"
-                >
+                <Link href="https://twitter.com/bestkhalid" target="_blank" className="hover:scale-125 hover:-translate-y-1 transition-all duration-300">
                   <Image src="/twitter.webp" width={100} height={100} alt="twitter" className="2xl:w-[19.77px] lg:w-[16px] w-[14px]" />
                 </Link>
               </div>
@@ -174,14 +204,20 @@ const Hero = () => {
           </div>
         </div>
 
+        {/* → Image & floating CTA slide in from right */}
         <div>
           <img
+            ref={imageRef}
             src="/new-home/banner-lap.webp"
             alt="Banner Image"
+            style={{ willChange: "transform, opacity" }}
             className="2xl:w-[861px] xl:w-[720px] lg:w-[550px] md:w-[400px] w-full lg:h-auto md:h-full h-auto absolute md:top-0 top-[58vh] 2xl:right-[-4%] md:right-0 left-[50%] -translate-x-1/2 md:left-auto md:translate-x-0"
           />
-          {/* Floating CTA */}
-          <div className="absolute md:bottom-[0.5%] md:top-auto top-[90vh] md:right-[9%] left-[50%] -translate-x-1/2 md:left-auto md:translate-x-0">
+          <div
+            ref={floatingCtaRef}
+            style={{ willChange: "transform, opacity" }}
+            className="absolute md:bottom-[0.5%] md:top-auto top-[90vh] md:right-[9%] left-[50%] -translate-x-1/2 md:left-auto md:translate-x-0"
+          >
             <Link
               href="/portfolio"
               className="bg-[url(/new-home/hero-text-bg.webp)] bg-cover bg-center text-white rounded-[334px] 2xl:w-[443px] lg:w-[380px] md:w-[300px] w-[250px] lg:px-0 2xl:h-[59px] md:h-[50px] h-[40px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold healthcare text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize"
