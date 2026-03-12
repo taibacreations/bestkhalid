@@ -1,7 +1,55 @@
+"use client";
 import Link from "next/link";
 import "@stianlarsen/border-beam/css";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
 
 const Approach = () => {
+  const ctaBgLayersRef = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const conImages = [
+      "/cons-1.webp",
+      "/cons-2.webp",
+      "/cons-3.webp",
+      "/cons-4.webp",
+      "/cons-5.webp",
+    ];
+
+    conImages.forEach((src) => {
+      const img = new window.Image();
+      img.src = src;
+    });
+
+    let ctaTl: gsap.core.Timeline | null = null;
+
+    const timer = setTimeout(() => {
+      const layers = ctaBgLayersRef.current;
+      if (layers.length !== conImages.length) return;
+
+      gsap.set(layers, { autoAlpha: 0 });
+      gsap.set(layers[0], { autoAlpha: 1 });
+
+      const duration = 0.8;
+      const hold = 0.5;
+
+      ctaTl = gsap.timeline({ repeat: -1 });
+
+      layers.forEach((_, i) => {
+        const next = (i + 1) % layers.length;
+        ctaTl!
+          .to(layers[i], { autoAlpha: 0, duration }, `+=${hold}`)
+          .to(layers[next], { autoAlpha: 1, duration }, `-=${duration}`);
+      });
+    }, 100);
+
+    return () => {
+      clearTimeout(timer);
+      ctaTl?.kill();
+      gsap.killTweensOf(ctaBgLayersRef.current);
+    };
+  }, []);
+
   return (
     <section className="max-w-[1505px] mx-auto xl:px-10 px-4 relative my-[12vh]">
       <img
@@ -70,11 +118,29 @@ const Approach = () => {
             </h4>
           </div>
         </div>
+
+        {/* ✅ Animated CTA Button */}
         <div className="flex justify-center mt-[2vh]">
-          <Link href={"/contact"} className="font-bricolage font-bold 2xl:text-[22px] xl:text-[20px] lg:text-[18px] text-[15px] leading-[100%] tracking-[-0.07em] capitalize bg-[#003459] button-shadow 2xl:w-[405px] 2xl:h-[59px] xl:w-[360px] lg:w-[320px] w-[250px] md:h-[50px] h-[40px] rounded-full my-[2vh] flex justify-center items-center gap-2">
-            <img src="/button-arrow.webp" alt="arrow" />
-            Book your Free Strategy Call
-          </Link>
+          <div className="relative my-[2vh]">
+            {/* Animated background layers */}
+            {Array.from({ length: 5 }).map((_, i) => (
+              <div
+                key={`cta-${i}`}
+                ref={(el) => {
+                  ctaBgLayersRef.current[i] = el;
+                }}
+                className="absolute inset-0 rounded-full bg-contain bg-no-repeat bg-center z-0 2xl:w-[405px] xl:w-[360px] lg:w-[320px] w-[250px] 2xl:h-[59px] md:h-[50px] h-[40px]"
+                style={{ backgroundImage: `url(/cons-${i + 1}.webp)` }}
+              />
+            ))}
+            <Link
+              href="/contact"
+              className="relative bg-transparent text-white font-bricolage font-bold 2xl:text-[22px] xl:text-[20px] lg:text-[18px] text-[15px] leading-[100%] tracking-[-0.07em] capitalize 2xl:w-[405px] xl:w-[360px] lg:w-[320px] w-[250px] 2xl:h-[59px] md:h-[50px] h-[40px] rounded-full flex justify-center items-center gap-2 z-10 border-0"
+            >
+              <img src="/button-arrow.webp" alt="arrow" className="w-[12px] md:w-[14px] lg:w-[15px] h-auto" />
+              Book your Free Strategy Call
+            </Link>
+          </div>
         </div>
       </div>
     </section>
