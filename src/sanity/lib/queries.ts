@@ -126,3 +126,44 @@ export const testimonialsQuery = groq`
     rating
   }
 `;
+
+
+export const blogsQuery = groq`
+  *[_type == "blog"] | order(publishedAt desc) {
+    _id,
+    title,
+    "slug": slug.current,
+    excerpt,
+    "mainImage": mainImage.asset->url,
+    "category": category->title,
+    "color": category->color,
+    publishedAt
+  }
+`
+
+// Single blog by slug
+export const blogBySlugQuery = groq`
+  *[_type == "blog" && slug.current == $slug][0] {
+    _id,
+    title,
+    "slug": slug.current,
+    excerpt,
+    "mainImage": mainImage.asset->url,
+    "category": category->title,
+    "color": category->color,
+    content,
+    publishedAt,
+    seo{
+      metaTitle,
+      metaDescription,
+      keywords,
+      canonicalUrl,
+      noIndex,
+      openGraph{
+        ogTitle,
+        ogDescription,
+        ogImage
+      }
+    }
+  }
+`

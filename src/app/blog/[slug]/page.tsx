@@ -1,6 +1,7 @@
 import SingleBlogPage from "@/components/singleblog";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
+import { blogBySlugQuery } from "@/sanity/lib/queries"; // ✅ import the query
 import { Metadata } from "next";
 import Script from "next/script";
 
@@ -10,77 +11,38 @@ type PageProps = {
   };
 };
 
-/* ---------------------------------
-   SEO (Single Blog)
----------------------------------- */
-export async function generateMetadata(
-  { params }: PageProps
-): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const slug = params?.slug;
 
-  // 🛑 Safety check (important)
-  if (!slug) {
-    return {
-      title: "Blog",
-    };
-  }
+  if (!slug) return { title: "Blog" };
 
-  const data = await client.fetch(
-    `
-    *[_type == "blog" && slug.current == $slug][0]{
-      title,
-      excerpt,
-      seo{
-        metaTitle,
-        metaDescription,
-        keywords,
-        canonicalUrl,
-        noIndex,
-        openGraph{
-          ogTitle,
-          ogDescription,
-          ogImage
-        }
-      }
-    }
-  `,
-    { slug },
-    { next: { revalidate: 0 } }
-  );
+  const data = await client.fetch(blogBySlugQuery, { slug }, { next: { revalidate: 0 } });
 
   const seo = data?.seo;
 
   return {
-    title: seo?.metaTitle || data?.title,
-    description: seo?.metaDescription || data?.excerpt,
-    keywords: seo?.keywords,
+    title: seo?.metaTitle || data?.title || "Blog",
+    description: seo?.metaDescription || data?.excerpt || null,
+    keywords: seo?.keywords || null,
     robots: seo?.noIndex ? "noindex,nofollow" : "index,follow",
     alternates: {
-      canonical: seo?.canonicalUrl,
+      canonical: seo?.canonicalUrl || null,
     },
     openGraph: {
-      title:
-        seo?.openGraph?.ogTitle ||
-        seo?.metaTitle ||
-        data?.title,
-      description:
-        seo?.openGraph?.ogDescription ||
-        seo?.metaDescription ||
-        data?.excerpt,
+      title: seo?.openGraph?.ogTitle || seo?.metaTitle || data?.title,
+      description: seo?.openGraph?.ogDescription || seo?.metaDescription || data?.excerpt,
       images: seo?.openGraph?.ogImage
         ? [{ url: urlFor(seo.openGraph.ogImage).url() }]
+        : data?.mainImage          // ✅ fallback to the blog's mainImage if no OG image set
+        ? [{ url: data.mainImage }]
         : [],
     },
   };
 }
 
-/* ---------------------------------
-   Blog Page UI
----------------------------------- */
 const SingleBlog = () => {
   return (
     <>
-      {/* Google Analytics (gtag.js) - Immediately after <head> */}
       <Script
         strategy="afterInteractive"
         src="https://www.googletagmanager.com/gtag/js?id=G-4NDX1ZTJFY"
