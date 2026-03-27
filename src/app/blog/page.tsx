@@ -4,9 +4,6 @@ import { urlFor } from "@/sanity/lib/image";
 import { Metadata } from "next";
 import Script from "next/script";
 
-/* ---------------------------------
-   SEO (Blog Listing Page)
----------------------------------- */
 export async function generateMetadata(): Promise<Metadata> {
   const data = await client.fetch(
     `*[_type == "blogSeo"][0]{
@@ -47,13 +44,9 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-/* ---------------------------------
-   Blog Page UI
----------------------------------- */
 const Blog = () => {
   return (
     <>
-      {/* Google Analytics (gtag.js) - Immediately after <head> */}
       <Script
         strategy="afterInteractive"
         src="https://www.googletagmanager.com/gtag/js?id=G-4NDX1ZTJFY"

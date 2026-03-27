@@ -110,7 +110,7 @@ const Optimized = () => {
 
           {/* → Steps slide in from right */}
           <div className="xl:w-[590px] lg:w-[480px] md:w-[370px] w-full flex flex-col gap-8 relative xl:mt-[9.5vh] lg:mt-[7vh] mt-[5vh]">
-            <div className="border border-dashed border-white xl:w-[546px] lg:w-[500px] md:w-[460px] w-[500px] rotate-[90deg] absolute xl:top-[40%] top-[49%] 2xl:left-[-13.2vw] xl:left-[-43%] lg:left-[-49%] md:left-[-58%] md:right-auto right-[30vw] optimize-border" />
+            <div className="border border-dashed border-white xl:w-[546px] lg:w-[500px] md:w-[460px] w-[500px] rotate-[90deg] absolute 2xl:top-[40%] xl:top-[41%] top-[49%] 2xl:left-[-13.2vw] xl:left-[-43%] lg:left-[-48.5%] md:left-[-58%] md:right-auto right-[30vw] optimize-border" />
 
             {steps.map((step, i) => (
               <div
@@ -119,7 +119,7 @@ const Optimized = () => {
                 style={{ willChange: "transform, opacity" }}
                 className="flex md:gap-[.8vw] gap-3 relative"
               >
-                <div className="bg-[#0029CC] 2xl:h-[36.5px] 2xl:w-[45px] lg:h-[35px] lg:w-[40px] md:w-[40px] md:h-[30px] h-[32px] w-[50px] rounded-full flex justify-center items-center optimized-shadow font-inter font-[500] xl:text-[18px] lg:text-[16px] md:text-[14px] text-[16px] text-[#E2E8F0] lg:leading-[30.15px] shrink-0">
+                <div className="bg-[#0029CC] xl:h-[36.5px] xl:w-[36.5px] lg:h-[35px] lg:w-[35px] md:w-[30px] md:h-[30px] h-[32px] w-[32px] rounded-full flex justify-center items-center optimized-shadow font-inter font-[500] xl:text-[18px] lg:text-[16px] md:text-[14px] text-[16px] text-[#E2E8F0] lg:leading-[30.15px] shrink-0">
                   {step.num}
                 </div>
                 <div>

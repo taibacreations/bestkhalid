@@ -1,7 +1,7 @@
 import SingleBlogPage from "@/components/singleblog";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
-import { blogBySlugQuery } from "@/sanity/lib/queries"; // ✅ import the query
+import { blogBySlugQuery } from "@/sanity/lib/queries";
 import { Metadata } from "next";
 import Script from "next/script";
 
@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: seo?.openGraph?.ogDescription || seo?.metaDescription || data?.excerpt,
       images: seo?.openGraph?.ogImage
         ? [{ url: urlFor(seo.openGraph.ogImage).url() }]
-        : data?.mainImage          // ✅ fallback to the blog's mainImage if no OG image set
+        : data?.mainImage
         ? [{ url: data.mainImage }]
         : [],
     },

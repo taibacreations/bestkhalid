@@ -1,4 +1,3 @@
-// src/types/blog.ts
 export interface SanityBlog {
   _id: string;
   title: string;
@@ -9,4 +8,16 @@ export interface SanityBlog {
   color: string;
   content: any[];
   publishedAt: string;
+  seo?: {
+    metaTitle?: string;
+    metaDescription?: string;
+    keywords?: string[];
+    canonicalUrl?: string;
+    noIndex?: boolean;
+    openGraph?: {
+      ogTitle?: string;
+      ogDescription?: string;
+      ogImage?: any;
+    };
+  };
 }

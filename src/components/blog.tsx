@@ -1,9 +1,9 @@
 "use client";
 import { useEffect, useState } from "react";
 import { client } from "@/sanity/lib/client";
-import Link from "next/link";
 import { SanityBlog } from "@/types/blog";
 import BlogCard from "@/components/blogcard";
+import { blogsQuery } from "@/sanity/lib/queries"; // ✅ use shared query
 
 const BlogPage = () => {
   const [posts, setPosts] = useState<SanityBlog[]>([]);
@@ -12,18 +12,8 @@ const BlogPage = () => {
 
   useEffect(() => {
     const fetchBlogs = async () => {
-      const res: SanityBlog[] = await client.fetch(`
-        *[_type == "blog"] | order(publishedAt desc){
-          _id,
-          title,
-          excerpt,
-          "slug": slug.current,
-          "category": category->title,
-          "mainImage": mainImage.asset->url,
-          color,
-          content,
-          publishedAt
-        }`,
+      const res: SanityBlog[] = await client.fetch(
+        blogsQuery, // ✅ replaces inline query
         {},
         { next: { revalidate: 0 } }
       );
@@ -40,13 +30,11 @@ const BlogPage = () => {
         <div className="max-w-[1525px] mx-auto px-4 xl:px-10 w-full">
           <div className="2xl:max-w-[942px] xl:max-w-[880px] lg:max-w-[800px] md:max-w-[650px] max-w-full mx-auto text-center mb-12">
             <h3 className="font-bricolage font-bold 2xl:text-[48px] xl:text-[42px] lg:text-[38px] md:text-[32px] text-[30px] tracking-[-0.03em] leading-[142%] capitalize text-white">
-              Projects
+              Blog
             </h3>
             <p className="xl:mt-5 mt-3 font-bricolage font-normal xl:text-[18px] text-[16px] tracking-[-0.01em] capitalize leading-[142%] text-white">
-              Among the thousands of completed website projects, the ones below
-              are a few of my favorites. Web Design is always evolving, and it’s
-              been fascinating to see how my work has changed and grown over the
-              years.
+              Thoughts, case studies & deep dives into design, performance &
+              systems.
             </p>
           </div>
 
@@ -109,18 +97,4 @@ const BlogPage = () => {
   );
 };
 
-
-
-if (typeof document !== "undefined") {
-  const style = document.createElement("style");
-  style.textContent = `
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  `;
-  document.head.appendChild(style);
-}
-
-
-export default BlogPage
+export default BlogPage;

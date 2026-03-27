@@ -791,7 +791,8 @@ a {
 
   @media screen and (max-width: 400px) {
     .optimize-border {
-      right: 21.5vw !important;
+      right: 20.5vw !important;
+      top: 43% !important;
     }
     .design-beam-1 {
       margin-bottom: 51.3vh !important;
@@ -802,7 +803,7 @@ a {
   }
   @media screen and (max-width: 350px) {
     .optimize-border {
-      right: 1vw !important;
+      right: -1vw !important;
       width: 550px !important;
     }
     .design-beam-1 {
