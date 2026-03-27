@@ -4,7 +4,7 @@ import { client } from "@/sanity/lib/client";
 import { useParams } from "next/navigation";
 import { SanityBlog } from "@/types/blog";
 import { PortableText, PortableTextComponents } from "@portabletext/react";
-
+import { blogBySlugQuery } from "@/sanity/lib/queries"; // ✅ import shared query
 
 const SingleBlogPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -16,19 +16,9 @@ const SingleBlogPage = () => {
 
     const fetchPost = async () => {
       const res: SanityBlog = await client.fetch(
-        `*[_type == "blog" && slug.current == $slug][0]{
-          _id,
-          title,
-          excerpt,
-          "slug": slug.current,
-          "category": category->title,
-          "mainImage": mainImage.asset->url,
-          color,
-          content,
-          publishedAt
-        }`,
+        blogBySlugQuery, //
         { slug },
-        { next: { revalidate: 0 } }
+        { next: { revalidate: 0 } },
       );
 
       setPost(res);
@@ -93,7 +83,13 @@ const SingleBlogPage = () => {
       em: ({ children }) => (
         <em className="italic text-gray-100">{children}</em>
       ),
-      link: ({ value, children }: { value?: { href?: string }; children?: React.ReactNode }) => (
+      link: ({
+        value,
+        children,
+      }: {
+        value?: { href?: string };
+        children?: React.ReactNode;
+      }) => (
         <a
           href={value?.href}
           target="_blank"
@@ -124,18 +120,26 @@ const SingleBlogPage = () => {
     return (
       <section className="min-h-screen bg-[#0A0A0A] bg-cover bg-center flex items-center justify-center">
         <div className="relative flex flex-col items-center gap-8">
-
           {/* Loading text with animation */}
           <div className="flex flex-col items-center gap-3">
             <p className="text-white text-[28px] font-bricolage font-semibold tracking-wide animate-pulse">
               Loading Blog
             </p>
-            
+
             {/* Animated dots */}
             <div className="flex gap-2">
-              <span className="w-3 h-3 bg-blue-500 rounded-full animate-bounce" style={{ animationDelay: '0s' }}></span>
-              <span className="w-3 h-3 bg-purple-500 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></span>
-              <span className="w-3 h-3 bg-blue-500 rounded-full animate-bounce" style={{ animationDelay: '0.4s' }}></span>
+              <span
+                className="w-3 h-3 bg-blue-500 rounded-full animate-bounce"
+                style={{ animationDelay: "0s" }}
+              ></span>
+              <span
+                className="w-3 h-3 bg-purple-500 rounded-full animate-bounce"
+                style={{ animationDelay: "0.2s" }}
+              ></span>
+              <span
+                className="w-3 h-3 bg-blue-500 rounded-full animate-bounce"
+                style={{ animationDelay: "0.4s" }}
+              ></span>
             </div>
           </div>
 

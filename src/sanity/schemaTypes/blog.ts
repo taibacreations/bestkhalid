@@ -12,12 +12,10 @@ export default defineType({
     defineField({ name: "category", title: "Blog Category", type: "reference", to: [{ type: "blogCategory" }], validation: (Rule) => Rule.required() }),
     defineField({ name: "content", type: "array", of: [{ type: "block" }] }),
     defineField({ name: "publishedAt", type: "datetime", initialValue: () => new Date().toISOString() }),
-
-    // ✅ NEW
     defineField({
       name: "seo",
       title: "SEO",
-      type: "seo",
+      type: "seo", // ✅ this must match the name in seo.ts exactly
     }),
   ],
 });
