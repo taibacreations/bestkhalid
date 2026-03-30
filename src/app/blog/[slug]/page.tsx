@@ -1,22 +1,41 @@
 import SingleBlogPage from "@/components/singleblog";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
-import { blogBySlugQuery } from "@/sanity/lib/queries";
 import { Metadata } from "next";
 import Script from "next/script";
 
 type PageProps = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const slug = params?.slug;
+  const { slug } = await params; // ✅ await params first
 
   if (!slug) return { title: "Blog" };
 
-  const data = await client.fetch(blogBySlugQuery, { slug }, { next: { revalidate: 0 } });
+  const data = await client.fetch(
+    `*[_type == "blog" && slug.current == $slug][0]{
+      title,
+      excerpt,
+      "mainImage": mainImage.asset->url,
+      seo{
+        metaTitle,
+        metaDescription,
+        keywords,
+        canonicalUrl,
+        noIndex,
+        openGraph{
+          ogTitle,
+          ogDescription,
+          ogImage
+        }
+      }
+    }`,
+    { slug },
+    { next: { revalidate: 0 } }
+  );
 
   const seo = data?.seo;
 
