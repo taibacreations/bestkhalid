@@ -199,7 +199,7 @@ const Testimonials = ({ sanityTestimonials }: TestimonialsProps) => {
   return (
     <section
       id="social-proof"
-      className="bg-[#171717] lg:py-16 py-10 relative overflow-hidden scroll-mt-[10vh]"
+      className="bg-[#171717] lg:py-16 py-10 relative overflow-hidden scroll-mt-[10vh] z-20"
     >
       <div className="max-w-[1390px] mx-auto px-4 xl:px-10">
         <div className="text-center max-w-[992px] mx-auto z-40 relative mb-9">

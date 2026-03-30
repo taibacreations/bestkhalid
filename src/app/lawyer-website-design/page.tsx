@@ -1,10 +1,12 @@
 import LogoMarquee from "@/components/marquee";
+// import About from "@/components/new-home/about";
 import Approach from "@/components/new-home/approach";
 import Design from "@/components/new-home/design";
 import Faq from "@/components/new-home/faq";
 import For from "@/components/new-home/for";
 import Hero from "@/components/new-home/hero";
 import Law from "@/components/new-home/law";
+import Lead from "@/components/new-home/lead";
 import Optimized from "@/components/new-home/optimized";
 import Potential from "@/components/new-home/potential";
 import Ready from "@/components/new-home/ready";
@@ -97,7 +99,9 @@ export default async function LawyerWebsiteDesign() {
         <Potential />
         <Law />
         <Approach />
+        {/* <About /> */}
         <Timeline />
+        <Lead />
         <Testimonials sanityTestimonials={testimonials} /> {/* ✅ prop passed */}
         <For />
         <Design />

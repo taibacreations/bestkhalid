@@ -34,7 +34,7 @@ const Design = () => {
             className="z-40 relative rounded-[32px] thick-beam 2xl:my-0 xl:my-[1vh] design-beam md:block hidden"
           />
           <Image
-            src="/line.png"
+            src="/line.webp"
             height={100}
             width={100}
             alt="line"

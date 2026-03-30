@@ -37,7 +37,7 @@ export default function ProcessCard() {
         className="z-40 relative rounded-[32px] my-19 lg:my-12 xl:my-2.5 2xl:my-0 hidden md:block process-card"
       />
       <Image
-        src="/line.png"
+        src="/line.webp"
         height={100}
         width={100}
         alt="line"
