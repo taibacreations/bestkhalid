@@ -1,5 +1,5 @@
 import LogoMarquee from "@/components/marquee";
-// import About from "@/components/new-home/about";
+import About from "@/components/new-home/about";
 import Approach from "@/components/new-home/approach";
 import Design from "@/components/new-home/design";
 import Faq from "@/components/new-home/faq";
@@ -99,7 +99,7 @@ export default async function LawyerWebsiteDesign() {
         <Potential />
         <Law />
         <Approach />
-        {/* <About /> */}
+        <About />
         <Timeline />
         <Lead />
         <Testimonials sanityTestimonials={testimonials} /> {/* ✅ prop passed */}
