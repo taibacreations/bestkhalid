@@ -816,6 +816,9 @@ a {
     .design-beam-3 {
       margin-top: 52vh !important;
     }
+    .about-heading {
+      max-width: 90vw !important;
+    }
   }
 
   .timeline-box {

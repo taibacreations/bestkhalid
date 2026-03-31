@@ -246,13 +246,13 @@ const About = () => {
             {/* ════════════════════════════════════
                 LEFT — Copy Column
             ════════════════════════════════════ */}
-            <div className="lg:max-w-[500px] xl:max-w-[600px] 2xl:max-w-[700px] w-full flex flex-col">
+            <div className="lg:max-w-[500px] xl:max-w-[600px] 2xl:max-w-[650px] w-full flex flex-col">
 
               {/* Heading */}
               <h2
                 ref={headingRef}
                 style={{ willChange: "transform, opacity" }}
-                className="font-bricolage font-semibold 2xl:text-[58px] xl:text-[50px] lg:text-[42px] md:text-[38px] text-[34px] md:leading-[88%] leading-[95%] tracking-[-0.07em] capitalize text-white"
+                className="font-bricolage font-semibold 2xl:text-[58px] xl:text-[50px] lg:text-[42px] md:text-[38px] text-[34px] md:leading-[88%] leading-[95%] tracking-[-0.07em] capitalize text-white 2xl:max-w-[550px] xl:max-w-[480px] lg:max-w-[400px] md:max-w-full max-w-[75vw] about-heading"
               >
                 The Person Behind{" "}
                 <span className="font-tartuffo font-thin 2xl:text-[54px] xl:text-[46px] lg:text-[38px] md:text-[34px] text-[32px] tracking-[0em]">
