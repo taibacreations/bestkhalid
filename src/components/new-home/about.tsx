@@ -220,7 +220,7 @@ const About = () => {
   }, []);
 
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative">
       {/* Ambient glow — right side */}
       <img
         src="/new-home/law-blur.webp"
@@ -231,7 +231,7 @@ const About = () => {
 
       <div
         ref={sectionRef}
-        className="max-w-[1505px] mx-auto xl:px-10 px-4 lg:mb-[10vh] lg:mt-[0vh] md:my-[10vh] my-[8vh] relative"
+        className="max-w-[1505px] mx-auto xl:px-10 px-4 lg:mb-[14.5vh] lg:mt-[0vh] md:my-[10vh] my-[8vh] relative"
       >
         {/* ─────────────────────────────────────────────────────
             TOP BADGE
