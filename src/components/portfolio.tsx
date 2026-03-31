@@ -83,9 +83,9 @@ const Portfolio = () => {
       <section className="flex justify-center items-center min-h-screen contact-bg bg-cover bg-center md:pb-[12vh] md:pt-[18vh] pb-[8vh] pt-[14vh]">
         <div className="max-w-[1525px] mx-auto px-4 xl:px-10 w-full">
           <div className="2xl:max-w-[942px] xl:max-w-[880px] lg:max-w-[800px] md:max-w-[650px] max-w-full mx-auto text-center mb-12">
-            <h3 className="font-bricolage font-bold 2xl:text-[48px] xl:text-[42px] lg:text-[38px] md:text-[32px] text-[30px] tracking-[-0.03em] leading-[142%] capitalize text-white">
+            <h1 className="font-bricolage font-bold 2xl:text-[48px] xl:text-[42px] lg:text-[38px] md:text-[32px] text-[30px] tracking-[-0.03em] leading-[142%] capitalize text-white">
               Projects
-            </h3>
+            </h1>
             <p className="xl:mt-5 mt-3 font-bricolage font-normal xl:text-[18px] text-[16px] tracking-[-0.01em] capitalize leading-[142%] text-white">
               Among the thousands of completed website projects, the ones below
               are a few of my favorites. Web Design is always evolving, and it's

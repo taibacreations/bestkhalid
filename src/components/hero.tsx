@@ -295,7 +295,7 @@ const Hero = () => {
             </h5>
 
             <div className="overflow-hidden">
-              <h2
+              <h1
                 id="hero-h2"
                 className="font-bricolage font-extrabold 2xl:text-[78px] xl:text-[58px] lg:text-[45px] md:text-[42px] leading-[100%] text-[32px] tracking-[-0.07em] uppercase text-white"
               >
@@ -303,7 +303,7 @@ const Hero = () => {
                 <span className="font-tartuffo font-thin tracking-normal capitalize 2xl:-mt-12 xl:-mt-9 lg:-mt-7 md:-mt-5 inline-block">
                   Get 10× More Leads & Sales
                 </span>
-              </h2>
+              </h1>
             </div>
 
             <p

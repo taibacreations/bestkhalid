@@ -224,7 +224,7 @@ const About = () => {
       {/* Ambient glow — right side */}
       <img
         src="/new-home/law-blur.webp"
-        alt=""
+        alt="vector glow"
         aria-hidden
         className="absolute right-[0%] top-[-40vh]"
       />

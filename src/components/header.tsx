@@ -193,12 +193,12 @@ const Header = () => {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <Link href="/" className="flex shrink-0">
-            <h1 className="font-extrabold text-[28px] lg:text-[32px] xl:text-[36px] 2xl:text-[38px] leading-[95%] text-[#37ACFF] flex flex-col font-bricolage tracking-[-0.07em]">
+            <div className="font-extrabold text-[28px] lg:text-[32px] xl:text-[36px] 2xl:text-[38px] leading-[95%] text-[#37ACFF] flex flex-col font-bricolage tracking-[-0.07em]">
               KHALID
               <span className="text-white text-[24px] lg:text-[26px] xl:text-[28px] 2xl:text-[30px] font-extralight mt-[-0.25vw]">
                 Mahmood <span>.</span>
               </span>
-            </h1>
+            </div>
           </Link>
 
           {/* Desktop Nav */}
@@ -225,7 +225,7 @@ const Header = () => {
                         src="/button-arrow.webp"
                         width={12}
                         height={12}
-                        alt=""
+                        alt="arrow"
                         className="lg:w-[15px] w-[12px] h-auto"
                       />
                     </span>
