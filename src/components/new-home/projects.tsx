@@ -1,0 +1,171 @@
+"use client";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { BorderBeam } from "@stianlarsen/border-beam";
+
+const Projects = () => {
+  const leftRef = useRef<HTMLImageElement>(null);
+  const centerRef = useRef<HTMLImageElement>(null);
+  const rightRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Only run if all refs exist
+    if (!leftRef.current || !centerRef.current || !rightRef.current) return;
+
+    const duration = 1.5;
+    const stagger = 0; // all at once
+
+    // Animate all three together
+    gsap.fromTo(
+      [leftRef.current, centerRef.current, rightRef.current],
+      {
+        x: (i) => (i === 0 ? -450 : i === 2 ? 450 : 0), // left: -150, right: +150, center: 0
+        y: (i) => (i === 1 ? 350 : 0), // only center comes from bottom (y: 100)
+        opacity: 0,
+      },
+      {
+        x: 0,
+        y: 0,
+        opacity: 1,
+        duration: duration,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: centerRef.current, // or parent section
+          start: "top 120%",
+          once: true,
+          // markers: true, // for debugging
+        },
+      }
+    );
+  }, []);
+
+  return (
+    <div>
+      <div className="flex justify-center items-center w-full">
+        <img
+          ref={leftRef}
+          src="/new-home/project1.webp"
+          height={100}
+          width={100}
+          alt="project-1"
+          className="xl:w-[477px] lg:w-[400px] md:w-[300px] w-[180px] 2xl:scale-128 h-auto relative 2xl:left-[7%] left-[10%] 2xl:top-[5.5vh]"
+        />
+        <div ref={centerRef} className="2xl:min-w-[541px] xl:min-w-[500px] lg:min-w-[400px] md:min-w-[300px] min-w-[180px] z-10 h-auto relative lg:rounded-[32px] rounded-[20px]">
+          <img
+            src="/new-home/project2.webp"
+            height={100}
+            width={100}
+            alt="project-1"
+            className="w-full h-auto"
+          />
+          <BorderBeam
+            size={289}
+            duration={8}
+            colorFrom="#00000000" // fully transparent
+            colorTo="#7AB4FD"
+            className="z-40 relative hidden lg:block"
+          />
+          <BorderBeam
+            size={289}
+            duration={8}
+            delay={2}
+            colorFrom="#00000000" // fully transparent
+            colorTo="#7AB4FD"
+            className="z-40 relative hidden lg:block"
+          />
+          <BorderBeam
+            size={289}
+            duration={8}
+            delay={4}
+            colorFrom="#00000000" // fully transparent
+            colorTo="#7AB4FD"
+            className="z-40 relative hidden lg:block"
+          />
+          <BorderBeam
+            size={289}
+            duration={8}
+            delay={6}
+            colorFrom="#00000000" // fully transparent
+            colorTo="#7AB4FD"
+            className="z-40 relative hidden lg:block"
+          />
+          <BorderBeam
+            size={180}
+            duration={8}
+            colorFrom="#00000000" // fully transparent
+            colorTo="#7AB4FD"
+            className="z-40 relative lg:hidden hidden md:block"
+          />
+          <BorderBeam
+            size={180}
+            duration={8}
+            delay={2}
+            colorFrom="#00000000" // fully transparent
+            colorTo="#7AB4FD"
+            className="z-40 relative lg:hidden hidden md:block"
+          />
+          <BorderBeam
+            size={180}
+            duration={8}
+            delay={4}
+            colorFrom="#00000000" // fully transparent
+            colorTo="#7AB4FD"
+            className="z-40 relative lg:hidden hidden md:block"
+          />
+          <BorderBeam
+            size={180}
+            duration={8}
+            delay={6}
+            colorFrom="#00000000" // fully transparent
+            colorTo="#7AB4FD"
+            className="z-40 relative lg:hidden hidden md:block"
+          />
+          <BorderBeam
+            size={70}
+            duration={8}
+            colorFrom="#00000000" // fully transparent
+            colorTo="#7AB4FD"
+            className="z-40 relative md:hidden"
+          />
+          <BorderBeam
+            size={70}
+            duration={8}
+            delay={2}
+            colorFrom="#00000000" // fully transparent
+            colorTo="#7AB4FD"
+            className="z-40 relative md:hidden"
+          />
+          <BorderBeam
+            size={70}
+            duration={8}
+            delay={4}
+            colorFrom="#00000000" // fully transparent
+            colorTo="#7AB4FD"
+            className="z-40 relative md:hidden"
+          />
+          <BorderBeam
+            size={70}
+            duration={8}
+            delay={6}
+            colorFrom="#00000000" // fully transparent
+            colorTo="#7AB4FD"
+            className="z-40 relative md:hidden"
+          />
+        </div>
+        <img
+          ref={rightRef}
+          src="/new-home/project3.webp"
+          height={100}
+          width={100}
+          alt="project-1"
+          className="2xl:w-[477px] lg:w-[400px] md:w-[300px] w-[180px] 2xl:scale-128 h-auto relative 2xl:right-[6%] right-[10%] 2xl:top-[5.5vh]"
+        />
+      </div>
+    </div>
+  );
+};
+
+export default Projects;

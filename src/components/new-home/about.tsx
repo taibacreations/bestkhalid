@@ -221,17 +221,10 @@ const About = () => {
 
   return (
     <section className="relative">
-      {/* Ambient glow — right side */}
-      <img
-        src="/new-home/law-blur.webp"
-        alt="vector glow"
-        aria-hidden
-        className="absolute right-[0%] top-[-40vh]"
-      />
 
       <div
         ref={sectionRef}
-        className="max-w-[1505px] mx-auto xl:px-10 px-4 lg:mb-[14.5vh] lg:mt-[0vh] md:my-[10vh] my-[8vh] relative"
+        className="max-w-[1505px] mx-auto xl:px-10 px-4 lg:mb-[14.5vh] lg:-mt-[8vh] md:my-[10vh] my-[8vh] relative"
       >
         {/* ─────────────────────────────────────────────────────
             TOP BADGE
@@ -241,12 +234,12 @@ const About = () => {
 
         <div className="relative z-10">
           {/* ── Main layout: text left / image right ── */}
-          <div className="flex lg:flex-row flex-col justify-between items-start lg:gap-16 gap-[6vh]">
+          <div className="flex lg:flex-row flex-col justify-between items-end lg:gap-16 gap-[6vh]">
 
             {/* ════════════════════════════════════
                 LEFT — Copy Column
             ════════════════════════════════════ */}
-            <div className="lg:max-w-[500px] xl:max-w-[600px] 2xl:max-w-[650px] w-full flex flex-col">
+            <div className="lg:max-w-[400px] xl:max-w-[600px] 2xl:max-w-[610px] w-full flex flex-col">
 
               {/* Heading */}
               <h2
@@ -274,7 +267,7 @@ const About = () => {
               <p
                 ref={para1Ref}
                 style={{ willChange: "transform, opacity" }}
-                className="font-bricolage font-normal tracking-[-0.01em] leading-[158%] capitalize 2xl:text-[18px] xl:text-[17px] lg:text-[15px] text-[14px] text-[#FFFFFFCC]"
+                className="font-bricolage font-normal tracking-[-0.01em] leading-[158%] capitalize 2xl:text-[18px] xl:text-[17px] xl:text-[15px] text-[14px] text-[#FFFFFFCC]"
               >
                 I'm a{" "}
                 <span className="text-white font-medium">
@@ -289,7 +282,7 @@ const About = () => {
               <p
                 ref={para2Ref}
                 style={{ willChange: "transform, opacity" }}
-                className="font-bricolage font-normal tracking-[-0.01em] leading-[158%] capitalize 2xl:text-[18px] xl:text-[17px] lg:text-[15px] text-[14px] text-[#FFFFFFCC] mt-[2.5vh]"
+                className="font-bricolage font-normal tracking-[-0.01em] leading-[158%] capitalize 2xl:text-[18px] xl:text-[17px] xl:text-[15px] text-[14px] text-[#FFFFFFCC] mt-[2.5vh]"
               >
                 I've watched too many law firms pour money into
                 beautiful-looking sites that never ring the phone. So I stopped
@@ -313,15 +306,11 @@ const About = () => {
 
               {/* Image container with subtle border treatment */}
               <div className="relative">
-                {/* Top-left accent line */}
-                <div className="absolute top-0 left-0 w-8 h-8 border-t border-l border-[#7AB4FD50] rounded-tl-[4px] z-10 pointer-events-none" />
-                {/* Bottom-right accent line */}
-                <div className="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-[#7AB4FD50] rounded-br-[4px] z-10 pointer-events-none" />
 
                 <img
-                  src="/new-home/heros.webp"
+                  src="/new-home/about.webp"
                   alt="Khalid — Law Firm Website Designer"
-                  className="object-cover relative z-0 2xl:max-w-[560px] xl:max-w-[560px] lg:max-w-[400px] w-full"
+                  className="w-full md:scale-110 scale-[120%]"
                 />
               </div>
             </div>

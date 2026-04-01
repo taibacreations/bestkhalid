@@ -1,10 +1,10 @@
 "use client";
 import Image from "next/image";
-import Projects from "../projects";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
 import Link from "next/link";
+import Projects from "./projects";
 
 const Lead = () => {
   const downloadBgLayersRef = useRef<(HTMLDivElement | null)[]>([]);
@@ -103,7 +103,7 @@ const Lead = () => {
         height={100}
         width={100}
         alt="blur"
-        className="w-full h-auto absolute left-0 2xl:-bottom-[50vh] xl:-bottom-[33vh] lg:-bottom-[15vh] md:-bottom-[13vh] -bottom-[13%] z-20"
+        className="w-full md:h-auto h-[250px] absolute left-0 2xl:-bottom-[50vh] xl:-bottom-[33vh] lg:-bottom-[20vh] md:-bottom-[16vh] -bottom-[17%] z-20"
       />
       <div className="xl:pt-0">
         <div id="leads" className="text-center max-w-[992px] mx-auto z-40 relative">
