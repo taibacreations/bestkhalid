@@ -31,20 +31,22 @@ const Portfolio = () => {
     const fetchData = async () => {
       try {
         const categoryRes: SanityCategory[] = await client.fetch(
-          `*[_type == "category"] | order(order asc, title asc){ title }`
+          `*[_type == "category"] | order(order asc, title asc){ title }`,
         );
         const categoryTitles = categoryRes.map((c) => c.title);
         setCategories(["All", ...categoryTitles]);
 
         const projectsRes: SanityProject[] = await client.fetch(
           `*[_type == "project"]{
-            _id,
-            title,
-            "category": category->title,
-            "mainImage": mainImage.asset->url,
-            color,
-            scrollSpeed
-          } | order(publishedAt desc)`
+    _id,
+    title,
+    "category": category->title,
+    "mainImage": mainImage.asset->url,
+    color,
+    scrollSpeed,
+    publishedAt,
+    _createdAt
+  } | order(publishedAt asc, _createdAt asc)`,
         );
         setProjects(projectsRes);
       } catch (err) {
@@ -140,9 +142,10 @@ const Portfolio = () => {
               className={`
                 px-6 py-2.5 rounded-full font-bricolage font-medium text-sm
                 transition-all duration-300 ease-out
-                ${activeCategory === category
-                  ? "bg-white text-gray-900 shadow-lg shadow-white/20 scale-105"
-                  : "bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm"
+                ${
+                  activeCategory === category
+                    ? "bg-white text-gray-900 shadow-lg shadow-white/20 scale-105"
+                    : "bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm"
                 }
               `}
             >
@@ -182,10 +185,11 @@ const Portfolio = () => {
             <button
               onClick={handleLoadMore}
               disabled={isLoadingMore}
-              className={`lg:px-10 lg:py-4 px-8 py-3 rounded-full font-bricolage font-semibold text-lg transition-all duration-300 transform ${isLoadingMore
-                ? "bg-white/20 text-white cursor-not-allowed"
-                : "bg-linear-to-r from-blue-500 to-blue-900 text-white hover:shadow-2xl hover:shadow-blue-500/50 hover:scale-105"
-                }`}
+              className={`lg:px-10 lg:py-4 px-8 py-3 rounded-full font-bricolage font-semibold text-lg transition-all duration-300 transform ${
+                isLoadingMore
+                  ? "bg-white/20 text-white cursor-not-allowed"
+                  : "bg-linear-to-r from-blue-500 to-blue-900 text-white hover:shadow-2xl hover:shadow-blue-500/50 hover:scale-105"
+              }`}
             >
               {isLoadingMore ? "Loading..." : "Load More"}
             </button>
@@ -207,9 +211,10 @@ const ProjectCard = ({
   const [isHovering, setIsHovering] = useState(false);
 
   // Use Sanity value if set, otherwise fall back to the original default
-  const panDuration = (project.scrollSpeed && project.scrollSpeed > 0)
-    ? project.scrollSpeed
-    : DEFAULT_SCROLL_SPEED;
+  const panDuration =
+    project.scrollSpeed && project.scrollSpeed > 0
+      ? project.scrollSpeed
+      : DEFAULT_SCROLL_SPEED;
 
   return (
     <div
