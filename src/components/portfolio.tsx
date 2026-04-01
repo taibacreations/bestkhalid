@@ -44,7 +44,7 @@ const Portfolio = () => {
             "mainImage": mainImage.asset->url,
             color,
             scrollSpeed
-          } | order(_createdAt desc)`
+          } | order(publishedAt desc)`
         );
         setProjects(projectsRes);
       } catch (err) {

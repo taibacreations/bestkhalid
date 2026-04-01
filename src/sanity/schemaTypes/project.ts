@@ -1,52 +1,59 @@
-import { Rule } from 'sanity'
+import { Rule } from "sanity";
 
 export default {
-  name: 'project',
-  title: 'Project',
-  type: 'document',
+  name: "project",
+  title: "Project",
+  type: "document",
   fields: [
     {
-      name: 'title',
-      title: 'Title',
-      type: 'string',
-      validation: (Rule: Rule) => Rule.required()
+      name: "title",
+      title: "Title",
+      type: "string",
+      validation: (Rule: Rule) => Rule.required(),
     },
     {
-      name: 'category',
-      title: 'Category',
-      type: 'reference',
-      to: [{ type: 'category' }],
-      validation: (Rule: Rule) => Rule.required()
+      name: "category",
+      title: "Category",
+      type: "reference",
+      to: [{ type: "category" }],
+      validation: (Rule: Rule) => Rule.required(),
     },
     {
-      name: 'mainImage',
-      title: 'Main Image',
-      description: 'Single featured image for the project',
-      type: 'image',
+      name: "mainImage",
+      title: "Main Image",
+      description: "Single featured image for the project",
+      type: "image",
       options: { hotspot: true },
-      validation: (Rule: Rule) => Rule.required()
+      validation: (Rule: Rule) => Rule.required(),
     },
     {
-      name: 'color',
-      title: 'Accent Color (Hex)',
-      type: 'string',
-      description: 'Used for UI badges (e.g., #FF6B6B)',
+      name: "color",
+      title: "Accent Color (Hex)",
+      type: "string",
+      description: "Used for UI badges (e.g., #FF6B6B)",
       validation: (Rule: Rule) =>
         Rule.regex(/^#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})$/).error(
-          'Must be a valid hex color (e.g., #FF6B6B or #F00)'
-        )
+          "Must be a valid hex color (e.g., #FF6B6B or #F00)",
+        ),
     },
     {
-      name: 'scrollSpeed',
-      title: 'Image Scroll Speed (ms)',
-      type: 'number',
+      name: "scrollSpeed",
+      title: "Image Scroll Speed (ms)",
+      type: "number",
       description:
-        'Controls how fast the image pans from top to bottom on hover. Lower = faster, Higher = slower. Minimum 1ms. Leave blank to use the default (2500ms).',
+        "Controls how fast the image pans from top to bottom on hover. Lower = faster, Higher = slower. Minimum 1ms. Leave blank to use the default (2500ms).",
       initialValue: 2500,
       validation: (Rule: Rule) =>
-        Rule.min(1)
-          .error('Scroll speed must be at least 1ms')
-          .optional()
-    }
-  ]
-}
+        Rule.min(1).error("Scroll speed must be at least 1ms").optional(),
+    },
+    // ✅ ADD THIS
+    {
+      name: "publishedAt",
+      title: "Published At",
+      type: "datetime",
+      description: "Controls sorting (latest projects first)",
+      initialValue: () => new Date().toISOString(),
+      validation: (Rule: Rule) => Rule.required(),
+    },
+  ],
+};
