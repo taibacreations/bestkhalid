@@ -94,7 +94,7 @@ const Law = () => {
   return (
     <section
       ref={sectionRef}
-      className="max-w-[1525px] mx-auto xl:px-10 px-4 relative lg:my-[15.5vh] my-[10vh]"
+      className="max-w-[1525px] mx-auto xl:px-10 px-4 relative lg:mb-[15.5vh] lg:mt-[10vh] mb-[10vh] mt-[6vh]"
     >
       <img
         src="/new-home/law-blur.webp"

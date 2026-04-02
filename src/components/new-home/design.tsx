@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const Design = () => {
   return (
-    <section className="max-w-[1525px] mx-auto xl:px-10 px-4">
+    <section className="max-w-[1525px] mx-auto xl:px-10 px-4 md:mt-[10vh] mt-[6vh]">
       <div>
         <div>
           <h2 className="font-bricolage font-bold 2xl:text-[48px] xl:text-[42px] lg:text-[38px] text-[34px] leading-[123%] tracking-[-0.01em] text-center text-white capitalize">
