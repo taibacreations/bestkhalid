@@ -239,7 +239,7 @@ export default function ContactPage() {
           <h2 className="font-bricolage font-bold 2xl:text-[48px] xl:text-[42px] lg:text-[38px] md:text-[32px] text-[30px] tracking-[-0.03em] leading-[123%] capitalize text-white mb-3">
             Contact Us
           </h2>
-          <p className="text-white/60 mb-4 xl:mb-10 font-bricolage font-normal xl:text-[18px] text-[16px] tracking-[-0.01em] capitalize leading-[142%]">
+          <p className="text-white/60 mb-4 xl:mb-10 font-bricolage font-normal xl:text-[18px] text-[16px] tracking-[0em] leading-[142%]">
             Let&apos;s connect! Send me a message and I&apos;ll get back to you
             as soon as possible.
           </p>
@@ -368,7 +368,7 @@ export default function ContactPage() {
               Together
             </span>
           </h1>
-          <p className="text-white/70 font-bricolage font-normal xl:text-[18px] text-[16px] tracking-[-0.01em] capitalize leading-[142%] mb-6 lg:mb-10">
+          <p className="text-white/70 font-bricolage font-normal xl:text-[18px] text-[16px] tracking-[0em] leading-[142%] mb-6 lg:mb-10">
             Have a project in mind or need a modern, HIPAA-conscious website for
             your healthcare practice? Send me a message and I&apos;ll get back
             to you as soon as possible.

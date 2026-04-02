@@ -127,7 +127,7 @@ const Lead = () => {
               </span>
             </h3>
           </div>
-          <p id="leads-content" className="mt-5.5 font-bricolage font-normal xl:text-[18px] text-[16px] tracking-[-0.01em] capitalize leading-[142%] text-white">
+          <p id="leads-content" className="mt-5.5 font-bricolage font-normal xl:text-[18px] text-[16px] tracking-[0em] leading-[142%] text-white">
             “A portfolio of projects showcasing my skills, problem-solving mindset, and the value I bring to every collaboration.”
           </p>
         </div>
@@ -158,7 +158,7 @@ const Lead = () => {
                   See Recent Work
                 </Link>
               </div>
-              <p className="font-bricolage font-normal xl:text-[18px] text-[16px] leading-[142%] tracking-[-0.01em] capitalize text-white mb-[-5px] text-center">
+              <p className="font-bricolage font-normal xl:text-[18px] text-[16px] leading-[142%] tracking-[0em] text-white mb-[-5px] text-center">
                 Explore real projects focused on leads & conversions
               </p>
             </div>

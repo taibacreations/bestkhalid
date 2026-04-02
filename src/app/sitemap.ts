@@ -12,22 +12,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   `);
 
-  // Projects (portfolio)
-  const projects = await client.fetch(`
-    *[_type == "project"]{
-      "slug": slug.current,
-      _updatedAt
-    }
-  `);
-
   return [
     // Static pages
     {
       url: baseUrl,
-      lastModified: new Date(),
-    },
-    {
-      url: `${baseUrl}/portfolio`,
       lastModified: new Date(),
     },
     {
@@ -38,17 +26,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${baseUrl}/contact`,
       lastModified: new Date(),
     },
+    {
+      url: `${baseUrl}/lawyer-website-design`,
+      lastModified: new Date(),
+    },
 
     // Dynamic blog pages
     ...blogs.map((blog: any) => ({
       url: `${baseUrl}/blog/${blog.slug}`,
       lastModified: blog._updatedAt,
-    })),
-
-    // Dynamic project pages
-    ...projects.map((project: any) => ({
-      url: `${baseUrl}/portfolio/${project.slug}`,
-      lastModified: project._updatedAt,
     })),
   ];
 }

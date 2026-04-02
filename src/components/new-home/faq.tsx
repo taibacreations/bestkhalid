@@ -104,14 +104,14 @@ const FaqCard: React.FC<FaqCardProps> = ({ item, isOpen, onToggle, animRef }) =>
       onClick={onToggle}
     >
       <div className="flex items-center justify-between py-6 gap-4 relative z-30">
-        <h3 className="font-bricolage font-bold 2xl:text-[24px] xl:text-[22px] md:text-[20px] text-[18px] leading-[123%] tracking-[-0.03em] text-white capitalize">
+        <h3 className="font-bricolage font-bold 2xl:text-[24px] xl:text-[22px] md:text-[20px] text-[18px] leading-[123%] tracking-[0em] text-white">
           {item.question}
         </h3>
         <img ref={iconRef} src="/new-home/faq-arrow.webp" alt="arrow" className="xl:w-auto w-[25px]" />
       </div>
 
       <div ref={answerRef} style={{ overflow: "hidden" }}>
-        <p className="font-bricolage font-normal 2xl:text-[18px] xl:text-[16px] text-[15px] leading-[142%] tracking-[-0.01em] capitalize text-white xl:pt-[1.3vh] pb-[2vh] md:pr-[14vw] pr-[10vw] relative z-30">
+        <p className="font-bricolage font-normal 2xl:text-[18px] xl:text-[16px] text-[15px] leading-[142%] tracking-[0em] text-white xl:pt-[1.3vh] pb-[2vh] md:pr-[14vw] pr-[10vw] relative z-30">
           {item.answer}
         </p>
       </div>

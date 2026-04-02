@@ -13,7 +13,7 @@ const Design = () => {
               Design Process
             </span>
           </h2>
-          <p className="font-bricolage font-normal 2xl:text-[18px] text-[16px] leading-[142%] tracking-[-0.01em] capitalize text-white text-center my-[1.5vh]">
+          <p className="font-bricolage font-normal 2xl:text-[18px] text-[16px] leading-[142%] tracking-[0em] text-white text-center my-[1.5vh]">
             Simple, transparent, and done for you
           </p>
         </div>

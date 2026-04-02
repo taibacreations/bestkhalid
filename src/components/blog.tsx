@@ -32,7 +32,7 @@ const BlogPage = () => {
             <h1 className="font-bricolage font-bold 2xl:text-[48px] xl:text-[42px] lg:text-[38px] md:text-[32px] text-[30px] tracking-[-0.03em] leading-[142%] capitalize text-white">
               Blog
             </h1>
-            <p className="xl:mt-5 mt-3 font-bricolage font-normal xl:text-[18px] text-[16px] tracking-[-0.01em] capitalize leading-[142%] text-white">
+            <p className="xl:mt-5 mt-3 font-bricolage font-normal xl:text-[18px] text-[16px] tracking-[0em] leading-[142%] text-white">
               Thoughts, case studies & deep dives into design, performance &
               systems.
             </p>

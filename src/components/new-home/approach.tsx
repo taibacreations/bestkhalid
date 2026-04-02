@@ -149,7 +149,7 @@ const Approach = () => {
           <p
             ref={paraRef}
             style={{ willChange: "transform, opacity" }}
-            className="font-bricolage font-normal xl:text-[18px] lg:text-[16px] text-[14px] leading-[142%] tracking-[-0.01em] text-center capitalize text-white mt-[2.5vh]"
+            className="font-bricolage font-normal xl:text-[18px] lg:text-[16px] text-[14px] leading-[142%] tracking-[0em] text-center text-white mt-[2.5vh]"
           >
             I don't design "pretty websites." I build structured{" "}
             <span className="text-[#1E90FF]">

@@ -308,7 +308,7 @@ const Hero = () => {
 
             <p
               id="hero-content"
-              className="font-bricolage font-normal 2xl:text-[28px] xl:text-[24px] lg:text-[20px] text-[18px] tracking-[-0.07em] capitalize text-white leading-[142%] mt-[2.4vh]"
+              className="font-bricolage font-normal 2xl:text-[28px] xl:text-[24px] lg:text-[20px] text-[18px] tracking-[0em] text-white leading-[142%] mt-[2.4vh]"
             >
               I design strategic, conversion-optimized, performance-focused experiences that turn traffic into customers.
             </p>

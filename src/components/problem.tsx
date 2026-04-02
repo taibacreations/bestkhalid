@@ -162,7 +162,7 @@ const Problem = () => {
           {/* ✅ Animated paragraph — no bounce */}
           <p
             id="problem-content"
-            className="xl:mt-5 mt-3 font-bricolage font-normal xl:text-[18px] text-[16px] tracking-[-0.01em] capitalize leading-[142%] text-white"
+            className="xl:mt-5 mt-3 font-bricolage font-normal xl:text-[18px] text-[16px] tracking-[0em] leading-[142%] text-white"
           >
             Most business websites are outdated, slow, and unclear about their value. In today’s digital-first world, visitors expect a fast, seamless experience that guides them to take action.
           </p>

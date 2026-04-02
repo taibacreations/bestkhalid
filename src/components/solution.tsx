@@ -199,7 +199,7 @@ const Solution = () => {
 
           <p
             id="solution-content"
-            className="lg:mt-7 mt-5 font-bricolage font-normal xl:text-[18px] text-[16px] tracking-[-0.01em] capitalize leading-[142%] text-white"
+            className="lg:mt-7 mt-5 font-bricolage font-normal xl:text-[18px] text-[16px] tracking-[0em] leading-[142%] text-white"
           >
             I design strategic, conversion-optimized, performance-focused websites that turn traffic into customers and support long-term business growth.
           </p>

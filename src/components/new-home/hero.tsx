@@ -154,12 +154,12 @@ const Hero = () => {
               Qualified Case Inquiries
             </span>
           </h1>
-          <p className="font-bricolage font-normal tracking-[-0.07em] leading-[142%] capitalize 2xl:text-[20px] xl:text-[18px] lg:text-[15px] text-[13px] text-white my-[3vh]">
+          <p className="font-bricolage font-normal tracking-[0em] leading-[142%] 2xl:text-[19px] xl:text-[18px] lg:text-[15px] text-[13px] text-white my-[3vh]">
             I design strategic, conversion-focused websites for law firms that
             want measurable growth, not just a prettier site that nobody calls
             from.
           </p>
-          <p className="font-bricolage font-normal tracking-[-0.07em] leading-[142%] capitalize 2xl:text-[20px] xl:text-[18px] lg:text-[15px] text-[13px] text-white">
+          <p className="font-bricolage font-normal tracking-[0em] leading-[142%] 2xl:text-[19px] xl:text-[18px] lg:text-[15px] text-[13px] text-white">
             Over the years, I've helped attorneys turn their websites from
             expensive digital dust collectors into actual client acquisition
             assets.
@@ -190,7 +190,7 @@ const Hero = () => {
             </Link>
           </div>
 
-          <p className="font-bricolage font-extralight tracking-[0em] leading-[142%] capitalize 2xl:text-[20px] xl:text-[18px] lg:text-[15px] text-[13px] text-white">
+          <p className="font-bricolage font-extralight tracking-[0em] leading-[142%] 2xl:text-[20px] xl:text-[18px] lg:text-[15px] text-[13px] text-white">
             Limited law firm projects are accepted each month.
           </p>
         </div>

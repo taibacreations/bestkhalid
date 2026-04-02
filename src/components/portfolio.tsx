@@ -88,7 +88,7 @@ const Portfolio = () => {
             <h1 className="font-bricolage font-bold 2xl:text-[48px] xl:text-[42px] lg:text-[38px] md:text-[32px] text-[30px] tracking-[-0.03em] leading-[142%] capitalize text-white">
               Projects
             </h1>
-            <p className="xl:mt-5 mt-3 font-bricolage font-normal xl:text-[18px] text-[16px] tracking-[-0.01em] capitalize leading-[142%] text-white">
+            <p className="xl:mt-5 mt-3 font-bricolage font-normal xl:text-[18px] text-[16px] tracking-[0em] leading-[142%] text-white">
               Among the thousands of completed website projects, the ones below
               are a few of my favorites. Web Design is always evolving, and it's
               been fascinating to see how my work has changed and grown over the
@@ -125,7 +125,7 @@ const Portfolio = () => {
           <h3 className="font-bricolage font-bold 2xl:text-[48px] xl:text-[42px] lg:text-[38px] md:text-[32px] text-[30px] tracking-[-0.03em] leading-[142%] capitalize text-white">
             Projects
           </h3>
-          <p className="xl:mt-5 mt-3 font-bricolage font-normal xl:text-[18px] text-[16px] tracking-[-0.01em] capitalize leading-[142%] text-white">
+          <p className="xl:mt-5 mt-3 font-bricolage font-normal xl:text-[18px] text-[16px] tracking-[0em] leading-[142%] text-white">
             Among the thousands of completed website projects, the ones below
             are a few of my favorites. Web Design is always evolving, and it's
             been fascinating to see how my work has changed and grown over the

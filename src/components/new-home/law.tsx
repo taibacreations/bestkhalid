@@ -112,7 +112,7 @@ const Law = () => {
 
           <p
             ref={subtitleRef}
-            className="font-bricolage font-normal 2xl:text-[18px] text-[16px] leading-[142%] tracking-[-0.01em] capitalize text-white text-center my-[2vh]"
+            className="font-bricolage font-normal 2xl:text-[18px] text-[16px] leading-[142%] tracking-[0em] text-white text-center my-[2vh]"
           >
             Nobody calls to tell you your website lost them. They just quietly
             hire the firm down the road whose website made them feel more
