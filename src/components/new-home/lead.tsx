@@ -88,7 +88,7 @@ const Lead = () => {
         }
       );
     };
-
+    
     animateElement("#leads", 0, "-100%", 0);
 
     return () => {
@@ -103,7 +103,7 @@ const Lead = () => {
         height={100}
         width={100}
         alt="blur"
-        className="w-full md:h-auto h-[250px] absolute left-0 2xl:-bottom-[50vh] xl:-bottom-[33vh] lg:-bottom-[20vh] md:-bottom-[16vh] -bottom-[17%] z-20"
+        className="w-full md:h-auto h-62.5 absolute left-0 2xl:-bottom-[50vh] xl:-bottom-[33vh] lg:-bottom-[20vh] md:-bottom-[16vh] -bottom-[17%] z-20"
       />
       <div className="xl:pt-0">
         <div id="leads" className="text-center max-w-[992px] mx-auto z-40 relative">

@@ -51,7 +51,7 @@ const Projects = () => {
           height={100}
           width={100}
           alt="project-1"
-          className="xl:w-[477px] lg:w-[400px] md:w-[300px] w-[180px] 2xl:scale-128 h-auto relative 2xl:left-[7%] left-[10%] 2xl:top-[5.5vh]"
+          className="xl:w-[477px] lg:w-[400px] md:w-[300px] w-[180px] 2xl:scale-128 h-auto relative 2xl:left-[7%] md:left-[10%] left-[14%] 2xl:top-[5.5vh]"
         />
         <div ref={centerRef} className="2xl:min-w-[541px] xl:min-w-[500px] lg:min-w-[400px] md:min-w-[300px] min-w-[180px] z-10 h-auto relative lg:rounded-[32px] rounded-[20px]">
           <img
@@ -161,7 +161,7 @@ const Projects = () => {
           height={100}
           width={100}
           alt="project-1"
-          className="2xl:w-[477px] lg:w-[400px] md:w-[300px] w-[180px] 2xl:scale-128 h-auto relative 2xl:right-[6%] right-[10%] 2xl:top-[5.5vh]"
+          className="2xl:w-[477px] lg:w-[400px] md:w-[300px] w-[180px] 2xl:scale-128 h-auto relative 2xl:right-[6%] md:right-[10%] right-[14%] 2xl:top-[5.5vh]"
         />
       </div>
     </div>
