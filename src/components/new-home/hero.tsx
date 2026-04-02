@@ -143,7 +143,7 @@ const Hero = () => {
         <div
           ref={contentRef}
           style={{ willChange: "transform, opacity" }}
-          className="2xl:max-w-[635px] xl:max-w-[570px] lg:max-w-[430px] md:max-w-[330px] w-full mt-[10.5vh]"
+          className="2xl:max-w-[635px] xl:max-w-[570px] lg:max-w-[430px] md:max-w-[330px] w-full mt-[10.5vh] relative z-40"
         >
           <h3 className="font-bricolage font-normal 2xl:text-[30px] xl:text-[27px] lg:text-[20px] md:text-[16px] text-[14px] leading-[142%] capitalize text-white">
             Lead Capturing Law Firm Website Design.
