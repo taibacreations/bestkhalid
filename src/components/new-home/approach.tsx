@@ -139,17 +139,17 @@ const Approach = () => {
           <h2
             ref={headingRef}
             style={{ willChange: "transform, opacity" }}
-            className="font-bricolage font-semibold 2xl:text-[64px] xl:text-[48px] lg:text-[42px] md:text-[36px] text-[32px] md:leading-[82%] leading-[100%] tracking-[-0.07em] capitalize text-white text-center"
+            className="font-bricolage font-semibold 2xl:text-[64px] xl:text-[48px] lg:text-[42px] md:text-[36px] text-[32px] md:leading-[82%] leading-[100%] tracking-[-0.07em] capitalize text-white md:text-center md:w-full w-[80vw]"
           >
-            What Makes My Approach{" "}
+            What Makes My{" "}
             <span className="font-tartuffo font-thin 2xl:text-[52px] xl:text-[42px] lg:text-[36px] md:text-[32px] text-[30px] tracking-[0em]">
-              Different
+              Approach Different
             </span>{" "}
           </h2>
           <p
             ref={paraRef}
             style={{ willChange: "transform, opacity" }}
-            className="font-bricolage font-normal xl:text-[20px] lg:text-[16px] text-[16px] leading-[130%] tracking-[0em] text-center text-white mt-[2.5vh]"
+            className="font-bricolage font-normal xl:text-[20px] lg:text-[16px] text-[16px] leading-[130%] tracking-[0em] md:text-center text-white mt-[2.5vh]"
           >
             I don't design "pretty websites." I build structured{" "}
             <span className="text-[#1E90FF]">

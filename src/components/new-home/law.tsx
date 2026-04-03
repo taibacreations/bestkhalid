@@ -255,7 +255,7 @@ const Law = () => {
         <p
           ref={footerTextRef}
           style={{ willChange: "transform, opacity" }}
-          className="xl:text-[20px] lg:text-[18px] text-[16px] md:leading-[32.5px] leading-[130%] text-center text-[#FFFFFFE5] font-semibold font-inter lg:w-[890px] md:w-[80%] w-full mx-auto mt-[5vh]"
+          className="xl:text-[20px] lg:text-[18px] text-[16px] md:leading-[32.5px] leading-[130%] md:text-center text-[#FFFFFFE5] font-semibold font-inter lg:w-[890px] md:w-[80%] w-full mx-auto md:mt-[5vh] mt-[3vh]"
         >
           Potential clients compare multiple firms quickly. If your website
           doesn't project authority instantly, they move on.

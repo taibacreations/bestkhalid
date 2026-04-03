@@ -279,7 +279,7 @@ const Hero = () => {
             src="/new-home/heros.webp"
             alt="Banner Image"
             style={{ willChange: "transform, opacity" }}
-            className="2xl:w-[806px] xl:w-[680px] lg:w-[500px] md:w-[400px] w-full lg:h-auto md:h-full h-auto absolute xl:-top-[2vh] md:top-[6vh] lg:top-[4vh] top-[55vh] 2xl:right-[-4%] md:right-0 left-[50%] -translate-x-1/2 md:left-auto md:translate-x-0 z-20"
+            className="2xl:w-[806px] xl:w-[680px] lg:w-[500px] md:w-[400px] w-full lg:h-auto md:h-full h-auto absolute xl:-top-[2vh] md:top-[6vh] lg:top-[4vh] top-[52vh] 2xl:right-[-4%] md:right-0 left-[50%] -translate-x-1/2 md:left-auto md:translate-x-0 z-20"
           />
           {/* ✅ Floating CTA — z-40 to sit above blur */}
           <div
