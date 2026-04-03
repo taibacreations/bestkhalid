@@ -1,10 +1,11 @@
 import { MetadataRoute } from "next";
 import { client } from "@/sanity/lib/client";
 
+export const revalidate = 60; // 👈 IMPORTANT
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://www.bestkhalid.com";
 
-  // Blogs
   const blogs = await client.fetch(`
     *[_type == "blog"]{
       "slug": slug.current,
@@ -13,7 +14,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   `);
 
   return [
-    // Static pages
     {
       url: baseUrl,
       lastModified: new Date(),
@@ -35,10 +35,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
     },
 
-    // Dynamic blog pages
     ...blogs.map((blog: any) => ({
       url: `${baseUrl}/blog/${blog.slug}`,
-      lastModified: blog._updatedAt,
+      lastModified: new Date(blog._updatedAt),
     })),
   ];
 }
