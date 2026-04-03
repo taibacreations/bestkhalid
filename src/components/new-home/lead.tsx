@@ -127,8 +127,8 @@ const Lead = () => {
               </span>
             </h3>
           </div>
-          <p id="leads-content" className="mt-5.5 font-bricolage font-normal xl:text-[20px] text-[18px] tracking-[0em] leading-[130%] text-white">
-            “A portfolio of projects showcasing my skills, problem-solving mindset, and the value I bring to every collaboration.”
+          <p id="leads-content" className="font-bricolage font-normal xl:text-[20px] text-[18px] tracking-[0em] leading-[130%] text-white">
+            A portfolio of projects showcasing my skills, problem-solving mindset, and the value I bring to every collaboration.
           </p>
         </div>
         <div className="mt-10 2xl:w-[1453px] h-auto mx-auto relative">

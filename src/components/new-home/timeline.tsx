@@ -256,7 +256,6 @@ const SectionCards = ({
             </div>
             <div className="flex flex-col 2xl:gap-[2vh] gap-[1vh] items-center md:mt-0 mt-[1vh]">
               <div className="2xl:w-[414px] xl:w-[380px] md:w-[320px] w-[92vw] 2xl:h-[106px] xl:h-[100px] h-[90px] rounded-[32px] bg-[url(/new-home/timeline-card.webp)] 2xl:bg-cover bg-[length:100%_100%] bg-center bg-no-repeat">
-
                 {/* <BorderBeam
                   size={169}
                   duration={8}
@@ -282,7 +281,6 @@ const SectionCards = ({
                 </div>
               </div>
               <div className="2xl:w-[414px] xl:w-[380px] md:w-[320px] w-[92vw] 2xl:h-[207px] xl:h-[200px] h-[180px] rounded-[32px] bg-[url(/new-home/timeline-card1.webp)] 2xl:bg-cover bg-[length:100%_100%] bg-center bg-no-repeat flex flex-col items-center md:mt-0 mt-[1vh]">
-
                 {/* <BorderBeam
                   size={169}
                   duration={8}
@@ -422,6 +420,40 @@ const Timeline = () => {
       ref={sectionRef}
       className="md:mt-[10vh] mt-[6vh] md:mb-[15vh] mb-[10vh] relative"
     >
+      <div
+        id="leads"
+        className="text-center max-w-[1100px] mx-auto z-40 relative my-[5vh]"
+      >
+        <h5
+          id="leads-h5"
+          className="font-bricolage font-normal 2xl:text-[28px] xl:text-[24px] lg:text-[22px] text-[20px] tracking-[-0.07em] capitalize text-white"
+        >
+          <span className="2xl:text-[40px] xl:text-[36px] lg:text-[30px] text-[26px]">
+            [
+          </span>{" "}
+          Case Studies{" "}
+          <span className="2xl:text-[40px] xl:text-[36px] lg:text-[30px] text-[26px]">
+            ]
+          </span>
+        </h5>
+        <div className="overflow-hidden -mt-1">
+          <h3
+            id="leads-h3"
+            className="font-bricolage font-bold 2xl:text-[48px] xl:text-[42px] lg:text-[38px] md:text-[32px] text-[30px] tracking-[-0.03em] leading-[123%] capitalize text-white"
+          >
+            Insights That Speak{" "}
+            <span className="font-tartuffo font-thin tracking-[0.01em]">
+              For Themselves
+            </span>
+          </h3>
+        </div>
+        <p
+          id="leads-content"
+          className="font-bricolage font-normal xl:text-[20px] text-[18px] tracking-[0em] leading-[130%] text-white md:mt-0"
+        >
+          A collection of case studies demonstrating my approach, strategic thinking, and the impact of my solutions on real-world challenges.
+        </p>
+      </div>
       <img
         src="/new-home/timeline-vector.webp"
         alt="vector"
