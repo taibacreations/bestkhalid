@@ -125,7 +125,7 @@ const Approach = () => {
   return (
     <section
       ref={sectionRef}
-      className="max-w-[1505px] mx-auto xl:px-10 px-4 relative my-[12vh]"
+      className="max-w-[1505px] mx-auto xl:px-10 px-4 relative mb-[12vh] md:-mt-[5vh]"
     >
       <img
         src="/new-home/approach.webp"

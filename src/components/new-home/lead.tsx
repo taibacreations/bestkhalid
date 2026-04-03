@@ -158,7 +158,7 @@ const Lead = () => {
                   See Recent Work
                 </Link>
               </div>
-              <p className="font-bricolage font-normal xl:text-[20px] text-[18px] leading-[130%] tracking-[0em] text-white mb-[-5px] text-center">
+              <p className="font-bricolage font-normal text-[18px] leading-[130%] tracking-[0em] text-white mb-[-5px] text-center">
                 Explore real projects focused on leads & conversions
               </p>
             </div>

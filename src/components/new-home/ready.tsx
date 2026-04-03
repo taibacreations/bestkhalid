@@ -14,26 +14,40 @@ const Ready = () => {
   const noteRef = useRef<HTMLParagraphElement | null>(null);
   const vector1Ref = useRef<HTMLImageElement | null>(null);
   const vector2Ref = useRef<HTMLImageElement | null>(null);
+  const ctaBgLayersRef = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-
       // Vectors slide in from their respective sides
       gsap.fromTo(
         vector1Ref.current,
         { x: 80, opacity: 0 },
         {
-          x: 0, opacity: 1, duration: 1, ease: "power3.out",
-          scrollTrigger: { trigger: sectionRef.current, start: "top 85%", once: true },
-        }
+          x: 0,
+          opacity: 1,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 85%",
+            once: true,
+          },
+        },
       );
       gsap.fromTo(
         vector2Ref.current,
         { x: -80, opacity: 0 },
         {
-          x: 0, opacity: 1, duration: 1, ease: "power3.out",
-          scrollTrigger: { trigger: sectionRef.current, start: "top 85%", once: true },
-        }
+          x: 0,
+          opacity: 1,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 85%",
+            once: true,
+          },
+        },
       );
 
       // Heading, paragraph, CTA, and note cascade up
@@ -41,18 +55,79 @@ const Ready = () => {
         [headingRef.current, paraRef.current, ctaRef.current, noteRef.current],
         { y: 40, opacity: 0 },
         {
-          y: 0, opacity: 1, duration: 0.8, ease: "power3.out", stagger: 0.15,
-          scrollTrigger: { trigger: headingRef.current, start: "top 85%", once: true },
-        }
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: "power3.out",
+          stagger: 0.15,
+          scrollTrigger: {
+            trigger: headingRef.current,
+            start: "top 85%",
+            once: true,
+          },
+        },
       );
-
     }, sectionRef);
 
     return () => ctx.revert();
   }, []);
 
+  useEffect(() => {
+    const conImages = [
+      "/new-home/cons-1.webp",
+      "/new-home/cons-2.webp",
+      "/new-home/cons-3.webp",
+      "/new-home/cons-4.webp",
+      "/new-home/cons-5.webp",
+    ];
+
+    [...conImages].forEach((src) => {
+      const img = new window.Image();
+      img.src = src;
+    });
+
+    const animateBgLayers = (
+      layers: (HTMLDivElement | null)[],
+      imageCount: number,
+    ) => {
+      if (layers.length !== imageCount) return null;
+
+      gsap.set(layers, { autoAlpha: 0 });
+      gsap.set(layers[0], { autoAlpha: 1 });
+
+      const tl = gsap.timeline({ repeat: -1 });
+      const duration = 0.8;
+      const hold = 0.5;
+
+      layers.forEach((_, i) => {
+        const next = (i + 1) % layers.length;
+        tl.to(layers[i], { autoAlpha: 0, duration }, `+=${hold}`).to(
+          layers[next],
+          { autoAlpha: 1, duration },
+          `-=${duration}`,
+        );
+      });
+
+      return tl;
+    };
+
+    let ctaTl: gsap.core.Timeline | null = null;
+
+    const timer = setTimeout(() => {
+      ctaTl = animateBgLayers(ctaBgLayersRef.current, conImages.length);
+    }, 100);
+
+    return () => {
+      clearTimeout(timer);
+      ctaTl?.kill();
+      gsap.killTweensOf([
+        ...ctaBgLayersRef.current,
+      ]);
+    };
+  }, []);
+
   return (
-    <section ref={sectionRef} className="md:py-[13vh] py-[10vh] relative">
+    <section ref={sectionRef} className="md:py-[13vh] py-[6vh] relative">
       <img
         ref={vector1Ref}
         src="/new-home/ready-vector1.webp"
@@ -68,7 +143,7 @@ const Ready = () => {
         className="absolute left-0 bottom-[10%] 2xl:w-auto xl:w-[400px] w-[300px]"
       />
       <div className="max-w-[1450px] mx-auto xl:px-10 px-4 relative">
-        <div className="2xl:max-w-[957px] lg:max-w-[800px] max-w-[700px] mx-auto flex flex-col justify-center items-center relative">
+        <div className="2xl:max-w-[750px] xl:max-w-[670px] lg:max-w-[630px] max-w-[550px] mx-auto flex flex-col justify-center items-center relative">
           <h2
             ref={headingRef}
             style={{ willChange: "transform, opacity" }}
@@ -83,40 +158,42 @@ const Ready = () => {
             <p
               ref={paraRef}
               style={{ willChange: "transform, opacity" }}
-              className="font-bricolage font-light xl:text-[20px] text-[18px] leading-[130%] tracking-[0em] text-white mt-[2.3vh]"
+              className="font-bricolage font-light xl:text-[20px] text-[18px] leading-[130%] tracking-[0em] text-white mt-[1vh]"
             >
               If you're serious about increasing consultation inquiries and
               strengthening your online presence, let's discuss your goals.
             </p>
-            <div className="flex flex-col justify-center items-center mt-[2vh] gap-[2vh]">
-              <div
-                ref={ctaRef}
-                style={{ willChange: "transform, opacity" }}
-              >
+            <div className="flex flex-col justify-center items-center gap-[2vh]">
+              {/* ✅ Animated CTA Button */}
+              <div className="relative max-w-fit mt-[2vh] lg:mb-[1vh]">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <div
+                    key={`cta-${i}`}
+                    ref={(el) => {
+                      ctaBgLayersRef.current[i] = el;
+                    }}
+                    className="absolute inset-0 rounded-full bg-contain bg-no-repeat bg-center z-0 2xl:w-[405px] xl:w-[360px] lg:w-[320px] w-[250px] 2xl:h-[59px] md:h-[50px] h-[40px]"
+                    style={{
+                      backgroundImage: `url(/new-home/cons-${i + 1}.webp)`,
+                    }}
+                  />
+                ))}
                 <Link
                   href="/contact"
-                  className="font-bricolage font-bold xl:text-[18px] md:text-[16px] text-[14px] leading-[100%] tracking-[-0.07em] capitalize bg-white xl:w-[378px] md:w-[320px] md:h-[44px] w-fit p-3 rounded-full flex justify-center items-center gap-2 text-[#0033FF] hover:opacity-80 transition-all duration-300"
+                  className="relative bg-transparent text-white font-bricolage font-bold 2xl:text-[22px] xl:text-[20px] lg:text-[18px] text-[15px] leading-[100%] tracking-[-0.07em] capitalize 2xl:w-[405px] xl:w-[360px] lg:w-[320px] w-[250px] 2xl:h-[59px] md:h-[50px] h-[40px] rounded-full flex justify-center items-center gap-2 z-10 border-0"
                 >
-                  <svg
-                    xmlnsXlink="http://www.w3.org/1999/xlink"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="17"
-                    height="12"
-                    viewBox="0 0 17 12"
-                    fill="none"
-                  >
-                    <path
-                      d="M0.75 5.52297L-3.49691e-07 5.52297L-4.15258e-07 6.27297L0.75 6.27297L0.75 5.52297ZM16.2803 6.0533C16.5732 5.76041 16.5732 5.28554 16.2803 4.99264L11.5074 0.219671C11.2145 -0.073222 10.7396 -0.073222 10.4467 0.219671C10.1538 0.512564 10.1538 0.987438 10.4467 1.28033L14.6893 5.52297L10.4467 9.76561C10.1538 10.0585 10.1538 10.5334 10.4467 10.8263C10.7396 11.1192 11.2145 11.1192 11.5074 10.8263L16.2803 6.0533ZM0.75 5.52297L0.75 6.27297L15.75 6.27297L15.75 5.52297L15.75 4.77297L0.75 4.77297L0.75 5.52297ZM0.75 5.52297L1.5 5.52297L1.5 1.52297L0.75 1.52297L0 1.52297L-3.49691e-07 5.52297L0.75 5.52297Z"
-                      fill="#0033FF"
-                    />
-                  </svg>
-                  Book Your Free Strategy Consultation
+                  <img
+                    src="/button-arrow.webp"
+                    alt="arrow"
+                    className="w-[12px] md:w-[14px] lg:w-[15px] h-auto"
+                  />
+                  Book your Free Strategy Call
                 </Link>
               </div>
               <p
                 ref={noteRef}
                 style={{ willChange: "transform, opacity" }}
-                className="font-bricolage font-light text-[16px] leading-[130%] tracking-[0em] text-white"
+                className="font-bricolage font-light text-[18px] leading-[130%] tracking-[0em] text-white"
               >
                 I only accept a limited number of law firm projects each month
                 to maintain quality and focus

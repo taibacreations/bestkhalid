@@ -148,7 +148,7 @@ const Hero = () => {
           <h3 className="font-bricolage font-normal 2xl:text-[30px] xl:text-[27px] lg:text-[20px] md:text-[16px] text-[14px] leading-[142%] capitalize text-white">
             Lead Capturing Law Firm Website Design.
           </h3>
-          <h1 className="font-bricolage font-extrabold 2xl:text-[50px] xl:text-[42px] lg:text-[32px] md:text-[25px] text-[23px] leading-[98%] uppercase tracking-[-0.03em] text-white mt-[1.4vh] flex flex-col">
+          <h1 className="font-bricolage font-extrabold 2xl:text-[50px] xl:text-[42px] lg:text-[32px] md:text-[25px] text-[23px] leading-[98%] uppercase tracking-[-0.03em] text-white md:mt-[1.4vh] mt-[.5vh] flex flex-col">
             Built to Generate More{" "}
             <span className="font-tartuffo font-thin capitalize 2xl:text-[77px] xl:text-[65px] lg:text-[50px] md:text-[39px] text-[35px] tracking-[0.01em] mt-[1.5vh]">
               Qualified Case Inquiries
@@ -190,7 +190,7 @@ const Hero = () => {
             </Link>
           </div>
 
-          <p className="font-bricolage font-extralight tracking-[0em] leading-[142%] 2xl:text-[20px] xl:text-[18px] lg:text-[15px] text-[13px] text-white">
+          <p className="font-bricolage font-extralight tracking-[0em] leading-[142%] xl:text-[18px] lg:text-[15px] text-[13px] text-white">
             Limited law firm projects are accepted each month.
           </p>
         </div>
@@ -279,7 +279,7 @@ const Hero = () => {
             src="/new-home/heros.webp"
             alt="Banner Image"
             style={{ willChange: "transform, opacity" }}
-            className="2xl:w-[806px] xl:w-[680px] lg:w-[500px] md:w-[400px] w-full lg:h-auto md:h-full h-auto absolute xl:-top-[2vh] md:top-[6vh] lg:top-[4vh] top-[60vh] 2xl:right-[-4%] md:right-0 left-[50%] -translate-x-1/2 md:left-auto md:translate-x-0 z-20"
+            className="2xl:w-[806px] xl:w-[680px] lg:w-[500px] md:w-[400px] w-full lg:h-auto md:h-full h-auto absolute xl:-top-[2vh] md:top-[6vh] lg:top-[4vh] top-[55vh] 2xl:right-[-4%] md:right-0 left-[50%] -translate-x-1/2 md:left-auto md:translate-x-0 z-20"
           />
           {/* ✅ Floating CTA — z-40 to sit above blur */}
           <div

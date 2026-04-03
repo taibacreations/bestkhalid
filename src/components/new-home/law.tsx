@@ -94,7 +94,7 @@ const Law = () => {
   return (
     <section
       ref={sectionRef}
-      className="max-w-[1525px] mx-auto xl:px-10 px-4 relative lg:mb-[15.5vh] lg:mt-[10vh] mb-[10vh] md:mt-[6vh] mt-[-4vh]"
+      className="max-w-[1525px] mx-auto xl:px-10 px-4 relative lg:mb-[15.5vh] lg:mt-[10vh] mb-[10vh] md:mt-[6vh] mt-[-4vh] z-10"
     >
       <img
         src="/new-home/law-blur.webp"
@@ -105,14 +105,14 @@ const Law = () => {
       <div className="relative z-10">
         <div>
           {/* ✅ Plain heading (no animation) */}
-          <h2 className="font-bricolage font-bold 2xl:text-[44px] xl:text-[38px] lg:text-[36px] text-[32px] leading-[142%] tracking-[-0.04em] uppercase text-center text-white">
+          <h2 className="font-bricolage font-bold 2xl:text-[44px] xl:text-[38px] lg:text-[36px] text-[32px] md:leading-[142%] leading-[120%] tracking-[-0.04em] uppercase text-center text-white">
             Is Your Law Firm{" "}
             <span>Website Costing You Cases?</span>
           </h2>
 
           <p
             ref={subtitleRef}
-            className="font-bricolage font-normal 2xl:text-[20px] text-[18px] leading-[130%] tracking-[0em] text-white text-center my-[2vh]"
+            className="font-bricolage font-normal 2xl:text-[20px] text-[18px] leading-[130%] tracking-[0em] text-white text-center mb-[2vh] mt-[1vh]"
           >
             Nobody calls to tell you your website lost them. They just quietly
             hire the firm down the road whose website made them feel more
@@ -255,7 +255,7 @@ const Law = () => {
         <p
           ref={footerTextRef}
           style={{ willChange: "transform, opacity" }}
-          className="xl:text-[20px] lg:text-[18px] text-[16px] md:leading-[32.5px] leading-[130%] text-center text-[#FFFFFFE5] font-semibold font-inter lg:w-[890px] md:w-[80%] w-full mx-auto md:mt-[7.8vh] mt-[5vh]"
+          className="xl:text-[20px] lg:text-[18px] text-[16px] md:leading-[32.5px] leading-[130%] text-center text-[#FFFFFFE5] font-semibold font-inter lg:w-[890px] md:w-[80%] w-full mx-auto mt-[5vh]"
         >
           Potential clients compare multiple firms quickly. If your website
           doesn't project authority instantly, they move on.

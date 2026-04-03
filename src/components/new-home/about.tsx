@@ -245,23 +245,13 @@ const About = () => {
               <h2
                 ref={headingRef}
                 style={{ willChange: "transform, opacity" }}
-                className="font-bricolage font-semibold 2xl:text-[58px] xl:text-[50px] lg:text-[42px] md:text-[38px] text-[34px] md:leading-[88%] leading-[95%] tracking-[-0.07em] capitalize text-white 2xl:max-w-[550px] xl:max-w-[480px] lg:max-w-[400px] md:max-w-full max-w-[78vw] about-heading"
+                className="font-bricolage font-semibold 2xl:text-[58px] xl:text-[50px] lg:text-[42px] md:text-[38px] text-[34px] md:leading-[88%] leading-[95%] tracking-[-0.07em] capitalize text-white 2xl:max-w-[550px] xl:max-w-[480px] lg:max-w-[400px] md:max-w-full max-w-[78vw] about-heading my-[3vh]"
               >
                 The Person Behind{" "}
                 <span className="font-tartuffo font-thin 2xl:text-[54px] xl:text-[46px] lg:text-[38px] md:text-[34px] text-[32px] tracking-[0em]">
                   Every Web Design Project
                 </span>
               </h2>
-
-              {/* Decorative divider */}
-              <div
-                ref={dividerRef}
-                style={{ willChange: "transform, opacity" }}
-                className="mt-[3vh] mb-[3vh] h-px w-full"
-                aria-hidden
-              >
-                <div className="h-px w-full bg-gradient-to-r from-[#7AB4FD40] via-[#7AB4FD20] to-transparent" />
-              </div>
 
               {/* Body copy */}
               <p
