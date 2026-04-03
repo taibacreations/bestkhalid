@@ -94,7 +94,7 @@ const Law = () => {
   return (
     <section
       ref={sectionRef}
-      className="max-w-[1525px] mx-auto xl:px-10 px-4 relative lg:mb-[15.5vh] lg:mt-[10vh] mb-[10vh] mt-[6vh]"
+      className="max-w-[1525px] mx-auto xl:px-10 px-4 relative lg:mb-[15.5vh] lg:mt-[10vh] mb-[10vh] md:mt-[6vh] mt-[-4vh]"
     >
       <img
         src="/new-home/law-blur.webp"
@@ -112,7 +112,7 @@ const Law = () => {
 
           <p
             ref={subtitleRef}
-            className="font-bricolage font-normal 2xl:text-[18px] text-[16px] leading-[142%] tracking-[0em] text-white text-center my-[2vh]"
+            className="font-bricolage font-normal 2xl:text-[20px] text-[18px] leading-[130%] tracking-[0em] text-white text-center my-[2vh]"
           >
             Nobody calls to tell you your website lost them. They just quietly
             hire the firm down the road whose website made them feel more
@@ -121,7 +121,7 @@ const Law = () => {
 
           <h2
             ref={subheadingRef}
-            className="font-tartuffo font-normal 2xl:text-[44px] xl:text-[38px] lg:text-[36px] text-[32px] leading-[142%] capitalize text-white text-center"
+            className="font-tartuffo font-normal 2xl:text-[44px] xl:text-[38px] lg:text-[36px] text-[32px] md:leading-[142%] capitalize text-white text-center"
           >
             Most law firm websites:
           </h2>
@@ -142,10 +142,10 @@ const Law = () => {
                 alt="icon"
                 className="xl:w-auto w-[35px]"
               />
-              <h4 className="font-bricolage font-bold xl:text-[20px] text-[16px] leading-[142%] capitalize text-white my-[1.3vh]">
+              <h4 className="font-bricolage font-bold xl:text-[20px] text-[18px] xl:leading-[142%] leading-[100%] capitalize text-white my-[1.3vh]">
                 Look Outdated or Generic
               </h4>
-              <p className="font-bricolage font-normal xl:text-[14px] text-[12px] leading-[142%] tracking-[-0.01em] capitalize text-white">
+              <p className="font-bricolage font-normal xl:text-[16px] text-[14px] leading-[130%] tracking-[-0.01em] capitalize text-white">
                 which, in a trust-based profession, is a big problem dressed up
                 as a small one
               </p>
@@ -162,10 +162,10 @@ const Law = () => {
                 alt="icon"
                 className="xl:w-auto w-[35px]"
               />
-              <h4 className="font-bricolage font-bold xl:text-[20px] text-[16px] leading-[142%] capitalize text-white my-[1.3vh]">
+              <h4 className="font-bricolage font-bold xl:text-[20px] text-[18px] xl:leading-[142%] leading-[100%] capitalize text-white my-[1.3vh]">
                 Have no real consultation funnel
               </h4>
-              <p className="font-bricolage font-normal xl:text-[14px] text-[12px] leading-[142%] tracking-[-0.01em] capitalize text-white">
+              <p className="font-bricolage font-normal xl:text-[16px] text-[14px] leading-[130%] tracking-[-0.01em] capitalize text-white">
                 a buried contact form is not a strategy
               </p>
             </div>
@@ -181,10 +181,10 @@ const Law = () => {
                 alt="icon"
                 className="xl:w-auto w-[35px]"
               />
-              <h4 className="font-bricolage font-bold xl:text-[20px] text-[16px] leading-[142%] capitalize text-white my-[1.3vh]">
+              <h4 className="font-bricolage font-bold xl:text-[20px] text-[18px] xl:leading-[142%] leading-[100%] capitalize text-white my-[1.3vh]">
                 Don't rank for high-intent legal keywords
               </h4>
-              <p className="font-bricolage font-normal xl:text-[14px] text-[12px] leading-[142%] tracking-[-0.01em] capitalize text-white">
+              <p className="font-bricolage font-normal xl:text-[16px] text-[14px] leading-[130%] tracking-[-0.01em] capitalize text-white">
                 so the right clients never even find you
               </p>
             </div>
@@ -204,10 +204,10 @@ const Law = () => {
                 alt="icon"
                 className="xl:w-auto w-[35px]"
               />
-              <h4 className="font-bricolage font-bold xl:text-[20px] text-[16px] leading-[142%] capitalize text-white my-[1.3vh]">
+              <h4 className="font-bricolage font-bold xl:text-[20px] text-[18px] xl:leading-[142%] leading-[100%] capitalize text-white my-[1.3vh]">
                 Have no real consultation funnel
               </h4>
-              <p className="font-bricolage font-normal xl:text-[14px] text-[12px] leading-[142%] tracking-[-0.01em] capitalize text-white">
+              <p className="font-bricolage font-normal xl:text-[16px] text-[14px] leading-[130%] tracking-[-0.01em] capitalize text-white">
                 a buried contact form is not a strategy
               </p>
             </div>
@@ -223,10 +223,10 @@ const Law = () => {
                 alt="icon"
                 className="xl:w-auto w-[35px]"
               />
-              <h4 className="font-bricolage font-bold xl:text-[20px] text-[16px] leading-[142%] capitalize text-white my-[1.3vh]">
+              <h4 className="font-bricolage font-bold xl:text-[20px] text-[18px] xl:leading-[142%] leading-[100%] capitalize text-white my-[1.3vh]">
                 Load slowly on mobile
               </h4>
-              <p className="font-bricolage font-normal xl:text-[14px] text-[12px] leading-[142%] tracking-[-0.01em] capitalize text-white">
+              <p className="font-bricolage font-normal xl:text-[16px] text-[14px] leading-[130%] tracking-[-0.01em] capitalize text-white">
                 as over 60% of legal searches happen on a phone
               </p>
             </div>
@@ -242,10 +242,10 @@ const Law = () => {
                 alt="icon"
                 className="xl:w-auto w-[35px]"
               />
-              <h4 className="font-bricolage font-bold xl:text-[20px] text-[16px] leading-[142%] capitalize text-white my-[1.3vh]">
+              <h4 className="font-bricolage font-bold xl:text-[20px] text-[18px] xl:leading-[142%] leading-[100%] capitalize text-white my-[1.3vh]">
                 Build zero immediate credibility
               </h4>
-              <p className="font-bricolage font-normal xl:text-[14px] text-[12px] leading-[142%] tracking-[-0.01em] capitalize text-white">
+              <p className="font-bricolage font-normal xl:text-[16px] text-[14px] leading-[130%] tracking-[-0.01em] capitalize text-white">
                 as first impressions online are brutally fast
               </p>
             </div>
@@ -255,7 +255,7 @@ const Law = () => {
         <p
           ref={footerTextRef}
           style={{ willChange: "transform, opacity" }}
-          className="xl:text-[20px] lg:text-[18px] text-[16px] leading-[32.5px] text-center text-[#FFFFFFE5] font-semibold font-inter lg:w-[890px] md:w-[80%] w-full mx-auto md:mt-[7.8vh] mt-[5vh]"
+          className="xl:text-[20px] lg:text-[18px] text-[16px] md:leading-[32.5px] leading-[130%] text-center text-[#FFFFFFE5] font-semibold font-inter lg:w-[890px] md:w-[80%] w-full mx-auto md:mt-[7.8vh] mt-[5vh]"
         >
           Potential clients compare multiple firms quickly. If your website
           doesn't project authority instantly, they move on.

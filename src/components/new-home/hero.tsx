@@ -154,12 +154,12 @@ const Hero = () => {
               Qualified Case Inquiries
             </span>
           </h1>
-          <p className="font-bricolage font-normal tracking-[0em] leading-[142%] 2xl:text-[19px] xl:text-[18px] lg:text-[15px] text-[13px] text-white my-[3vh]">
+          <p className="font-bricolage font-normal tracking-[0em] leading-[130%] 2xl:text-[20px] xl:text-[18px] lg:text-[15px] text-[15px] text-white my-[3vh]">
             I design strategic, conversion-focused websites for law firms that
             want measurable growth, not just a prettier site that nobody calls
             from.
           </p>
-          <p className="font-bricolage font-normal tracking-[0em] leading-[142%] 2xl:text-[19px] xl:text-[18px] lg:text-[15px] text-[13px] text-white">
+          <p className="font-bricolage font-normal tracking-[0em] leading-[130%] 2xl:text-[20px] xl:text-[18px] lg:text-[15px] text-[15px] text-white mt-[-1vh]">
             Over the years, I've helped attorneys turn their websites from
             expensive digital dust collectors into actual client acquisition
             assets.
@@ -200,7 +200,7 @@ const Hero = () => {
         <div
           ref={socialRef}
           style={{ willChange: "transform, opacity" }}
-          className="absolute md:-bottom-[15.6vh] -bottom-[7vh] left-4 xl:left-10 flex items-center gap-1 z-40"
+          className="absolute md:-bottom-[15.6vh] -bottom-[7vh] left-4 xl:left-10 md:flex items-center gap-1 z-40 hidden"
         >
           <div className="xl:w-5 xl:h-5 w-4 h-4 rounded-full button-shadow bg-[#003459]" />
           <div className="2xl:w-[98px] xl:w-[90px] lg:w-[60px] w-[70px] border border-dashed border-white h-px" />
@@ -289,7 +289,7 @@ const Hero = () => {
           >
             <Link
               href="/portfolio"
-              className="bg-[url(/new-home/hero-text-bg.webp)] bg-cover bg-center text-white rounded-[334px] 2xl:w-[443px] lg:w-[380px] md:w-[300px] w-[250px] lg:px-0 2xl:h-[59px] md:h-[50px] h-[40px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold healthcare text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-0.07em] capitalize"
+              className="bg-[url(/new-home/hero-text-bg.webp)] bg-cover bg-center text-white rounded-[334px] 2xl:w-[443px] lg:w-[380px] md:w-[300px] w-[250px] lg:px-0 2xl:h-[59px] md:h-[50px] h-[40px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold healthcare text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[0em] capitalize"
             >
               <Image
                 src="/button-arrow.webp"

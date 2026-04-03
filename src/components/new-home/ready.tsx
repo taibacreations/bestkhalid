@@ -83,7 +83,7 @@ const Ready = () => {
             <p
               ref={paraRef}
               style={{ willChange: "transform, opacity" }}
-              className="font-bricolage font-light xl:text-[18px] text-[16px] leading-[142%] tracking-[0em] text-white mt-[2.3vh]"
+              className="font-bricolage font-light xl:text-[20px] text-[18px] leading-[130%] tracking-[0em] text-white mt-[2.3vh]"
             >
               If you're serious about increasing consultation inquiries and
               strengthening your online presence, let's discuss your goals.
@@ -116,7 +116,7 @@ const Ready = () => {
               <p
                 ref={noteRef}
                 style={{ willChange: "transform, opacity" }}
-                className="font-bricolage font-light text-[14px] leading-[142%] tracking-[0em] text-white"
+                className="font-bricolage font-light text-[16px] leading-[130%] tracking-[0em] text-white"
               >
                 I only accept a limited number of law firm projects each month
                 to maintain quality and focus

@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import "@stianlarsen/border-beam/css";
+// import "@stianlarsen/border-beam/css";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -149,7 +149,7 @@ const Approach = () => {
           <p
             ref={paraRef}
             style={{ willChange: "transform, opacity" }}
-            className="font-bricolage font-normal xl:text-[18px] lg:text-[16px] text-[14px] leading-[142%] tracking-[0em] text-center text-white mt-[2.5vh]"
+            className="font-bricolage font-normal xl:text-[20px] lg:text-[16px] text-[16px] leading-[130%] tracking-[0em] text-center text-white mt-[2.5vh]"
           >
             I don't design "pretty websites." I build structured{" "}
             <span className="text-[#1E90FF]">
@@ -168,7 +168,7 @@ const Approach = () => {
             className="bg-[url(/new-home/approach1.webp)] 2xl:bg-cover lg:bg-contain bg-[length:100%_100%] bg-no-repeat bg-center 2xl:w-[703px] md:w-[49%] xl:h-[139px] 2xl:px-[1.8vw] md:pl-[1.8vw] xl:pr-[4vw] md:pr-[3vw] px-[4vw] xl:py-[.5vh] py-[1.5vh] flex justify-center flex-col"
           >
             <img src="/new-home/mark.webp" alt="verified" className="xl:w-[55px] w-[45px] xl:mt-0 mt-[-1vh]" />
-            <h4 className="font-bricolage font-bold 2xl:text-[20px] xl:text-[18px] lg:text-[15px] text-[13px] leading-[142%] tracking-[-0.01em] capitalize text-white">
+            <h4 className="font-bricolage font-bold 2xl:text-[20px] xl:text-[18px] lg:text-[15px] text-[15px] md:leading-[142%] leading-[130%] tracking-[-0.01em] capitalize text-white">
               Position yourself as the trusted authority in your practice area,
               not just say you are one
             </h4>
@@ -179,7 +179,7 @@ const Approach = () => {
             className="bg-[url(/new-home/approach1.webp)] 2xl:bg-cover lg:bg-contain bg-[length:100%_100%] bg-no-repeat bg-center 2xl:w-[703px] md:w-[49%] xl:h-[139px] 2xl:px-[1.8vw] md:pl-[1.8vw] xl:pr-[6vw] md:pr-0 px-[4vw] xl:py-[.5vh] py-[1.5vh] flex justify-center flex-col"
           >
             <img src="/new-home/mark.webp" alt="verified" className="xl:w-[55px] w-[45px] xl:mt-0 mt-[-1vh]" />
-            <h4 className="font-bricolage font-bold 2xl:text-[20px] xl:text-[18px] lg:text-[15px] text-[13px] leading-[142%] tracking-[-0.01em] capitalize text-white">
+            <h4 className="font-bricolage font-bold 2xl:text-[20px] xl:text-[18px] lg:text-[15px] text-[15px] md:leading-[142%] leading-[130%] tracking-[-0.01em] capitalize text-white">
               Guide visitors directly toward booking a consultation; don't leave
               them guessing what to do next
             </h4>
@@ -194,7 +194,7 @@ const Approach = () => {
             className="bg-[url(/new-home/approach1.webp)] 2xl:bg-cover lg:bg-contain bg-[length:100%_100%] bg-no-repeat bg-center 2xl:w-[703px] md:w-[49%] xl:h-[139px] 2xl:px-[1.8vw] md:pl-[1.8vw] xl:pr-[6vw] md:pr-[3vw] px-[4vw] xl:py-[.5vh] py-[1.5vh] flex justify-center flex-col"
           >
             <img src="/new-home/mark.webp" alt="verified" className="xl:w-[55px] w-[45px] xl:mt-0 mt-[-1vh]" />
-            <h4 className="font-bricolage font-bold 2xl:text-[20px] xl:text-[18px] lg:text-[15px] text-[13px] leading-[142%] tracking-[-0.01em] capitalize text-white">
+            <h4 className="font-bricolage font-bold 2xl:text-[20px] xl:text-[18px] lg:text-[15px] text-[15px] md:leading-[142%] leading-[130%] tracking-[-0.01em] capitalize text-white">
               Communicate credibility within seconds, because that's genuinely
               all the time you get
             </h4>
@@ -205,7 +205,7 @@ const Approach = () => {
             className="bg-[url(/new-home/approach1.webp)] 2xl:bg-cover lg:bg-contain bg-[length:100%_100%] bg-no-repeat bg-center 2xl:w-[703px] md:w-[49%] xl:h-[139px] 2xl:px-[1.8vw] md:pl-[1.8vw] xl:pr-[5vw] md:pr-[3vw] px-[4vw] xl:py-[.5vh] py-[1.5vh] flex justify-center flex-col"
           >
             <img src="/new-home/mark.webp" alt="verified" className="xl:w-[55px] w-[45px] xl:mt-0 mt-[-1vh]" />
-            <h4 className="font-bricolage font-bold 2xl:text-[20px] xl:text-[18px] lg:text-[15px] text-[13px] leading-[142%] tracking-[-0.01em] capitalize text-white">
+            <h4 className="font-bricolage font-bold 2xl:text-[20px] xl:text-[18px] lg:text-[15px] text-[15px] md:leading-[142%] leading-[130%] tracking-[-0.01em] capitalize text-white">
               Rank properly in local search, so the right people actually find
               you
             </h4>
@@ -220,7 +220,7 @@ const Approach = () => {
             className="md:bg-[url(/new-home/approach2.webp)] bg-[url(/new-home/approach1.webp)] 2xl:bg-cover lg:bg-contain bg-[length:100%_100%] bg-no-repeat bg-center w-[1425px] xl:h-[139px] md:pl-[1.8vw] 2xl:pr-[7vw] xl:pr-[14vw] md:pr-[6vw] px-[4vw] xl:py-[.5vh] py-[1.5vh] flex justify-center flex-col"
           >
             <img src="/new-home/mark.webp" alt="verified" className="xl:w-[55px] w-[45px] xl:mt-0 mt-[-1vh]" />
-            <h4 className="font-bricolage font-bold 2xl:text-[20px] xl:text-[18px] lg:text-[15px] text-[13px] leading-[142%] tracking-[-0.01em] capitalize text-white">
+            <h4 className="font-bricolage font-bold 2xl:text-[20px] xl:text-[18px] lg:text-[15px] text-[15px] md:leading-[142%] leading-[130%] tracking-[-0.01em] capitalize text-white">
               Capture high-intent leads 24/7, including while you're in court,
               in a meeting, or finally on that holiday you've been postponing
               since 2019

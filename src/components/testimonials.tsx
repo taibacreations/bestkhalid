@@ -8,7 +8,7 @@ import type { Swiper as SwiperType } from "swiper";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-// Import Swiper styles
+
 import "swiper/css";
 import "swiper/css/navigation";
 import Link from "next/link";
@@ -229,7 +229,7 @@ const Testimonials = ({ sanityTestimonials }: TestimonialsProps) => {
         </div>
         {/* Custom Navigation */}
         <div className="flex xl:justify-between justify-center z-20 relative h-0">
-          <button className="swiper-button-prev-custom bg-white lg:w-[42px] lg:h-[42px] w-[35px] h-[35px] rounded-full flex justify-center items-center absolute 2xl:left-[-7.3%] xl:left-0 xl:top-[9vh] lg:top-[24vh] md:top-[24vh] top-[22vh] lg:left-[45%] md:left-[43%] left-[37%]">
+          <button className="swiper-button-prev-custom bg-white lg:w-[42px] lg:h-[42px] w-[35px] h-[35px] rounded-full flex justify-center items-center absolute 2xl:left-[-7.3%] xl:left-0 xl:top-[9vh] lg:top-[24vh] md:top-[24vh] top-[28vh] lg:left-[45%] md:left-[43%] left-[37%]">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -246,7 +246,7 @@ const Testimonials = ({ sanityTestimonials }: TestimonialsProps) => {
             </svg>
           </button>
 
-          <button className="swiper-button-next-custom bg-white lg:w-[42px] lg:h-[42px] w-[35px] h-[35px] rounded-full flex justify-center items-center absolute 2xl:right-[-7.3%] xl:right-0 xl:top-[9vh] lg:top-[24vh] md:top-[24vh] top-[22vh] lg:right-[45%] md:right-[43%] right-[37%]">
+          <button className="swiper-button-next-custom bg-white lg:w-[42px] lg:h-[42px] w-[35px] h-[35px] rounded-full flex justify-center items-center absolute 2xl:right-[-7.3%] xl:right-0 xl:top-[9vh] lg:top-[24vh] md:top-[24vh] top-[28vh] lg:right-[45%] md:right-[43%] right-[37%]">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -356,7 +356,7 @@ const Testimonials = ({ sanityTestimonials }: TestimonialsProps) => {
             </SwiperSlide>
           ))}
         </Swiper>
-        <div className="flex justify-center items-center md:mt-[7vh] mt-[6vh] xl:mt-0">
+        <div className="flex justify-center items-center md:mt-[7vh] mt-[4vh] xl:mt-0">
           {/* ✅ Desktop CTA Button with Animated Background */}
           <div className="flex shrink-0 relative">
             {/* Background layers */}

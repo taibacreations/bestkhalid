@@ -224,7 +224,7 @@ const About = () => {
 
       <div
         ref={sectionRef}
-        className="max-w-[1505px] mx-auto xl:px-10 px-4 lg:mb-[14.5vh] lg:-mt-[8vh] md:my-[10vh] my-[8vh] relative"
+        className="max-w-[1505px] mx-auto xl:px-10 px-4 lg:mb-[14.5vh] lg:-mt-[8vh] md:my-[10vh] mb-[8vh] mt-[-7vh] relative"
       >
         {/* ─────────────────────────────────────────────────────
             TOP BADGE
@@ -267,7 +267,7 @@ const About = () => {
               <p
                 ref={para1Ref}
                 style={{ willChange: "transform, opacity" }}
-                className="font-bricolage font-normal tracking-[0em] leading-[158%] 2xl:text-[18px] xl:text-[17px] xl:text-[15px] text-[14px] text-[#FFFFFFCC]"
+                className="font-bricolage font-normal tracking-[0em] leading-[130%] 2xl:text-[20px] xl:text-[17px] xl:text-[15px] text-[16px] text-[#FFFFFFCC]"
               >
                 I'm a{" "}
                 <span className="text-white font-medium">
@@ -282,7 +282,7 @@ const About = () => {
               <p
                 ref={para2Ref}
                 style={{ willChange: "transform, opacity" }}
-                className="font-bricolage font-normal tracking-[0em] leading-[158%] 2xl:text-[18px] xl:text-[17px] xl:text-[15px] text-[14px] text-[#FFFFFFCC] mt-[2.5vh]"
+                className="font-bricolage font-normal tracking-[0em] leading-[130%] 2xl:text-[20px] xl:text-[17px] xl:text-[15px] text-[16px] text-[#FFFFFFCC] mt-[2.5vh]"
               >
                 I've watched too many law firms pour money into
                 beautiful-looking sites that never ring the phone. So I stopped

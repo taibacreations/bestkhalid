@@ -106,7 +106,7 @@ const Lead = () => {
         className="w-full md:h-auto h-62.5 absolute left-0 2xl:-bottom-[50vh] xl:-bottom-[33vh] lg:-bottom-[20vh] md:-bottom-[16vh] -bottom-[17%] z-20"
       />
       <div className="xl:pt-0">
-        <div id="leads" className="text-center max-w-[992px] mx-auto z-40 relative">
+        <div id="leads" className="text-center max-w-[1100px] mx-auto z-40 relative">
           <h5
             id="leads-h5"
             className="font-bricolage font-normal 2xl:text-[28px] xl:text-[24px] lg:text-[22px] text-[20px] tracking-[-0.07em] capitalize text-white"
@@ -127,7 +127,7 @@ const Lead = () => {
               </span>
             </h3>
           </div>
-          <p id="leads-content" className="mt-5.5 font-bricolage font-normal xl:text-[18px] text-[16px] tracking-[0em] leading-[142%] text-white">
+          <p id="leads-content" className="mt-5.5 font-bricolage font-normal xl:text-[20px] text-[18px] tracking-[0em] leading-[130%] text-white">
             “A portfolio of projects showcasing my skills, problem-solving mindset, and the value I bring to every collaboration.”
           </p>
         </div>
@@ -158,7 +158,7 @@ const Lead = () => {
                   See Recent Work
                 </Link>
               </div>
-              <p className="font-bricolage font-normal xl:text-[18px] text-[16px] leading-[142%] tracking-[0em] text-white mb-[-5px] text-center">
+              <p className="font-bricolage font-normal xl:text-[20px] text-[18px] leading-[130%] tracking-[0em] text-white mb-[-5px] text-center">
                 Explore real projects focused on leads & conversions
               </p>
             </div>

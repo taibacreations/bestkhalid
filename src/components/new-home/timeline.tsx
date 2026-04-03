@@ -2,8 +2,8 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import "@stianlarsen/border-beam/css";
-import { BorderBeam } from "@stianlarsen/border-beam";
+// import "@stianlarsen/border-beam/css";
+// import { BorderBeam } from "@stianlarsen/border-beam";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -257,7 +257,7 @@ const SectionCards = ({
             <div className="flex flex-col 2xl:gap-[2vh] gap-[1vh] items-center md:mt-0 mt-[1vh]">
               <div className="2xl:w-[414px] xl:w-[380px] md:w-[320px] w-[92vw] 2xl:h-[106px] xl:h-[100px] h-[90px] rounded-[32px] bg-[url(/new-home/timeline-card.webp)] 2xl:bg-cover bg-[length:100%_100%] bg-center bg-no-repeat">
 
-                <BorderBeam
+                {/* <BorderBeam
                   size={169}
                   duration={8}
                   colorFrom="#00000000" // fully transparent
@@ -270,7 +270,7 @@ const SectionCards = ({
                   colorFrom="#00000000" // fully transparent
                   colorTo="#7AB4FD"
                   className="z-40 relative rounded-[32px] 2xl:ml-[23.7vw] xl:ml-[28.3vw] lg:ml-[33.3vw] ml-0 xl:mb-[21.5vh] lg:mb-[19.3vh] lg:mt-auto md:mt-[30.3vh] mt-[30.5vh] md:mb-[19.5vh] mb-[20.3vh] timeline-beam-1"
-                />
+                /> */}
 
                 <div className="flex flex-col items-center md:px-0 px-5">
                   <h3 className="font-bricolage font-bold 2xl:text-[28px] xl:text-[24px] text-[22px] leading-[142%] tracking-[-0.07em] text-white capitalize xl:w-[196px] xl:h-[45px] w-[140px] h-[35px] flex justify-center items-center bg-[#0430D2] rounded-bl-[20px] rounded-br-[20px]">
@@ -283,7 +283,7 @@ const SectionCards = ({
               </div>
               <div className="2xl:w-[414px] xl:w-[380px] md:w-[320px] w-[92vw] 2xl:h-[207px] xl:h-[200px] h-[180px] rounded-[32px] bg-[url(/new-home/timeline-card1.webp)] 2xl:bg-cover bg-[length:100%_100%] bg-center bg-no-repeat flex flex-col items-center md:mt-0 mt-[1vh]">
 
-                <BorderBeam
+                {/* <BorderBeam
                   size={169}
                   duration={8}
                   colorFrom="#00000000" // fully transparent
@@ -296,7 +296,7 @@ const SectionCards = ({
                   colorFrom="#00000000" // fully transparent
                   colorTo="#7AB4FD"
                   className="z-40 relative rounded-[32px] 2xl:ml-[23.7vw] xl:ml-[28.3vw] lg:ml-[33.3vw] ml-0 2xl:mt-[12vh] xl:mt-[11.3vh] lg:mt-[10.2vh] md:mt-[40.5vh] mt-[41.8vh] timeline-beam-2"
-                />
+                /> */}
 
                 <div className="flex flex-col items-center w-full">
                   <h3 className="font-bricolage font-bold 2xl:text-[28px] xl:text-[24px] text-[22px] leading-[142%] tracking-[-0.07em] text-white capitalize xl:w-[196px] xl:h-[45px] w-[140px] h-[35px] flex justify-center items-center bg-[#0430D2] rounded-bl-[20px] rounded-br-[20px]">
