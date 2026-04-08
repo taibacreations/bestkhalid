@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 
 const Hero = () => {
@@ -12,6 +12,18 @@ const Hero = () => {
   const imageRef = useRef<HTMLImageElement | null>(null);
   const floatingCtaRef = useRef<HTMLDivElement | null>(null);
   const socialRef = useRef<HTMLDivElement | null>(null);
+  const [isShortHeight, setIsShortHeight] = useState(false);
+
+  useEffect(() => {
+    const checkHeight = () => {
+      setIsShortHeight(window.innerHeight <= 947);
+    };
+
+    checkHeight();
+    window.addEventListener("resize", checkHeight);
+
+    return () => window.removeEventListener("resize", checkHeight);
+  }, []);
 
   useEffect(() => {
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
@@ -130,7 +142,9 @@ const Hero = () => {
         height={100}
         width={100}
         alt="dots"
-        className="absolute 2xl:bottom-0 md:bottom-[7vh] bottom-0 left-0 z-30 w-full md:h-[470px]"
+        className={`absolute 2xl:bottom-0 md:bottom-[7vh] bottom-0 left-0 z-30 w-full ${
+          isShortHeight ? "md:h-[420px]" : "md:h-[470px]"
+        }`}
       />
 
       {/* Background */}
@@ -138,12 +152,13 @@ const Hero = () => {
 
       {/* Main content wrapper */}
       <div className="relative max-w-[1525px] mx-auto xl:px-10 px-4 flex md:mt-[17.5vh] mt-[2vh]">
-
         {/* ← Content slides in from left */}
         <div
           ref={contentRef}
           style={{ willChange: "transform, opacity" }}
-          className="2xl:max-w-[650px] xl:max-w-[590px] lg:max-w-[450px] md:max-w-[350px] w-full mt-[10.5vh] relative z-40"
+          className={`2xl:max-w-[650px] xl:max-w-[590px] lg:max-w-[450px] md:max-w-[350px] w-full relative z-40 ${
+            isShortHeight ? "mt-[5vh]" : "mt-[10.5vh]"
+          }`}
         >
           <h3 className="font-bricolage font-normal 2xl:text-[30px] xl:text-[27px] lg:text-[20px] md:text-[16px] text-[14px] leading-[142%] capitalize text-white">
             Lead Capturing Fitness Coach Website Design
@@ -155,10 +170,15 @@ const Hero = () => {
             </span>
           </h1>
           <p className="font-bricolage font-normal tracking-[0em] leading-[130%] 2xl:text-[20px] xl:text-[18px] lg:text-[15px] text-[15px] text-white my-[3vh]">
-            Conversion-focused fitness coach websites are designed to attract, engage, and turn visitors into paying clients consistently
+            Conversion-focused fitness coach websites are designed to attract,
+            engage, and turn visitors into paying clients consistently
           </p>
           <p className="font-bricolage font-normal tracking-[0em] leading-[130%] 2xl:text-[20px] xl:text-[18px] lg:text-[15px] text-[15px] text-white mt-[-1vh]">
-             If you're a personal trainer, online coach, or fitness brand, your website should do more than just look good. It should guide visitors, build trust, and convert them into real clients. I design modern, high-performing websites tailored specifically for fitness professionals who want predictable growth.
+            If you're a personal trainer, online coach, or fitness brand, your
+            website should do more than just look good. It should guide
+            visitors, build trust, and convert them into real clients. I design
+            modern, high-performing websites tailored specifically for fitness
+            professionals who want predictable growth.
           </p>
 
           {/* ✅ Animated CTA Button */}
@@ -187,7 +207,8 @@ const Hero = () => {
           </div>
 
           <p className="font-bricolage font-extralight tracking-[0em] leading-[130%] xl:text-[18px] lg:text-[15px] text-[13px] text-white">
-            I only take on a limited number of fitness coach projects each month to maintain quality, focus, and results.
+            I only take on a limited number of fitness coach projects each month
+            to maintain quality, focus, and results.
           </p>
         </div>
         {/* ↑ contentRef ends here — social pill is NOT inside it */}
@@ -298,7 +319,6 @@ const Hero = () => {
             </Link>
           </div>
         </div>
-
       </div>
     </section>
   );
