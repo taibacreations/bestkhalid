@@ -29,7 +29,9 @@ const Portfolio = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
       try {
+        // 1. Fetch Categories
         const categoryRes: SanityCategory[] = await client.fetch(
           `*[_type == "category"] | order(order asc, title asc){ title }`,
         );
@@ -46,8 +48,9 @@ const Portfolio = () => {
     scrollSpeed,
     publishedAt,
     _createdAt
-  } | order(publishedAt asc, _createdAt asc)`,
+  } | order(_createdAt desc)`, // <--- STRICTLY sorts by creation time, Newest First
         );
+
         setProjects(projectsRes);
       } catch (err) {
         console.error("Failed to fetch data from Sanity:", err);

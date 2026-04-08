@@ -52,7 +52,7 @@ export default {
       title: "Published At",
       type: "datetime",
       description: "Controls sorting (latest projects first)",
-      initialValue: () => new Date().toISOString(),
+      initialValue: () => new Date().toISOString(), // Ensures new projects get current date
       validation: (Rule: Rule) => Rule.required(),
     },
   ],
