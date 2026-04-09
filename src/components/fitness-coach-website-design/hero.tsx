@@ -16,7 +16,7 @@ const Hero = () => {
 
   useEffect(() => {
     const checkHeight = () => {
-      setIsShortHeight(window.innerHeight <= 947);
+      setIsShortHeight(window.innerHeight <= 948);
     };
 
     checkHeight();
