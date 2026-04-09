@@ -12,17 +12,28 @@ const Hero = () => {
   const imageRef = useRef<HTMLImageElement | null>(null);
   const floatingCtaRef = useRef<HTMLDivElement | null>(null);
   const socialRef = useRef<HTMLDivElement | null>(null);
+  const [isTargetScreen, setIsTargetScreen] = useState(false);
   const [isShortHeight, setIsShortHeight] = useState(false);
 
+  /* ===============================
+     SCREEN CHECK (FIXED + OPTIMIZED)
+  ================================ */
   useEffect(() => {
-    const checkHeight = () => {
-      setIsShortHeight(window.innerHeight <= 948);
+    const checkScreen = () => {
+      const height = window.innerHeight;
+      const width = window.innerWidth;
+
+      // ✅ Target condition (641 x 1366)
+      setIsTargetScreen(height === 641 && width === 1366);
+
+      // existing condition
+      setIsShortHeight(height === 948);
     };
 
-    checkHeight();
-    window.addEventListener("resize", checkHeight);
+    checkScreen();
+    window.addEventListener("resize", checkScreen);
 
-    return () => window.removeEventListener("resize", checkHeight);
+    return () => window.removeEventListener("resize", checkScreen);
   }, []);
 
   useEffect(() => {
@@ -135,7 +146,11 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative md:h-[109vh] h-[113vh] overflow-hidden">
+    <section
+      className={`relative overflow-hidden ${
+        isTargetScreen ? "h-[140vh]" : "md:h-[109vh] h-[113vh]"
+      }`}
+    >
       {/* Blur overlay — z-30 */}
       <Image
         src="/hero-blur-new.webp"
@@ -232,7 +247,12 @@ const Hero = () => {
                 style={{ backgroundImage: `url(/icon-${i + 1}.webp)` }}
               />
             ))}
-            <div className="relative z-10 flex items-center justify-center gap-4 rounded-full 2xl:mt-[1.5vh] md:mt-[1.8vh] mt-[1.3vh]">
+            <div
+              className={`relative z-10 flex items-center justify-center gap-4 rounded-full 
+  2xl:mt-[1.5vh] 
+  ${isTargetScreen ? "md:mt-[2.8vh]" : "md:mt-[1.8vh]"} 
+  mt-[1.3vh]`}
+            >
               <Link
                 href="https://www.linkedin.com/in/bestkhalid/"
                 target="_blank"
@@ -296,7 +316,7 @@ const Hero = () => {
             src="/fitness-coach-website-design/banner.webp"
             alt="Banner Image"
             style={{ willChange: "transform, opacity" }}
-            className="2xl:w-[806px] xl:w-[680px] lg:w-[500px] md:w-[400px] w-full h-auto absolute xl:-top-[6.5vh] md:top-[6vh] lg:top-[3.5vh] top-[63vh] 2xl:right-[-4%] md:right-0 left-[50%] -translate-x-1/2 md:left-auto md:translate-x-0 z-20"
+            className="2xl:w-[806px] xl:w-[45%] lg:w-[500px] md:w-[400px] w-full h-auto absolute 2xl:-top-[6.5vh] xl:-top-[5vh] md:top-[6vh] lg:top-[3.5vh] top-[63vh] 2xl:right-[-4%] md:right-0 left-[50%] -translate-x-1/2 md:left-auto md:translate-x-0 z-20"
           />
           {/* ✅ Floating CTA — z-40 to sit above blur */}
           <div
