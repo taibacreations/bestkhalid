@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 
 const Hero = () => {
@@ -12,6 +12,25 @@ const Hero = () => {
   const imageRef = useRef<HTMLImageElement | null>(null);
   const floatingCtaRef = useRef<HTMLDivElement | null>(null);
   const socialRef = useRef<HTMLDivElement | null>(null);
+  const [isSpecialScreen, setIsSpecialScreen] = useState(false);
+
+  useEffect(() => {
+    const checkScreen = () => {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+
+      if (width === 1366 && height === 641) {
+        setIsSpecialScreen(true);
+      } else {
+        setIsSpecialScreen(false);
+      }
+    };
+
+    checkScreen();
+    window.addEventListener("resize", checkScreen);
+
+    return () => window.removeEventListener("resize", checkScreen);
+  }, []);
 
   useEffect(() => {
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
@@ -123,7 +142,11 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative h-[109vh] overflow-hidden">
+    <section
+      className={`relative overflow-hidden ${
+        isSpecialScreen ? "h-[140vh]" : "h-[109vh]"
+      }`}
+    >
       {/* Blur overlay — z-30 */}
       <Image
         src="/hero-blur-new.webp"
@@ -138,7 +161,6 @@ const Hero = () => {
 
       {/* Main content wrapper */}
       <div className="relative max-w-[1525px] mx-auto xl:px-10 px-4 flex md:mt-[17.5vh] mt-[2vh]">
-
         {/* ← Content slides in from left */}
         <div
           ref={contentRef}
@@ -215,7 +237,7 @@ const Hero = () => {
                 style={{ backgroundImage: `url(/icon-${i + 1}.webp)` }}
               />
             ))}
-            <div className="relative z-10 flex items-center justify-center gap-4 rounded-full 2xl:mt-[1.5vh] md:mt-[1.8vh] mt-[1.3vh]">
+            <div className={`relative z-10 flex items-center justify-center gap-4 rounded-full 2xl:mt-[1.5vh] mt-[1.3vh] ${isSpecialScreen ? "md:mt-[2.8vh]" : "md:mt-[1.8vh]"}`}>
               <Link
                 href="https://www.linkedin.com/in/bestkhalid/"
                 target="_blank"
@@ -302,7 +324,6 @@ const Hero = () => {
             </Link>
           </div>
         </div>
-
       </div>
     </section>
   );

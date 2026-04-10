@@ -3,11 +3,30 @@ import Image from "next/image";
 import Projects from "./projects";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
 const Lead = () => {
   const downloadBgLayersRef = useRef<(HTMLDivElement | null)[]>([]);
+  const [isSpecialScreen, setIsSpecialScreen] = useState(false);
+
+useEffect(() => {
+  const checkScreen = () => {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    if (width === 1366 && height === 641) {
+      setIsSpecialScreen(true);
+    } else {
+      setIsSpecialScreen(false);
+    }
+  };
+
+  checkScreen();
+  window.addEventListener("resize", checkScreen);
+
+  return () => window.removeEventListener("resize", checkScreen);
+}, []);
 
   // 🔁 Animate Download Button Background (same as Header CTA)
   useEffect(() => {
@@ -103,7 +122,7 @@ const Lead = () => {
         height={100}
         width={100}
         alt="blur"
-        className="w-full h-auto absolute left-0 2xl:-bottom-[50vh] xl:-bottom-[33vh] lg:-bottom-[5vh] md:bottom-[10vh] bottom-[30%] z-20"
+        className={`w-full h-auto absolute left-0 2xl:-bottom-[50vh] lg:-bottom-[5vh] md:bottom-[10vh] bottom-[30%] z-20 ${isSpecialScreen ? "xl:-bottom-[38vh]" : "xl:-bottom-[33vh]"}`}
       />
       <div className="xl:pt-33 lg:pt-20 pt-10">
         <div id="leads" className="text-center max-w-[992px] mx-auto z-40 relative">

@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Ring from "./ring";
-import { useEffect, useRef, MouseEvent } from "react";
+import { useEffect, useRef, MouseEvent, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
@@ -15,6 +15,25 @@ const Hero = () => {
   // Refs for Fiverr Pro image and Social Links section
   const fiverrProRef = useRef<HTMLDivElement | null>(null);
   const socialLinksRef = useRef<HTMLDivElement | null>(null);
+  const [isSpecialScreen, setIsSpecialScreen] = useState(false);
+
+useEffect(() => {
+  const checkScreen = () => {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    if (width === 1366 && height === 641) {
+      setIsSpecialScreen(true);
+    } else {
+      setIsSpecialScreen(false);
+    }
+  };
+
+  checkScreen();
+  window.addEventListener("resize", checkScreen);
+
+  return () => window.removeEventListener("resize", checkScreen);
+}, []);
 
   // 🔁 Main hero background loop (unchanged)
   useEffect(() => {
@@ -247,7 +266,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="hero" className="relative md:min-h-[120vh] overflow-hidden">
+    <section id="hero" className={`relative overflow-hidden ${isSpecialScreen ? "md:min-h-[140vh]" : "md:min-h-[120vh]"}`}>
       {/* Background layers */}
       {["/layer-1.webp", "/layer-2.webp", "/layer-3.webp", "/layer-4.webp"].map(
         (src, i) => (
@@ -407,7 +426,7 @@ const Hero = () => {
                     style={{ backgroundImage: `url(/icon-${i + 1}.webp)` }}
                   />
                 ))}
-                <div className="relative z-10 flex items-center justify-center gap-4 2xl:mt-[1.6vh] mt-[2vh]">
+                <div className={`relative z-10 flex items-center justify-center gap-4 2xl:mt-[1.6vh] ${isSpecialScreen ? "mt-[3vh]" : "mt-[2vh]"}`}>
                   <Link
                     href="https://www.linkedin.com/in/bestkhalid/"
                     target="_blank"
