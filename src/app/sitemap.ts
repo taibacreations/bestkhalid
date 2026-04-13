@@ -34,6 +34,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${baseUrl}/lawyer-website-design`,
       lastModified: new Date(),
     },
+    {
+      url: `${baseUrl}/fitness-coach-website-design`,
+      lastModified: new Date(),
+    },
+    {
+      url: `${baseUrl}/therapist-website-design`,
+      lastModified: new Date(),
+    },
 
     ...blogs.map((blog: any) => ({
       url: `${baseUrl}/blog/${blog.slug}`,

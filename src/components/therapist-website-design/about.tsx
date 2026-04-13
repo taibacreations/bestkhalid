@@ -1,0 +1,300 @@
+"use client";
+
+import Link from "next/link";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const stats = [
+  { value: "7+", label: "Years Designing\nfor Law Firms" },
+  { value: "40+", label: "Law Firm Websites\nLaunched" },
+  { value: "34%", label: "Avg. Increase in\nConsultations" },
+  { value: "100%", label: "Custom — Never\nTemplates" },
+];
+
+const About = () => {
+  const sectionRef = useRef<HTMLDivElement | null>(null);
+
+  const tagRef = useRef<HTMLSpanElement | null>(null);
+  const headingRef = useRef<HTMLHeadingElement | null>(null);
+  const para1Ref = useRef<HTMLParagraphElement | null>(null);
+  const para2Ref = useRef<HTMLParagraphElement | null>(null);
+  const ctaRef = useRef<HTMLDivElement | null>(null);
+  const imageRef = useRef<HTMLDivElement | null>(null);
+  const statsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const dividerRef = useRef<HTMLDivElement | null>(null);
+  const glowRef = useRef<HTMLDivElement | null>(null);
+  const badgeRef = useRef<HTMLDivElement | null>(null);
+  const ctaBgLayersRef = useRef<(HTMLDivElement | null)[]>([]);
+
+  // 🔁 Animated CTA button backgrounds
+  useEffect(() => {
+    const conImages = [
+      "/cons-1.webp",
+      "/cons-2.webp",
+      "/cons-3.webp",
+      "/cons-4.webp",
+      "/cons-5.webp",
+    ];
+
+    conImages.forEach((src) => {
+      const img = new window.Image();
+      img.src = src;
+    });
+
+    let ctaTl: gsap.core.Timeline | null = null;
+
+    const timer = setTimeout(() => {
+      const layers = ctaBgLayersRef.current;
+      if (layers.length !== conImages.length) return;
+
+      gsap.set(layers, { autoAlpha: 0 });
+      gsap.set(layers[0], { autoAlpha: 1 });
+
+      const duration = 0.8;
+      const hold = 0.5;
+
+      ctaTl = gsap.timeline({ repeat: -1 });
+
+      layers.forEach((_, i) => {
+        const next = (i + 1) % layers.length;
+        ctaTl!
+          .to(layers[i], { autoAlpha: 0, duration }, `+=${hold}`)
+          .to(layers[next], { autoAlpha: 1, duration }, `-=${duration}`);
+      });
+    }, 100);
+
+    return () => {
+      clearTimeout(timer);
+      ctaTl?.kill();
+      gsap.killTweensOf(ctaBgLayersRef.current);
+    };
+  }, []);
+
+  // 🎬 Scroll-triggered entry animations
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Tag badge fades down
+      gsap.fromTo(
+        tagRef.current,
+        { y: -20, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.6,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: tagRef.current,
+            start: "top 88%",
+            once: true,
+          },
+        }
+      );
+
+      // Heading fades up
+      gsap.fromTo(
+        headingRef.current,
+        { y: 40, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: headingRef.current,
+            start: "top 85%",
+            once: true,
+          },
+        }
+      );
+
+      // Badge floats in from left
+      gsap.fromTo(
+        badgeRef.current,
+        { x: -30, opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          duration: 0.7,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: badgeRef.current,
+            start: "top 88%",
+            once: true,
+          },
+        }
+      );
+
+      // Paragraphs stagger up
+      gsap.fromTo(
+        [para1Ref.current, para2Ref.current],
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.75,
+          ease: "power3.out",
+          stagger: 0.15,
+          scrollTrigger: {
+            trigger: para1Ref.current,
+            start: "top 85%",
+            once: true,
+          },
+        }
+      );
+
+      // CTA fades up
+      gsap.fromTo(
+        ctaRef.current,
+        { y: 25, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.7,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ctaRef.current,
+            start: "top 90%",
+            once: true,
+          },
+        }
+      );
+
+      // Image slides in from right
+      gsap.fromTo(
+        imageRef.current,
+        { x: 80, opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: imageRef.current,
+            start: "top 80%",
+            once: true,
+          },
+        }
+      );
+
+      // Divider line expands
+      gsap.fromTo(
+        dividerRef.current,
+        { scaleX: 0, opacity: 0 },
+        {
+          scaleX: 1,
+          opacity: 1,
+          duration: 0.9,
+          ease: "power3.out",
+          transformOrigin: "left center",
+          scrollTrigger: {
+            trigger: dividerRef.current,
+            start: "top 88%",
+            once: true,
+          },
+        }
+      );
+
+      // Stats stagger up
+      gsap.fromTo(
+        statsRef.current,
+        { y: 40, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.7,
+          ease: "power3.out",
+          stagger: 0.1,
+          scrollTrigger: {
+            trigger: statsRef.current[0],
+            start: "top 85%",
+            once: true,
+          },
+        }
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <section className="relative">
+
+      <div
+        ref={sectionRef}
+        className="max-w-[1505px] mx-auto xl:px-10 px-4 lg:mb-[14.5vh] lg:-mt-[8vh] md:my-[10vh] mb-[8vh] mt-[-7vh] relative"
+      >
+        {/* ─────────────────────────────────────────────────────
+            TOP BADGE
+        ───────────────────────────────────────────────────── */}
+        <div className="flex justify-start mb-[3vh]">
+        </div>
+
+        <div className="relative z-10">
+          {/* ── Main layout: text left / image right ── */}
+          <div className="flex lg:flex-row flex-col justify-between items-center lg:gap-16 gap-[6vh]">
+
+            {/* ════════════════════════════════════
+                LEFT — Copy Column
+            ════════════════════════════════════ */}
+            <div className="lg:max-w-[400px] xl:max-w-[600px] 2xl:max-w-[610px] w-full flex flex-col">
+
+              {/* Heading */}
+              <h2
+                ref={headingRef}
+                style={{ willChange: "transform, opacity" }}
+                className="font-bricolage font-semibold 2xl:text-[58px] xl:text-[50px] lg:text-[42px] md:text-[38px] text-[34px] md:leading-[88%] leading-[95%] tracking-[-0.07em] capitalize text-white 2xl:max-w-[550px] xl:max-w-[480px] lg:max-w-[400px] md:max-w-full max-w-[78vw] about-heading my-[3vh]"
+              >
+                The Person Behind{" "}
+                <span className="font-tartuffo font-thin 2xl:text-[54px] xl:text-[46px] lg:text-[38px] md:text-[34px] text-[32px] tracking-[0em]">
+                   Every Fitness Website Project
+                </span>
+              </h2>
+
+              {/* Body copy */}
+              <p
+                ref={para1Ref}
+                style={{ willChange: "transform, opacity" }}
+                className="font-bricolage font-normal tracking-[0em] leading-[130%] 2xl:text-[20px] xl:text-[17px] xl:text-[15px] text-[16px] text-[#FFFFFFCC]"
+              >
+                 I help fitness coaches and personal trainers create powerful online platforms that attract clients and grow their brand. With a deep understanding of user behavior and digital strategy, I design websites that not only look professional but perform consistently.
+              </p>
+
+              <p
+                ref={para2Ref}
+                style={{ willChange: "transform, opacity" }}
+                className="font-bricolage font-normal tracking-[0em] leading-[130%] 2xl:text-[20px] xl:text-[17px] xl:text-[15px] text-[16px] text-[#FFFFFFCC] mt-[2.5vh]"
+              >
+                From independent trainers to scaling coaching brands, I focus on building systems that support long-term growth, visibility, and client acquisition.
+              </p>
+            </div>
+
+            {/* ════════════════════════════════════
+                RIGHT — Image Column
+            ════════════════════════════════════ */}
+            <div
+              ref={imageRef}
+              style={{ willChange: "transform, opacity" }}
+              className="relative flex flex-1 justify-end items-start"
+            >
+
+              {/* Image container with subtle border treatment */}
+              <div className="relative">
+
+                <img
+                  src="/therapist-website-design/about.webp"
+                  alt="Khalid — Law Firm Website Designer"
+                  className="w-full md:scale-110 scale-[120%]"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default About;
