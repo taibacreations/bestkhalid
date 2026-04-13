@@ -10,8 +10,9 @@ import contactPageseo from './contactPageseo'
 import { blogSeo } from './blogPageseo'
 import testimonial from './testimonial'
 import { lawyerPageSeo } from './lawyerPageSeo'
+import { fitnessPageSeo } from './fitnessPageSeo'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [project, category, testimonial, blog, blogCategory, seo, homePageseo, portfolioSeo, contactPageseo, blogSeo, lawyerPageSeo],
+  types: [project, category, testimonial, blog, blogCategory, seo, homePageseo, portfolioSeo, contactPageseo, blogSeo, lawyerPageSeo,fitnessPageSeo],
 }
   

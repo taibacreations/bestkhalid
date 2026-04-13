@@ -9,10 +9,63 @@ import Lead from "@/components/fitness-coach-website-design/lead";
 import Ready from "@/components/fitness-coach-website-design/ready";
 import Timeline from "@/components/fitness-coach-website-design/timeline";
 import Testimonials from "@/components/fitness-coach-website-design/testimonials";
+
 import { client } from "@/sanity/lib/client";
+import { urlFor } from "@/sanity/lib/image";
+import { Metadata } from "next";
 import { groq } from "next-sanity";
 
-async function Page() {
+
+// ✅ MUST be outside component
+export async function generateMetadata(): Promise<Metadata> {
+  const data = await client.fetch(
+    `*[_type == "fitnessPageSeo"][0]{
+      seo{
+        metaTitle,
+        metaDescription,
+        keywords,
+        canonicalUrl,
+        noIndex,
+        openGraph{
+          ogTitle,
+          ogDescription,
+          ogImage
+        }
+      }
+    }`,
+    {},
+    { next: { revalidate: 0 } }
+  );
+
+  const seo = data?.seo;
+
+  return {
+    title: seo?.metaTitle || "Fitness Website Design",
+    description: seo?.metaDescription || null,
+    keywords: seo?.keywords || null,
+    robots: seo?.noIndex ? "noindex,nofollow" : "index,follow",
+    alternates: {
+      canonical: seo?.canonicalUrl || null,
+    },
+    openGraph: {
+      title:
+        seo?.openGraph?.ogTitle ||
+        seo?.metaTitle ||
+        "Fitness Website Design",
+      description:
+        seo?.openGraph?.ogDescription ||
+        seo?.metaDescription ||
+        null,
+      images: seo?.openGraph?.ogImage
+        ? [{ url: urlFor(seo.openGraph.ogImage).url() }]
+        : [],
+    },
+  };
+}
+
+
+// ✅ Page Component
+export default async function Page() {
   const testimonials = await client.fetch(
     groq`*[_type == "testimonial" && isActive == true] | order(order asc) {
       _id,
@@ -23,26 +76,22 @@ async function Page() {
       rating
     }`,
     {},
-    { next: { revalidate: 0 } },
+    { next: { revalidate: 0 } }
   );
+
   return (
     <section>
       <Hero />
       <LogoMarquee />
-      {/* <Potential /> */}
       <Law />
       <Approach />
       <About />
       <Timeline />
       <Lead />
-      <Testimonials sanityTestimonials={testimonials} /> {/* ✅ prop passed */}
-      {/* <For /> */}
+      <Testimonials sanityTestimonials={testimonials} />
       <Design />
       <Faq />
-      {/* <Optimized /> */}
       <Ready />
     </section>
   );
 }
-
-export default Page;
