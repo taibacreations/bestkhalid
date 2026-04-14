@@ -24,25 +24,25 @@ const faqData: FaqItem[] = [
     id: 1,
     question: "How long does the process take?",
     answer:
-      "Most projects are completed within two to three weeks, depending on scope and requirements.",
+      "Most therapist websites are completed within 2–3 weeks, depending on requirements.",
   },
   {
     id: 2,
     question: "Can you redesign my current website?",
     answer:
-      "Yes, I can improve your existing website with better design, structure, and conversion strategy.",
+      "Yes, I can improve clarity, structure, and trust signals in your existing website.",
   },
   {
     id: 3,
-    question: "Do you work with online fitness coaches?",
+    question: "Do you work with all types of therapists?",
     answer:
-      "Yes, I work with both online coaches and offline trainers across different fitness niches.",
+      "Yes, including psychologists, counselors, psychotherapists, and clinics.",
   },
   {
     id: 4,
-    question: "Will the website be mobile-friendly?",
+    question: "Will my website be mobile-friendly?",
     answer:
-      "Every website is fully optimized to perform smoothly across all modern devices and screen sizes.",
+      "Yes, every website is fully optimized for mobile users.",
   },
 ];
 

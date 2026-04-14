@@ -120,9 +120,7 @@ const Ready = () => {
     return () => {
       clearTimeout(timer);
       ctaTl?.kill();
-      gsap.killTweensOf([
-        ...ctaBgLayersRef.current,
-      ]);
+      gsap.killTweensOf([...ctaBgLayersRef.current]);
     };
   }, []);
 
@@ -149,9 +147,9 @@ const Ready = () => {
             style={{ willChange: "transform, opacity" }}
             className="font-bricolage font-bold 2xl:text-[48px] xl:text-[42px] lg:text-[38px] text-[34px] leading-[123%] tracking-[-0.01em] text-center text-white capitalize"
           >
-             Ready to Grow Your Fitness{" "}
+            Ready to Build a Website That Reflects{" "}
             <span className="font-tartuffo font-light tracking-0">
-              Coaching Business Online?
+              the Quality of Your Practice?
             </span>
           </h2>
           <div className="lg:max-w-[690px] max-w-[600px] text-center">
@@ -160,7 +158,9 @@ const Ready = () => {
               style={{ willChange: "transform, opacity" }}
               className="font-bricolage font-light xl:text-[20px] text-[18px] leading-[130%] tracking-[0em] text-white mt-[1vh]"
             >
-               Let’s build a high-performing website that attracts the right clients, builds trust, and helps you grow consistently.
+              Let’s create a calm, professional website that builds trust,
+              communicates your approach clearly, and helps the right clients
+              reach out.
             </p>
             <div className="flex flex-col justify-center items-center gap-[2vh]">
               {/* ✅ Animated CTA Button */}
@@ -194,7 +194,9 @@ const Ready = () => {
                 style={{ willChange: "transform, opacity" }}
                 className="font-bricolage font-light text-[18px] leading-[130%] tracking-[0em] text-white"
               >
-                I only take on a limited number of fitness coach projects each month to maintain quality, focus, and results.
+                I only take on a limited number of therapist website projects
+                each month to ensure that every build receives quality,
+                attention, and care.
               </p>
             </div>
           </div>

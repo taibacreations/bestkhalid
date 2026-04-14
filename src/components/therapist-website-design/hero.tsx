@@ -171,29 +171,29 @@ const Hero = () => {
         <div
           ref={contentRef}
           style={{ willChange: "transform, opacity" }}
-          className={`2xl:max-w-[650px] xl:max-w-[590px] lg:max-w-[450px] md:max-w-[350px] w-full relative z-40 ${
+          className={`2xl:max-w-[680px] xl:max-w-[590px] lg:max-w-[450px] md:max-w-[350px] w-full relative z-40 ${
             isShortHeight ? "mt-[5vh]" : "mt-[10.5vh]"
           }`}
         >
           <h3 className="font-bricolage font-normal 2xl:text-[30px] xl:text-[27px] lg:text-[20px] md:text-[16px] text-[14px] leading-[142%] capitalize text-white">
-            Lead Capturing Fitness Coach Website Design
+            Website Design for Therapists
           </h3>
           <h1 className="font-bricolage font-extrabold 2xl:text-[50px] xl:text-[42px] lg:text-[32px] md:text-[25px] text-[23px] leading-[98%] uppercase tracking-[-0.03em] text-white md:mt-[1.4vh] mt-[.5vh] flex flex-col">
-            Built to Generate More{" "}
+            Built To Attract 10X More{" "}
             <span className="font-tartuffo font-thin capitalize 2xl:text-[77px] xl:text-[65px] lg:text-[50px] md:text-[39px] text-[35px] tracking-[0.01em] mt-[1.5vh]">
-              Qualified Fitness Clients
+              Clients For Therapists
             </span>
           </h1>
           <p className="font-bricolage font-normal tracking-[0em] leading-[130%] 2xl:text-[20px] xl:text-[18px] lg:text-[15px] text-[15px] text-white my-[3vh]">
-            Conversion-focused fitness coach websites are designed to attract,
-            engage, and turn visitors into paying clients consistently
+            Conversion-focused therapist websites that build trust, communicate
+            your approach clearly, and help potential clients feel safe enough
+            to take the first step.
           </p>
           <p className="font-bricolage font-normal tracking-[0em] leading-[130%] 2xl:text-[20px] xl:text-[18px] lg:text-[15px] text-[15px] text-white mt-[-1vh]">
-            If you're a personal trainer, online coach, or fitness brand, your
-            website should do more than just look good. It should guide
-            visitors, build trust, and convert them into real clients. I design
-            modern, high-performing websites tailored specifically for fitness
-            professionals who want predictable growth.
+            Whether you’re a psychologist, counselor, psychotherapist, or mental
+            health clinic, your website should do more than describe your
+            services. It should create clarity, reduce hesitation, and encourage
+            the right clients to reach out.
           </p>
 
           {/* ✅ Animated CTA Button */}
@@ -222,8 +222,8 @@ const Hero = () => {
           </div>
 
           <p className="font-bricolage font-extralight tracking-[0em] leading-[130%] xl:text-[18px] lg:text-[15px] text-[13px] text-white">
-            I only take on a limited number of fitness coach projects each month
-            to maintain quality, focus, and results.
+            I work with a limited number of therapists each month to ensure a
+            thoughtful, high-quality, and personalized approach
           </p>
         </div>
         {/* ↑ contentRef ends here — social pill is NOT inside it */}
@@ -322,11 +322,11 @@ const Hero = () => {
           <div
             ref={floatingCtaRef}
             style={{ willChange: "transform, opacity" }}
-            className={`absolute lg:-bottom-[5.5vh] md:-bottom-[5vh] md:top-auto top-[102vh] 2xl:right-[3%] md:right-[7%] left-[50%] -translate-x-1/2 md:left-auto md:translate-x-0 z-40 ${isTargetScreen ? "xl:right-[8%]" : "xl:right-[11%]"}`}
+            className={`absolute lg:-bottom-[5.5vh] md:-bottom-[3vh] md:top-auto top-[102vh] 2xl:right-[3%] md:right-[7%] left-[50%] -translate-x-1/2 md:left-auto md:translate-x-0 z-40 ${isTargetScreen ? "xl:right-[8%]" : "xl:right-[11%]"}`}
           >
             <Link
               href="/portfolio"
-              className="bg-[url(/new-home/hero-text-bg.webp)] bg-cover bg-center text-white rounded-[334px] 2xl:w-[443px] lg:w-[380px] md:w-[300px] w-[250px] lg:px-0 2xl:h-[59px] md:h-[50px] h-[40px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold healthcare text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[0em] capitalize"
+              className="bg-[url(/new-home/hero-text-bg.webp)] bg-cover bg-center text-white rounded-[334px] 2xl:w-[443px] lg:w-[380px] md:w-[300px] w-[280px] lg:px-0 2xl:h-[59px] md:h-[50px] h-[40px] flex lg:gap-2 gap-1.5 justify-center items-center font-bricolage font-bold healthcare text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[0em] capitalize"
             >
               <Image
                 src="/button-arrow.webp"
@@ -335,7 +335,7 @@ const Hero = () => {
                 alt="button-arrow"
                 className="w-[12px] md:w-[14px] lg:w-[15px] h-auto"
               />
-              See Fitness Website Examples
+              View Therapist Website Examples
             </Link>
           </div>
         </div>

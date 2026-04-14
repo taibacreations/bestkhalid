@@ -249,7 +249,7 @@ const About = () => {
               >
                 The Person Behind{" "}
                 <span className="font-tartuffo font-thin 2xl:text-[54px] xl:text-[46px] lg:text-[38px] md:text-[34px] text-[32px] tracking-[0em]">
-                   Every Fitness Website Project
+                   Every Therapist's Website Project
                 </span>
               </h2>
 
@@ -259,7 +259,7 @@ const About = () => {
                 style={{ willChange: "transform, opacity" }}
                 className="font-bricolage font-normal tracking-[0em] leading-[130%] 2xl:text-[20px] xl:text-[17px] xl:text-[15px] text-[16px] text-[#FFFFFFCC]"
               >
-                 I help fitness coaches and personal trainers create powerful online platforms that attract clients and grow their brand. With a deep understanding of user behavior and digital strategy, I design websites that not only look professional but perform consistently.
+                 I help therapists and mental health professionals create thoughtful, professional websites that reflect the care and quality of their practice.
               </p>
 
               <p
@@ -267,7 +267,14 @@ const About = () => {
                 style={{ willChange: "transform, opacity" }}
                 className="font-bricolage font-normal tracking-[0em] leading-[130%] 2xl:text-[20px] xl:text-[17px] xl:text-[15px] text-[16px] text-[#FFFFFFCC] mt-[2.5vh]"
               >
-                From independent trainers to scaling coaching brands, I focus on building systems that support long-term growth, visibility, and client acquisition.
+                With a strong focus on user psychology, trust-building design, and clarity of communication, I build websites that help potential clients feel safe enough to reach out.
+              </p>
+              <p
+                ref={para2Ref}
+                style={{ willChange: "transform, opacity" }}
+                className="font-bricolage font-normal tracking-[0em] leading-[130%] 2xl:text-[20px] xl:text-[17px] xl:text-[15px] text-[16px] text-[#FFFFFFCC] mt-[2.5vh]"
+              >
+                From independent therapists to growing mental health clinics, my goal is simple: Turn your website into a calm, reliable first point of connection.
               </p>
             </div>
 

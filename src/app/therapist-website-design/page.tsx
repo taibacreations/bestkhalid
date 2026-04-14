@@ -1,4 +1,4 @@
-import Law from "@/components/fitness-coach-website-design/law";
+import Law from "@/components/therapist-website-design/law";
 import LogoMarquee from "@/components/marquee";
 import About from "@/components/therapist-website-design/about";
 import Approach from "@/components/therapist-website-design/approach";

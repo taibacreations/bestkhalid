@@ -204,7 +204,7 @@ const Testimonials = ({ sanityTestimonials }: TestimonialsProps) => {
       className="bg-[#171717] lg:py-16 py-10 relative overflow-hidden scroll-mt-[10vh] z-20"
     >
       <div className="max-w-[1390px] mx-auto px-4 xl:px-10">
-        <div className="text-center max-w-[992px] mx-auto z-40 relative mb-9">
+        <div className="text-center max-w-[1050px] md:w-[80%] xl:w-full mx-auto z-40 relative mb-9">
           <h5
             id="testi-h5"
             className="font-bricolage font-normal 2xl:text-[28px] xl:text-[24px] lg:text-[22px] text-[20px] tracking-[-0.07em] capitalize text-white"
@@ -222,9 +222,9 @@ const Testimonials = ({ sanityTestimonials }: TestimonialsProps) => {
               id="testi-h3"
               className="font-bricolage font-bold 2xl:text-[48px] xl:text-[42px] lg:text-[38px] md:text-[32px] text-[30px] tracking-[-0.03em] leading-[123%] capitalize text-white"
             >
-              Trusted by Fitness{" "}
+              Trusted by Therapists & Mental{" "}
               <span className="text-white font-tartuffo font-thin tracking-[0.01em]">
-                Coaches and Brands
+                Health Professionals
               </span>
             </h3>
           </div>

@@ -8,7 +8,7 @@ const Design = () => {
       <div>
         <div>
           <h2 className="font-bricolage font-bold 2xl:text-[48px] xl:text-[42px] lg:text-[38px] text-[34px] leading-[123%] tracking-[-0.01em] text-center text-white capitalize">
-            A Smooth, Stress-Free{" "}
+            A Thoughtful, Structured{" "}
             <span className="font-tartuffo font-light tracking-0">
               Design Process
             </span>
@@ -41,8 +41,6 @@ const Design = () => {
             className="2xl:w-[1170px] w-[80vw] h-px absolute 2xl:top-[24%] xl:top-[22%] lg:top-[15%] top-[13%] hidden md:block"
           />
           <div className="md:max-w-[311px] max-w-full z-20 process rounded-[14px]">
-
-
             {/* <BorderBeam
             size={289}
             duration={8}
@@ -57,20 +55,18 @@ const Design = () => {
             colorTo="#7AB4FD"
             className="z-40 relative rounded-[32px] thick-beam design-beam md:hidden mb-[49.2vh] mt-[2vh] design-beam-1"
           /> */}
-
 
             <div className="bg-white text-[#0A0A0A] rounded-full xl:w-[47px] xl:h-[47px] lg:w-[40px] lg:h-[40px] w-[35px] h-[35px] font-bricolage font-bold xl:text-[24px] md:text-[20px] text-[18px] leading-[123%] tracking-[-0.03em] flex justify-center items-center">
               01
             </div>
             <h4 className="font-bricolage font-bold 2xl:text-[34px] xl:text-[32px] lg:text-[26px] text-[22px] leading-[123%] tracking-[-0.03em] capitalize text-white xl:mt-6.5 mt-5 lg:mb-3 mb-2">
-              Strategy and Research
+              Discovery & Understanding
             </h4>
             <p className="font-bricolage font-normal xl:text-[18px] text-[16px] md:leading-[142%] leading-[130%] tracking-[-0.01em] capitalize text-white">
-              Understanding your brand, goals, and target audience
+              Learning about your practice, approach, and ideal clients
             </p>
           </div>
           <div className="md:max-w-[331px] max-w-full z-20 process rounded-[14px]">
-
             {/* <BorderBeam
             size={289}
             duration={8}
@@ -85,20 +81,18 @@ const Design = () => {
             colorTo="#7AB4FD"
             className="z-40 relative rounded-[32px] thick-beam design-beam md:hidden mb-[26.5vh] mt-[24.5vh] design-beam-2"
           /> */}
-
 
             <div className="bg-white text-[#0A0A0A] rounded-full xl:w-[47px] xl:h-[47px] lg:w-[40px] lg:h-[40px] w-[35px] h-[35px] font-bricolage font-bold xl:text-[24px] md:text-[20px] text-[18px] leading-[123%] tracking-[-0.03em] flex justify-center items-center">
               02
             </div>
             <h4 className="font-bricolage font-bold 2xl:text-[34px] xl:text-[32px] lg:text-[26px] text-[22px] leading-[123%] tracking-[-0.03em] capitalize text-white xl:mt-6.5 mt-5 lg:mb-3 mb-2">
-              Conversion-Focused Design
+              Trust-Focused Design
             </h4>
             <p className="font-bricolage font-normal xl:text-[18px] text-[16px] md:leading-[142%] leading-[130%] tracking-[-0.01em] capitalize text-white">
-               Creating a website structured to guide and convert visitors
+              Creating a calm, clear, and supportive website structure
             </p>
           </div>
           <div className="xl:max-w-[334px] lg:max-w-[260px] md:max-w-[200px] max-w-full z-20 process rounded-[14px]">
-            
             {/* <BorderBeam
             size={289}
             duration={8}
@@ -114,15 +108,14 @@ const Design = () => {
             className="z-40 relative rounded-[32px] thick-beam design-beam md:hidden mb-[2vh] mt-[47vh] design-beam-3"
           /> */}
 
-
             <div className="bg-white text-[#0A0A0A] rounded-full xl:w-[47px] xl:h-[47px] lg:w-[40px] lg:h-[40px] w-[35px] h-[35px] font-bricolage font-bold xl:text-[24px] md:text-[20px] text-[18px] leading-[123%] tracking-[-0.03em] flex justify-center items-center">
               03
             </div>
             <h4 className="font-bricolage font-bold 2xl:text-[34px] xl:text-[32px] lg:text-[26px] text-[22px] leading-[123%] tracking-[-0.03em] capitalize text-white xl:mt-6.5 mt-5 lg:mb-3 mb-2">
-              Launch and Optimization
+              Development & Launch
             </h4>
             <p className="font-bricolage font-normal xl:text-[18px] text-[16px] md:leading-[142%] leading-[130%] tracking-[-0.01em] capitalize text-white">
-              Going live with performance checks and ongoing improvements
+              Building a fast, accessible, and fully responsive website
             </p>
           </div>
         </div>

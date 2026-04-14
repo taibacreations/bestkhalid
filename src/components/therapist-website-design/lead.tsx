@@ -121,14 +121,14 @@ const Lead = () => {
           </h5>
           <div className="overflow-hidden -mt-1">
             <h3 id="leads-h3" className="font-bricolage font-bold 2xl:text-[48px] xl:text-[42px] lg:text-[38px] md:text-[32px] text-[30px] tracking-[-0.03em] leading-[123%] capitalize text-white">
-              Work That Speaks{" "}
+              Calm, Professional, Trust-Building{" "}
               <span className="font-tartuffo font-thin tracking-[0.01em]">
-                for Itself
+                Websites
               </span>
             </h3>
           </div>
-          <p id="leads-content" className="font-bricolage font-normal xl:text-[20px] text-[18px] tracking-[0em] leading-[130%] text-white">
-             Explore a selection of clean, modern, and conversion-focused fitness websites designed to attract attention, build trust, and turn visitors into long-term clients.
+          <p id="leads-content" className="font-bricolage font-normal xl:text-[20px] text-[18px] tracking-[0em] leading-[130%] text-white xl:w-full md:w-[80%] mx-auto">
+             Explore a collection of therapist website designs focused on clarity, emotional safety, and helping potential clients feel confident in reaching out.
           </p>
         </div>
         <div className="mt-10 2xl:w-[1453px] h-auto mx-auto relative">

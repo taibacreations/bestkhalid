@@ -323,9 +323,9 @@ const Timeline = () => {
   const EASE = "power2.inOut";
 
   const cases = [
-    { num: "#1", title: "Fitness Coach Brand" },
-    { num: "#2", title: "Online Coaching Business" },
-    { num: "#3", title: "Gym Growth" },
+    { num: "#1", title: "Private Therapy Practice" },
+    { num: "#2", title: "Online Counseling Service" },
+    { num: "#3", title: "Mental Health Clinic" },
   ];
 
   const activateSection = (i: number) => {
@@ -447,19 +447,17 @@ const Timeline = () => {
             id="leads-h3"
             className="font-bricolage font-bold 2xl:text-[48px] xl:text-[42px] lg:text-[38px] md:text-[32px] text-[30px] tracking-[-0.03em] leading-[123%] capitalize text-white"
           >
-            Insights That Speak{" "}
+            Thoughtfully Designed Websites{" "}
             <span className="font-tartuffo font-thin tracking-[0.01em]">
-              For Themselves
+               With Real Impact
             </span>
           </h3>
         </div>
         <p
           id="leads-content"
-          className="font-bricolage font-normal xl:text-[20px] text-[18px] tracking-[0em] leading-[130%] text-white md:mt-0 max-w-[1505px] mx-auto px-4 xl:px-10"
+          className="font-bricolage font-normal xl:text-[20px] text-[18px] tracking-[0em] leading-[130%] text-white md:mt-0 max-w-[1505px] mx-auto px-4 xl:px-10 md:w-[80%] xl:w-full"
         >
-          A collection of case studies showcasing my approach, strategic
-          thinking, and the real impact my websites have in helping fitness
-          coaches attract clients and grow their business.
+          A selection of therapist-focused website projects demonstrating improved clarity, stronger client trust, and better inquiry rates.
         </p>
       </div>
       <img
@@ -489,7 +487,7 @@ const Timeline = () => {
 
         {/* Titles — your original, completely untouched */}
 
-        <div className="2xl:ml-[-6vw] lg:ml-0 md:ml-[-14.8vw] lg:max-w-[444px] md:max-w-[300px] flex-col 2xl:gap-[23.4vh] lg:gap-[25vh] gap-[54vh] hidden md:flex">
+        <div className="2xl:ml-[-6vw] xl:ml-0 lg:ml-[-6vw] md:ml-[-14.8vw] 2xl:max-w-[444px] xl:max-w-[400px] md:max-w-[240px] flex-col 2xl:gap-[23.4vh] lg:gap-[25vh] gap-[54vh] hidden md:flex">
           {cases.map((item, i) => (
             <div
               key={i}

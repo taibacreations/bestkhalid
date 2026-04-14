@@ -135,23 +135,30 @@ const Approach = () => {
       <div className="relative">
 
         {/* Heading & paragraph */}
-        <div className="max-w-[1020px] mx-auto">
+        <div className="max-w-[1100px] mx-auto">
           <h2
             ref={headingRef}
             style={{ willChange: "transform, opacity" }}
             className="font-bricolage font-semibold 2xl:text-[64px] xl:text-[48px] lg:text-[42px] md:text-[36px] text-[32px] md:leading-[82%] leading-[100%] tracking-[-0.07em] capitalize text-white md:text-center md:w-full w-[80vw]"
           >
-            What Makes My{" "}
+            A Different Approach to{" "}
             <span className="font-tartuffo font-thin 2xl:text-[52px] xl:text-[42px] lg:text-[36px] md:text-[32px] text-[30px] tracking-[0em]">
-              Approach Different
+              Therapist Website Design
             </span>{" "}
           </h2>
           <p
             ref={paraRef}
             style={{ willChange: "transform, opacity" }}
+            className="font-bricolage font-normal xl:text-[20px] lg:text-[16px] text-[16px] leading-[130%] tracking-[0em] md:text-center text-white mt-[2.5vh] xl:w-full md:w-[80%] mx-auto"
+          >
+            I don’t just design websites for therapists, I build structured digital experiences that help potential clients feel informed, reassured, and confident in taking the next step.
+          </p>
+          <p
+            ref={paraRef}
+            style={{ willChange: "transform, opacity" }}
             className="font-bricolage font-normal xl:text-[20px] lg:text-[16px] text-[16px] leading-[130%] tracking-[0em] md:text-center text-white mt-[2.5vh]"
           >
-            I don’t design “just good-looking fitness websites.” I build structured client-generating systems tailored specifically for fitness coaches. Nice designs may impress visitors, but strategic systems bring you consistent inquiries, bookings, and paying clients.
+            Good design is not enough for mental health. The experience must feel calm, clear, and trustworthy.
           </p>
         </div>
 
@@ -164,7 +171,7 @@ const Approach = () => {
           >
             <img src="/new-home/mark.webp" alt="verified" className="xl:w-[55px] w-[45px] xl:mt-0 mt-[-1vh]" />
             <h4 className="font-bricolage font-bold 2xl:text-[20px] xl:text-[18px] lg:text-[15px] text-[15px] md:leading-[142%] leading-[130%] tracking-[-0.01em] capitalize text-white pb-[1vh]">
-              Personal brand-driven, modern design tailored to your niche so your website reflects your identity and stands out in a competitive fitness market.
+              Trust-centered design structure built to immediately create emotional safety, establish credibility, and help visitors feel confident engaging with your services.
             </h4>
           </div>
           <div
@@ -174,7 +181,7 @@ const Approach = () => {
           >
             <img src="/new-home/mark.webp" alt="verified" className="xl:w-[55px] w-[45px] xl:mt-0 mt-[-1vh]" />
             <h4 className="font-bricolage font-bold 2xl:text-[20px] xl:text-[18px] lg:text-[15px] text-[15px] md:leading-[142%] leading-[130%] tracking-[-0.01em] capitalize text-white pb-[1vh]">
-              Conversion-focused layout strategically structured to guide visitors, capture attention, and generate consistent, high-quality client leads.
+              Clear communication of your therapeutic approach so visitors instantly understand who you help, what you offer, and how your process works.
             </h4>
           </div>
         </div>
@@ -188,7 +195,7 @@ const Approach = () => {
           >
             <img src="/new-home/mark.webp" alt="verified" className="xl:w-[55px] w-[45px] xl:mt-0 mt-[-1vh]" />
             <h4 className="font-bricolage font-bold 2xl:text-[20px] xl:text-[18px] lg:text-[15px] text-[15px] md:leading-[142%] leading-[130%] tracking-[-0.01em] capitalize text-white pb-[1vh]">
-              Mobile-optimized structure designed to deliver a seamless browsing experience across all devices, ensuring no opportunity is lost.
+              Client-friendly navigation flow designed to reduce confusion, minimize emotional friction, and guide users effortlessly to the right information.
             </h4>
           </div>
           <div
@@ -198,7 +205,7 @@ const Approach = () => {
           >
             <img src="/new-home/mark.webp" alt="verified" className="xl:w-[55px] w-[45px] xl:mt-0 mt-[-1vh]" />
             <h4 className="font-bricolage font-bold 2xl:text-[20px] xl:text-[18px] lg:text-[15px] text-[15px] md:leading-[142%] leading-[130%] tracking-[-0.01em] capitalize text-white pb-[1vh]">
-              Fast-loading pages built for performance to reduce bounce rates, improve engagement, and keep users focused on taking action.
+              A mobile-optimized experience ensures seamless access for users searching in urgent or emotional moments across all devices.
             </h4>
           </div>
         </div>
@@ -212,7 +219,7 @@ const Approach = () => {
           >
             <img src="/new-home/mark.webp" alt="verified" className="xl:w-[55px] w-[45px] xl:mt-0 mt-[-1vh]" />
             <h4 className="font-bricolage font-bold 2xl:text-[20px] xl:text-[18px] lg:text-[15px] text-[15px] md:leading-[142%] leading-[130%] tracking-[-0.01em] capitalize text-white pb-[1vh]">
-              Clear program and offer presentation combined with integrations for booking, CRM, and marketing tools to streamline conversions and business growth.
+              Fast, calm, distraction-free experience with seamless booking integration — combining clean, focused layouts that reduce overwhelm with an easy, frictionless path for clients to take the next step when they’re ready.
             </h4>
           </div>
         </div>
