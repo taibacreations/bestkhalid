@@ -237,7 +237,7 @@ const Hero = () => {
                 style={{ backgroundImage: `url(/icon-${i + 1}.webp)` }}
               />
             ))}
-            <div className={`relative z-10 flex items-center justify-center gap-4 rounded-full 2xl:mt-[1.5vh] mt-[1.3vh] ${isSpecialScreen ? "md:mt-[2.8vh]" : "md:mt-[1.8vh]"}`}>
+            <div className={`relative z-10 flex items-center justify-center gap-4 rounded-full 2xl:mt-[1.1vh] mt-[1.3vh] ${isSpecialScreen ? "md:mt-[2.4vh]" : "md:mt-[1.6vh]"}`}>
               <Link
                 href="https://www.linkedin.com/in/bestkhalid/"
                 target="_blank"
@@ -252,7 +252,7 @@ const Hero = () => {
                 />
               </Link>
               <Link
-                href="https://www.facebook.com/bestkhalid"
+                href="https://web.facebook.com/bestkhalidm"
                 target="_blank"
                 className="hover:scale-125 hover:-translate-y-1 transition-all duration-300"
               >
@@ -278,16 +278,16 @@ const Hero = () => {
                 />
               </Link>
               <Link
-                href="https://twitter.com/bestkhalid"
+                href=" https://www.behance.net/bestkhalid"
                 target="_blank"
                 className="hover:scale-125 hover:-translate-y-1 transition-all duration-300"
               >
                 <Image
-                  src="/twitter.webp"
+                  src="/behance.webp"
                   width={100}
                   height={100}
-                  alt="twitter"
-                  className="2xl:w-[19.77px] lg:w-[16px] w-[14px]"
+                  alt="behance"
+                  className="2xl:w-[28px] w-[20px]"
                 />
               </Link>
             </div>
