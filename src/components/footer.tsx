@@ -86,7 +86,7 @@ const Footer = () => {
                 hello@bestkhalid.com
               </h5>
             </Link>
-            <Link href="tel:+92 336 3216666" className="flex items-center gap-4 mt-2.5 hover:underline">
+            <Link href="tel:+92 300 5292528" className="flex items-center gap-4 mt-2.5 hover:underline">
               <Image
                 src="/phone.webp"
                 height={100}
@@ -95,7 +95,7 @@ const Footer = () => {
                 className="w-[17.44px]"
               />
               <h5 className="font-bricolage text-[16px] xl:text-[18px] font-normal leading-[142%] tracking-[-0.01em] capitalize text-white">
-                +92 336 3216666
+                +92 300 5292528
               </h5>
             </Link>
           </div>
