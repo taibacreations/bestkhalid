@@ -382,7 +382,7 @@ export default function ContactPage() {
 
             {/* Phone */}
             <Link
-              href="tel:+92 336 3216666"
+              href="tel:+92 300 5292528"
               className="flex items-center gap-4 mb-6 group max-w-fit"
             >
               <div className="w-11 h-11 bg-[url(/contact-cube.webp)] bg-contain bg-center bg-no-repeat rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
@@ -399,7 +399,7 @@ export default function ContactPage() {
                 </svg>
               </div>
               <span className="text-white text-base lg:text-lg font-bricolage group-hover:text-blue-400 transition-colors">
-                +92 336 3216666
+                +92 300 5292528
               </span>
             </Link>
 
