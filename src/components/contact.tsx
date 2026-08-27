@@ -304,7 +304,7 @@ export default function ContactPage() {
             as soon as possible.
           </p>
 
-          <form id="form" onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit}>
             {/* Name and Email Row */}
             <div className="grid lg:grid-cols-2 gap-5 mb-5">
               <div>
