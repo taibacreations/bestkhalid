@@ -146,8 +146,6 @@ export async function POST(req: Request) {
       </html>
     `;
 
-    const errors: string[] = [];
-
     // -------------------------------
     // Add Contact to Brevo List (Optional - don't fail if this fails)
     // -------------------------------
@@ -166,32 +164,36 @@ export async function POST(req: Request) {
       }
     } catch (brevoError) {
       console.warn("⚠️ Failed to add contact to Brevo:", brevoError);
-      errors.push("Brevo contact sync failed");
       // Don't throw - continue with email sending
     }
 
     // -------------------------------
     // Send Owner Notifications
+    // Each entry is labeled so we can log which one failed without
+    // letting one failure block/undo the others (Promise.allSettled,
+    // not Promise.all).
     // -------------------------------
-    const emailPromises: Promise<any>[] = [];
+    const emailTasks: { label: string; task: Promise<any> }[] = [];
 
     // Resend (Primary)
     if (process.env.RESEND_API_KEY && process.env.FROM_EMAIL && process.env.CONTACT_RECEIVER) {
-      emailPromises.push(
-        resend.emails.send({
+      emailTasks.push({
+        label: "Resend owner notification",
+        task: resend.emails.send({
           from: `Website Contact <${process.env.FROM_EMAIL}>`,
           to: process.env.CONTACT_RECEIVER,
           replyTo: email,
           subject: `📩 New Contact Message from ${name}`,
           html: notificationEmailHtml,
-        }).then(() => console.log("✅ Resend owner notification sent"))
-      );
+        }),
+      });
     }
 
     // Brevo (Secondary)
     if (process.env.BREVO_API_KEY && process.env.FROM_EMAIL && process.env.CONTACT_RECEIVER) {
-      emailPromises.push(
-        brevoEmailsApi.sendTransacEmail({
+      emailTasks.push({
+        label: "Brevo owner notification",
+        task: brevoEmailsApi.sendTransacEmail({
           sender: {
             name: "Website Contact",
             email: process.env.FROM_EMAIL,
@@ -200,26 +202,24 @@ export async function POST(req: Request) {
           replyTo: { email, name },
           subject: `📩 New Contact Message from ${name}`,
           htmlContent: notificationEmailHtml,
-        }).then(() => console.log("✅ Brevo owner notification sent"))
-      );
+        }),
+      });
     }
 
     // Confirmation email to sender (Resend only)
     if (process.env.RESEND_API_KEY && process.env.FROM_EMAIL) {
-      emailPromises.push(
-        resend.emails.send({
+      emailTasks.push({
+        label: "Confirmation email to sender",
+        task: resend.emails.send({
           from: `Khalid Mahmood <${process.env.FROM_EMAIL}>`,
           to: email,
           subject: `Thank you for reaching out, ${name}!`,
           html: confirmationEmailHtml,
-        }).then(() => console.log("✅ Confirmation email sent"))
-      );
+        }),
+      });
     }
 
-    // Execute all email promises
-    if (emailPromises.length > 0) {
-      await Promise.all(emailPromises);
-    } else {
+    if (emailTasks.length === 0) {
       console.error("❌ No email service configured!");
       return NextResponse.json(
         { error: "Email service not configured. Please contact the administrator." },
@@ -227,7 +227,28 @@ export async function POST(req: Request) {
       );
     }
 
-    console.log("✅ All emails sent successfully");
+    // Use allSettled: one provider failing must not fail the whole request
+    const results = await Promise.allSettled(emailTasks.map((t) => t.task));
+
+    let atLeastOneSucceeded = false;
+    results.forEach((result, i) => {
+      const label = emailTasks[i].label;
+      if (result.status === "fulfilled") {
+        atLeastOneSucceeded = true;
+        console.log(`✅ ${label} sent`);
+      } else {
+        console.error(`❌ ${label} failed:`, result.reason);
+      }
+    });
+
+    if (!atLeastOneSucceeded) {
+      return NextResponse.json(
+        { error: "Failed to send message. Please try again later." },
+        { status: 500 }
+      );
+    }
+
+    console.log("✅ Contact form processed (see logs above for per-service status)");
     return NextResponse.json({ 
       success: true,
       message: "Message sent successfully"
