@@ -17,6 +17,7 @@ declare global {
       ) => number;
       reset: (id?: number) => void;
       getResponse: (id?: number) => string;
+      ready: (cb: () => void) => void;
     };
   }
 }
@@ -55,10 +56,14 @@ export default function ContactPage() {
       captchaWidgetIdRef.current === null &&
       window.grecaptcha
     ) {
-      captchaWidgetIdRef.current = window.grecaptcha.render(captchaContainerRef.current, {
-        sitekey: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "",
-        callback: (token: string) => setCaptchaToken(token),
-        "expired-callback": () => setCaptchaToken(""),
+      window.grecaptcha.ready(() => {
+        if (captchaContainerRef.current && captchaWidgetIdRef.current === null) {
+          captchaWidgetIdRef.current = window.grecaptcha.render(captchaContainerRef.current, {
+            sitekey: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "",
+            callback: (token: string) => setCaptchaToken(token),
+            "expired-callback": () => setCaptchaToken(""),
+          });
+        }
       });
     }
   };
