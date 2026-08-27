@@ -5,7 +5,21 @@ import { useState, FormEvent, useEffect, useRef } from "react";
 import gsap from "gsap";
 import Image from "next/image";
 import Link from "next/link";
+import Script from "next/script";
 import { useLayoutEffect } from "react";
+
+declare global {
+  interface Window {
+    grecaptcha: {
+      render: (
+        container: HTMLElement,
+        params: { sitekey: string; callback: (token: string) => void; "expired-callback": () => void }
+      ) => number;
+      reset: (id?: number) => void;
+      getResponse: (id?: number) => string;
+    };
+  }
+}
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -24,13 +38,43 @@ export default function ContactPage() {
     message: "",
   });
 
+  const [captchaToken, setCaptchaToken] = useState<string>("");
+  const captchaContainerRef = useRef<HTMLDivElement | null>(null);
+  const captchaWidgetIdRef = useRef<number | null>(null);
+  const recaptchaScriptLoadedRef = useRef(false);
+
   const submitBgLayersRef = useRef<(HTMLDivElement | null)[]>([]);
   const socialBgLayersRef = useRef<(HTMLDivElement | null)[]>([]);
   const formRef = useRef<HTMLDivElement | null>(null);
   const rightRef = useRef<HTMLDivElement | null>(null);
 
+  const renderCaptcha = () => {
+    if (
+      recaptchaScriptLoadedRef.current &&
+      captchaContainerRef.current &&
+      captchaWidgetIdRef.current === null &&
+      window.grecaptcha
+    ) {
+      captchaWidgetIdRef.current = window.grecaptcha.render(captchaContainerRef.current, {
+        sitekey: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "",
+        callback: (token: string) => setCaptchaToken(token),
+        "expired-callback": () => setCaptchaToken(""),
+      });
+    }
+  };
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (!captchaToken) {
+      setFormStatus({
+        type: "error",
+        message: "Please verify that you are not a robot.",
+      });
+      setTimeout(() => setFormStatus({ type: "idle", message: "" }), 4000);
+      return;
+    }
+
     setFormStatus({ type: "loading", message: "Sending your message..." });
 
     try {
@@ -39,7 +83,7 @@ export default function ContactPage() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, captchaToken }),
       });
 
       const data = await res.json();
@@ -77,6 +121,12 @@ export default function ContactPage() {
       setTimeout(() => {
         setFormStatus({ type: "idle", message: "" });
       }, 5000);
+    } finally {
+      // Always reset captcha after a submit attempt
+      if (window.grecaptcha && captchaWidgetIdRef.current !== null) {
+        window.grecaptcha.reset(captchaWidgetIdRef.current);
+      }
+      setCaptchaToken("");
     }
   };
 
@@ -224,6 +274,16 @@ export default function ContactPage() {
 
   return (
     <main className="min-h-screen flex items-center justify-center pt-[15vh] md:py-[18vh] relative contact-bg">
+      {/* reCAPTCHA v2 script */}
+      <Script
+        src="https://www.google.com/recaptcha/api.js?render=explicit"
+        strategy="afterInteractive"
+        onLoad={() => {
+          recaptchaScriptLoadedRef.current = true;
+          renderCaptcha();
+        }}
+      />
+
       {/* Background overlay effects */}
       <div className="fixed inset-0 pointer-events-none z-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(59,130,246,0.15)_0%,transparent_50%)]" />
@@ -244,7 +304,7 @@ export default function ContactPage() {
             as soon as possible.
           </p>
 
-          <form onSubmit={handleSubmit}>
+          <form id="form" onSubmit={handleSubmit}>
             {/* Name and Email Row */}
             <div className="grid lg:grid-cols-2 gap-5 mb-5">
               <div>
@@ -311,6 +371,11 @@ export default function ContactPage() {
                 rows={5}
                 className="w-full px-3 lg:px-5 py-2 lg:py-3 font-bricolage font-normal xl:text-[18px] text-[16px] tracking-[-0.01em] capitalize leading-[142%] bg-white/8 border border-white/15 rounded-xl text-white placeholder:text-white/40 focus:outline-none focus:border-blue-500 focus:bg-white/10 focus:ring-4 focus:ring-blue-500/10 transition-all resize-y min-h-[140px] disabled:opacity-50 disabled:cursor-not-allowed"
               />
+            </div>
+
+            {/* reCAPTCHA v2 Checkbox */}
+            <div className="mb-5">
+              <div ref={captchaContainerRef} />
             </div>
 
             {/* Submit Button with Animated Background */}

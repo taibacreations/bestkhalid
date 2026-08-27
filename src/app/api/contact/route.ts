@@ -20,10 +20,37 @@ if (process.env.BREVO_API_KEY) {
 // Replace with your Brevo list ID
 const BREVO_LIST_ID = parseInt(process.env.BREVO_LIST_ID || "0", 10);
 
+// -------------------------------
+// reCAPTCHA v2 server-side verification
+// -------------------------------
+async function verifyCaptcha(token: string): Promise<boolean> {
+  if (!process.env.RECAPTCHA_SECRET_KEY) {
+    console.warn("⚠️ RECAPTCHA_SECRET_KEY not set — skipping verification");
+    return true;
+  }
+
+  try {
+    const res = await fetch("https://www.google.com/recaptcha/api/siteverify", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams({
+        secret: process.env.RECAPTCHA_SECRET_KEY,
+        response: token,
+      }),
+    });
+
+    const data = await res.json();
+    return data.success === true;
+  } catch (err) {
+    console.error("❌ Captcha verification request failed:", err);
+    return false;
+  }
+}
+
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { name, email, company, phone, message } = body;
+    const { name, email, company, phone, message, captchaToken } = body;
 
     // Validation with detailed error
     if (!name || !email || !message) {
@@ -35,6 +62,22 @@ export async function POST(req: Request) {
       console.error("Missing fields:", missingFields);
       return NextResponse.json(
         { error: `Missing required fields: ${missingFields.join(", ")}` },
+        { status: 400 }
+      );
+    }
+
+    // Validate captcha
+    if (!captchaToken) {
+      return NextResponse.json(
+        { error: "Captcha verification is required" },
+        { status: 400 }
+      );
+    }
+
+    const isCaptchaValid = await verifyCaptcha(captchaToken);
+    if (!isCaptchaValid) {
+      return NextResponse.json(
+        { error: "Captcha verification failed. Please try again." },
         { status: 400 }
       );
     }
